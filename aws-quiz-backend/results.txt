@@ -1,0 +1,130 @@
+[
+  {
+    "question": "What is the primary purpose of AWS Organizations?",
+    "userAnswer": "A. To manage billing across multiple accounts",
+    "correctAnswer": "A. To manage billing across multiple accounts",
+    "correct": true,
+    "explanation": "AWS Organizations allows you to consolidate billing and manage multiple AWS accounts in a single organization to simplify billing and account management.",
+    "userExplanation": "AWS Organizations allows you to consolidate billing and manage multiple AWS accounts in a single organization to simplify billing and account management."
+  },
+  {
+    "question": "Which service in AWS Organizations allows you to apply policies to accounts?",
+    "userAnswer": "A. Service Control Policies (SCPs)",
+    "correctAnswer": "A. Service Control Policies (SCPs)",
+    "correct": true,
+    "explanation": "Service Control Policies (SCPs) are used in AWS Organizations to manage permissions across accounts within the organization.",
+    "userExplanation": "Service Control Policies (SCPs) are used in AWS Organizations to manage permissions across accounts within the organization."
+  },
+  {
+    "question": "What is the maximum number of AWS accounts you can create in an AWS Organization?",
+    "userAnswer": "D. 500",
+    "correctAnswer": "E. Unlimited",
+    "correct": false,
+    "explanation": "You can create an unlimited number of accounts within AWS Organizations, subject to service limits.",
+    "userExplanation": "500 is also not the limit; AWS allows creating a large number of accounts."
+  },
+  {
+    "question": "Which of the following best describes a root account in AWS Organizations?",
+    "userAnswer": "A. The primary account that owns the organization",
+    "correctAnswer": "A. The primary account that owns the organization",
+    "correct": true,
+    "explanation": "The root account is the primary account that creates the organization and has full control over all accounts and resources.",
+    "userExplanation": "The root account is the primary account that creates the organization and has full control over all accounts and resources."
+  },
+  {
+    "question": "What is a key benefit of using Service Control Policies (SCPs)?",
+    "userAnswer": "A. They allow fine-grained access control at the resource level",
+    "correctAnswer": "D. They can limit the services that accounts can use",
+    "correct": false,
+    "explanation": "SCPs can limit the services that accounts can use, making them a powerful management tool.",
+    "userExplanation": "SCPs do not provide fine-grained access control; they are applied at the account level."
+  },
+  {
+    "question": "Which of the following is NOT a feature of AWS Organizations?",
+    "userAnswer": "B. Cross-account IAM roles",
+    "correctAnswer": "B. Cross-account IAM roles",
+    "correct": true,
+    "explanation": "Cross-account IAM roles are a feature of IAM, not specific to AWS Organizations.",
+    "userExplanation": "Cross-account IAM roles are a feature of IAM, not specific to AWS Organizations."
+  },
+  {
+    "question": "What is an Organizational Unit (OU) in AWS Organizations?",
+    "userAnswer": "C. A container for AWS accounts",
+    "correctAnswer": "C. A container for AWS accounts",
+    "correct": true,
+    "explanation": "An Organizational Unit (OU) is a container for AWS accounts, allowing for hierarchical structuring.",
+    "userExplanation": "An Organizational Unit (OU) is a container for AWS accounts, allowing for hierarchical structuring."
+  },
+  {
+    "question": "Which action can you perform using AWS Organizations?",
+    "userAnswer": "C. Manage multiple AWS accounts",
+    "correctAnswer": "C. Manage multiple AWS accounts",
+    "correct": true,
+    "explanation": "AWS Organizations is specifically designed for managing multiple AWS accounts within a single organization.",
+    "userExplanation": "AWS Organizations is specifically designed for managing multiple AWS accounts within a single organization."
+  },
+  {
+    "question": "How can you restrict access to specific AWS services for accounts in your organization?",
+    "userAnswer": "C. By implementing Service Control Policies",
+    "correctAnswer": "C. By implementing Service Control Policies",
+    "correct": true,
+    "explanation": "Service Control Policies (SCPs) are specifically designed to restrict access to AWS services within AWS Organizations.",
+    "userExplanation": "Service Control Policies (SCPs) are specifically designed to restrict access to AWS services within AWS Organizations."
+  },
+  {
+    "question": "Which AWS service allows you to view the accounts and OUs within your organization?",
+    "userAnswer": "B. AWS Organizations Console",
+    "correctAnswer": "B. AWS Organizations Console",
+    "correct": true,
+    "explanation": "The AWS Organizations Console is the interface used to view and manage accounts and organizational units.",
+    "userExplanation": "The AWS Organizations Console is the interface used to view and manage accounts and organizational units."
+  },
+  {
+    "question": "What is the default behavior of Service Control Policies (SCPs) in AWS Organizations?",
+    "userAnswer": "D. Restrict access to AWS resources",
+    "correctAnswer": "B. Allow all permissions by default",
+    "correct": false,
+    "explanation": "By default, SCPs allow all permissions unless a specific deny rule is created.",
+    "userExplanation": "SCPs are not used to restrict access to specific resources directly."
+  },
+  {
+    "question": "Can you create an AWS Organization with only one account?",
+    "userAnswer": "A. Yes, it is required to have at least one account",
+    "correctAnswer": "A. Yes, it is required to have at least one account",
+    "correct": true,
+    "explanation": "You can create an AWS Organization with a single account, which is the management account.",
+    "userExplanation": "You can create an AWS Organization with a single account, which is the management account."
+  },
+  {
+    "question": "What is an effective strategy for managing permissions across multiple accounts in AWS Organizations?",
+    "userAnswer": "B. Apply Service Control Policies",
+    "correctAnswer": "B. Apply Service Control Policies",
+    "correct": true,
+    "explanation": "Applying Service Control Policies (SCPs) is an effective strategy for managing permissions organization-wide.",
+    "userExplanation": "Applying Service Control Policies (SCPs) is an effective strategy for managing permissions organization-wide."
+  },
+  {
+    "question": "Which of the following is true about the management account in AWS Organizations?",
+    "userAnswer": "A. It has full administrative access to all member accounts",
+    "correctAnswer": "A. It has full administrative access to all member accounts",
+    "correct": true,
+    "explanation": "The management account has full administrative access to all member accounts in the organization.",
+    "userExplanation": "The management account has full administrative access to all member accounts in the organization."
+  },
+  {
+    "question": "How does AWS help you track changes in your organization’s accounts over time?",
+    "userAnswer": "C. AWS Organizations Console",
+    "correctAnswer": "A. AWS Config",
+    "correct": false,
+    "explanation": "AWS Config is designed to track resource changes and configurations over time, which includes aspects of account changes.",
+    "userExplanation": "The AWS Organizations Console does not track historical changes; it is used for management."
+  },
+  {
+    "question": "What is a key consideration when using AWS Organizations for managing multiple accounts?",
+    "userAnswer": "D. OUs can only contain up to 5 accounts",
+    "correctAnswer": "C. Billing is consolidated for all accounts",
+    "correct": false,
+    "explanation": "Billing is consolidated for all accounts, simplifying financial management.",
+    "userExplanation": "There is no limit of 5 accounts per OU; OUs can contain many accounts."
+  }
+],
