@@ -1,0 +1,221 @@
+{
+  "service": "Subnetting",
+  "questions": [
+    {
+      "question": "What is the maximum number of IP addresses you can have in a /24 subnet?",
+      "options": [
+        "A. 256",
+        "B. 254",
+        "C. 512",
+        "D. 128",
+        "E. 64"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "A /24 subnet has 256 total addresses, but two addresses are reserved (network and broadcast), leaving 254 usable addresses.",
+        "B": "Correct. A /24 subnet has 256 addresses, of which 254 are usable after accounting for the network and broadcast addresses.",
+        "C": "A /24 subnet cannot have 512 addresses; that would require a /23 or larger subnet mask.",
+        "D": "A /24 subnet cannot have only 128 addresses; that would be a /25 subnet.",
+        "E": "A /24 subnet has more than 64 addresses; that would be a /26 subnet."
+      }
+    },
+    {
+      "question": "When creating subnets in a VPC, which of the following is NOT a consideration for the CIDR block?",
+      "options": [
+        "A. Overlapping CIDR blocks with other VPCs",
+        "B. Number of available IP addresses",
+        "C. Availability Zone association",
+        "D. VPC Peering connections",
+        "E. Subnet size relative to the VPC size"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Overlapping CIDR blocks with other VPCs would cause issues and is a key consideration when creating subnets.",
+        "B": "The number of available IP addresses is crucial when determining the size of the subnet.",
+        "C": "Correct. While subnets are associated with Availability Zones, this is not a factor in determining the CIDR block itself.",
+        "D": "VPC Peering connections must have non-overlapping CIDR blocks, making this a consideration.",
+        "E": "The subnet size must be relative to the overall size of the VPC, making this an important factor."
+      }
+    },
+    {
+      "question": "In AWS, which of the following subnet types allows resources to communicate directly with the Internet?",
+      "options": [
+        "A. Private Subnet",
+        "B. Public Subnet",
+        "C. Isolated Subnet",
+        "D. VPN Subnet",
+        "E. Transit Subnet"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "A Private Subnet does not allow direct communication with the Internet; resources in a private subnet require a NAT Gateway for outbound traffic.",
+        "B": "Correct. A Public Subnet is configured to allow resources to communicate directly with the Internet through an Internet Gateway.",
+        "C": "An Isolated Subnet does not allow any Internet communication, making this option incorrect.",
+        "D": "A VPN Subnet refers to subnets that connect to on-premises networks via a VPN, but they still do not allow direct Internet access.",
+        "E": "A Transit Subnet is not a recognized term in AWS; it seems to imply a routing scenario rather than a subnet type."
+      }
+    },
+    {
+      "question": "What CIDR block represents the largest subnet size that can be allocated in AWS?",
+      "options": [
+        "A. /16",
+        "B. /20",
+        "C. /24",
+        "D. /28",
+        "E. /32"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Correct. A /16 CIDR block allows for the largest number of addresses (65,536 total), making it the largest subnet size that AWS allows.",
+        "B": "/20 allows for 4,096 addresses, which is smaller than /16.",
+        "C": "/24 allows for 256 addresses, which is much smaller than /16.",
+        "D": "/28 only allows for 16 addresses, making it one of the smallest subnet sizes.",
+        "E": "/32 represents a single IP address, which is the smallest possible allocation."
+      }
+    },
+    {
+      "question": "What is the main purpose of a NAT Gateway in a public subnet?",
+      "options": [
+        "A. To allow instances in a private subnet to initiate outbound traffic to the Internet",
+        "B. To route traffic between VPCs",
+        "C. To provide load balancing for public-facing applications",
+        "D. To serve as a firewall for inbound traffic",
+        "E. To facilitate VPN connections"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Correct. A NAT Gateway allows instances in a private subnet to initiate outbound traffic to the Internet while preventing inbound traffic.",
+        "B": "Routing traffic between VPCs typically involves VPC Peering or AWS Transit Gateway, not a NAT Gateway.",
+        "C": "Load balancing is typically handled by Elastic Load Balancers, not NAT Gateways.",
+        "D": "A firewall for inbound traffic is managed by security groups and network ACLs, not a NAT Gateway.",
+        "E": "VPN connections are managed by VPN gateways, not NAT Gateways."
+      }
+    },
+    {
+      "question": "Which of the following statements is true about AWS Subnets?",
+      "options": [
+        "A. A subnet can span multiple Availability Zones",
+        "B. A subnet must be associated with only one VPC",
+        "C. A VPC can have overlapping subnets",
+        "D. A subnet can only be created in the same region as the VPC",
+        "E. A subnet can contain a maximum of one route table"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "A subnet cannot span multiple Availability Zones; each subnet is tied to a single Availability Zone.",
+        "B": "Correct. A subnet must be associated with only one VPC and cannot belong to more than one.",
+        "C": "A VPC cannot have overlapping subnets; all subnets must have unique CIDR blocks.",
+        "D": "A subnet must be created in the same region as the VPC, but this statement is limited; a subnet cannot span regions.",
+        "E": "A subnet can be associated with multiple route tables; however, only one route table can be the main route table for the subnet."
+      }
+    },
+    {
+      "question": "What subnet mask would you use to create a subnet that can accommodate 30 usable IP addresses?",
+      "options": [
+        "A. /26",
+        "B. /25",
+        "C. /27",
+        "D. /28",
+        "E. /29"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "A /26 subnet provides 64 total addresses, of which 62 are usable, which is more than required.",
+        "B": "A /25 subnet allows for 126 usable addresses, which is still more than needed.",
+        "C": "Correct. A /27 subnet provides exactly 32 total addresses, with 30 usable ones after reserving the network and broadcast addresses.",
+        "D": "A /28 subnet provides only 16 total addresses, which is insufficient for 30 usable addresses.",
+        "E": "A /29 subnet provides only 8 total addresses, which is far too few."
+      }
+    },
+    {
+      "question": "In a VPC, how can you ensure that traffic between subnets is private and not exposed to the Internet?",
+      "options": [
+        "A. Use a public subnet",
+        "B. Use a private subnet",
+        "C. Allow all traffic in security groups",
+        "D. Create a VPN connection",
+        "E. Implement a NAT Gateway"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "A public subnet allows for direct Internet access, which is not what you want for private traffic.",
+        "B": "Correct. A private subnet does not have a route to the Internet and is suitable for private traffic.",
+        "C": "Allowing all traffic in security groups does not prevent exposure to the Internet; it just opens up access.",
+        "D": "A VPN connection is for connecting to on-premise networks and does not inherently make subnet traffic private.",
+        "E": "A NAT Gateway provides Internet access for outbound traffic and does not ensure privacy between subnets."
+      }
+    },
+    {
+      "question": "Which of the following is a characteristic of a Network ACL in AWS?",
+      "options": [
+        "A. Statefulness",
+        "B. Default deny rule",
+        "C. Maximum of 10 rules per ACL",
+        "D. Allows for only inbound rules",
+        "E. Automatically applied to all subnets"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Network ACLs are stateless, meaning that return traffic must be explicitly allowed.",
+        "B": "Correct. Network ACLs have a default deny rule, meaning that if no rules match, traffic is denied.",
+        "C": "Network ACLs can have a maximum of 20 rules per direction (inbound and outbound), not just 10.",
+        "D": "Network ACLs allow for both inbound and outbound rules to be defined.",
+        "E": "Network ACLs must be explicitly associated with subnets; they are not automatically applied."
+      }
+    },
+    {
+      "question": "What is the primary function of an Internet Gateway in a VPC?",
+      "options": [
+        "A. To provide a connection from on-premises to AWS",
+        "B. To allow instances in public subnets to access the Internet",
+        "C. To create a peering connection between VPCs",
+        "D. To route traffic between private subnets",
+        "E. To manage NAT for private instances"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "An Internet Gateway does not connect on-premises networks to AWS; that is the function of a VPN or Direct Connect.",
+        "B": "Correct. An Internet Gateway allows instances in public subnets to communicate with the Internet.",
+        "C": "VPC Peering connections are separate resources, not managed by an Internet Gateway.",
+        "D": "Traffic between private subnets is managed through route tables, not an Internet Gateway.",
+        "E": "NAT for private instances requires a NAT Gateway, not an Internet Gateway."
+      }
+    },
+    {
+      "question": "Which of the following scenarios would require you to create a new subnet?",
+      "options": [
+        "A. Adding a new EC2 instance to an existing subnet",
+        "B. Increasing the size of an existing subnet",
+        "C. Isolating resources for security reasons",
+        "D. Changing the CIDR block of an existing subnet",
+        "E. Connecting to a VPN"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Adding a new EC2 instance can be done within the existing subnet without creating a new one.",
+        "B": "Subnets cannot be resized after creation; you would need to create a new subnet if more IPs are needed.",
+        "C": "Correct. Isolation of resources for security or other architectural reasons often requires creating new subnets.",
+        "D": "CIDR blocks cannot be changed for existing subnets; a new subnet must be created.",
+        "E": "Connecting to a VPN does not inherently require a new subnet, as it can utilize existing ones."
+      }
+    },
+    {
+      "question": "What is the maximum number of subnets you can have in a single VPC?",
+      "options": [
+        "A. 200",
+        "B. 100",
+        "C. 50",
+        "D. 250",
+        "E. 500"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Correct. You can have up to 200 subnets per VPC in AWS.",
+        "B": "100 is not correct; AWS allows for more than this.",
+        "C": "50 is too low; it's far less than the maximum allowed.",
+        "D": "250 subnets are not allowed; the limit is lower than this.",
+        "E": "500 subnets are excessive and not permissible in a single VPC."
+      }
+    }
+  ]
+},

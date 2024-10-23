@@ -65,6 +65,18 @@ app.post("/generate-questions", async (req, res) => {
       }
     });
 
+    // Save the questions along with the service to a file
+    const dataToSave = JSON.stringify({ service, questions }, null, 2) + ",\n";
+    const filePath = path.join(__dirname, "questions.txt");
+
+    fs.appendFile(filePath, dataToSave, (err) => {
+      if (err) {
+        console.error("Error saving questions:", err);
+      } else {
+        console.log("Questions saved successfully.");
+      }
+    });
+
     res.json({ questions });
   } catch (error) {
     console.error(
@@ -122,7 +134,7 @@ app.post("/check-answers", async (req, res) => {
 });
 
 app.post("/save-results", async (req, res) => {
-  const { results } = req.body;
+  const { results, service } = req.body;
   try {
     const dataToSave = JSON.stringify(results, null, 2) + ",\n";
     const filePath = path.join(__dirname, "results.txt");
