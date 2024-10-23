@@ -35,7 +35,7 @@ app.post("/generate-questions", async (req, res) => {
     const response = await openai.chat.completions.create({
       model: model || "gpt-4o-mini",
       messages: [{ role: "user", content: prompt }],
-      max_tokens: 10000,
+      max_tokens: 15000,
       temperature: 0.7,
     });
 

@@ -234,3 +234,491 @@
     "userExplanation": "Health checks in Route 53 can monitor both HTTP and TCP endpoints to ensure they are healthy."
   }
 ],
+[
+  {
+    "question": "Which of the following is NOT a feature of AWS Key Management Service (KMS)?",
+    "userAnswer": "D. Integration with AWS CloudWatch for monitoring",
+    "correctAnswer": "E. Multi-region key replication",
+    "correct": false,
+    "explanation": "AWS KMS does not natively support multi-region key replication; keys are region-specific.",
+    "userExplanation": "AWS KMS integrates with AWS CloudWatch to provide monitoring and logging capabilities."
+  },
+  {
+    "question": "How does AWS KMS ensure the secure encryption of data using customer master keys (CMKs)?",
+    "userAnswer": "E. By encrypting CMKs with a default AWS-managed key",
+    "correctAnswer": "B. By utilizing hardware security modules (HSMs) to protect CMK material",
+    "correct": false,
+    "explanation": "AWS KMS uses hardware security modules (HSMs) to protect the cryptographic material of CMKs.",
+    "userExplanation": "CMKs are not encrypted with another key; they are protected by HSMs."
+  },
+  {
+    "question": "Which statement is true regarding AWS KMS key policies?",
+    "userAnswer": "C. Key policies define who can use and manage a CMK.",
+    "correctAnswer": "C. Key policies define who can use and manage a CMK.",
+    "correct": true,
+    "explanation": "Key policies define who can use and manage a CMK, providing fine-grained control over permissions.",
+    "userExplanation": "Key policies define who can use and manage a CMK, providing fine-grained control over permissions."
+  },
+  {
+    "question": "Which AWS service can be used to audit the use of AWS KMS keys and verify compliance?",
+    "userAnswer": "E. AWS Inspector",
+    "correctAnswer": "A. AWS CloudTrail",
+    "correct": false,
+    "explanation": "AWS CloudTrail records API calls made to AWS KMS and provides logs for auditing and compliance verification.",
+    "userExplanation": "AWS Inspector assesses security vulnerabilities, not specific KMS key usage."
+  },
+  {
+    "question": "What is the primary benefit of using AWS KMS for encryption in AWS services?",
+    "userAnswer": "A. Eliminates the need for any encryption key management",
+    "correctAnswer": "C. Offers a centralized control point for key management",
+    "correct": false,
+    "explanation": "AWS KMS offers centralized management of encryption keys, simplifying key generation, rotation, and management.",
+    "userExplanation": "AWS KMS simplifies key management but does not eliminate the need for it."
+  },
+  {
+    "question": "Which of the following is a characteristic of an AWS KMS Customer Managed Key (CMK)?",
+    "userAnswer": "B. It can be deleted immediately upon request.",
+    "correctAnswer": "C. It can be used to encrypt data stored in Amazon S3.",
+    "correct": false,
+    "explanation": "CMKs can be used to encrypt and decrypt data in various AWS services, including Amazon S3.",
+    "userExplanation": "CMKs have a deletion protection mechanism and a waiting period before they can be deleted."
+  },
+  {
+    "question": "How does AWS KMS handle the key material for customer-managed keys?",
+    "userAnswer": "C. It securely manages key material in AWS HSMs.",
+    "correctAnswer": "C. It securely manages key material in AWS HSMs.",
+    "correct": true,
+    "explanation": "AWS KMS securely manages key material within AWS HSMs, ensuring protection and compliance.",
+    "userExplanation": "AWS KMS securely manages key material within AWS HSMs, ensuring protection and compliance."
+  },
+  {
+    "question": "Which of the following statements is true regarding AWS KMS and asymmetric keys?",
+    "userAnswer": "D. AWS KMS automatically rotates asymmetric keys.",
+    "correctAnswer": "B. Asymmetric keys in KMS are used for data signing and verification.",
+    "correct": false,
+    "explanation": "AWS KMS supports the use of asymmetric keys for operations like signing and verification.",
+    "userExplanation": "AWS KMS does not automatically rotate asymmetric keys; they require manual management."
+  },
+  {
+    "question": "What is a key policy in AWS KMS intended to control?",
+    "userAnswer": "C. Access permissions for using and managing keys",
+    "correctAnswer": "C. Access permissions for using and managing keys",
+    "correct": true,
+    "explanation": "Key policies define the permissions for using and managing keys, specifying who can perform actions on the keys.",
+    "userExplanation": "Key policies define the permissions for using and managing keys, specifying who can perform actions on the keys."
+  },
+  {
+    "question": "Which AWS service can be configured to automatically encrypt data using AWS KMS keys?",
+    "userAnswer": "C. Amazon S3",
+    "correctAnswer": "C. Amazon S3",
+    "correct": true,
+    "explanation": "Amazon S3 can be configured to automatically encrypt objects using AWS KMS keys upon upload.",
+    "userExplanation": "Amazon S3 can be configured to automatically encrypt objects using AWS KMS keys upon upload."
+  },
+  {
+    "question": "What is the purpose of an AWS KMS Alias?",
+    "userAnswer": "A. To provide a human-readable name for a CMK",
+    "correctAnswer": "A. To provide a human-readable name for a CMK",
+    "correct": true,
+    "explanation": "An alias in AWS KMS provides a human-readable name for a CMK, making it easier to reference.",
+    "userExplanation": "An alias in AWS KMS provides a human-readable name for a CMK, making it easier to reference."
+  },
+  {
+    "question": "Which is a valid use case for AWS KMS asymmetric keys?",
+    "userAnswer": "B. Signing digital documents",
+    "correctAnswer": "B. Signing digital documents",
+    "correct": true,
+    "explanation": "Asymmetric keys in AWS KMS are suitable for signing and verifying digital documents and data.",
+    "userExplanation": "Asymmetric keys in AWS KMS are suitable for signing and verifying digital documents and data."
+  },
+  {
+    "question": "How does AWS KMS handle key rotation?",
+    "userAnswer": "B. It supports automatic key rotation for symmetric keys.",
+    "correctAnswer": "B. It supports automatic key rotation for symmetric keys.",
+    "correct": true,
+    "explanation": "AWS KMS supports automatic key rotation for symmetric encryption keys, typically every year.",
+    "userExplanation": "AWS KMS supports automatic key rotation for symmetric encryption keys, typically every year."
+  },
+  {
+    "question": "What is a limitation of using AWS KMS for encryption?",
+    "userAnswer": "C. It cannot be used with IAM roles.",
+    "correctAnswer": "A. It can only encrypt data up to 4 KB in size directly.",
+    "correct": false,
+    "explanation": "AWS KMS can directly encrypt data up to 4 KB in size. For larger data, envelope encryption is used.",
+    "userExplanation": "AWS KMS can be used with IAM roles to manage access permissions."
+  },
+  {
+    "question": "Which of the following is a security best practice when using AWS KMS?",
+    "userAnswer": "C. Enabling key rotation for sensitive keys",
+    "correctAnswer": "C. Enabling key rotation for sensitive keys",
+    "correct": true,
+    "explanation": "Enabling key rotation for sensitive keys enhances security by periodically changing the encryption keys.",
+    "userExplanation": "Enabling key rotation for sensitive keys enhances security by periodically changing the encryption keys."
+  }
+],
+[
+  {
+    "question": "Which of the following AWS services does GuardDuty directly integrate with to analyze and identify threats?",
+    "userAnswer": "D. AWS CloudTrail",
+    "correctAnswer": "D. AWS CloudTrail",
+    "correct": true,
+    "explanation": "AWS CloudTrail logs are a primary source of data for GuardDuty's threat detection.",
+    "userExplanation": "AWS CloudTrail logs are a primary source of data for GuardDuty's threat detection."
+  },
+  {
+    "question": "What type of data source is NOT analyzed by GuardDuty?",
+    "userAnswer": "E. Lambda Function Logs",
+    "correctAnswer": "D. EC2 Instance Metrics",
+    "correct": false,
+    "explanation": "EC2 Instance Metrics are not used by GuardDuty; it focuses on logs and events.",
+    "userExplanation": "Lambda Function Logs are not directly analyzed by GuardDuty for threat detection."
+  },
+  {
+    "question": "What is one of the main benefits of using Amazon GuardDuty?",
+    "userAnswer": "B. Real-time threat detection",
+    "correctAnswer": "B. Real-time threat detection",
+    "correct": true,
+    "explanation": "Real-time threat detection is a core feature of GuardDuty, providing continuous monitoring.",
+    "userExplanation": "Real-time threat detection is a core feature of GuardDuty, providing continuous monitoring."
+  },
+  {
+    "question": "How does GuardDuty categorize the severity of its findings?",
+    "userAnswer": "C. Minor, Major, Severe",
+    "correctAnswer": "A. Low, Medium, High",
+    "correct": false,
+    "explanation": "GuardDuty uses Low, Medium, and High to categorize the severity of findings.",
+    "userExplanation": "Minor, Major, Severe is not a categorization scheme used by GuardDuty."
+  },
+  {
+    "question": "Which AWS region feature is critical for deploying GuardDuty?",
+    "userAnswer": "B. Regional endpoints",
+    "correctAnswer": "B. Regional endpoints",
+    "correct": true,
+    "explanation": "GuardDuty must be enabled per region, using regional endpoints to monitor resources in that region.",
+    "userExplanation": "GuardDuty must be enabled per region, using regional endpoints to monitor resources in that region."
+  },
+  {
+    "question": "Which type of finding indicates unauthorized access attempts in GuardDuty?",
+    "userAnswer": "B. UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration",
+    "correctAnswer": "B. UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration",
+    "correct": true,
+    "explanation": "This finding indicates potential unauthorized access using IAM credentials.",
+    "userExplanation": "This finding indicates potential unauthorized access using IAM credentials."
+  },
+  {
+    "question": "What AWS service can be used to automatically respond to GuardDuty findings?",
+    "userAnswer": "B. AWS Lambda",
+    "correctAnswer": "B. AWS Lambda",
+    "correct": true,
+    "explanation": "AWS Lambda can be triggered to automatically respond to GuardDuty findings with custom logic.",
+    "userExplanation": "AWS Lambda can be triggered to automatically respond to GuardDuty findings with custom logic."
+  },
+  {
+    "question": "How can GuardDuty findings be exported for further analysis?",
+    "userAnswer": "A. Directly to Amazon S3",
+    "correctAnswer": "A. Directly to Amazon S3",
+    "correct": true,
+    "explanation": "GuardDuty findings can be exported directly to an S3 bucket for further analysis.",
+    "userExplanation": "GuardDuty findings can be exported directly to an S3 bucket for further analysis."
+  },
+  {
+    "question": "Which feature of GuardDuty helps reduce alert fatigue?",
+    "userAnswer": "B. Threat Intelligence Feeds",
+    "correctAnswer": "C. Suppression Rules",
+    "correct": false,
+    "explanation": "Suppression Rules allow users to filter out certain findings, reducing unnecessary alerts.",
+    "userExplanation": "Threat Intelligence Feeds provide data for detection, not for managing alerts."
+  },
+  {
+    "question": "What role does Amazon GuardDuty assume within your account to perform its operations?",
+    "userAnswer": "B. Service-linked Role",
+    "correctAnswer": "B. Service-linked Role",
+    "correct": true,
+    "explanation": "GuardDuty uses a service-linked role to access resources needed for threat detection.",
+    "userExplanation": "GuardDuty uses a service-linked role to access resources needed for threat detection."
+  },
+  {
+    "question": "Which AWS feature is leveraged by GuardDuty to ensure its findings are actionable?",
+    "userAnswer": "C. AWS CloudWatch Events",
+    "correctAnswer": "C. AWS CloudWatch Events",
+    "correct": true,
+    "explanation": "GuardDuty findings can be sent as events to CloudWatch Events, making them actionable.",
+    "userExplanation": "GuardDuty findings can be sent as events to CloudWatch Events, making them actionable."
+  },
+  {
+    "question": "How does Amazon GuardDuty help in securing data stored in Amazon S3?",
+    "userAnswer": "C. By monitoring S3 data access patterns",
+    "correctAnswer": "C. By monitoring S3 data access patterns",
+    "correct": true,
+    "explanation": "GuardDuty monitors data access patterns and can detect anomalous behavior related to S3.",
+    "userExplanation": "GuardDuty monitors data access patterns and can detect anomalous behavior related to S3."
+  },
+  {
+    "question": "What is the primary purpose of Amazon GuardDuty?",
+    "userAnswer": "C. To detect suspicious activity and threats",
+    "correctAnswer": "C. To detect suspicious activity and threats",
+    "correct": true,
+    "explanation": "GuardDuty's primary purpose is to detect suspicious activity and threats.",
+    "userExplanation": "GuardDuty's primary purpose is to detect suspicious activity and threats."
+  },
+  {
+    "question": "Which of the following best describes how GuardDuty uses machine learning?",
+    "userAnswer": "B. To detect anomalies in AWS accounts",
+    "correctAnswer": "B. To detect anomalies in AWS accounts",
+    "correct": true,
+    "explanation": "GuardDuty uses machine learning to detect anomalies and unusual behavior in AWS accounts.",
+    "userExplanation": "GuardDuty uses machine learning to detect anomalies and unusual behavior in AWS accounts."
+  },
+  {
+    "question": "Which of the following is a limitation of Amazon GuardDuty?",
+    "userAnswer": "A. It cannot detect insider threats.",
+    "correctAnswer": "A. It cannot detect insider threats.",
+    "correct": true,
+    "explanation": "GuardDuty primarily focuses on external threats and may have limitations in detecting insider threats.",
+    "userExplanation": "GuardDuty primarily focuses on external threats and may have limitations in detecting insider threats."
+  }
+],
+[
+  {
+    "question": "Which of the following best describes the purpose of AWS CloudFormation templates?",
+    "userAnswer": "B. To define the infrastructure and resources needed for a cloud application",
+    "correctAnswer": "B. To define the infrastructure and resources needed for a cloud application",
+    "correct": true,
+    "explanation": "AWS CloudFormation templates are used to describe AWS resources and their configurations, allowing for automated and repeatable infrastructure deployment.",
+    "userExplanation": "AWS CloudFormation templates are used to describe AWS resources and their configurations, allowing for automated and repeatable infrastructure deployment."
+  },
+  {
+    "question": "How does AWS CloudFormation ensure the order of resource creation?",
+    "userAnswer": "A. It uses the DependsOn attribute to manually specify dependencies.",
+    "correctAnswer": "C. It automatically detects dependencies between resources.",
+    "correct": false,
+    "explanation": "CloudFormation automatically determines the correct order to create resources based on their dependencies.",
+    "userExplanation": "The DependsOn attribute can be used for manual dependency specification, but CloudFormation also automatically detects dependencies."
+  },
+  {
+    "question": "What is a stack in AWS CloudFormation?",
+    "userAnswer": "C. A set of resources defined in a CloudFormation template",
+    "correctAnswer": "C. A set of resources defined in a CloudFormation template",
+    "correct": true,
+    "explanation": "A stack is indeed a collection of AWS resources that are managed as a single unit, defined in a CloudFormation template.",
+    "userExplanation": "A stack is indeed a collection of AWS resources that are managed as a single unit, defined in a CloudFormation template."
+  },
+  {
+    "question": "What happens when you update a CloudFormation stack?",
+    "userAnswer": "D. The stack is deleted and must be manually recreated.",
+    "correctAnswer": "B. Only the resources specified in the update are modified.",
+    "correct": false,
+    "explanation": "CloudFormation updates only the resources that have changes specified in the update.",
+    "userExplanation": "The stack is not deleted unless specified or if the update irrecoverably fails."
+  },
+  {
+    "question": "How can you prevent accidental deletion of an AWS CloudFormation stack?",
+    "userAnswer": "D. By applying version control on templates",
+    "correctAnswer": "A. By enabling termination protection on the stack",
+    "correct": false,
+    "explanation": "Enabling termination protection prevents the stack from being accidentally deleted.",
+    "userExplanation": "Version control helps track changes but does not prevent deletion."
+  },
+  {
+    "question": "What is the primary use of AWS CloudFormation Change Sets?",
+    "userAnswer": "D. To schedule automatic stack updates",
+    "correctAnswer": "B. To preview how proposed changes to a stack might impact running resources",
+    "correct": false,
+    "explanation": "Change Sets provide a preview of how changes will affect the resources, allowing for informed decision-making before applying updates.",
+    "userExplanation": "Change Sets are not used for scheduling updates."
+  },
+  {
+    "question": "Which of the following best describes the purpose of CloudFormation StackSets?",
+    "userAnswer": "B. To group related stacks within a single VPC",
+    "correctAnswer": "A. To manage multiple stacks across multiple AWS accounts and regions",
+    "correct": false,
+    "explanation": "StackSets allow you to create, update, or delete stacks across multiple accounts and regions with a single operation.",
+    "userExplanation": "StackSets are designed for multi-account and multi-region management, not just within a VPC."
+  },
+  {
+    "question": "In AWS CloudFormation, what is a 'Drift Detection' feature used for?",
+    "userAnswer": "B. To detect changes to stack resources that are made outside of CloudFormation",
+    "correctAnswer": "B. To detect changes to stack resources that are made outside of CloudFormation",
+    "correct": true,
+    "explanation": "Drift Detection identifies changes made to stack resources outside of CloudFormation, ensuring configuration consistency.",
+    "userExplanation": "Drift Detection identifies changes made to stack resources outside of CloudFormation, ensuring configuration consistency."
+  },
+  {
+    "question": "Which AWS CloudFormation resource attribute allows you to specify a value that must be unique across the account and region?",
+    "userAnswer": "C. UniqueKey",
+    "correctAnswer": "E. AWS::CloudFormation::Stack",
+    "correct": false,
+    "explanation": "AWS::CloudFormation::Stack is a resource type that allows unique stack names across an account and region.",
+    "userExplanation": "There is no UniqueKey attribute in CloudFormation."
+  },
+  {
+    "question": "Which of the following best describes the function of AWS CloudFormation Macros?",
+    "userAnswer": "B. To simplify template development by enabling reusable components",
+    "correctAnswer": "B. To simplify template development by enabling reusable components",
+    "correct": true,
+    "explanation": "Macros allow you to create reusable components within your templates, simplifying development and maintenance.",
+    "userExplanation": "Macros allow you to create reusable components within your templates, simplifying development and maintenance."
+  },
+  {
+    "question": "How does AWS CloudFormation handle stack creation failures by default?",
+    "userAnswer": "C. It stops execution and retains partially created resources",
+    "correctAnswer": "B. It rolls back all resources to the previous state",
+    "correct": false,
+    "explanation": "CloudFormation rolls back the stack to its previous state if creation fails, ensuring no partial resources are left.",
+    "userExplanation": "The default behavior is to roll back, not retain partially created resources."
+  },
+  {
+    "question": "Which intrinsic function in AWS CloudFormation is used to incorporate values from a mapping?",
+    "userAnswer": "C. Fn::FindInMap",
+    "correctAnswer": "C. Fn::FindInMap",
+    "correct": true,
+    "explanation": "Fn::FindInMap is specifically used to return a value from a mapping declared in the template.",
+    "userExplanation": "Fn::FindInMap is specifically used to return a value from a mapping declared in the template."
+  },
+  {
+    "question": "What is a major benefit of using AWS CloudFormation for infrastructure management?",
+    "userAnswer": "C. It enables infrastructure as code for repeatable and automated deployments",
+    "correctAnswer": "C. It enables infrastructure as code for repeatable and automated deployments",
+    "correct": true,
+    "explanation": "CloudFormation allows infrastructure to be defined as code, making deployments repeatable and automated.",
+    "userExplanation": "CloudFormation allows infrastructure to be defined as code, making deployments repeatable and automated."
+  },
+  {
+    "question": "What is the role of the 'Outputs' section in a CloudFormation template?",
+    "userAnswer": "B. To specify conditions for resource creation",
+    "correctAnswer": "C. To return values from the stack for use in other stacks or outputs",
+    "correct": false,
+    "explanation": "The Outputs section is used to declare output values that can be imported into other stacks or returned as part of a stack's response.",
+    "userExplanation": "Conditions are specified in the Conditions section, not Outputs."
+  },
+  {
+    "question": "Which AWS CloudFormation feature allows for the reuse of template components?",
+    "userAnswer": "B. Change Sets",
+    "correctAnswer": "A. Nested stacks",
+    "correct": false,
+    "explanation": "Nested stacks enable the reuse of CloudFormation templates as components in other templates.",
+    "userExplanation": "Change Sets are for previewing changes before applying them."
+  }
+],
+[
+  {
+    "question": "In a VPC, you have a CIDR block of 10.0.0.0/24. How many usable IP addresses are available for your subnets?",
+    "userAnswer": "A. 254",
+    "correctAnswer": "A. 254",
+    "correct": true,
+    "explanation": "Correct. A /24 CIDR block provides 256 total addresses, but 2 are reserved, leaving 254 usable IPs.",
+    "userExplanation": "Correct. A /24 CIDR block provides 256 total addresses, but 2 are reserved, leaving 254 usable IPs."
+  },
+  {
+    "question": "If you have a VPC with a CIDR block of 192.168.1.0/24 and you want to create 4 subnets with equal size, what should be the subnet mask for each subnet?",
+    "userAnswer": "D. /28",
+    "correctAnswer": "A. /26",
+    "correct": false,
+    "explanation": "Correct. A /26 subnet mask gives 64 IPs for each subnet, allowing 4 subnets within a /24.",
+    "userExplanation": "Incorrect. /28 creates subnets with 16 IPs each, too many subnets."
+  },
+  {
+    "question": "You need to create a public and a private subnet in a VPC with CIDR block 172.16.0.0/20. How many IP addresses can each subnet have if they are of equal size?",
+    "userAnswer": "D. 4096",
+    "correctAnswer": "B. 1024",
+    "correct": false,
+    "explanation": "Correct. Dividing a /20 into two /21 subnets gives each subnet 1024 IPs.",
+    "userExplanation": "Incorrect. 4096 is the total number of IPs in a /20, not per subnet."
+  },
+  {
+    "question": "In a VPC with a CIDR block of 10.0.0.0/16, you need a subnet that supports at least 500 hosts. Which subnet mask should you use?",
+    "userAnswer": "B. /23",
+    "correctAnswer": "B. /23",
+    "correct": true,
+    "explanation": "Correct. A /23 provides 512 IPs, meeting the requirement for 500 hosts.",
+    "userExplanation": "Correct. A /23 provides 512 IPs, meeting the requirement for 500 hosts."
+  },
+  {
+    "question": "When creating a subnet in AWS, which of the following is a valid CIDR range that you can use?",
+    "userAnswer": "C. 172.31.255.0/23",
+    "correctAnswer": "B. 192.168.0.0/28",
+    "correct": false,
+    "explanation": "Correct. /28 is a valid CIDR range that provides 16 IP addresses.",
+    "userExplanation": "Incorrect. Although /23 is valid, 172.31.255.0 is not a correct network address for this range."
+  },
+  {
+    "question": "What is the maximum number of subnets you can create in a VPC with a CIDR block of 172.31.0.0/16 if each subnet requires at least 256 IP addresses?",
+    "userAnswer": "A. 256",
+    "correctAnswer": "C. 64",
+    "correct": false,
+    "explanation": "Correct. 64 subnets with a /24 mask meet the requirement of 256 IPs per subnet.",
+    "userExplanation": "Incorrect. Creating 256 subnets would require a /24 subnet mask, which is feasible."
+  },
+  {
+    "question": "You have a VPC with a CIDR block of 10.0.0.0/16, and you need to create 8 subnets in different availability zones. What CIDR block should you use for each subnet to maximize the number of available IP addresses?",
+    "userAnswer": "A. /19",
+    "correctAnswer": "C. /21",
+    "correct": false,
+    "explanation": "Correct. /21 allows for 8 subnets with 2048 IPs each, maximizing usage.",
+    "userExplanation": "Incorrect. /19 allows for only 4 subnets when divided equally."
+  },
+  {
+    "question": "Which of the following CIDR blocks can be used for a subnet in an AWS VPC?",
+    "userAnswer": "C. 10.0.0.0/8",
+    "correctAnswer": "B. 192.168.1.0/24",
+    "correct": false,
+    "explanation": "Correct. 192.168.1.0/24 is a valid private IP range for a subnet.",
+    "userExplanation": "Incorrect. /8 is too large and typically used for the entire VPC."
+  },
+  {
+    "question": "You have a VPC with a CIDR block of 10.0.0.0/21. How many subnets can you create if each subnet requires at least 128 IP addresses?",
+    "userAnswer": "B. 16",
+    "correctAnswer": "B. 16",
+    "correct": true,
+    "explanation": "Correct. 16 subnets using a /25 mask provide 128 IP addresses each.",
+    "userExplanation": "Correct. 16 subnets using a /25 mask provide 128 IP addresses each."
+  },
+  {
+    "question": "In AWS, which CIDR block would be appropriate for a single small subnet meant to host about 20 instances?",
+    "userAnswer": "B. 192.168.1.0/27",
+    "correctAnswer": "B. 192.168.1.0/27",
+    "correct": true,
+    "explanation": "Correct. /27 provides 32 IPs, sufficient for 20 instances.",
+    "userExplanation": "Correct. /27 provides 32 IPs, sufficient for 20 instances."
+  },
+  {
+    "question": "When configuring a subnet in AWS, what is the minimum subnet size that you can create?",
+    "userAnswer": "A. /28",
+    "correctAnswer": "A. /28",
+    "correct": true,
+    "explanation": "Correct. The smallest subnet size you can allocate in AWS is /28.",
+    "userExplanation": "Correct. The smallest subnet size you can allocate in AWS is /28."
+  },
+  {
+    "question": "For a VPC with a CIDR block of 192.168.0.0/22, how many total IP addresses are available?",
+    "userAnswer": "B. 1024",
+    "correctAnswer": "B. 1024",
+    "correct": true,
+    "explanation": "Correct. A /22 block provides 1024 IP addresses.",
+    "userExplanation": "Correct. A /22 block provides 1024 IP addresses."
+  },
+  {
+    "question": "In a VPC with a CIDR block of 10.1.0.0/17, which of the following is a valid subnet CIDR block?",
+    "userAnswer": "C. 10.1.0.0/16",
+    "correctAnswer": "D. 10.1.32.0/20",
+    "correct": false,
+    "explanation": "Correct. 10.1.32.0/20 is within range and correctly sized.",
+    "userExplanation": "Incorrect. 10.1.0.0/16 exceeds the VPC CIDR limit."
+  },
+  {
+    "question": "You have a requirement to create a subnet that supports exactly 30 instances. Which CIDR block should you choose?",
+    "userAnswer": "C. /27",
+    "correctAnswer": "C. /27",
+    "correct": true,
+    "explanation": "Correct. /27 provides 32 IPs, which accommodates 30 instances.",
+    "userExplanation": "Correct. /27 provides 32 IPs, which accommodates 30 instances."
+  },
+  {
+    "question": "You need to create a VPC with two subnets, each capable of hosting 200 instances. What is the smallest CIDR block you can use for the VPC?",
+    "userAnswer": "C. /24",
+    "correctAnswer": "A. /22",
+    "correct": false,
+    "explanation": "Correct. A /22 block provides 1024 IPs, enough for two subnets of 256 IPs each.",
+    "userExplanation": "Incorrect. /24 provides only 256 IPs, insufficient for the requirement."
+  }
+],
