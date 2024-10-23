@@ -128,3 +128,109 @@
     "userExplanation": "There is no limit of 5 accounts per OU; OUs can contain many accounts."
   }
 ],
+[
+  {
+    "question": "What is the primary purpose of Amazon Route 53?",
+    "userAnswer": "D. DNS service",
+    "correctAnswer": "D. DNS service",
+    "correct": true,
+    "explanation": "Route 53 is primarily a scalable DNS web service designed to route end users to Internet applications.",
+    "userExplanation": "Route 53 is primarily a scalable DNS web service designed to route end users to Internet applications."
+  },
+  {
+    "question": "What feature of Route 53 allows you to route traffic to different resources based on the geographic location of the user?",
+    "userAnswer": "B. Geolocation routing",
+    "correctAnswer": "B. Geolocation routing",
+    "correct": true,
+    "explanation": "Geolocation routing enables you to route traffic based on the geographic location of the user making the request.",
+    "userExplanation": "Geolocation routing enables you to route traffic based on the geographic location of the user making the request."
+  },
+  {
+    "question": "Which of the following is NOT a routing policy supported by Route 53?",
+    "userAnswer": "E. Multi-Value Answer routing",
+    "correctAnswer": "D. Time-based routing",
+    "correct": false,
+    "explanation": "Time-based routing is not a supported routing policy in Route 53.",
+    "userExplanation": "Multi-Value Answer routing allows multiple IP addresses to be returned for a single DNS query."
+  },
+  {
+    "question": "What is the maximum number of records that can be created in a single Route 53 hosted zone?",
+    "userAnswer": "C. 100,000",
+    "correctAnswer": "D. 1 million",
+    "correct": false,
+    "explanation": "You can create up to 1 million records in a single Route 53 hosted zone.",
+    "userExplanation": "100,000 records is also lower than the maximum limit."
+  },
+  {
+    "question": "Which of the following Route 53 features can be used to ensure high availability by routing traffic to a healthy resource only?",
+    "userAnswer": "C. Failover routing",
+    "correctAnswer": "C. Failover routing",
+    "correct": true,
+    "explanation": "Failover routing includes health checks to route traffic only to healthy resources.",
+    "userExplanation": "Failover routing includes health checks to route traffic only to healthy resources."
+  },
+  {
+    "question": "In Route 53, what type of record would you use to map a domain name to an Amazon S3 bucket configured for static website hosting?",
+    "userAnswer": "A. A record",
+    "correctAnswer": "B. CNAME record",
+    "correct": false,
+    "explanation": "A CNAME record can be used to alias a domain to another domain name, such as an S3 bucket endpoint.",
+    "userExplanation": "An A record maps a domain to an IP address, which is not directly applicable for S3 static websites."
+  },
+  {
+    "question": "Which of the following is a benefit of using Route 53 with Amazon CloudFront?",
+    "userAnswer": "A. Reduced latency",
+    "correctAnswer": "A. Reduced latency",
+    "correct": true,
+    "explanation": "Using Route 53 with CloudFront can reduce latency by directing users to the nearest edge location.",
+    "userExplanation": "Using Route 53 with CloudFront can reduce latency by directing users to the nearest edge location."
+  },
+  {
+    "question": "What is the TTL (Time to Live) in DNS records managed by Route 53?",
+    "userAnswer": "A. The duration a record is cached",
+    "correctAnswer": "A. The duration a record is cached",
+    "correct": true,
+    "explanation": "TTL determines how long DNS resolvers cache a record before querying Route 53 again.",
+    "userExplanation": "TTL determines how long DNS resolvers cache a record before querying Route 53 again."
+  },
+  {
+    "question": "How does Route 53 provide DNS failover?",
+    "userAnswer": "B. By routing traffic based on health checks",
+    "correctAnswer": "B. By routing traffic based on health checks",
+    "correct": true,
+    "explanation": "Route 53 can perform DNS failover by routing traffic away from unhealthy resources based on health checks.",
+    "userExplanation": "Route 53 can perform DNS failover by routing traffic away from unhealthy resources based on health checks."
+  },
+  {
+    "question": "Which of the following routing policies allows you to route a percentage of traffic to different resources?",
+    "userAnswer": "D. Weighted routing",
+    "correctAnswer": "D. Weighted routing",
+    "correct": true,
+    "explanation": "Weighted routing allows you to specify the percentage of traffic directed to each resource.",
+    "userExplanation": "Weighted routing allows you to specify the percentage of traffic directed to each resource."
+  },
+  {
+    "question": "What is the purpose of a CNAME record in Route 53?",
+    "userAnswer": "C. Redirect a domain to another domain",
+    "correctAnswer": "C. Redirect a domain to another domain",
+    "correct": true,
+    "explanation": "CNAME records are used to redirect a domain to another domain, effectively aliasing it.",
+    "userExplanation": "CNAME records are used to redirect a domain to another domain, effectively aliasing it."
+  },
+  {
+    "question": "In Route 53, which record type is primarily used to route traffic to an IPv6 address?",
+    "userAnswer": "D. AAAA record",
+    "correctAnswer": "D. AAAA record",
+    "correct": true,
+    "explanation": "AAAA records are specifically designed to route traffic to an IPv6 address.",
+    "userExplanation": "AAAA records are specifically designed to route traffic to an IPv6 address."
+  },
+  {
+    "question": "Which of the following statements about Route 53 Health Checks is true?",
+    "userAnswer": "C. Health checks can monitor both HTTP and TCP endpoints",
+    "correctAnswer": "C. Health checks can monitor both HTTP and TCP endpoints",
+    "correct": true,
+    "explanation": "Health checks in Route 53 can monitor both HTTP and TCP endpoints to ensure they are healthy.",
+    "userExplanation": "Health checks in Route 53 can monitor both HTTP and TCP endpoints to ensure they are healthy."
+  }
+],
