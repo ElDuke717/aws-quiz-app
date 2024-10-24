@@ -1414,3 +1414,109 @@
     "userExplanation": "RAM aims to reduce resource duplication, not increase it."
   }
 ],
+[
+  {
+    "question": "What does AWS Lambda allow you to do?",
+    "userAnswer": "B. Run code as functions without server management",
+    "correctAnswer": "B. Run code as functions without server management",
+    "correct": true,
+    "explanation": "Correct. AWS Lambda allows you to run code as functions without the need for server management.",
+    "userExplanation": "Correct. AWS Lambda allows you to run code as functions without the need for server management."
+  },
+  {
+    "question": "What is the maximum execution timeout for a Lambda function?",
+    "userAnswer": "D. 900 seconds",
+    "correctAnswer": "D. 900 seconds",
+    "correct": true,
+    "explanation": "Correct. The maximum execution timeout for a Lambda function is 900 seconds (15 minutes).",
+    "userExplanation": "Correct. The maximum execution timeout for a Lambda function is 900 seconds (15 minutes)."
+  },
+  {
+    "question": "How does AWS Lambda handle scaling?",
+    "userAnswer": "B. It scales concurrently",
+    "correctAnswer": "B. It scales concurrently",
+    "correct": true,
+    "explanation": "Correct. AWS Lambda provides continuous scaling and can scale concurrently to handle various events.",
+    "userExplanation": "Correct. AWS Lambda provides continuous scaling and can scale concurrently to handle various events."
+  },
+  {
+    "question": "What is a dead-letter queue (DLQ) used for in AWS Lambda?",
+    "userAnswer": "B. To save discarded events for further processing",
+    "correctAnswer": "B. To save discarded events for further processing",
+    "correct": true,
+    "explanation": "Correct. A DLQ saves discarded events for further processing after all retries are exhausted.",
+    "userExplanation": "Correct. A DLQ saves discarded events for further processing after all retries are exhausted."
+  },
+  {
+    "question": "In which scenario would you use AWS Lambda aliases?",
+    "userAnswer": "B. To invoke functions directly",
+    "correctAnswer": "C. To manage traffic between different function versions",
+    "correct": false,
+    "explanation": "Correct. AWS Lambda aliases help manage traffic between different versions of a function.",
+    "userExplanation": "Aliases are not directly used for invoking functions; they reference specific versions."
+  },
+  {
+    "question": "What is the purpose of the Lambda function handler?",
+    "userAnswer": "B. To serve as the entry point for Lambda execution",
+    "correctAnswer": "B. To serve as the entry point for Lambda execution",
+    "correct": true,
+    "explanation": "Correct. The Lambda function handler serves as the entry point for executing your code.",
+    "userExplanation": "Correct. The Lambda function handler serves as the entry point for executing your code."
+  },
+  {
+    "question": "What are Lambda layers used for?",
+    "userAnswer": "B. To manage function versions",
+    "correctAnswer": "C. To include additional libraries and dependencies",
+    "correct": false,
+    "explanation": "Correct. Lambda layers allow you to include additional libraries and dependencies without adding them to the deployment package.",
+    "userExplanation": "Lambda layers are not for managing versions; they are for dependencies."
+  },
+  {
+    "question": "Which AWS service can invoke Lambda functions based on scheduled events?",
+    "userAnswer": "B. Amazon CloudWatch Events",
+    "correctAnswer": "B. Amazon CloudWatch Events",
+    "correct": true,
+    "explanation": "Correct. Amazon CloudWatch Events can be configured to invoke Lambda functions on a schedule.",
+    "userExplanation": "Correct. Amazon CloudWatch Events can be configured to invoke Lambda functions on a schedule."
+  },
+  {
+    "question": "What happens when a Lambda function exceeds its concurrency limit?",
+    "userAnswer": "C. It automatically retries",
+    "correctAnswer": "B. It is throttled",
+    "correct": false,
+    "explanation": "Correct. If a Lambda function exceeds its concurrency limit, it is throttled.",
+    "userExplanation": "The function does not automatically retry if the concurrency limit is exceeded."
+  },
+  {
+    "question": "What is the purpose of invoking a Lambda function asynchronously?",
+    "userAnswer": "B. To process events without waiting for a response",
+    "correctAnswer": "B. To process events without waiting for a response",
+    "correct": true,
+    "explanation": "Correct. Asynchronous invocation allows processing events without waiting for a response.",
+    "userExplanation": "Correct. Asynchronous invocation allows processing events without waiting for a response."
+  },
+  {
+    "question": "Which of the following is NOT an event source that can trigger a Lambda function?",
+    "userAnswer": "C. Amazon EC2",
+    "correctAnswer": "C. Amazon EC2",
+    "correct": true,
+    "explanation": "Correct. Amazon EC2 does not directly trigger Lambda functions.",
+    "userExplanation": "Correct. Amazon EC2 does not directly trigger Lambda functions."
+  },
+  {
+    "question": "If a Lambda function needs to access resources in a VPC, what additional configuration is required?",
+    "userAnswer": "A. IAM role configuration",
+    "correctAnswer": "B. VPC subnet IDs and security group IDs",
+    "correct": false,
+    "explanation": "Correct. You must provide VPC subnet IDs and security group IDs for Lambda functions to access VPC resources.",
+    "userExplanation": "While IAM roles are important, they are not the specific configuration for VPC access."
+  },
+  {
+    "question": "Which of the following limits is NOT applicable to AWS Lambda?",
+    "userAnswer": "D. Maximum number of file descriptors",
+    "correctAnswer": "E. Maximum number of registered users",
+    "correct": false,
+    "explanation": "Correct. There is no specified limit for the maximum number of registered users for AWS Lambda.",
+    "userExplanation": "There is a limit on the maximum number of file descriptors."
+  }
+],

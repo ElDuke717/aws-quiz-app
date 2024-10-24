@@ -1803,3 +1803,244 @@
     }
   ]
 },
+{
+  "service": "",
+  "cheatSheet": "AWS Lambda lets you run code as functions without provisioning or managing servers.\n\nLambda-based applications are composed of functions triggered by events.\n\nWith serverless computing, your application still runs on servers, but all the server management is done by AWS.\n\nYou cannot log in to the compute instances that run Lambda functions or customize the operating system or language runtime.\n\nLambda functions:\n\n- Consist of code and any associated dependencies.\n- Configuration information is associated with the function.\n- You specify the configuration information when you create the function.\n- API provided for updating configuration data.\n\nYou specify the amount of memory you need allocated to your Lambda functions.\n\nAWS Lambda allocates CPU power proportional to the memory you specify using the same ratio as a general purpose EC2 instance type.\n\nFunctions can access:\n\n- AWS services or non-AWS services.\n- AWS services running in VPCs (e.g. RedShift, Elasticache, RDS instances).\n- Non-AWS services running on EC2 instances in an AWS VPC.\n\nTo enable your Lambda function to access resources inside your private VPC, you must provide additional VPC-specific configuration information that includes VPC subnet IDs and security group IDs.\n\nAWS Lambda uses this information to set up elastic network interfaces (ENIs) that enable your function.\n\nYou can request additional memory in 1 MB increments from 128 MB to 10240 MB.\n\nThere is a maximum execution timeout.\n\n- Max is 15 minutes (900 seconds), default is 3 seconds.\n- You pay for the time it runs.\n- Lambda terminates the function at the timeout.\n\nCode is invoked using API calls made using AWS SDKs.\n\nLambda assumes an IAM role when it executes the function.\n\nAWS Lambda stores code in Amazon S3 and encrypts it at rest.\n\nLambda provides continuous scaling – scales out not up.\n\nLambda scales concurrently executing functions up to your default limit (1000).\n\nLambda can scale up to tens of thousands of concurrent executions.\n\nLambda functions are serverless and independent, 1 event = 1 function.\n\nFunctions can trigger other functions so 1 event can trigger multiple functions.\n\nUse cases fall within the following categories:\n\n- Using Lambda functions with AWS services as event sources.\n- On-demand Lambda function invocation over HTTPS using Amazon API Gateway (custom REST API and endpoint).\n- On-demand Lambda function invocation using custom applications (mobile, web apps, clients) and AWS SDKs, AWS Mobile SDKs, and the AWS Mobile SDK for Android.\n- Scheduled events can be configured to run code on a scheduled basis through the AWS Lambda Console.\n\n## Invoking Lambda Functions\n\nYou can invoke Lambda functions directly with the Lambda console, the Lambda API, the AWS SDK, the AWS CLI, and AWS toolkits.\n\nYou can also configure other AWS services to invoke your function, or you can configure Lambda to read from a stream or queue and invoke your function.\n\nWhen you invoke a function, you can choose to invoke it synchronously or asynchronously.\n\nOther AWS services and resources invoke your function directly.\n\nFor example, you can configure CloudWatch Events to invoke your function on a timer, or you can configure Amazon S3 to invoke your function when an object is created.\n\nEach service varies in the method it uses to invoke your function, the structure of the event, and how you configure it.\n\n### Synchronous invocation\n\nYou wait for the function to process the event and return a response.\n\nWhen you invoke a function synchronously, Lambda runs the function and waits for a response.\n\nWhen the function execution ends, Lambda returns the response from the function’s code with additional data, such as the version of the function that was executed. To invoke a function synchronously with the AWS CLI, use the invoke command.\n\n$ aws lambda invoke –function-name my-function –payload ‘{ “key”: “value” }’ response.json { “ExecutedVersion”: “$LATEST”, “StatusCode”: 200 }\n\n### Asynchronous invocation\n\nWhen you invoke a function asynchronously, you don’t wait for a response from the function code.\n\nFor asynchronous invocation, Lambda handles retries and can send invocation records to a destination.\n\nFor asynchronous invocation, Lambda places the event in a queue and returns a success response without additional information. A separate process reads events from the queue and sends them to your function. To invoke a function asynchronously, set the invocation type parameter to Event.\n\n$ aws lambda invoke --function-name my-function --invocation-type Event --payload '{ \"key\": \"value\" }' response.json { \"StatusCode\": 202 }\n\nThe output file (response.json) doesn’t contain any information but is still created when you run this command. If Lambda can’t add the event to the queue, the error message appears in the command output.\n\n## Event source mappings\n\nLambda is an event-driven compute service where AWS Lambda runs code in response to events such as changes to data in an S3 bucket or a DynamoDB table.\n\nAn event source is an AWS service or developer-created application that produces events that trigger an AWS Lambda function to run.\n\nYou can use event source mappings to process items from a stream or queue in services that don’t invoke Lambda functions directly.\n\nSupported AWS event sources include:\n\n- [**Amazon S3**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-s3).\n- [**Amazon DynamoDB**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-dynamo-db).\n- [**Amazon Kinesis Data Streams**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-kinesis-streams).\n- [**Amazon Simple Notification Service**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-sns).\n- [**Amazon Simple Email Service**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-ses).\n- [**Amazon Simple Queue Service**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-sqs).\n- [**Amazon Cognito**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-cognito).\n- [**AWS CloudFormation**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-cloudformation).\n- [**Amazon CloudWatch Logs**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-cloudwatch-logs).\n- [**Amazon CloudWatch Events**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-cloudwatch-events).\n- [**AWS CodeCommit**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-codecommit).\n- [**AWS Config**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-config).\n- [**Amazon Alexa**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-echo).\n- [**Amazon Lex**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-lex).\n- [**Amazon API Gateway**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-api-gateway).\n- [**AWS IoT Button**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-iot-button).\n- [**Amazon CloudFront**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-cloudfront).\n- [**Amazon Kinesis Data Firehose**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#supported-event-source-kinesis-firehose).\n- [**Other Event Sources: Invoking a Lambda Function On Demand**](https://docs.aws.amazon.com/lambda/latest/dg/invoking-lambda-function.html#api-gateway-with-lambda).\n\nOther event sources can invoke Lambda functions on-demand.\n\nApplications need permissions to invoke Lambda functions.\n\nLambda can run code in response to HTTP requests using Amazon API gateway or API calls made using the AWS SDKs.\n\nServices that Lambda reads events from:\n\n- [**Amazon Kinesis**](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html)\n- [**Amazon DynamoDB**](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html)\n- [**Amazon Simple Queue Service**](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html)\n\nAn event source mapping uses permissions in the function’s [**execution role**](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) to read and manage items in the event source.\n\nPermissions, event structure, settings, and polling behavior vary by event source.\n\nTo process items from a stream or queue, you can create an event source mapping.\n\nEach event that your function processes can contain hundreds or thousands of items.\n\nThe configuration of the event source mapping for stream-based services (DynamoDB, Kinesis), and Amazon SQS, is made on the Lambda side.\n\n**_Note:_** _for other services such as Amazon S3 and SNS, the function is invoked asynchronously, and the configuration is made on the source (S3/SNS) rather than Lambda._\n\n## Lambda Versions\n\nVersioning means you can have multiple versions of your function.\n\nYou can use versions to manage the deployment of your AWS Lambda functions.  For example, you can publish a new version of a function for beta testing without affecting users of the stable production version.\n\nThe function version includes the following information:\n\n- The function code and all associated dependencies.\n- The Lambda runtime that executes the function.\n- All the function settings, including the environment variables.\n- A unique Amazon Resource Name (ARN) to identify this version of the function.\n\nYou work on $LATEST which is the latest version of the code – this is mutable (changeable).\n\nWhen you’re ready to publish a Lambda function you create a version (these are numbered).\n\nNumbered versions are assigned a number starting with 1 and subsequent versions are incremented by 1.\n\nVersions are immutable (code cannot be edited).\n\nEach version has its own ARN.\n\nBecause different versions have unique ARNs this allows you to effectively manage them for different environments like Production, Staging or Development.\n\nA qualified ARN has a version suffix.\n\nAn unqualified ARN does not have a version suffix.\n\nYou cannot create an alias from an unqualified ARN.\n\n## Lambda Aliases\n\nLambda aliases are pointers to a specific Lambda version.\n\nUsing an alias you can invoke a function without having to know which version of the function is being referenced.\n\nAliases are mutable.\n\nAliases enable stable configuration of event triggers / destinations.\n\nAliases also have static ARNs but can point to any version of the same function.\n\nAliases can also be used to split traffic between Lambda versions (blue/green).\n\nAliases enable blue / green deployment by assigning weights to Lambda version (doesn’t work for $LATEST, you need to create an alias for $LATEST).\n\n## Traffic Shifting\n\nWith the introduction of alias traffic shifting, it is now possible to trivially implement canary deployments of Lambda functions.\n\nBy updating additional version weights on an alias, invocation traffic is routed to the new function versions based on the weight specified.\n\nDetailed CloudWatch metrics for the alias and version can be analyzed during the deployment, or other health checks performed, to ensure that the new version is healthy before proceeding.\n\nThe following example AWS CLI command points an alias to a new version, weighted at 5% (original version at 95% of traffic):\n\naws lambda update-alias --function-name myfunction --name myalias --routing-config '{\"AdditionalVersionWeights\" : {\"2\" : 0.05} }'\n\n## Lambda Handler\n\nA handler is a function which Lambda will invoke to execute your code – it is an entry point.\n\nWhen you create a Lambda function, you specify a handler that AWS Lambda can invoke when the service executes the function on your behalf.\n\nYou define a Lambda function handler as an instance or static method in a class.\n\n## Function Dependencies\n\nIf your Lambda function depends on external libraries such as AWS X-Ray SDK, database clients etc. you need to install the packages with the code and zip it all up.\n\n- For Node.js use npm & “node modules” directory.\n- For Python use pip — target options.\n- For Java include the relevant .jar files.\n\nUpload the zip file straight to Lambda if it’s less than 50MB, otherwise upload to S3.\n\nNative libraries work they need to be compiled on Amazon Linux.\n\nAWS SDK comes with every Lambda function by default.\n\n## Concurrent executions\n\n### Managing Concurrency\n\nThe first time you invoke your function, AWS Lambda creates an instance of the function and runs its handler method to process the event. When the function returns a response, it stays active and waits to process additional events. If you invoke the function again while the first event is being processed, Lambda initializes another instance, and the function processes the two events concurrently.\n\n![AWS Lambda Concurrent Executions](https://digitalcloud.training/wp-content/uploads/2022/01/aws-lambda-concurrent-executions.jpeg)\n\nYour functions’ concurrency is the number of instances that serve requests at a given time. For an initial burst of traffic, your functions’ cumulative concurrency in a Region can reach an initial level of between 500 and 3000, which varies per Region.\n\nBurst Concurrency Limits:\n\n- 3000 – US West (Oregon), US East (N. Virginia), Europe (Ireland).\n- 1000 – Asia Pacific (Tokyo), Europe (Frankfurt).\n- 500 – Other Regions.\n\nAfter the initial burst, your functions’ concurrency can scale by an additional 500 instances each minute. This continues until there are enough instances to serve all requests, or until a concurrency limit is reached.\n\nThe default account limit is up to 1000 executions per second, per region (can be increased).\n\nThis is a safety feature to limit the number of concurrent executions across all functions in each region per account.\n\nEach invocation over the concurrency limit will trigger a throttle.\n\nTooManyRequestsExeception may be experienced if the concurrent execution limit is exceeded.\n\nYou may receive a HTTP status code: 429 and the message is “Request throughput limit exceeded”.\n\nThrottle behavior:\n\n- For synchronous invocations returns throttle error 429.\n- For asynchronous invocations retries automatically (twice) then goes to a Dead Letter Queue (DLQ).\n\nA DLQ can be an SNS topic or SQS queue.\n\nThe original event payload is sent to the DLQ.\n\nThe Lambda function needs an IAM role with permissions to SNS / SQS.\n\nLambda also integrates with X-Ray for debugging.\n\n- Can trace Lambda with X-Ray.\n- Need to enable in the Lambda configuration and it will run the X-Ray daemon.\n- Use AWS SDK in your code.\n\n### Reserved Concurrency\n\nYou can set a reserved concurrency at the function level to guarantee a set number of concurrent executions will be available for a critical function.\n\nYou can reserve up to the **Unreserved account concurrency** value that is shown in the console, minus 100 for functions that don’t have reserved concurrency.\n\nTo throttle a function, set the reserved concurrency to zero. This stops any events from being processed until you remove the limit.\n\n**To reserve concurrency for a function**\n\n1. Open the Lambda console [**Functions page**](https://console.aws.amazon.com/lambda/home#/functions).\n2. Choose a function.\n3. Under **Concurrency**, choose **Reserve concurrency**.\n4. Enter the amount of concurrency to reserve for the function.\n5. Choose **Save**.\n\n### Provisioned Concurrency\n\nWhen provisioned concurrency is allocated, the function scales with the same burst behavior as standard concurrency.\n\nAfter it’s allocated, provisioned concurrency serves incoming requests with very low latency.\n\nWhen all provisioned concurrency is in use, the function scales up normally to handle any additional requests.\n\nApplication Auto Scaling takes this a step further by providing autoscaling for provisioned concurrency.\n\nWith Application Auto Scaling, you can create a target tracking scaling policy that adjusts provisioned concurrency levels automatically, based on the utilization metric that Lambda emits.\n\n[**Use the Application Auto Scaling API**](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html#configuration-concurrency-api) to register an alias as a scalable target and create a scaling policy.\n\nProvisioned concurrency runs continually and is billed in addition to standard invocation costs.\n\nSuccess and Failure Destinations\n\nLambda asynchronous invocations can put an event or message on Amazon Simple Notification Service (SNS), Amazon Simple Queue Service (SQS), or Amazon EventBridge for further processing.\n\nWith Destinations, you can route asynchronous function results as an execution record to a destination resource without writing additional code.\n\nAn execution record contains details about the request and response in JSON format including version, timestamp, request context, request payload, response context, and response payload.\n\nFor each execution status such as Success or Failure you can choose one of four destinations: another Lambda function, SNS, SQS, or EventBridge. Lambda can also be configured to route different execution results to different destinations.\n\nOn-Success:\n\n- When a function is invoked successfully, Lambda routes the record to the destination resource for every successful invocation.\n- You can use this to monitor the health of your serverless applications via execution status or build workflows based on the invocation result.\n\nOn-Failure:\n\n- Destinations gives you the ability to handle the Failure of function invocations along with their Success.\n- When a function invocation fails, such as when retries are exhausted or the event age has been exceeded (hitting its TTL),\n- Destinations routes the record to the destination resource for every failed invocation for further investigation or processing.\n- Destinations provide more useful capabilities than Dead Letter Queues (DLQs) by passing additional function execution information, including code exception stack traces, to more destination services.\n- Destinations and DLQs can be used together and at the same time although Destinations should be considered a more preferred solution.\n\n### Dead Letter Queue (DLQ)\n\nYou can configure a dead letter queue (DLQ) on AWS Lambda to give you more control over message handling for all asynchronous invocations, including those delivered via AWS events (S3, SNS, IoT, etc)..\n\nA dead-letter queue saves discarded events for further processing. A dead-letter queue acts the same as an on-failure destination in that it is used when an event fails all processing attempts or expires without being processed.\n\nHowever, a dead-letter queue is part of a function’s version-specific configuration, so it is locked in when you publish a version. On-failure destinations also support additional targets and include details about the function’s response in the invocation record.\n\nYou can setup a DLQ by configuring the ‘DeadLetterConfig’ property when creating or updating your Lambda function.\n\nYou can provide an SQS queue or an SNS topic as the ‘TargetArn’ for your DLQ, and AWS Lambda will write the event object invoking the Lambda function to this endpoint after the standard retry policy (2 additional retries on failure) is exhausted.\n\n## Lambda Layers\n\nYou can configure your Lambda function to pull in additional code and content in the form of layers.\n\nA layer is a ZIP archive that contains libraries, a custom runtime, or other dependencies.\n\nWith layers, you can use libraries in your function without needing to include them in your deployment package.\n\nA function can use up to 5 layers at a time.\n\nLayers are extracted to the /opt directory in the function execution environment.\n\nEach runtime looks for libraries in a different location under /opt, depending on the language.\n\n## Lambda@Edge\n\nLambda@Edge allows you to run code across AWS locations globally without provisioning or managing servers, responding to end users at the lowest network latency.\n\nLambda@Edge lets you run Node.js and Python Lambda functions to customize content that CloudFront delivers, executing the functions in AWS locations closer to the viewer.\n\nThe functions run in response to CloudFront events, without provisioning or managing servers. You can use Lambda functions to change CloudFront requests and responses at the following points:\n\n- After CloudFront receives a request from a viewer (viewer request).\n- Before CloudFront forwards the request to the origin (origin request).\n- After CloudFront receives the response from the origin (origin response).\n- Before CloudFront forwards the response to the viewer (viewer response).\n\nYou just upload your Node.js code to AWS Lambda and configure your function to be triggered in response to an Amazon CloudFront request.\n\nThe code is then ready to execute across AWS locations globally when a request for content is received, and scales with the volume of CloudFront requests globally.\n\n## Lambda and Amazon VPC\n\nYou can connect a Lambda function to private subnets in a VPC.\n\nLambda needs the following VPC configuration information so that it can connect to the VPC:\n\n- Private subnet ID.\n- Security Group ID (with required access).\n\nLambda uses this information to setup an Elastic Network Interface (ENI) using an available IP address from your private subnet.\n\nLambda functions provide access only to a single VPC. If multiple subnets are specified, they must all be in the same VPC.\n\nLambda functions configured to access resources in a particular VPC will not have access to the Internet as a default configuration.\n\nIf you need access to the internet, you will need to create a NAT in your VPC to forward this traffic and configure your security group to allow this outbound traffic.\n\nCareful with DNS resolution of public hostnames as it could add to function running time (cost).\n\nCannot connect to a dedicated tenancy VPC.\n\n**_Exam tip:_** _If a Lambda function needs to connect to a VPC and needs Internet access, make sure you connect to a private subnet that has a route to a NAT Gateway (the NAT Gateway will be in a public subnet)._\n\nLambda uses your function’s permissions to create and manage network interfaces. To connect to a VPC, your function’s execution role must have the following permissions:\n\n- ec2:CreateNetworkInterface\n- ec2:DescribeNetworkInterfaces\n- ec2:DeleteNetworkInterface\n\nThese permissions are included in the AWSLambdaVPCAccessExecutionRole managed policy.\n\nOnly connect to a VPC if you need to as it can slow down function execution.\n\n## Building Lambda Apps\n\nYou can deploy and manage your serverless applications using the AWS Serverless Application Model (AWS SAM).\n\nAWS SAM is a specification that prescribes the rules for expressing serverless applications on AWS.\n\nThis specification aligns with the syntax used by AWS CloudFormation today and is supported natively within AWS CloudFormation as a set of resource types (referred to as “serverless resources”).\n\nYou can automate your serverless application’s release process using AWS CodePipeline and AWS CodeDeploy.\n\nYou can enable your Lambda function for tracing with AWS X-Ray.\n\n## Elastic Load Balancing\n\nApplication Load Balancers (ALBs) support AWS Lambda functions as targets.\n\nYou can register your Lambda functions as targets and configure a listener rule to forward requests to the target group for your Lambda function.\n\n**Exam tip:** Functions can be registered to target groups using the API, AWS Management Console or the CLI.\n\nWhen the load balancer forwards the request to a target group with a Lambda function as a target, it invokes your Lambda function and passes the content of the request to the Lambda function, in JSON format.\n\nLimits:\n\n- The Lambda function and target group must be in the same account and in the same Region.\n- The maximum size of the request body that you can send to a Lambda function is 1 MB.\n- The maximum size of the response JSON that the Lambda function can send is 1 MB.\n- WebSockets are not supported. Upgrade requests are rejected with an HTTP 400 code.\n\nBy default, health checks are disabled for target groups of type lambda.\n\nYou can enable health checks to implement DNS failover with Amazon Route 53. The Lambda function can check the health of a downstream service before responding to the health check request.\n\nIf you create the target group and register the Lambda function using the AWS Management Console, the console adds the required permissions to your Lambda function policy on your behalf.\n\nOtherwise, after you create the target group and register the function using the AWS CLI, you must use the add-permission command to grant Elastic Load Balancing permission to invoke your Lambda function.\n\n## Lambda Limits\n\nMemory – minimum 128 MB, maximum 10,240 MB in 1 MB increments.\n\nEphemeral disk capacity (/tmp space) per invocation – 512 MB.\n\nSize of environment variables maximum 4 KB.\n\nNumber of file descriptors – 1024.\n\nNumber of processes and threads (combined) – 1024.\n\nMaximum execution duration per request – 900 seconds.\n\nConcurrent executions per account – 1000 (soft limit).\n\nFunction burst concurrency 500 -3000 (region dependent).\n\nInvocation payload:\n\n- Synchronous 6 MB.\n- Asynchronous 256 KB\n\nLambda function deployment size is 50 MB (zipped), 250 MB unzipped.\n\n## Operations and Monitoring\n\nLambda automatically monitors Lambda functions and reports metrics through CloudWatch.\n\nLambda tracks the number of requests, the latency per request, and the number of requests resulting in an error.\n\nYou can view the request rates and error rates using the AWS Lambda Console, the CloudWatch console, and other AWS resources.\n\nYou can use AWS X-Ray to visualize the components of your application, identify performance bottlenecks, and troubleshoot requests that resulted in an error.\n\nYour Lambda functions send trace data to X-Ray, and X-Ray processes the data to generate a service map and searchable trace summaries.\n\nThe AWS X-Ray Daemon is a software application that gathers raw segment data and relays it to the AWS X-Ray service.\n\nThe daemon works in conjunction with the AWS X-Ray SDKs so that data sent by the SDKs can reach the X-Ray service.\n\nWhen you trace your Lambda function, the X-Ray daemon automatically runs in the Lambda environment to gather trace data and send it to X-Ray.\n\nMust have permissions to write to X-Ray in the execution role.\n\n## Development Best Practices\n\nPerform one-off time-consuming tasks outside of the function handler, e.g.:\n\n- Connect to databases.\n- Initialize the AWS SDK.\n- Pull in dependencies or datasets.\n\nUse environment variables for:\n\n- Connection strings, S3 bucket etc.\n- Passwords and other sensitive data (can be encrypted with KMS).\n\nMinimize deployment packages size to runtime necessities.\n\n- Break down the function if required.\n- Remember the Lambda limits.\n\nAvoid using recursive code, never have a Lambda function call itself.\n\nDon’t put you Lambda function in a VPC unless you need to (can take longer to initialize).\n\n## Charges\n\nPriced based on:\n\n- Number of requests.\n- Duration of the request calculated from the time your code begins execution until it returns or terminates.\n- The amount of memory allocated to the function.",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "What does AWS Lambda allow you to do?",
+      "options": [
+        "A. Provision and manage servers",
+        "B. Run code as functions without server management",
+        "C. Create virtual machines",
+        "D. Manage container orchestration",
+        "E. Use EC2 instances exclusively"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Lambda is designed to eliminate the need for provisioning and managing servers.",
+        "B": "Correct. AWS Lambda allows you to run code as functions without the need for server management.",
+        "C": "AWS Lambda does not create virtual machines; it runs code in response to events.",
+        "D": "AWS Lambda does not manage container orchestration; it's focused on running code in response to events.",
+        "E": "AWS Lambda is not limited to EC2 instances; it operates serverlessly."
+      }
+    },
+    {
+      "question": "What is the maximum execution timeout for a Lambda function?",
+      "options": [
+        "A. 15 seconds",
+        "B. 60 seconds",
+        "C. 300 seconds",
+        "D. 900 seconds",
+        "E. 3600 seconds"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "The maximum execution timeout is not 15 seconds; it is higher.",
+        "B": "The maximum execution timeout is greater than 60 seconds.",
+        "C": "The maximum execution timeout is not 300 seconds; it is higher.",
+        "D": "Correct. The maximum execution timeout for a Lambda function is 900 seconds (15 minutes).",
+        "E": "The maximum execution timeout is not 3600 seconds; it is capped at 900 seconds."
+      }
+    },
+    {
+      "question": "How does AWS Lambda handle scaling?",
+      "options": [
+        "A. It scales vertically",
+        "B. It scales concurrently",
+        "C. It requires manual scaling",
+        "D. It does not scale",
+        "E. It scales by adding more EC2 instances"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Lambda does not scale vertically; it scales out by handling multiple function instances concurrently.",
+        "B": "Correct. AWS Lambda provides continuous scaling and can scale concurrently to handle various events.",
+        "C": "AWS Lambda automatically scales without manual intervention.",
+        "D": "AWS Lambda does scale; it is designed to handle concurrent executions of functions.",
+        "E": "AWS Lambda does not utilize EC2 instances directly for scaling; it uses its own mechanism."
+      }
+    },
+    {
+      "question": "What is a dead-letter queue (DLQ) used for in AWS Lambda?",
+      "options": [
+        "A. To store successful invocations",
+        "B. To save discarded events for further processing",
+        "C. To manage function versions",
+        "D. To route synchronous invocations",
+        "E. To track execution metrics"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "A dead-letter queue is not used for storing successful invocations.",
+        "B": "Correct. A DLQ saves discarded events for further processing after all retries are exhausted.",
+        "C": "DLQs are not used for managing function versions; they handle event failures.",
+        "D": "DLQs do not route synchronous invocations; they handle asynchronous failures.",
+        "E": "DLQs do not track execution metrics; they focus on failed invocations."
+      }
+    },
+    {
+      "question": "In which scenario would you use AWS Lambda aliases?",
+      "options": [
+        "A. To create multiple versions of a function",
+        "B. To invoke functions directly",
+        "C. To manage traffic between different function versions",
+        "D. To monitor function performance",
+        "E. To increase memory allocation"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "While aliases can point to versions, they are not used to create multiple versions.",
+        "B": "Aliases are not directly used for invoking functions; they reference specific versions.",
+        "C": "Correct. AWS Lambda aliases help manage traffic between different versions of a function.",
+        "D": "Aliases do not monitor performance; they are used for versioning.",
+        "E": "Aliases do not affect memory allocation; they are solely for version management."
+      }
+    },
+    {
+      "question": "What is the purpose of the Lambda function handler?",
+      "options": [
+        "A. To manage server instances",
+        "B. To serve as the entry point for Lambda execution",
+        "C. To store execution logs",
+        "D. To configure memory settings",
+        "E. To define IAM roles"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The handler does not manage server instances; it executes code.",
+        "B": "Correct. The Lambda function handler serves as the entry point for executing your code.",
+        "C": "The handler is not used for storing execution logs; that's handled separately.",
+        "D": "Memory settings are configured separately and not within the handler itself.",
+        "E": "IAM roles are defined independently of the function handler."
+      }
+    },
+    {
+      "question": "What are Lambda layers used for?",
+      "options": [
+        "A. To increase execution time",
+        "B. To manage function versions",
+        "C. To include additional libraries and dependencies",
+        "D. To configure VPC settings",
+        "E. To store environment variables"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Lambda layers do not increase execution time; they provide additional code.",
+        "B": "Lambda layers are not for managing versions; they are for dependencies.",
+        "C": "Correct. Lambda layers allow you to include additional libraries and dependencies without adding them to the deployment package.",
+        "D": "Layers do not configure VPC settings; that's done separately.",
+        "E": "Environment variables are stored independently from layers."
+      }
+    },
+    {
+      "question": "Which AWS service can invoke Lambda functions based on scheduled events?",
+      "options": [
+        "A. Amazon S3",
+        "B. Amazon CloudWatch Events",
+        "C. AWS CodePipeline",
+        "D. Amazon RDS",
+        "E. AWS CloudFormation"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Amazon S3 does not trigger based on schedules; it reacts to object events.",
+        "B": "Correct. Amazon CloudWatch Events can be configured to invoke Lambda functions on a schedule.",
+        "C": "AWS CodePipeline does not trigger Lambda functions based on timing; it is for CI/CD.",
+        "D": "Amazon RDS does not invoke functions; it interacts with data.",
+        "E": "AWS CloudFormation is for infrastructure as code and does not schedule invocations."
+      }
+    },
+    {
+      "question": "What happens when a Lambda function exceeds its concurrency limit?",
+      "options": [
+        "A. It executes normally",
+        "B. It is throttled",
+        "C. It automatically retries",
+        "D. It sends a notification",
+        "E. It shuts down"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The function does not execute normally when limits are exceeded.",
+        "B": "Correct. If a Lambda function exceeds its concurrency limit, it is throttled.",
+        "C": "The function does not automatically retry if the concurrency limit is exceeded.",
+        "D": "No automatic notifications are sent; throttling occurs without alerts.",
+        "E": "The function does not shut down; it simply cannot process additional requests."
+      }
+    },
+    {
+      "question": "What is the purpose of invoking a Lambda function asynchronously?",
+      "options": [
+        "A. To receive an immediate response",
+        "B. To process events without waiting for a response",
+        "C. To ensure synchronous execution",
+        "D. To log execution details",
+        "E. To enforce execution time limits"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Invoking a function asynchronously does not provide an immediate response.",
+        "B": "Correct. Asynchronous invocation allows processing events without waiting for a response.",
+        "C": "Asynchronous invocation does not ensure synchronous execution; it is the opposite.",
+        "D": "Logging is handled separately and not specifically tied to invocation type.",
+        "E": "Execution time limits are inherent to all invocations, regardless of type."
+      }
+    },
+    {
+      "question": "Which of the following is NOT an event source that can trigger a Lambda function?",
+      "options": [
+        "A. Amazon S3",
+        "B. Amazon DynamoDB",
+        "C. Amazon EC2",
+        "D. Amazon Kinesis",
+        "E. Amazon SNS"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Amazon S3 can trigger Lambda functions when objects are created.",
+        "B": "Amazon DynamoDB can trigger Lambda functions upon data changes.",
+        "C": "Correct. Amazon EC2 does not directly trigger Lambda functions.",
+        "D": "Amazon Kinesis can invoke Lambda functions based on data streams.",
+        "E": "Amazon SNS can trigger Lambda functions for notifications."
+      }
+    },
+    {
+      "question": "If a Lambda function needs to access resources in a VPC, what additional configuration is required?",
+      "options": [
+        "A. IAM role configuration",
+        "B. VPC subnet IDs and security group IDs",
+        "C. Increased memory allocation",
+        "D. Event source mapping",
+        "E. Execution timeout adjustment"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "While IAM roles are important, they are not the specific configuration for VPC access.",
+        "B": "Correct. You must provide VPC subnet IDs and security group IDs for Lambda functions to access VPC resources.",
+        "C": "Increased memory allocation is not directly related to VPC access.",
+        "D": "Event source mapping is not required for accessing VPC resources.",
+        "E": "Execution timeout adjustments are unrelated to VPC access configurations."
+      }
+    },
+    {
+      "question": "Which of the following limits is NOT applicable to AWS Lambda?",
+      "options": [
+        "A. Maximum memory allocation",
+        "B. Maximum execution duration",
+        "C. Maximum number of concurrent executions",
+        "D. Maximum number of file descriptors",
+        "E. Maximum number of registered users"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "There is a limit to the maximum memory allocation for Lambda functions.",
+        "B": "There is a limit to the maximum execution duration of Lambda functions.",
+        "C": "There is a limit on the number of concurrent executions per account.",
+        "D": "There is a limit on the maximum number of file descriptors.",
+        "E": "Correct. There is no specified limit for the maximum number of registered users for AWS Lambda."
+      }
+    }
+  ]
+},
