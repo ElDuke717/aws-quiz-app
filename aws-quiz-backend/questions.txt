@@ -1562,3 +1562,244 @@
     }
   ]
 },
+{
+  "service": "",
+  "cheatSheet": "WS Resource Access Manager (RAM) is a service that enables you to share AWS resources easily and securely with any AWS account or within your AWS Organization.\n\nYou can share AWS Transit Gateways, Subnets, AWS License Manager configurations, and Amazon Route 53 Resolver rules resources with RAM.\n\nRAM eliminates the need to create duplicate resources in multiple accounts, reducing the operational overhead of managing those resources in every single account you own.\n\nYou can create resources centrally in a multi-account environment, and use RAM to share those resources across accounts in three simple steps:\n\n1. Create a Resource Share.\n2. Specify resources.\n3. Specify accounts.\n\nRAM is available at no additional charge.\n\n## **Key benefits:**\n\n- **Reduce Operational Overhead –** Procure AWS resources centrally and use RAM to share resources such as subnets or License Manager configurations with other accounts. This eliminates the need to provision duplicate resources in every account in a multi-account environment.\n- **Improve Security and Visibility –** RAM leverages existing policies and permissions set in AWS Identity and Access Management (IAM) to govern the consumption of shared resources. RAM also provides comprehensive visibility into shared resources to set alarms and visualize logs through integration with Amazon CloudWatch and AWS CloudTrail.\n- **Optimize Costs –** Sharing resources such as AWS License Manager configurations across accounts allows you to leverage licenses in multiple parts of your company to increase utilization and optimize costs.",
+  "difficulty": "easy",
+  "questions": [
+    {
+      "question": "What does AWS Resource Access Manager (RAM) enable you to do?",
+      "options": [
+        "A. Share AWS resources with any AWS account",
+        "B. Create duplicate resources in multiple accounts",
+        "C. Manage resources only within a single account",
+        "D. Increase operational overhead",
+        "E. Restrict resource sharing within the same region"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "RAM allows you to share AWS resources easily and securely with any AWS account or within your AWS Organization.",
+        "B": "RAM eliminates the need to create duplicate resources; it actually promotes resource sharing.",
+        "C": "RAM is specifically designed for sharing resources across multiple accounts, not just within a single account.",
+        "D": "RAM is intended to reduce operational overhead, not increase it.",
+        "E": "RAM allows sharing across AWS accounts, not restricted to the same region."
+      }
+    },
+    {
+      "question": "Which of the following resources can be shared using AWS RAM?",
+      "options": [
+        "A. EC2 Instances",
+        "B. AWS Transit Gateways",
+        "C. S3 Buckets",
+        "D. Lambda Functions",
+        "E. CloudFormation Stacks"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "EC2 Instances cannot be directly shared using RAM.",
+        "B": "AWS Transit Gateways can be shared with RAM.",
+        "C": "S3 Buckets are not listed as shareable resources in RAM.",
+        "D": "Lambda Functions are not among the resources that can be shared using RAM.",
+        "E": "CloudFormation Stacks are not specifically mentioned as resources that can be shared via RAM."
+      }
+    },
+    {
+      "question": "What is the first step to sharing resources using AWS RAM?",
+      "options": [
+        "A. Specify accounts",
+        "B. Create a Resource Share",
+        "C. Specify resources",
+        "D. Set IAM policies",
+        "E. Enable CloudTrail"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Specifying accounts is the third step in the process.",
+        "B": "The first step to sharing resources is to create a Resource Share.",
+        "C": "Specifying resources comes after creating a Resource Share.",
+        "D": "Setting IAM policies is important but is not a step in the RAM resource sharing process.",
+        "E": "Enabling CloudTrail is useful for tracking but not a step in sharing resources with RAM."
+      }
+    },
+    {
+      "question": "How does RAM improve security and visibility?",
+      "options": [
+        "A. By creating new resources for each account",
+        "B. By using IAM policies and permissions",
+        "C. By limiting access to only one account",
+        "D. By requiring manual resource tracking",
+        "E. By eliminating resource logging"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "RAM does not create new resources; it shares existing ones.",
+        "B": "RAM leverages existing IAM policies and permissions to govern shared resources.",
+        "C": "RAM allows sharing across multiple accounts, not limiting access.",
+        "D": "RAM enhances visibility through integration with CloudWatch and CloudTrail, rather than requiring manual tracking.",
+        "E": "RAM provides comprehensive visibility and does not eliminate resource logging."
+      }
+    },
+    {
+      "question": "What is a key benefit of using AWS RAM?",
+      "options": [
+        "A. Increase operational costs",
+        "B. Create duplicate resources",
+        "C. Optimize resource utilization",
+        "D. Restrict resource sharing",
+        "E. Limit visibility into shared resources"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS RAM is designed to reduce operational costs, not increase them.",
+        "B": "The purpose of RAM is to eliminate duplicate resources, not create them.",
+        "C": "Sharing resources like AWS License Manager configurations helps optimize utilization and costs.",
+        "D": "RAM facilitates resource sharing rather than restricting it.",
+        "E": "RAM provides visibility into shared resources, not limits it."
+      }
+    },
+    {
+      "question": "Is there an additional charge for using AWS RAM?",
+      "options": [
+        "A. Yes, there is a monthly fee",
+        "B. Yes, additional charges apply per resource",
+        "C. No, RAM is available at no additional charge",
+        "D. Yes, a one-time setup fee is required",
+        "E. Yes, it costs based on the number of accounts"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS RAM does not have a monthly fee.",
+        "B": "There are no additional charges per resource when using RAM.",
+        "C": "AWS RAM is available at no additional charge.",
+        "D": "There is no one-time setup fee for using RAM.",
+        "E": "Charges based on the number of accounts do not apply to RAM."
+      }
+    },
+    {
+      "question": "What is the third step in the process of sharing resources with RAM?",
+      "options": [
+        "A. Create a Resource Share",
+        "B. Specify resources",
+        "C. Specify accounts",
+        "D. Set permissions",
+        "E. Enable logging"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Creating a Resource Share is the first step, not the third.",
+        "B": "Specifying resources is the second step.",
+        "C": "The third step is to specify accounts with which to share resources.",
+        "D": "Setting permissions is important but is not specifically outlined as a step in the RAM process.",
+        "E": "Enabling logging is useful, but not a direct step in resource sharing."
+      }
+    },
+    {
+      "question": "Which service does RAM integrate with for visibility into shared resources?",
+      "options": [
+        "A. AWS Config",
+        "B. Amazon CloudWatch",
+        "C. Amazon RDS",
+        "D. AWS Lambda",
+        "E. Amazon S3"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Config is not mentioned in relation to RAM's visibility features.",
+        "B": "Amazon CloudWatch is used for visualizing logs and setting alarms for shared resources.",
+        "C": "Amazon RDS is not related to RAM's visibility features.",
+        "D": "AWS Lambda is not integrated with RAM for visibility.",
+        "E": "Amazon S3 does not provide visibility into shared resources in the context of RAM."
+      }
+    },
+    {
+      "question": "How does RAM help reduce operational overhead?",
+      "options": [
+        "A. By requiring more manual resource management",
+        "B. By enabling centralized resource procurement",
+        "C. By creating separate resources for each account",
+        "D. By increasing the number of resources",
+        "E. By limiting resource sharing"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "RAM reduces operational overhead, not increases it through manual management.",
+        "B": "By enabling centralized procurement of resources, RAM helps reduce operational overhead.",
+        "C": "RAM eliminates the need to create separate resources for each account.",
+        "D": "RAM promotes sharing, which typically reduces the number of resources needed.",
+        "E": "RAM facilitates resource sharing rather than limiting it."
+      }
+    },
+    {
+      "question": "Which of the following statements is true regarding AWS RAM?",
+      "options": [
+        "A. RAM is only available for AWS Organizations",
+        "B. RAM allows sharing only within the same account",
+        "C. RAM can help optimize costs",
+        "D. RAM requires separate policies for each resource",
+        "E. RAM does not provide logging capabilities"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "RAM can share resources with any AWS account, not just within AWS Organizations.",
+        "B": "RAM is designed for sharing resources across multiple accounts, not just within one.",
+        "C": "RAM can indeed help optimize costs by allowing shared use of resources.",
+        "D": "Existing IAM policies govern shared resources without needing separate policies for each.",
+        "E": "RAM provides visibility into shared resources, which can include logging capabilities through integration with CloudWatch and CloudTrail."
+      }
+    },
+    {
+      "question": "What is one of the primary goals of using AWS RAM?",
+      "options": [
+        "A. To enhance security through isolation",
+        "B. To promote resource duplication",
+        "C. To facilitate resource sharing",
+        "D. To restrict access to resources",
+        "E. To increase management complexity"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "While RAM does enhance security, its primary goal is to facilitate resource sharing.",
+        "B": "RAM aims to eliminate resource duplication, not promote it.",
+        "C": "The primary goal of RAM is to facilitate resource sharing among different AWS accounts.",
+        "D": "RAM does not aim to restrict access; it is intended to share resources securely.",
+        "E": "RAM is designed to simplify management, not increase complexity."
+      }
+    },
+    {
+      "question": "What type of resources can be shared using AWS RAM?",
+      "options": [
+        "A. Only network-related resources",
+        "B. Only IAM policies",
+        "C. AWS resources in general",
+        "D. Only storage-related resources",
+        "E. Only compute-related resources"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "RAM can share various types of resources, not just network-related ones.",
+        "B": "IAM policies are used to govern access but are not shared through RAM.",
+        "C": "AWS RAM supports sharing a variety of AWS resources, including Transit Gateways and License Manager configurations.",
+        "D": "RAM is not limited to storage-related resources; it covers a broader range.",
+        "E": "RAM does not limit sharing to compute-related resources, as it encompasses various types."
+      }
+    },
+    {
+      "question": "Which of the following is NOT a benefit of using AWS RAM?",
+      "options": [
+        "A. Improved security",
+        "B. Reduced operational overhead",
+        "C. Increased resource duplication",
+        "D. Cost optimization",
+        "E. Simplified resource management"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Improving security is one of the key benefits of using RAM.",
+        "B": "RAM helps reduce operational overhead by allowing resource sharing.",
+        "C": "RAM aims to reduce resource duplication, not increase it.",
+        "D": "Cost optimization is a significant benefit of sharing resources with RAM.",
+        "E": "RAM simplifies resource management by allowing centralized sharing."
+      }
+    }
+  ]
+},
