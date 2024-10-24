@@ -722,3 +722,467 @@
     "userExplanation": "Incorrect. /24 provides only 256 IPs, insufficient for the requirement."
   }
 ],
+[
+  {
+    "question": "What is the maximum number of IP addresses you can have in a /24 subnet?",
+    "userAnswer": "A. 256",
+    "correctAnswer": "B. 254",
+    "correct": false,
+    "explanation": "Correct. A /24 subnet has 256 addresses, of which 254 are usable after accounting for the network and broadcast addresses.",
+    "userExplanation": "A /24 subnet has 256 total addresses, but two addresses are reserved (network and broadcast), leaving 254 usable addresses."
+  },
+  {
+    "question": "When creating subnets in a VPC, which of the following is NOT a consideration for the CIDR block?",
+    "userAnswer": "C. Availability Zone association",
+    "correctAnswer": "C. Availability Zone association",
+    "correct": true,
+    "explanation": "Correct. While subnets are associated with Availability Zones, this is not a factor in determining the CIDR block itself.",
+    "userExplanation": "Correct. While subnets are associated with Availability Zones, this is not a factor in determining the CIDR block itself."
+  },
+  {
+    "question": "In AWS, which of the following subnet types allows resources to communicate directly with the Internet?",
+    "userAnswer": "B. Public Subnet",
+    "correctAnswer": "B. Public Subnet",
+    "correct": true,
+    "explanation": "Correct. A Public Subnet is configured to allow resources to communicate directly with the Internet through an Internet Gateway.",
+    "userExplanation": "Correct. A Public Subnet is configured to allow resources to communicate directly with the Internet through an Internet Gateway."
+  },
+  {
+    "question": "What CIDR block represents the largest subnet size that can be allocated in AWS?",
+    "userAnswer": "A. /16",
+    "correctAnswer": "A. /16",
+    "correct": true,
+    "explanation": "Correct. A /16 CIDR block allows for the largest number of addresses (65,536 total), making it the largest subnet size that AWS allows.",
+    "userExplanation": "Correct. A /16 CIDR block allows for the largest number of addresses (65,536 total), making it the largest subnet size that AWS allows."
+  },
+  {
+    "question": "What is the main purpose of a NAT Gateway in a public subnet?",
+    "userAnswer": "A. To allow instances in a private subnet to initiate outbound traffic to the Internet",
+    "correctAnswer": "A. To allow instances in a private subnet to initiate outbound traffic to the Internet",
+    "correct": true,
+    "explanation": "Correct. A NAT Gateway allows instances in a private subnet to initiate outbound traffic to the Internet while preventing inbound traffic.",
+    "userExplanation": "Correct. A NAT Gateway allows instances in a private subnet to initiate outbound traffic to the Internet while preventing inbound traffic."
+  },
+  {
+    "question": "Which of the following statements is true about AWS Subnets?",
+    "userAnswer": "B. A subnet must be associated with only one VPC",
+    "correctAnswer": "B. A subnet must be associated with only one VPC",
+    "correct": true,
+    "explanation": "Correct. A subnet must be associated with only one VPC and cannot belong to more than one.",
+    "userExplanation": "Correct. A subnet must be associated with only one VPC and cannot belong to more than one."
+  },
+  {
+    "question": "What subnet mask would you use to create a subnet that can accommodate 30 usable IP addresses?",
+    "userAnswer": "C. /27",
+    "correctAnswer": "C. /27",
+    "correct": true,
+    "explanation": "Correct. A /27 subnet provides exactly 32 total addresses, with 30 usable ones after reserving the network and broadcast addresses.",
+    "userExplanation": "Correct. A /27 subnet provides exactly 32 total addresses, with 30 usable ones after reserving the network and broadcast addresses."
+  },
+  {
+    "question": "In a VPC, how can you ensure that traffic between subnets is private and not exposed to the Internet?",
+    "userAnswer": "B. Use a private subnet",
+    "correctAnswer": "B. Use a private subnet",
+    "correct": true,
+    "explanation": "Correct. A private subnet does not have a route to the Internet and is suitable for private traffic.",
+    "userExplanation": "Correct. A private subnet does not have a route to the Internet and is suitable for private traffic."
+  },
+  {
+    "question": "Which of the following is a characteristic of a Network ACL in AWS?",
+    "userAnswer": "C. Maximum of 10 rules per ACL",
+    "correctAnswer": "B. Default deny rule",
+    "correct": false,
+    "explanation": "Correct. Network ACLs have a default deny rule, meaning that if no rules match, traffic is denied.",
+    "userExplanation": "Network ACLs can have a maximum of 20 rules per direction (inbound and outbound), not just 10."
+  },
+  {
+    "question": "What is the primary function of an Internet Gateway in a VPC?",
+    "userAnswer": "B. To allow instances in public subnets to access the Internet",
+    "correctAnswer": "B. To allow instances in public subnets to access the Internet",
+    "correct": true,
+    "explanation": "Correct. An Internet Gateway allows instances in public subnets to communicate with the Internet.",
+    "userExplanation": "Correct. An Internet Gateway allows instances in public subnets to communicate with the Internet."
+  },
+  {
+    "question": "Which of the following scenarios would require you to create a new subnet?",
+    "userAnswer": "D. Changing the CIDR block of an existing subnet",
+    "correctAnswer": "C. Isolating resources for security reasons",
+    "correct": false,
+    "explanation": "Correct. Isolation of resources for security or other architectural reasons often requires creating new subnets.",
+    "userExplanation": "CIDR blocks cannot be changed for existing subnets; a new subnet must be created."
+  },
+  {
+    "question": "What is the maximum number of subnets you can have in a single VPC?",
+    "userAnswer": "B. 100",
+    "correctAnswer": "A. 200",
+    "correct": false,
+    "explanation": "Correct. You can have up to 200 subnets per VPC in AWS.",
+    "userExplanation": "100 is not correct; AWS allows for more than this."
+  }
+],
+[
+  {
+    "question": "Which of the following statements is true regarding Amazon ElastiCache and its use cases?",
+    "userAnswer": "C. ElastiCache can improve application performance by caching frequently accessed data.",
+    "correctAnswer": "C. ElastiCache can improve application performance by caching frequently accessed data.",
+    "correct": true,
+    "explanation": "ElastiCache is perfect for improving application performance by caching frequently accessed data, reducing database load.",
+    "userExplanation": "ElastiCache is perfect for improving application performance by caching frequently accessed data, reducing database load."
+  },
+  {
+    "question": "What is a key benefit of using Redis with ElastiCache?",
+    "userAnswer": "C. Redis with ElastiCache provides multi-AZ replication for high availability.",
+    "correctAnswer": "C. Redis with ElastiCache provides multi-AZ replication for high availability.",
+    "correct": true,
+    "explanation": "ElastiCache for Redis supports Multi-AZ with automatic failover, improving availability.",
+    "userExplanation": "ElastiCache for Redis supports Multi-AZ with automatic failover, improving availability."
+  },
+  {
+    "question": "How does Amazon ElastiCache enhance the scalability of applications?",
+    "userAnswer": "B. By caching static content to reduce load on web servers.",
+    "correctAnswer": "C. By providing a distributed cache that can be expanded with additional nodes.",
+    "correct": false,
+    "explanation": "ElastiCache can be expanded by adding more nodes to the cluster, enhancing application scalability.",
+    "userExplanation": "While ElastiCache can cache data, it is not specifically for static content on web servers."
+  },
+  {
+    "question": "Which feature of Amazon ElastiCache for Redis allows for data persistence?",
+    "userAnswer": "D. Multi-region replication",
+    "correctAnswer": "B. AOF (Append Only File) persistence",
+    "correct": false,
+    "explanation": "AOF persistence is a Redis feature that logs every write operation, providing data persistence.",
+    "userExplanation": "Redis does not support multi-region replication directly in ElastiCache."
+  },
+  {
+    "question": "Which of the following is a primary benefit of using Amazon ElastiCache with Memcached?",
+    "userAnswer": "C. Memcached supports horizontal scaling by adding more nodes.",
+    "correctAnswer": "C. Memcached supports horizontal scaling by adding more nodes.",
+    "correct": true,
+    "explanation": "Memcached is designed to scale horizontally, allowing more nodes to be added as needed.",
+    "userExplanation": "Memcached is designed to scale horizontally, allowing more nodes to be added as needed."
+  },
+  {
+    "question": "What is the maximum number of nodes supported in an ElastiCache cluster for Memcached?",
+    "userAnswer": "B. 20",
+    "correctAnswer": "D. 50",
+    "correct": false,
+    "explanation": "50 nodes is the maximum number supported in a Memcached ElastiCache cluster.",
+    "userExplanation": "20 nodes is below the supported maximum for Memcached clusters."
+  },
+  {
+    "question": "In what scenario would you prefer using Redis over Memcached in Amazon ElastiCache?",
+    "userAnswer": "C. When you want to use complex data types and structures.",
+    "correctAnswer": "C. When you want to use complex data types and structures.",
+    "correct": true,
+    "explanation": "Redis supports complex data types and structures, making it ideal for scenarios requiring more than simple key-value storage.",
+    "userExplanation": "Redis supports complex data types and structures, making it ideal for scenarios requiring more than simple key-value storage."
+  },
+  {
+    "question": "Which monitoring service is used to collect and track metrics for ElastiCache?",
+    "userAnswer": "A. AWS CloudWatch",
+    "correctAnswer": "A. AWS CloudWatch",
+    "correct": true,
+    "explanation": "AWS CloudWatch is the service used to collect and track metrics for ElastiCache.",
+    "userExplanation": "AWS CloudWatch is the service used to collect and track metrics for ElastiCache."
+  },
+  {
+    "question": "What is the primary protocol used by ElastiCache to communicate with clients?",
+    "userAnswer": "B. HTTPS",
+    "correctAnswer": "E. TCP",
+    "correct": false,
+    "explanation": "TCP is the primary protocol used by ElastiCache to communicate with clients.",
+    "userExplanation": "HTTPS is not used for communication with ElastiCache clients."
+  },
+  {
+    "question": "How can you ensure high availability for an ElastiCache for Redis deployment?",
+    "userAnswer": "C. Enable Multi-AZ with automatic failover.",
+    "correctAnswer": "C. Enable Multi-AZ with automatic failover.",
+    "correct": true,
+    "explanation": "Enabling Multi-AZ with automatic failover is the correct way to ensure high availability in Redis.",
+    "userExplanation": "Enabling Multi-AZ with automatic failover is the correct way to ensure high availability in Redis."
+  },
+  {
+    "question": "What is a common use case for using ElastiCache with Redis streams?",
+    "userAnswer": "B. Storing large volumes of images and videos.",
+    "correctAnswer": "A. Implementing a chat application with message queueing.",
+    "correct": false,
+    "explanation": "Redis streams are ideal for implementing chat applications with message queueing capabilities.",
+    "userExplanation": "ElastiCache is not used for storing large media files; Amazon S3 is more suitable for this."
+  },
+  {
+    "question": "Which AWS service is essential for managing user access to ElastiCache?",
+    "userAnswer": "A. AWS IAM",
+    "correctAnswer": "A. AWS IAM",
+    "correct": true,
+    "explanation": "AWS IAM is used for managing user access and permissions to AWS services, including ElastiCache.",
+    "userExplanation": "AWS IAM is used for managing user access and permissions to AWS services, including ElastiCache."
+  },
+  {
+    "question": "Which engine version is NOT supported by Amazon ElastiCache?",
+    "userAnswer": "D. Memcached 1.5",
+    "correctAnswer": "E. Memcached 2.0",
+    "correct": false,
+    "explanation": "Memcached 2.0 is not a valid version supported by Amazon ElastiCache.",
+    "userExplanation": "Memcached 1.5 is supported by Amazon ElastiCache."
+  },
+  {
+    "question": "Which feature of ElastiCache for Redis helps in maintaining data consistency during a failover?",
+    "userAnswer": "B. Multi-AZ with automatic failover",
+    "correctAnswer": "B. Multi-AZ with automatic failover",
+    "correct": true,
+    "explanation": "Multi-AZ with automatic failover ensures data consistency by automatically failing over to a replica in another AZ.",
+    "userExplanation": "Multi-AZ with automatic failover ensures data consistency by automatically failing over to a replica in another AZ."
+  },
+  {
+    "question": "What is the default port used by ElastiCache for Redis?",
+    "userAnswer": "C. 3306",
+    "correctAnswer": "B. 6379",
+    "correct": false,
+    "explanation": "6379 is the default port used by Redis.",
+    "userExplanation": "3306 is the default port for MySQL databases."
+  }
+],
+[
+  {
+    "question": "What is the primary function of AWS Control Tower?",
+    "userAnswer": "B. To provide a baseline environment for multi-account AWS setups.",
+    "correctAnswer": "B. To provide a baseline environment for multi-account AWS setups.",
+    "correct": true,
+    "explanation": "Correct. AWS Control Tower provides a baseline environment to set up and govern a secure, multi-account AWS environment.",
+    "userExplanation": "Correct. AWS Control Tower provides a baseline environment to set up and govern a secure, multi-account AWS environment."
+  },
+  {
+    "question": "Which AWS service does Control Tower use for logging and monitoring compliance?",
+    "userAnswer": "B. AWS CloudTrail",
+    "correctAnswer": "C. AWS Config",
+    "correct": false,
+    "explanation": "Correct. AWS Config is used by Control Tower to monitor compliance with best practices and governance standards.",
+    "userExplanation": "AWS CloudTrail logs API calls for account activity, which is part of compliance but not the primary service used by Control Tower for compliance monitoring."
+  },
+  {
+    "question": "What is the purpose of a Landing Zone in AWS Control Tower?",
+    "userAnswer": "B. It serves as a starting point for multi-account management.",
+    "correctAnswer": "B. It serves as a starting point for multi-account management.",
+    "correct": true,
+    "explanation": "Correct. A Landing Zone provides a well-architected, multi-account AWS environment with governance and best practices.",
+    "userExplanation": "Correct. A Landing Zone provides a well-architected, multi-account AWS environment with governance and best practices."
+  },
+  {
+    "question": "How does AWS Control Tower enforce compliance across multiple AWS accounts?",
+    "userAnswer": "B. Through Service Control Policies (SCPs).",
+    "correctAnswer": "B. Through Service Control Policies (SCPs).",
+    "correct": true,
+    "explanation": "Correct. AWS Control Tower uses Service Control Policies to enforce compliance and governance across AWS accounts.",
+    "userExplanation": "Correct. AWS Control Tower uses Service Control Policies to enforce compliance and governance across AWS accounts."
+  },
+  {
+    "question": "Which of the following is NOT a benefit of using AWS Control Tower?",
+    "userAnswer": "C. Enhanced machine learning model deployment.",
+    "correctAnswer": "C. Enhanced machine learning model deployment.",
+    "correct": true,
+    "explanation": "Correct. AWS Control Tower does not focus on machine learning deployment enhancements.",
+    "userExplanation": "Correct. AWS Control Tower does not focus on machine learning deployment enhancements."
+  },
+  {
+    "question": "Which feature of AWS Control Tower provides customizable templates for setting up accounts?",
+    "userAnswer": "D. Landing Zone",
+    "correctAnswer": "C. Blueprints",
+    "correct": false,
+    "explanation": "Correct. Blueprints provide customizable templates for setting up AWS accounts.",
+    "userExplanation": "Landing Zone refers to the entire multi-account environment setup, not individual templates."
+  },
+  {
+    "question": "What role does AWS Control Tower play in the context of AWS Organizations?",
+    "userAnswer": "B. It provides additional governance and compliance features on top of AWS Organizations.",
+    "correctAnswer": "B. It provides additional governance and compliance features on top of AWS Organizations.",
+    "correct": true,
+    "explanation": "Correct. AWS Control Tower enhances AWS Organizations with additional governance and compliance features.",
+    "userExplanation": "Correct. AWS Control Tower enhances AWS Organizations with additional governance and compliance features."
+  },
+  {
+    "question": "Which AWS Control Tower feature helps enforce security and compliance policies?",
+    "userAnswer": "D. Guardrails",
+    "correctAnswer": "D. Guardrails",
+    "correct": true,
+    "explanation": "Correct. Guardrails are used in AWS Control Tower to enforce security and compliance policies.",
+    "userExplanation": "Correct. Guardrails are used in AWS Control Tower to enforce security and compliance policies."
+  },
+  {
+    "question": "When using AWS Control Tower, which service helps manage and visualize the network topology?",
+    "userAnswer": "C. AWS Network Manager",
+    "correctAnswer": "C. AWS Network Manager",
+    "correct": true,
+    "explanation": "Correct. AWS Network Manager helps manage and visualize network topology.",
+    "userExplanation": "Correct. AWS Network Manager helps manage and visualize network topology."
+  },
+  {
+    "question": "Which AWS service is essential for defining and applying Guardrails in AWS Control Tower?",
+    "userAnswer": "C. AWS Trusted Advisor",
+    "correctAnswer": "B. AWS Organizations",
+    "correct": false,
+    "explanation": "Correct. AWS Organizations is used to define Guardrails in AWS Control Tower.",
+    "userExplanation": "AWS Trusted Advisor provides recommendations but does not apply Guardrails."
+  },
+  {
+    "question": "How does AWS Control Tower assist in the management of compliance across AWS accounts?",
+    "userAnswer": "B. By providing a unified dashboard for monitoring compliance status.",
+    "correctAnswer": "B. By providing a unified dashboard for monitoring compliance status.",
+    "correct": true,
+    "explanation": "Correct. AWS Control Tower provides a dashboard that helps monitor compliance status.",
+    "userExplanation": "Correct. AWS Control Tower provides a dashboard that helps monitor compliance status."
+  },
+  {
+    "question": "In AWS Control Tower, what is the purpose of an Account Factory?",
+    "userAnswer": "B. To create and manage new AWS accounts.",
+    "correctAnswer": "B. To create and manage new AWS accounts.",
+    "correct": true,
+    "explanation": "Correct. Account Factory in AWS Control Tower is used to create and manage new AWS accounts.",
+    "userExplanation": "Correct. Account Factory in AWS Control Tower is used to create and manage new AWS accounts."
+  },
+  {
+    "question": "What is a key advantage of using AWS Control Tower for multi-account environments?",
+    "userAnswer": "B. It centralizes security management for all accounts.",
+    "correctAnswer": "B. It centralizes security management for all accounts.",
+    "correct": true,
+    "explanation": "Correct. AWS Control Tower centralizes security and governance for multi-account environments.",
+    "userExplanation": "Correct. AWS Control Tower centralizes security and governance for multi-account environments."
+  },
+  {
+    "question": "Which service is NOT directly integrated with AWS Control Tower for compliance and governance?",
+    "userAnswer": "C. AWS Lambda",
+    "correctAnswer": "C. AWS Lambda",
+    "correct": true,
+    "explanation": "Correct. AWS Lambda is a compute service and not directly used for compliance/governance in Control Tower.",
+    "userExplanation": "Correct. AWS Lambda is a compute service and not directly used for compliance/governance in Control Tower."
+  },
+  {
+    "question": "What is the main advantage of using Guardrails in AWS Control Tower?",
+    "userAnswer": "C. They enforce policy compliance and governance.",
+    "correctAnswer": "C. They enforce policy compliance and governance.",
+    "correct": true,
+    "explanation": "Correct. Guardrails are used to enforce policy compliance and governance.",
+    "userExplanation": "Correct. Guardrails are used to enforce policy compliance and governance."
+  }
+],
+[
+  {
+    "question": "Which of the following best describes how data is partitioned in Amazon DynamoDB?",
+    "userAnswer": "A. Data is partitioned by the primary key and stored in a single partition.",
+    "correctAnswer": "B. Data is partitioned by the partition key and spread across multiple partitions.",
+    "correct": false,
+    "explanation": "Correct. DynamoDB partitions data based on the partition key, spreading items across multiple partitions.",
+    "userExplanation": "Incorrect. Data is not stored in a single partition; it is distributed across multiple partitions."
+  },
+  {
+    "question": "What is the maximum size of an item in DynamoDB, including all attribute names and values?",
+    "userAnswer": "C. 1 MB",
+    "correctAnswer": "C. 1 MB",
+    "correct": true,
+    "explanation": "Correct. The maximum item size in DynamoDB is 400 KB.",
+    "userExplanation": "Correct. The maximum item size in DynamoDB is 400 KB."
+  },
+  {
+    "question": "Which of the following is a valid use case for DynamoDB Streams?",
+    "userAnswer": "B. Triggering AWS Lambda functions in response to data modifications.",
+    "correctAnswer": "B. Triggering AWS Lambda functions in response to data modifications.",
+    "correct": true,
+    "explanation": "Correct. DynamoDB Streams can trigger Lambda functions on data changes.",
+    "userExplanation": "Correct. DynamoDB Streams can trigger Lambda functions on data changes."
+  },
+  {
+    "question": "How does DynamoDB handle a situation where a write request exceeds the provisioned throughput?",
+    "userAnswer": "B. The request is immediately rejected with a ProvisionedThroughputExceededException.",
+    "correctAnswer": "B. The request is immediately rejected with a ProvisionedThroughputExceededException.",
+    "correct": true,
+    "explanation": "Correct. DynamoDB rejects requests that exceed provisioned throughput.",
+    "userExplanation": "Correct. DynamoDB rejects requests that exceed provisioned throughput."
+  },
+  {
+    "question": "In DynamoDB, what is the purpose of a Global Secondary Index (GSI)?",
+    "userAnswer": "B. To allow querying of non-primary key attributes.",
+    "correctAnswer": "B. To allow querying of non-primary key attributes.",
+    "correct": true,
+    "explanation": "Correct. GSIs allow queries on non-primary key attributes.",
+    "userExplanation": "Correct. GSIs allow queries on non-primary key attributes."
+  },
+  {
+    "question": "What is the default read consistency model in DynamoDB?",
+    "userAnswer": "B. Eventually consistent reads",
+    "correctAnswer": "B. Eventually consistent reads",
+    "correct": true,
+    "explanation": "Correct. DynamoDB uses eventually consistent reads by default.",
+    "userExplanation": "Correct. DynamoDB uses eventually consistent reads by default."
+  },
+  {
+    "question": "Which feature of DynamoDB allows for the automatic scaling of read and write capacity?",
+    "userAnswer": "E. Global Tables",
+    "correctAnswer": "C. Auto Scaling",
+    "correct": false,
+    "explanation": "Correct. Auto Scaling adjusts throughput automatically.",
+    "userExplanation": "Incorrect. Global Tables are for multi-region replication."
+  },
+  {
+    "question": "Which of the following is a key advantage of using DynamoDB's On-Demand Capacity mode?",
+    "userAnswer": "A. Lower cost for high and consistent workloads.",
+    "correctAnswer": "C. Automatic scaling with no need to specify capacity.",
+    "correct": false,
+    "explanation": "Correct. On-demand mode scales automatically without capacity specification.",
+    "userExplanation": "Incorrect. On-demand mode can be more expensive for consistent workloads."
+  },
+  {
+    "question": "What is the function of DynamoDB Transactions?",
+    "userAnswer": "A. To perform complex analytical queries.",
+    "correctAnswer": "B. To enable atomic, consistent, isolated, and durable operations.",
+    "correct": false,
+    "explanation": "Correct. Transactions ensure ACID properties.",
+    "userExplanation": "Incorrect. Transactions are not for analytical queries."
+  },
+  {
+    "question": "How does Amazon DynamoDB handle data consistency across multiple regions?",
+    "userAnswer": "A. Through synchronous replication ensuring strong consistency.",
+    "correctAnswer": "B. By using Global Tables which provide eventual consistency.",
+    "correct": false,
+    "explanation": "Correct. Global Tables provide eventual consistency across regions.",
+    "userExplanation": "Incorrect. Replication is eventually consistent."
+  },
+  {
+    "question": "When should you use DynamoDB Accelerator (DAX)?",
+    "userAnswer": "B. When you require single-digit millisecond response times for reads.",
+    "correctAnswer": "B. When you require single-digit millisecond response times for reads.",
+    "correct": true,
+    "explanation": "Correct. DAX is designed to speed up read times.",
+    "userExplanation": "Correct. DAX is designed to speed up read times."
+  },
+  {
+    "question": "Which of the following best describes the purpose of the Time to Live (TTL) feature in DynamoDB?",
+    "userAnswer": "B. To enable automatic deletion of expired items.",
+    "correctAnswer": "B. To enable automatic deletion of expired items.",
+    "correct": true,
+    "explanation": "Correct. TTL automatically deletes expired items.",
+    "userExplanation": "Correct. TTL automatically deletes expired items."
+  },
+  {
+    "question": "What is the primary benefit of using a Local Secondary Index (LSI) in DynamoDB?",
+    "userAnswer": "B. Supporting queries with strong consistency using alternative sort keys.",
+    "correctAnswer": "B. Supporting queries with strong consistency using alternative sort keys.",
+    "correct": true,
+    "explanation": "Correct. LSIs allow queries with different sort keys, maintaining strong consistency.",
+    "userExplanation": "Correct. LSIs allow queries with different sort keys, maintaining strong consistency."
+  },
+  {
+    "question": "Which DynamoDB feature allows for point-in-time recovery of data?",
+    "userAnswer": "C. Point-in-Time Recovery (PITR)",
+    "correctAnswer": "C. Point-in-Time Recovery (PITR)",
+    "correct": true,
+    "explanation": "Correct. PITR allows recovery to any second within the last 35 days.",
+    "userExplanation": "Correct. PITR allows recovery to any second within the last 35 days."
+  },
+  {
+    "question": "How does DynamoDB handle a scan operation that exceeds the provisioned read capacity?",
+    "userAnswer": "A. The scan operation is automatically split into multiple requests.",
+    "correctAnswer": "C. The scan operation is throttled and may result in incomplete results.",
+    "correct": false,
+    "explanation": "Correct. Scans exceeding capacity can be throttled, leading to incomplete results.",
+    "userExplanation": "Incorrect. Scans are not automatically split."
+  }
+],

@@ -219,3 +219,828 @@
     }
   ]
 },
+{
+  "service": "AWS Elasticache",
+  "questions": [
+    {
+      "question": "Which of the following statements is true regarding Amazon ElastiCache and its use cases?",
+      "options": [
+        "A. ElastiCache is ideal for running large-scale data warehouses.",
+        "B. ElastiCache is used primarily for data archival purposes.",
+        "C. ElastiCache can improve application performance by caching frequently accessed data.",
+        "D. ElastiCache is a replacement for Amazon RDS in transactional applications.",
+        "E. ElastiCache is used to process streaming data in real-time."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "ElastiCache is not designed for data warehousing; Amazon Redshift is better suited for that purpose.",
+        "B": "Data archival is typically handled by services like Amazon S3, not ElastiCache.",
+        "C": "ElastiCache is perfect for improving application performance by caching frequently accessed data, reducing database load.",
+        "D": "ElastiCache complements databases like Amazon RDS by caching data, but it doesn't replace them.",
+        "E": "Streaming data processing is better handled by services like Amazon Kinesis, not ElastiCache."
+      }
+    },
+    {
+      "question": "What is a key benefit of using Redis with ElastiCache?",
+      "options": [
+        "A. Redis with ElastiCache ensures ACID compliance.",
+        "B. Redis with ElastiCache supports complex transactions.",
+        "C. Redis with ElastiCache provides multi-AZ replication for high availability.",
+        "D. Redis with ElastiCache is designed for storing large binary files.",
+        "E. Redis with ElastiCache automatically scales storage as demand increases."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Redis is not inherently ACID compliant; it is designed for in-memory data caching.",
+        "B": "Redis does support transactions, but they are not as complex as those in relational databases.",
+        "C": "ElastiCache for Redis supports Multi-AZ with automatic failover, improving availability.",
+        "D": "Redis is not meant for storing large binary files; it is designed for quick access to in-memory data.",
+        "E": "Redis in ElastiCache requires manual intervention for scaling, though it is possible to adjust node sizes."
+      }
+    },
+    {
+      "question": "How does Amazon ElastiCache enhance the scalability of applications?",
+      "options": [
+        "A. By automatically sharding the database.",
+        "B. By caching static content to reduce load on web servers.",
+        "C. By providing a distributed cache that can be expanded with additional nodes.",
+        "D. By integrating directly with Amazon S3 for seamless data storage.",
+        "E. By automatically replicating data across regions."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "ElastiCache does not automatically shard databases; sharding is typically handled by the application or the database itself.",
+        "B": "While ElastiCache can cache data, it is not specifically for static content on web servers.",
+        "C": "ElastiCache can be expanded by adding more nodes to the cluster, enhancing application scalability.",
+        "D": "ElastiCache does not integrate directly with Amazon S3; it focuses on in-memory caching.",
+        "E": "ElastiCache does not automatically replicate data across regions; it supports replication within a region."
+      }
+    },
+    {
+      "question": "Which feature of Amazon ElastiCache for Redis allows for data persistence?",
+      "options": [
+        "A. Automatic snapshots",
+        "B. AOF (Append Only File) persistence",
+        "C. S3 bucket integration",
+        "D. Multi-region replication",
+        "E. Real-time backup"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "While ElastiCache can take snapshots, this is not a feature specific to Redis persistence.",
+        "B": "AOF persistence is a Redis feature that logs every write operation, providing data persistence.",
+        "C": "There is no direct integration between ElastiCache and S3 for persistence.",
+        "D": "Redis does not support multi-region replication directly in ElastiCache.",
+        "E": "Real-time backup is not a specific feature of ElastiCache for Redis."
+      }
+    },
+    {
+      "question": "Which of the following is a primary benefit of using Amazon ElastiCache with Memcached?",
+      "options": [
+        "A. Memcached provides built-in data encryption at rest.",
+        "B. Memcached allows for complex query processing.",
+        "C. Memcached supports horizontal scaling by adding more nodes.",
+        "D. Memcached offers automatic multi-AZ failover.",
+        "E. Memcached can be used for durable data storage."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Memcached does not natively support data encryption at rest; this needs to be handled separately.",
+        "B": "Memcached is not designed for complex query processing, but for simple key-value data storage.",
+        "C": "Memcached is designed to scale horizontally, allowing more nodes to be added as needed.",
+        "D": "Memcached does not offer automatic multi-AZ failover; this is a feature of Redis in ElastiCache.",
+        "E": "Memcached is not intended for durable data storage; it is an in-memory cache."
+      }
+    },
+    {
+      "question": "What is the maximum number of nodes supported in an ElastiCache cluster for Memcached?",
+      "options": [
+        "A. 10",
+        "B. 20",
+        "C. 40",
+        "D. 50",
+        "E. 100"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "10 nodes is below the supported maximum for Memcached clusters.",
+        "B": "20 nodes is below the supported maximum for Memcached clusters.",
+        "C": "40 nodes is below the supported maximum for Memcached clusters.",
+        "D": "50 nodes is the maximum number supported in a Memcached ElastiCache cluster.",
+        "E": "100 nodes exceeds the supported maximum for Memcached clusters."
+      }
+    },
+    {
+      "question": "In what scenario would you prefer using Redis over Memcached in Amazon ElastiCache?",
+      "options": [
+        "A. When you need simple key-value caching without persistence.",
+        "B. When you require data partitioning across nodes.",
+        "C. When you want to use complex data types and structures.",
+        "D. When you need a cache that can be scaled down dynamically.",
+        "E. When you need the simplest configuration and deployment."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Memcached is typically preferred for simple key-value caching without persistence.",
+        "B": "Both Redis and Memcached can handle data partitioning, but Redis is more versatile with its advanced data structures.",
+        "C": "Redis supports complex data types and structures, making it ideal for scenarios requiring more than simple key-value storage.",
+        "D": "Memcached supports dynamic scaling more naturally, with its simpler stateless architecture.",
+        "E": "Memcached is generally simpler to configure and deploy compared to Redis."
+      }
+    },
+    {
+      "question": "Which monitoring service is used to collect and track metrics for ElastiCache?",
+      "options": [
+        "A. AWS CloudWatch",
+        "B. AWS X-Ray",
+        "C. AWS Config",
+        "D. AWS Trusted Advisor",
+        "E. AWS CloudTrail"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "AWS CloudWatch is the service used to collect and track metrics for ElastiCache.",
+        "B": "AWS X-Ray is used for analyzing and debugging production applications.",
+        "C": "AWS Config is used for assessing, auditing, and evaluating the configurations of your AWS resources.",
+        "D": "AWS Trusted Advisor provides real-time guidance to help you provision your resources following AWS best practices.",
+        "E": "AWS CloudTrail is used for logging and monitoring account activity across your AWS infrastructure."
+      }
+    },
+    {
+      "question": "What is the primary protocol used by ElastiCache to communicate with clients?",
+      "options": [
+        "A. HTTP",
+        "B. HTTPS",
+        "C. SSH",
+        "D. Telnet",
+        "E. TCP"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "HTTP is not used for communication with ElastiCache clients.",
+        "B": "HTTPS is not used for communication with ElastiCache clients.",
+        "C": "SSH is used for secure shell access to servers, not ElastiCache.",
+        "D": "Telnet is an old protocol not used for ElastiCache communication.",
+        "E": "TCP is the primary protocol used by ElastiCache to communicate with clients."
+      }
+    },
+    {
+      "question": "How can you ensure high availability for an ElastiCache for Redis deployment?",
+      "options": [
+        "A. Deploy in a single AZ with automatic failover.",
+        "B. Use read replicas across multiple regions.",
+        "C. Enable Multi-AZ with automatic failover.",
+        "D. Deploy in multiple VPCs.",
+        "E. Use Elastic Load Balancing in front of ElastiCache."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Deploying in a single AZ does not provide high availability.",
+        "B": "Read replicas across multiple regions are not supported by ElastiCache for Redis.",
+        "C": "Enabling Multi-AZ with automatic failover is the correct way to ensure high availability in Redis.",
+        "D": "ElastiCache cannot be deployed across multiple VPCs directly.",
+        "E": "Elastic Load Balancing is not used with ElastiCache; it is used with web servers and application servers."
+      }
+    },
+    {
+      "question": "What is a common use case for using ElastiCache with Redis streams?",
+      "options": [
+        "A. Implementing a chat application with message queueing.",
+        "B. Storing large volumes of images and videos.",
+        "C. Performing complex SQL queries on big data.",
+        "D. Running machine learning models in real-time.",
+        "E. Hosting static websites."
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Redis streams are ideal for implementing chat applications with message queueing capabilities.",
+        "B": "ElastiCache is not used for storing large media files; Amazon S3 is more suitable for this.",
+        "C": "ElastiCache is not designed for complex SQL queries; databases like Amazon Redshift or RDS are better suited.",
+        "D": "While Redis can be used in real-time applications, it's not specifically designed for running ML models.",
+        "E": "Static websites are typically hosted on Amazon S3 with CloudFront."
+      }
+    },
+    {
+      "question": "Which AWS service is essential for managing user access to ElastiCache?",
+      "options": [
+        "A. AWS IAM",
+        "B. AWS Direct Connect",
+        "C. AWS VPN",
+        "D. AWS Secrets Manager",
+        "E. AWS Lambda"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "AWS IAM is used for managing user access and permissions to AWS services, including ElastiCache.",
+        "B": "AWS Direct Connect provides dedicated network connections, not access management.",
+        "C": "AWS VPN is used for establishing secure connections, not for managing access.",
+        "D": "AWS Secrets Manager is used for storing secrets securely, not for managing user access.",
+        "E": "AWS Lambda is a compute service that runs code in response to triggers, not for managing user access."
+      }
+    },
+    {
+      "question": "Which engine version is NOT supported by Amazon ElastiCache?",
+      "options": [
+        "A. Redis 5.0",
+        "B. Redis 6.0",
+        "C. Redis 7.0",
+        "D. Memcached 1.5",
+        "E. Memcached 2.0"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "Redis 5.0 is supported by Amazon ElastiCache.",
+        "B": "Redis 6.0 is supported by Amazon ElastiCache.",
+        "C": "Redis 7.0 is supported by Amazon ElastiCache.",
+        "D": "Memcached 1.5 is supported by Amazon ElastiCache.",
+        "E": "Memcached 2.0 is not a valid version supported by Amazon ElastiCache."
+      }
+    },
+    {
+      "question": "Which feature of ElastiCache for Redis helps in maintaining data consistency during a failover?",
+      "options": [
+        "A. Redis Cluster mode",
+        "B. Multi-AZ with automatic failover",
+        "C. Global Datastore",
+        "D. On-demand backups",
+        "E. Redis Sentinel"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Redis Cluster mode helps in scaling, not specifically in maintaining consistency during failover.",
+        "B": "Multi-AZ with automatic failover ensures data consistency by automatically failing over to a replica in another AZ.",
+        "C": "Global Datastore is used for cross-region replication, not specifically for failover consistency.",
+        "D": "On-demand backups ensure data recovery but are not directly related to failover consistency.",
+        "E": "Redis Sentinel is an open-source solution for monitoring and failover, but in AWS, automatic failover is managed by ElastiCache."
+      }
+    },
+    {
+      "question": "What is the default port used by ElastiCache for Redis?",
+      "options": [
+        "A. 11211",
+        "B. 6379",
+        "C. 3306",
+        "D. 5432",
+        "E. 8080"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "11211 is the default port for Memcached.",
+        "B": "6379 is the default port used by Redis.",
+        "C": "3306 is the default port for MySQL databases.",
+        "D": "5432 is the default port for PostgreSQL databases.",
+        "E": "8080 is a common port for HTTP proxy servers."
+      }
+    }
+  ]
+},
+{
+  "service": "AWS Control Tower",
+  "questions": [
+    {
+      "question": "What is the primary function of AWS Control Tower?",
+      "options": [
+        "A. To manage AWS billing and cost optimization.",
+        "B. To provide a baseline environment for multi-account AWS setups.",
+        "C. To automate server provisioning and scaling.",
+        "D. To offer a centralized database solution.",
+        "E. To enhance network security through advanced firewall setups."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "While AWS Control Tower helps in governance which indirectly impacts billing, its primary function is not billing management.",
+        "B": "Correct. AWS Control Tower provides a baseline environment to set up and govern a secure, multi-account AWS environment.",
+        "C": "This is more aligned with AWS Auto Scaling and AWS Elastic Beanstalk.",
+        "D": "AWS Control Tower is not a database service; AWS RDS or DynamoDB fits this description.",
+        "E": "Although security is a component of AWS Control Tower, it is not primarily a network security tool."
+      }
+    },
+    {
+      "question": "Which AWS service does Control Tower use for logging and monitoring compliance?",
+      "options": [
+        "A. AWS CloudWatch",
+        "B. AWS CloudTrail",
+        "C. AWS Config",
+        "D. AWS GuardDuty",
+        "E. AWS Detective"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS CloudWatch is used for monitoring and logging, but AWS Config is more directly related to compliance.",
+        "B": "AWS CloudTrail logs API calls for account activity, which is part of compliance but not the primary service used by Control Tower for compliance monitoring.",
+        "C": "Correct. AWS Config is used by Control Tower to monitor compliance with best practices and governance standards.",
+        "D": "AWS GuardDuty is for threat detection, not specifically for compliance monitoring.",
+        "E": "AWS Detective is used for security investigations, not directly for logging or compliance in Control Tower."
+      }
+    },
+    {
+      "question": "What is the purpose of a Landing Zone in AWS Control Tower?",
+      "options": [
+        "A. It is used to deploy applications at scale.",
+        "B. It serves as a starting point for multi-account management.",
+        "C. It is a database caching solution.",
+        "D. It replaces the need for AWS Organizations.",
+        "E. It is an alternative to AWS CloudFormation."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Deploying applications at scale is not the primary function of a Landing Zone.",
+        "B": "Correct. A Landing Zone provides a well-architected, multi-account AWS environment with governance and best practices.",
+        "C": "Database caching is not related to the concept of a Landing Zone.",
+        "D": "AWS Control Tower uses AWS Organizations; it does not replace it.",
+        "E": "AWS CloudFormation is used for infrastructure as code, which can be a part of the Landing Zone setup but is not an alternative."
+      }
+    },
+    {
+      "question": "How does AWS Control Tower enforce compliance across multiple AWS accounts?",
+      "options": [
+        "A. By using AWS Firewall Manager.",
+        "B. Through Service Control Policies (SCPs).",
+        "C. By implementing AWS Shield.",
+        "D. With AWS Direct Connect.",
+        "E. By using AWS Network Manager."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Firewall Manager is for managing firewall rules, not overall compliance across accounts.",
+        "B": "Correct. AWS Control Tower uses Service Control Policies to enforce compliance and governance across AWS accounts.",
+        "C": "AWS Shield is a DDoS protection service, unrelated to compliance enforcement.",
+        "D": "AWS Direct Connect is a network service and does not enforce compliance.",
+        "E": "AWS Network Manager is for managing network resources, not compliance."
+      }
+    },
+    {
+      "question": "Which of the following is NOT a benefit of using AWS Control Tower?",
+      "options": [
+        "A. Automated account provisioning.",
+        "B. Centralized logging with AWS CloudTrail.",
+        "C. Enhanced machine learning model deployment.",
+        "D. Governance through pre-configured blueprints.",
+        "E. Integration with AWS Organizations."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS Control Tower automates the provisioning of new accounts according to best practices.",
+        "B": "It provides centralized logging using AWS CloudTrail and other services.",
+        "C": "Correct. AWS Control Tower does not focus on machine learning deployment enhancements.",
+        "D": "Governance through blueprints is a key feature of AWS Control Tower.",
+        "E": "AWS Control Tower integrates with AWS Organizations to manage accounts."
+      }
+    },
+    {
+      "question": "Which feature of AWS Control Tower provides customizable templates for setting up accounts?",
+      "options": [
+        "A. Service Catalog",
+        "B. Guardrails",
+        "C. Blueprints",
+        "D. Landing Zone",
+        "E. IAM Policies"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "While Service Catalog can manage templates, in the context of AWS Control Tower, blueprints are used for account setup.",
+        "B": "Guardrails are rules for compliance and governance, not templates.",
+        "C": "Correct. Blueprints provide customizable templates for setting up AWS accounts.",
+        "D": "Landing Zone refers to the entire multi-account environment setup, not individual templates.",
+        "E": "IAM Policies define permissions but do not serve as account setup templates."
+      }
+    },
+    {
+      "question": "What role does AWS Control Tower play in the context of AWS Organizations?",
+      "options": [
+        "A. It replaces AWS Organizations as the primary account management tool.",
+        "B. It provides additional governance and compliance features on top of AWS Organizations.",
+        "C. It is unrelated to AWS Organizations.",
+        "D. It offers a cheaper alternative to using AWS Organizations.",
+        "E. It only manages billing aspects of AWS Organizations."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Control Tower complements, rather than replaces, AWS Organizations.",
+        "B": "Correct. AWS Control Tower enhances AWS Organizations with additional governance and compliance features.",
+        "C": "AWS Control Tower directly integrates with AWS Organizations.",
+        "D": "AWS Control Tower is not an alternative but a complementary service.",
+        "E": "AWS Control Tower provides more than just billing management; it focuses on governance."
+      }
+    },
+    {
+      "question": "Which AWS Control Tower feature helps enforce security and compliance policies?",
+      "options": [
+        "A. Landing Zone",
+        "B. Service Control Policies",
+        "C. AWS CloudFormation",
+        "D. Guardrails",
+        "E. IAM Roles"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Landing Zone is the environment setup but does not specifically enforce policies.",
+        "B": "Service Control Policies do enforce policies but are part of AWS Organizations.",
+        "C": "AWS CloudFormation is for infrastructure deployment, not directly for policy enforcement.",
+        "D": "Correct. Guardrails are used in AWS Control Tower to enforce security and compliance policies.",
+        "E": "IAM Roles define access permissions but are not specific to Control Tower."
+      }
+    },
+    {
+      "question": "When using AWS Control Tower, which service helps manage and visualize the network topology?",
+      "options": [
+        "A. AWS CloudTrail",
+        "B. AWS Config",
+        "C. AWS Network Manager",
+        "D. AWS Transit Gateway",
+        "E. AWS Systems Manager"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS CloudTrail logs API activity but does not visualize network topology.",
+        "B": "AWS Config tracks resource configurations, not network topology.",
+        "C": "Correct. AWS Network Manager helps manage and visualize network topology.",
+        "D": "AWS Transit Gateway connects VPCs but does not visualize them.",
+        "E": "AWS Systems Manager provides operational data and automation but not network visualization."
+      }
+    },
+    {
+      "question": "Which AWS service is essential for defining and applying Guardrails in AWS Control Tower?",
+      "options": [
+        "A. AWS IAM",
+        "B. AWS Organizations",
+        "C. AWS Trusted Advisor",
+        "D. AWS WAF",
+        "E. AWS CloudTrail"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS IAM manages identities and access but is not the primary service for Guardrails.",
+        "B": "Correct. AWS Organizations is used to define Guardrails in AWS Control Tower.",
+        "C": "AWS Trusted Advisor provides recommendations but does not apply Guardrails.",
+        "D": "AWS WAF is a web application firewall, not related to Guardrails.",
+        "E": "AWS CloudTrail logs actions for auditing but does not define Guardrails."
+      }
+    },
+    {
+      "question": "How does AWS Control Tower assist in the management of compliance across AWS accounts?",
+      "options": [
+        "A. By automatically patching all instances.",
+        "B. By providing a unified dashboard for monitoring compliance status.",
+        "C. By replacing AWS Config with a more advanced solution.",
+        "D. By offering machine learning-driven insights.",
+        "E. By integrating directly with third-party compliance tools."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Patching is not directly related to compliance management in Control Tower.",
+        "B": "Correct. AWS Control Tower provides a dashboard that helps monitor compliance status.",
+        "C": "AWS Config is used by Control Tower; it is not replaced.",
+        "D": "Machine learning insights are not a feature of AWS Control Tower.",
+        "E": "AWS Control Tower does not natively integrate with third-party compliance tools."
+      }
+    },
+    {
+      "question": "In AWS Control Tower, what is the purpose of an Account Factory?",
+      "options": [
+        "A. To manage data storage across accounts.",
+        "B. To create and manage new AWS accounts.",
+        "C. To optimize cost across multiple AWS accounts.",
+        "D. To automate the deployment of applications.",
+        "E. To monitor network traffic between accounts."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Data storage management is not the primary function of Account Factory.",
+        "B": "Correct. Account Factory in AWS Control Tower is used to create and manage new AWS accounts.",
+        "C": "Cost optimization is not the primary function of Account Factory.",
+        "D": "While it aids in setting up accounts for applications, it does not automate deployments.",
+        "E": "Network traffic monitoring is not related to the Account Factory feature."
+      }
+    },
+    {
+      "question": "What is a key advantage of using AWS Control Tower for multi-account environments?",
+      "options": [
+        "A. It provides a cheaper alternative to using AWS Organizations.",
+        "B. It centralizes security management for all accounts.",
+        "C. It eliminates the need for AWS IAM roles.",
+        "D. It automatically scales resources based on demand.",
+        "E. It offers a fully managed database solution."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Control Tower is not a cost-reduction tool compared to AWS Organizations.",
+        "B": "Correct. AWS Control Tower centralizes security and governance for multi-account environments.",
+        "C": "IAM roles are still needed for identity management and permissions.",
+        "D": "Resource scaling is managed by services like AWS Auto Scaling, not Control Tower.",
+        "E": "AWS Control Tower does not provide database solutions."
+      }
+    },
+    {
+      "question": "Which service is NOT directly integrated with AWS Control Tower for compliance and governance?",
+      "options": [
+        "A. AWS CloudTrail",
+        "B. AWS Config",
+        "C. AWS Lambda",
+        "D. AWS Organizations",
+        "E. AWS Service Catalog"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS CloudTrail is used for logging and auditing, integral to compliance.",
+        "B": "AWS Config is directly integrated for compliance monitoring.",
+        "C": "Correct. AWS Lambda is a compute service and not directly used for compliance/governance in Control Tower.",
+        "D": "AWS Organizations is a key component of AWS Control Tower for multi-account management.",
+        "E": "AWS Service Catalog is used to manage and deploy AWS services within Control Tower."
+      }
+    },
+    {
+      "question": "What is the main advantage of using Guardrails in AWS Control Tower?",
+      "options": [
+        "A. They provide auto-scaling for applications.",
+        "B. They simplify the process of creating VPCs.",
+        "C. They enforce policy compliance and governance.",
+        "D. They offer direct integration with Kubernetes.",
+        "E. They manage DNS records automatically."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Guardrails do not provide auto-scaling functionalities.",
+        "B": "Guardrails are not related to VPC creation.",
+        "C": "Correct. Guardrails are used to enforce policy compliance and governance.",
+        "D": "Kubernetes integration is not a function of Guardrails.",
+        "E": "Managing DNS records is not the purpose of Guardrails."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon DynamoDB",
+  "questions": [
+    {
+      "question": "Which of the following best describes how data is partitioned in Amazon DynamoDB?",
+      "options": [
+        "A. Data is partitioned by the primary key and stored in a single partition.",
+        "B. Data is partitioned by the partition key and spread across multiple partitions.",
+        "C. Data is partitioned by the sort key and stored in sequence in a single partition.",
+        "D. Data is partitioned by the attribute names and distributed evenly across all partitions.",
+        "E. Data is partitioned based on the attribute types and stored in separate partitions."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. Data is not stored in a single partition; it is distributed across multiple partitions.",
+        "B": "Correct. DynamoDB partitions data based on the partition key, spreading items across multiple partitions.",
+        "C": "Incorrect. The sort key is used to sort data within partitions, not to partition data itself.",
+        "D": "Incorrect. Attribute names do not affect how data is partitioned.",
+        "E": "Incorrect. Attribute types do not determine partitioning in DynamoDB."
+      }
+    },
+    {
+      "question": "What is the maximum size of an item in DynamoDB, including all attribute names and values?",
+      "options": [
+        "A. 256 KB",
+        "B. 512 KB",
+        "C. 1 MB",
+        "D. 2 MB",
+        "E. 4 MB"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Incorrect. This is less than the maximum allowed size.",
+        "B": "Incorrect. This is less than the maximum allowed size.",
+        "C": "Correct. The maximum item size in DynamoDB is 400 KB.",
+        "D": "Incorrect. This exceeds the maximum allowed size.",
+        "E": "Incorrect. This exceeds the maximum allowed size."
+      }
+    },
+    {
+      "question": "Which of the following is a valid use case for DynamoDB Streams?",
+      "options": [
+        "A. Performing complex queries on data in real-time.",
+        "B. Triggering AWS Lambda functions in response to data modifications.",
+        "C. Running aggregate functions on data within the stream.",
+        "D. Storing large binary files.",
+        "E. Executing SQL-like queries directly on the stream data."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. DynamoDB Streams is not used for performing complex queries.",
+        "B": "Correct. DynamoDB Streams can trigger Lambda functions on data changes.",
+        "C": "Incorrect. Aggregates are not directly supported on stream data.",
+        "D": "Incorrect. Streams are not for storing files.",
+        "E": "Incorrect. Streams do not support SQL-like queries directly."
+      }
+    },
+    {
+      "question": "How does DynamoDB handle a situation where a write request exceeds the provisioned throughput?",
+      "options": [
+        "A. The request is automatically queued and retried until successful.",
+        "B. The request is immediately rejected with a ProvisionedThroughputExceededException.",
+        "C. DynamoDB automatically scales the throughput to accommodate the request.",
+        "D. The request is processed at a slower rate without failure.",
+        "E. The request is split into smaller requests to fit within the provisioned limits."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. Requests are not automatically queued.",
+        "B": "Correct. DynamoDB rejects requests that exceed provisioned throughput.",
+        "C": "Incorrect. DynamoDB does not automatically scale provisioned throughput.",
+        "D": "Incorrect. Requests are not processed at a slower rate.",
+        "E": "Incorrect. Requests are not split; they are rejected."
+      }
+    },
+    {
+      "question": "In DynamoDB, what is the purpose of a Global Secondary Index (GSI)?",
+      "options": [
+        "A. To enable complex joins between tables.",
+        "B. To allow querying of non-primary key attributes.",
+        "C. To store encrypted data securely.",
+        "D. To automatically back up data at regular intervals.",
+        "E. To ensure strong consistency for read operations."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. DynamoDB does not support joins.",
+        "B": "Correct. GSIs allow queries on non-primary key attributes.",
+        "C": "Incorrect. GSIs are not related to data encryption.",
+        "D": "Incorrect. GSIs are not used for automated backups.",
+        "E": "Incorrect. GSIs do not ensure strong consistency."
+      }
+    },
+    {
+      "question": "What is the default read consistency model in DynamoDB?",
+      "options": [
+        "A. Strongly consistent reads",
+        "B. Eventually consistent reads",
+        "C. Atomic consistent reads",
+        "D. Transactional consistent reads",
+        "E. Immediate consistent reads"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. Strong consistency is not the default setting.",
+        "B": "Correct. DynamoDB uses eventually consistent reads by default.",
+        "C": "Incorrect. This is not a consistency model in DynamoDB.",
+        "D": "Incorrect. Transactions have a different purpose.",
+        "E": "Incorrect. Immediate consistency is not a term used in DynamoDB."
+      }
+    },
+    {
+      "question": "Which feature of DynamoDB allows for the automatic scaling of read and write capacity?",
+      "options": [
+        "A. DynamoDB Accelerator (DAX)",
+        "B. On-Demand Backup and Restore",
+        "C. Auto Scaling",
+        "D. Time to Live (TTL)",
+        "E. Global Tables"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Incorrect. DAX is a caching service.",
+        "B": "Incorrect. Backups do not influence scaling.",
+        "C": "Correct. Auto Scaling adjusts throughput automatically.",
+        "D": "Incorrect. TTL is for data expiration.",
+        "E": "Incorrect. Global Tables are for multi-region replication."
+      }
+    },
+    {
+      "question": "Which of the following is a key advantage of using DynamoDB's On-Demand Capacity mode?",
+      "options": [
+        "A. Lower cost for high and consistent workloads.",
+        "B. Predictable billing with no unexpected charges.",
+        "C. Automatic scaling with no need to specify capacity.",
+        "D. Offers higher read and write throughput than provisioned mode.",
+        "E. Guarantees strong consistency for all read operations."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Incorrect. On-demand mode can be more expensive for consistent workloads.",
+        "B": "Incorrect. Costs can vary based on usage.",
+        "C": "Correct. On-demand mode scales automatically without capacity specification.",
+        "D": "Incorrect. Throughput depends on usage, not mode.",
+        "E": "Incorrect. Consistency is not affected by capacity mode."
+      }
+    },
+    {
+      "question": "What is the function of DynamoDB Transactions?",
+      "options": [
+        "A. To perform complex analytical queries.",
+        "B. To enable atomic, consistent, isolated, and durable operations.",
+        "C. To automatically recover from failures.",
+        "D. To provide in-memory caching for queries.",
+        "E. To allow for parallel processing of requests."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. Transactions are not for analytical queries.",
+        "B": "Correct. Transactions ensure ACID properties.",
+        "C": "Incorrect. Recovery is not a purpose of Transactions.",
+        "D": "Incorrect. Caching is not related to Transactions.",
+        "E": "Incorrect. Transactions do not enable parallel processing."
+      }
+    },
+    {
+      "question": "How does Amazon DynamoDB handle data consistency across multiple regions?",
+      "options": [
+        "A. Through synchronous replication ensuring strong consistency.",
+        "B. By using Global Tables which provide eventual consistency.",
+        "C. By automatically applying strong consistency across all regions.",
+        "D. By storing all data in a central region with a read replica in other regions.",
+        "E. By using a single master approach where only one region can write."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. Replication is eventually consistent.",
+        "B": "Correct. Global Tables provide eventual consistency across regions.",
+        "C": "Incorrect. Strong consistency is not automatically applied.",
+        "D": "Incorrect. Data is not stored centrally.",
+        "E": "Incorrect. Multi-master writes are supported in Global Tables."
+      }
+    },
+    {
+      "question": "When should you use DynamoDB Accelerator (DAX)?",
+      "options": [
+        "A. When you need to encrypt data at rest.",
+        "B. When you require single-digit millisecond response times for reads.",
+        "C. When you need to backup data automatically.",
+        "D. When you are running complex aggregation queries.",
+        "E. When you need to export data to S3."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. DAX is not related to encryption.",
+        "B": "Correct. DAX is designed to speed up read times.",
+        "C": "Incorrect. Backups are not related to DAX.",
+        "D": "Incorrect. Aggregations are not supported by DAX.",
+        "E": "Incorrect. Data export is not a DAX feature."
+      }
+    },
+    {
+      "question": "Which of the following best describes the purpose of the Time to Live (TTL) feature in DynamoDB?",
+      "options": [
+        "A. To automatically back up data at regular intervals.",
+        "B. To enable automatic deletion of expired items.",
+        "C. To ensure data is encrypted during transmission.",
+        "D. To replicate data across multiple regions.",
+        "E. To maintain a consistent read and write throughput."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. TTL is not for backups.",
+        "B": "Correct. TTL automatically deletes expired items.",
+        "C": "Incorrect. Encryption is not related to TTL.",
+        "D": "Incorrect. Replication is not a TTL function.",
+        "E": "Incorrect. Throughput consistency is unrelated to TTL."
+      }
+    },
+    {
+      "question": "What is the primary benefit of using a Local Secondary Index (LSI) in DynamoDB?",
+      "options": [
+        "A. Performing joins across multiple tables.",
+        "B. Supporting queries with strong consistency using alternative sort keys.",
+        "C. Automatically scaling read and write capacity.",
+        "D. Enabling cross-region replication of data.",
+        "E. Allowing for the storage of large binary files."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Incorrect. LSIs do not support joins.",
+        "B": "Correct. LSIs allow queries with different sort keys, maintaining strong consistency.",
+        "C": "Incorrect. LSIs do not affect capacity scaling.",
+        "D": "Incorrect. LSIs are not used for replication.",
+        "E": "Incorrect. LSIs do not store binary files."
+      }
+    },
+    {
+      "question": "Which DynamoDB feature allows for point-in-time recovery of data?",
+      "options": [
+        "A. DynamoDB Streams",
+        "B. On-Demand Backup and Restore",
+        "C. Point-in-Time Recovery (PITR)",
+        "D. Global Tables",
+        "E. DynamoDB Accelerator (DAX)"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Incorrect. Streams do not provide recovery features.",
+        "B": "Incorrect. On-demand backups are not point-in-time.",
+        "C": "Correct. PITR allows recovery to any second within the last 35 days.",
+        "D": "Incorrect. Global Tables are for multi-region replication.",
+        "E": "Incorrect. DAX is a caching service."
+      }
+    },
+    {
+      "question": "How does DynamoDB handle a scan operation that exceeds the provisioned read capacity?",
+      "options": [
+        "A. The scan operation is automatically split into multiple requests.",
+        "B. The scan operation is prioritized and completed without interruption.",
+        "C. The scan operation is throttled and may result in incomplete results.",
+        "D. The scan operation is converted into a query operation.",
+        "E. The scan operation is executed with higher consistency."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Incorrect. Scans are not automatically split.",
+        "B": "Incorrect. Scans are subject to throttling.",
+        "C": "Correct. Scans exceeding capacity can be throttled, leading to incomplete results.",
+        "D": "Incorrect. Scans cannot be converted to queries.",
+        "E": "Incorrect. Consistency level does not change during scans."
+      }
+    }
+  ]
+},
