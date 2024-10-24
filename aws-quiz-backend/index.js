@@ -16,9 +16,29 @@ app.use(express.json());
 const PORT = process.env.PORT || 5050;
 
 app.post("/generate-questions", async (req, res) => {
-  const { service, model } = req.body;
+  let { service, cheatSheet, difficulty, model } = req.body;
   try {
-    const prompt = `Generate 15 difficult multiple-choice questions with 5 options each on AWS ${service} for the Solutions Architect Associate Exam. Provide the correct answer and explanations for each option without revealing the correct answer upfront. Format the response as a JSON array where each question object has the following structure:
+    // Validate difficulty level
+    const allowedDifficulties = ["easy", "medium", "hard"];
+    if (!allowedDifficulties.includes(difficulty)) {
+      difficulty = "medium";
+    }
+
+    // Build the prompt dynamically
+    let prompt = "";
+
+    if (cheatSheet) {
+      prompt += `Based on the following text, generate 15 ${difficulty} multiple-choice questions with 5 options each for the AWS Solutions Architect Associate Exam. The text is: "${cheatSheet}". `;
+    } else if (service) {
+      prompt += `Generate 15 ${difficulty} multiple-choice questions with 5 options each on AWS ${service} for the Solutions Architect Associate Exam. `;
+    } else {
+      // Neither service nor cheatSheet is provided
+      return res
+        .status(400)
+        .send("Please provide either an AWS service or cheat sheet text.");
+    }
+
+    prompt += `Provide the correct answer and explanations for each option without revealing the correct answer upfront. Format the response as a JSON array where each question object has the following structure:
     {
       "question": "Question text",
       "options": ["A. Option 1", "B. Option 2", "C. Option 3", "D. Option 4", "E. Option 5"],
@@ -66,7 +86,9 @@ app.post("/generate-questions", async (req, res) => {
     });
 
     // Save the questions along with the service to a file
-    const dataToSave = JSON.stringify({ service, questions }, null, 2) + ",\n";
+    const dataToSave =
+      JSON.stringify({ service, cheatSheet, difficulty, questions }, null, 2) +
+      ",\n";
     const filePath = path.join(__dirname, "questions.txt");
 
     fs.appendFile(filePath, dataToSave, (err) => {
@@ -90,7 +112,6 @@ app.post("/generate-questions", async (req, res) => {
 app.post("/check-answers", async (req, res) => {
   const { userAnswers, questions, model } = req.body;
   try {
-    // Inside app.post("/check-answers", ...)
     const results = questions.map((question, index) => {
       const userAnswer = userAnswers[index];
       const correct = userAnswer === question.correctAnswer;
@@ -128,13 +149,13 @@ app.post("/check-answers", async (req, res) => {
     res.json({ results });
   } catch (error) {
     console.error("Error in check-answers:", error);
-    console.error("Questions:", JSON.stringify(questions, null, 2)); // Add this for debugging
+    console.error("Questions:", JSON.stringify(questions, null, 2));
     res.status(500).send("Error checking answers.");
   }
 });
 
 app.post("/save-results", async (req, res) => {
-  const { results, service } = req.body;
+  const { results } = req.body;
   try {
     const dataToSave = JSON.stringify(results, null, 2) + ",\n";
     const filePath = path.join(__dirname, "results.txt");

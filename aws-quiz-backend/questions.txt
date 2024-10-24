@@ -1044,3 +1044,521 @@
     }
   ]
 },
+{
+  "service": "",
+  "cheatSheet": "Trusted Advisor is an online resource that helps to reduce cost, increase performance, and improve security by optimizing your AWS environment.\n\nTrusted Advisor provides real time guidance to help you provision your resources following best practices.\n\nAdvisor will advise you on Cost Optimization, Performance, Security, and Fault Tolerance.\n\nTrusted Advisor scans your AWS infrastructure and compares is to AWS best practices in five categories:\n\n- Cost Optimization.\n- Performance.\n- Security.\n- Fault Tolerance.\n- Service Limits.\n\nTrusted Advisor comes in two versions.\n\nCore Checks and Recommendations (free):\n\n- Access to the 7 core checks to help increase security and performance.\n- Checks include S3 bucket permissions, Security Groups, IAM use, MFA on root account, EBS public snapshots, RDS public snapshots.\n\nFull Trusted Advisor Benefits (business and enterprise support plans).\n\nFull set of checks to help optimize your entire AWS infrastructure.\n\nAdvises on security, performance, cost, fault tolerance and service limits.\n\nAdditional benefits include weekly update notifications, alerts, automated actions with CloudWatch and programmatic access using the AWS Support API.",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "question": "Which of the following categories does AWS Trusted Advisor provide guidance on?",
+      "options": [
+        "A. Cost Optimization, Performance, Security, Fault Tolerance, Service Limits",
+        "B. Networking, Databases, Compute, Storage, Security",
+        "C. Cost Optimization, Performance, Storage, Networking, Service Limits",
+        "D. Compute, Storage, Security, Fault Tolerance, Service Limits",
+        "E. Cost Optimization, Compute, Security, Fault Tolerance, Networking"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Trusted Advisor provides guidance on Cost Optimization, Performance, Security, Fault Tolerance, and Service Limits.",
+        "B": "These are common AWS categories but not specific to Trusted Advisor.",
+        "C": "The correct categories do not include Storage and Networking.",
+        "D": "Compute and Storage are not part of Trusted Advisor's guidance categories.",
+        "E": "Networking is not included in Trusted Advisor's guidance categories."
+      }
+    },
+    {
+      "question": "What type of access does the Core Checks and Recommendations version of Trusted Advisor provide?",
+      "options": [
+        "A. Access to all checks for optimizing AWS infrastructure.",
+        "B. Access to 7 core checks for increasing security and performance.",
+        "C. Access to cost optimization checks only.",
+        "D. Access to performance checks only.",
+        "E. Access to security checks only."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The full set of checks is available only with business and enterprise support plans.",
+        "B": "The Core Checks and Recommendations version provides access to 7 core checks focused on increasing security and performance.",
+        "C": "Core Checks and Recommendations include more than just cost optimization checks.",
+        "D": "Performance checks are included, but there are also security checks.",
+        "E": "Security checks are included, but there are also performance checks."
+      }
+    },
+    {
+      "question": "Which AWS Trusted Advisor feature is available only with business and enterprise support plans?",
+      "options": [
+        "A. Access to 7 core checks",
+        "B. Weekly update notifications",
+        "C. S3 bucket permissions check",
+        "D. IAM use check",
+        "E. Security Groups check"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Access to 7 core checks is available in the Core Checks and Recommendations version.",
+        "B": "Weekly update notifications are part of the additional benefits in the full Trusted Advisor benefits, available with business and enterprise support plans.",
+        "C": "S3 bucket permissions check is part of the core checks.",
+        "D": "IAM use check is part of the core checks.",
+        "E": "Security Groups check is part of the core checks."
+      }
+    },
+    {
+      "question": "What additional capabilities does the full Trusted Advisor Benefits provide over the Core Checks and Recommendations?",
+      "options": [
+        "A. Only cost optimization checks",
+        "B. Automated actions with CloudWatch",
+        "C. Access to IAM use check",
+        "D. Access to Security Groups check",
+        "E. Access to S3 bucket permissions check"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The full set of checks includes more than just cost optimization checks.",
+        "B": "Automated actions with CloudWatch are additional benefits available in the full Trusted Advisor Benefits.",
+        "C": "IAM use check is included in core checks.",
+        "D": "Security Groups check is included in core checks.",
+        "E": "S3 bucket permissions check is included in core checks."
+      }
+    },
+    {
+      "question": "Which of the following checks is included in the Core Checks and Recommendations?",
+      "options": [
+        "A. Weekly update notifications",
+        "B. Programmatic access using the AWS Support API",
+        "C. EBS public snapshots check",
+        "D. Automated actions with CloudWatch",
+        "E. Full set of checks for optimizing AWS infrastructure"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Weekly update notifications are part of the full Trusted Advisor benefits.",
+        "B": "Programmatic access using the AWS Support API is available with full Trusted Advisor benefits.",
+        "C": "EBS public snapshots check is included in the Core Checks and Recommendations.",
+        "D": "Automated actions with CloudWatch are part of the full Trusted Advisor benefits.",
+        "E": "The full set of checks is available only with business and enterprise support plans."
+      }
+    },
+    {
+      "question": "What is the primary purpose of AWS Trusted Advisor?",
+      "options": [
+        "A. To provide a platform for AWS service deployment",
+        "B. To help reduce cost, increase performance, and improve security",
+        "C. To manage AWS billing and cost management",
+        "D. To monitor AWS application performance",
+        "E. To provide AWS training and certification"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Trusted Advisor is not a platform for deploying AWS services.",
+        "B": "Trusted Advisor's primary purpose is to help reduce cost, increase performance, and improve security by optimizing the AWS environment.",
+        "C": "While it helps reduce costs, it is not specifically for billing and cost management.",
+        "D": "Trusted Advisor focuses on optimizing the AWS environment, not application performance monitoring.",
+        "E": "Trusted Advisor is not related to AWS training and certification."
+      }
+    },
+    {
+      "question": "Which of the following Trusted Advisor checks is related to security?",
+      "options": [
+        "A. Cost Optimization",
+        "B. EBS public snapshots",
+        "C. Performance",
+        "D. Fault Tolerance",
+        "E. Service Limits"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Cost Optimization is related to reducing costs, not directly related to security.",
+        "B": "EBS public snapshots check is a security-related check.",
+        "C": "Performance checks focus on optimizing the performance of AWS resources.",
+        "D": "Fault Tolerance checks help ensure that resources are resilient to failures.",
+        "E": "Service Limits checks help manage the limits of AWS services, not directly related to security."
+      }
+    },
+    {
+      "question": "How does Trusted Advisor help in following AWS best practices?",
+      "options": [
+        "A. By providing training sessions",
+        "B. By comparing infrastructure to AWS best practices",
+        "C. By offering custom development services",
+        "D. By providing AWS certification exams",
+        "E. By providing discounts on AWS services"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Trusted Advisor does not provide training sessions.",
+        "B": "Trusted Advisor scans your AWS infrastructure and compares it to AWS best practices.",
+        "C": "Trusted Advisor does not offer custom development services.",
+        "D": "Trusted Advisor is not involved in providing AWS certification exams.",
+        "E": "Trusted Advisor does not provide discounts on AWS services."
+      }
+    },
+    {
+      "question": "What is not a feature of the full Trusted Advisor Benefits?",
+      "options": [
+        "A. Access to 7 core checks",
+        "B. Weekly update notifications",
+        "C. Automated actions with CloudWatch",
+        "D. Programmatic access using the AWS Support API",
+        "E. Full set of checks for optimizing AWS infrastructure"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Access to 7 core checks is part of the Core Checks and Recommendations, not the full Trusted Advisor Benefits.",
+        "B": "Weekly update notifications are a feature of the full Trusted Advisor Benefits.",
+        "C": "Automated actions with CloudWatch are a feature of the full Trusted Advisor Benefits.",
+        "D": "Programmatic access using the AWS Support API is a feature of the full Trusted Advisor Benefits.",
+        "E": "The full set of checks is available with the full Trusted Advisor Benefits."
+      }
+    },
+    {
+      "question": "Which of the following is NOT a category assessed by AWS Trusted Advisor?",
+      "options": [
+        "A. Performance",
+        "B. Security",
+        "C. Fault Tolerance",
+        "D. Networking",
+        "E. Service Limits"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Performance is a category assessed by AWS Trusted Advisor.",
+        "B": "Security is a category assessed by AWS Trusted Advisor.",
+        "C": "Fault Tolerance is a category assessed by AWS Trusted Advisor.",
+        "D": "Networking is not a specific category assessed by AWS Trusted Advisor.",
+        "E": "Service Limits is a category assessed by AWS Trusted Advisor."
+      }
+    },
+    {
+      "question": "Which feature of Trusted Advisor is specifically available in business and enterprise support plans?",
+      "options": [
+        "A. Access to S3 bucket permissions check",
+        "B. Full set of checks for optimizing AWS infrastructure",
+        "C. Access to IAM use check",
+        "D. Security Groups check",
+        "E. MFA on root account check"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "S3 bucket permissions check is part of the core checks.",
+        "B": "The full set of checks for optimizing AWS infrastructure is available in business and enterprise support plans.",
+        "C": "IAM use check is part of the core checks.",
+        "D": "Security Groups check is part of the core checks.",
+        "E": "MFA on root account check is part of the core checks."
+      }
+    },
+    {
+      "question": "What does Trusted Advisor use to inform users about best practices?",
+      "options": [
+        "A. User feedback and surveys",
+        "B. AWS infrastructure scans",
+        "C. Manual input from AWS engineers",
+        "D. External security audits",
+        "E. Performance benchmarking tools"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Trusted Advisor does not use user feedback and surveys for informing about best practices.",
+        "B": "AWS infrastructure scans are used by Trusted Advisor to inform users about best practices.",
+        "C": "Manual input from AWS engineers is not used in the Trusted Advisor process.",
+        "D": "External security audits are not part of Trusted Advisor's process.",
+        "E": "Performance benchmarking tools are not used by Trusted Advisor for best practice information."
+      }
+    },
+    {
+      "question": "What is the purpose of the service limits check in AWS Trusted Advisor?",
+      "options": [
+        "A. To analyze security vulnerabilities",
+        "B. To ensure cost optimization",
+        "C. To manage and monitor the limits of AWS services",
+        "D. To check the performance of AWS resources",
+        "E. To provide AWS certification resources"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Service limits checks do not analyze security vulnerabilities.",
+        "B": "Service limits checks are not specifically for cost optimization.",
+        "C": "The purpose of the service limits check is to manage and monitor the limits of AWS services.",
+        "D": "Service limits checks do not specifically check performance.",
+        "E": "Service limits checks are not related to AWS certification resources."
+      }
+    },
+    {
+      "question": "Which check is NOT included in the Core Checks and Recommendations version of Trusted Advisor?",
+      "options": [
+        "A. S3 bucket permissions",
+        "B. Security Groups",
+        "C. IAM use",
+        "D. RDS public snapshots",
+        "E. Weekly update notifications"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "S3 bucket permissions check is included in the Core Checks and Recommendations.",
+        "B": "Security Groups check is included in the Core Checks and Recommendations.",
+        "C": "IAM use check is included in the Core Checks and Recommendations.",
+        "D": "RDS public snapshots check is included in the Core Checks and Recommendations.",
+        "E": "Weekly update notifications are not part of the Core Checks and Recommendations."
+      }
+    },
+    {
+      "question": "How can users access the full set of checks provided by Trusted Advisor?",
+      "options": [
+        "A. By using the free tier of AWS",
+        "B. By subscribing to business or enterprise support plans",
+        "C. By completing AWS certification exams",
+        "D. By attending AWS training sessions",
+        "E. By signing up for AWS newsletters"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The free tier does not provide access to the full set of checks.",
+        "B": "Subscribing to business or enterprise support plans grants access to the full set of checks.",
+        "C": "Completing AWS certification exams does not provide access to the full set of checks.",
+        "D": "Attending AWS training sessions does not provide access to the full set of checks.",
+        "E": "Signing up for AWS newsletters does not provide access to the full set of checks."
+      }
+    }
+  ]
+},
+{
+  "service": "",
+  "cheatSheet": "AWS WAF and AWS Shield help protect your AWS resources from web exploits and DDoS attacks.\n\nAWS WAF is a web application firewall service that helps protect your web apps from common exploits that could affect app availability, compromise security, or consume excessive resources.\n\nAWS Shield provides expanded DDoS attack protection for your AWS resources. Get 24/7 support from our DDoS response team and detailed visibility into DDoS events.\n\nWe’ll now go into more detail on each service.\n\n## AWS Web Application Firewall (WAF)\n\nAWS WAF is a web application firewall that helps protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.\n\nAWS WAF helps protect web applications from attacks by allowing you to configure rules that allow, block, or monitor (count) web requests based on conditions that you define.\n\nThese conditions include IP addresses, HTTP headers, HTTP body, URI strings, SQL injection and cross-site scripting.\n\nCan allow or block web requests based on strings that appear in the requests using string match conditions.\n\nFor example, AWS WAF can match values in the following request parts:\n\n- Header – A specified request header, for example, the User-Agent or Referer header.\n- HTTP method – The HTTP method, which indicates the type of operation that the request is asking the origin to perform. CloudFront supports the following methods: DELETE, GET, HEAD, OPTIONS, PATCH, POST, and PUT.\n- Query string – The part of a URL that appears after a ? character, if any.\n- URI – The URI path of the request, which identifies the resource, for example, /images/daily-ad.jpg.\n- Body – The part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.\n- Single query parameter (value only) – Any parameter that you have defined as part of the query string.\n- All query parameters (values only) – As above buy inspects all parameters within the query string.\n\nNew rules can be deployed within minutes, letting you respond quickly to changing traffic patterns.\n\nWhen AWS services receive requests for web sites, the requests are forwarded to AWS WAF for inspection against defined rules.\n\nOnce a request meets a condition defined in the rules, AWS WAF instructs the underlying service to either block or allow the request based on the action you define.\n\nWith AWS WAF you pay only for what you use.\n\nAWS WAF pricing is based on how many rules you deploy and how many web requests your web application receives.\n\nThere are no upfront commitments.\n\nAWS WAF is tightly integrated with Amazon CloudFront and the Application Load Balancer (ALB), services.\n\nWhen you use AWS WAF on Amazon CloudFront, rules run in all AWS Edge Locations, located around the world close to end users.\n\nThis means security doesn’t come at the expense of performance.\n\nBlocked requests are stopped before they reach your web servers.\n\nWhen you use AWS WAF on an Application Load Balancer, your rules run in region and can be used to protect internet-facing as well as internal load balancers.\n\n### Web Traffic Filtering\n\nAWS WAF lets you create rules to filter web traffic based on conditions that include IP addresses, HTTP headers and body, or custom URIs.\n\nThis gives you an additional layer of protection from web attacks that attempt to exploit vulnerabilities in custom or third-party web applications.\n\nIn addition, AWS WAF makes it easy to create rules that block common web exploits like SQL injection and cross site scripting.\n\nAWS WAF allows you to create a centralized set of rules that you can deploy across multiple websites.\n\nThis means that in an environment with many websites and web applications you can create a single set of rules that you can reuse across applications rather than recreating that rule on every application you want to protect.\n\n### Full feature API\n\nAWS WAF can be completely administered via APIs.\n\nThis provides organizations with the ability to create and maintain rules automatically and incorporate them into the development and design process.\n\nFor example, a developer who has detailed knowledge of the web application could create a security rule as part of the deployment process.\n\nThis capability to incorporate security into your development process avoids the need for complex handoffs between application and security teams to make sure rules are kept up to date.\n\nAWS WAF can also be deployed and provisioned automatically with AWS CloudFormation sample templates that allow you to describe all security rules you would like to deploy for your web applications delivered by Amazon CloudFront.\n\nAWS WAF is integrated with Amazon CloudFront, which supports custom origins outside of AWS – this means you can protect web sites not hosted in AWS.\n\nSupport for IPv6 allows the AWS WAF to inspect HTTP/S requests coming from both IPv6 and IPv4 addresses.\n\n### Real-time visibility\n\nAWS WAF provides real-time metrics and captures raw requests that include details about IP addresses, geo locations, URIs, User-Agent and Referers.\n\nAWS WAF is fully integrated with Amazon CloudWatch, making it easy to setup custom alarms when thresholds are exceeded, or attacks occur.\n\nThis information provides valuable intelligence that can be used to create new rules to better protect applications.\n\n## AWS Shield\n\nAWS Shield is a managed Distributed Denial of Service (DDoS) protection service that safeguards applications running on AWS.\n\nAWS Shield provides always-on detection and automatic inline mitigations that minimize application downtime and latency, so there is no need to engage AWS Support to benefit from DDoS protection.\n\nThere are two tiers of AWS Shield – Standard and Advanced.\n\n### AWS Shield Standard\n\nAll AWS customers benefit from the automatic protections of AWS Shield Standard, at no additional charge.\n\nAWS Shield Standard defends against most common, frequently occurring network and transport layer DDoS attacks that target web sites or applications.\n\nWhen using AWS Shield Standard with Amazon CloudFront and Amazon Route 53, you receive comprehensive availability protection against all known infrastructure (Layer 3 and 4) attacks.\n\n### AWS Shield Advanced\n\nProvides higher levels of protection against attacks targeting applications running on Amazon Elastic Compute Cloud (EC2), Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator and Amazon Route 53 resources.\n\nIn addition to the network and transport layer protections that come with Standard, AWS Shield Advanced provides additional detection and mitigation against large and sophisticated DDoS attacks, near real-time visibility into attacks, and integration with AWS WAF, a web application firewall.\n\nAWS Shield Advanced also gives you 24×7 access to the AWS DDoS Response Team (DRT) and protection against DDoS related spikes in your Amazon Elastic Compute Cloud (EC2), Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator and Amazon Route 53 charges.\n\nAWS Shield Advanced is available globally on all Amazon CloudFront, AWS Global Accelerator, and Amazon Route 53 edge locations.\n\nOrigin servers can be Amazon S3, Amazon Elastic Compute Cloud (EC2), Elastic Load Balancing (ELB), or a custom server outside of AWS.\n\nAWS Shield Advanced includes DDoS cost protection, a safeguard from scaling charges because of a DDoS attack that causes usage spikes on protected Amazon EC2, Elastic Load Balancing (ELB), Amazon CloudFront, AWS Global Accelerator, or Amazon Route 53.\n\nIf any of the AWS Shield Advanced protected resources scale up in response to a DDoS attack, you can request credits via the regular AWS Support channel.",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "What does AWS WAF primarily protect your web applications against?",
+      "options": [
+        "A. Denial of Service attacks",
+        "B. Web exploits",
+        "C. Data breaches",
+        "D. Network layer attacks",
+        "E. Malware"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS WAF does not specifically target Denial of Service attacks; that is the role of AWS Shield.",
+        "B": "AWS WAF is designed to protect against common web exploits that can affect application availability and security.",
+        "C": "While AWS WAF can indirectly help with security, it is not primarily focused on data breaches.",
+        "D": "AWS WAF is not focused on network layer attacks, which are handled by AWS Shield.",
+        "E": "Malware protection is not a specific function of AWS WAF."
+      }
+    },
+    {
+      "question": "Which of the following conditions can AWS WAF use to allow or block web requests?",
+      "options": [
+        "A. Time of day",
+        "B. User location",
+        "C. HTTP headers",
+        "D. Browser type",
+        "E. Operating system"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS WAF does not consider the time of day as a condition for filtering requests.",
+        "B": "User location is not a direct condition in AWS WAF; it uses IP addresses instead.",
+        "C": "AWS WAF can match values in HTTP headers, allowing you to create rules based on them.",
+        "D": "Browser type is not specifically a condition used in AWS WAF rules.",
+        "E": "Operating system is not a condition that AWS WAF uses to filter web requests."
+      }
+    },
+    {
+      "question": "How is AWS WAF pricing determined?",
+      "options": [
+        "A. Number of users",
+        "B. Number of rules deployed",
+        "C. Amount of data processed",
+        "D. Number of web applications",
+        "E. Duration of use"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS WAF pricing is not based on the number of users accessing the application.",
+        "B": "AWS WAF pricing is based on the number of rules you deploy and the number of web requests received.",
+        "C": "The amount of data processed is not a direct factor in AWS WAF pricing.",
+        "D": "The number of web applications does not directly impact AWS WAF pricing.",
+        "E": "Duration of use is not a factor in AWS WAF pricing."
+      }
+    },
+    {
+      "question": "What does AWS Shield Standard provide?",
+      "options": [
+        "A. Advanced analytics of DDoS attacks",
+        "B. Always-on detection of DDoS attacks",
+        "C. Dedicated support from AWS engineers",
+        "D. Customizable mitigation strategies",
+        "E. Protection against all DDoS attacks"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Shield Standard does not provide advanced analytics; that is part of AWS Shield Advanced.",
+        "B": "AWS Shield Standard provides always-on detection and automatic inline mitigations for DDoS attacks.",
+        "C": "Dedicated support is a feature of AWS Shield Advanced, not Standard.",
+        "D": "AWS Shield Standard does not offer customizable mitigation strategies.",
+        "E": "While it provides protection against many common DDoS attacks, it does not protect against all DDoS attacks."
+      }
+    },
+    {
+      "question": "Which AWS service is AWS WAF tightly integrated with?",
+      "options": [
+        "A. AWS Lambda",
+        "B. Amazon CloudFront",
+        "C. Amazon RDS",
+        "D. Amazon S3",
+        "E. Amazon EC2"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS WAF is not specifically integrated with AWS Lambda.",
+        "B": "AWS WAF is tightly integrated with Amazon CloudFront and can also work with Application Load Balancers.",
+        "C": "There is no specific integration between AWS WAF and Amazon RDS.",
+        "D": "AWS WAF can protect applications hosted on Amazon S3 but is not tightly integrated with it.",
+        "E": "AWS WAF can protect applications running on EC2 instances but is not specifically integrated with EC2."
+      }
+    },
+    {
+      "question": "What type of requests can AWS WAF inspect?",
+      "options": [
+        "A. Only GET requests",
+        "B. All HTTP/S requests",
+        "C. Only POST requests",
+        "D. Only requests from AWS services",
+        "E. Only requests from IPv4 addresses"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS WAF can inspect more than just GET requests.",
+        "B": "AWS WAF can inspect all HTTP/S requests, including those from both IPv4 and IPv6 addresses.",
+        "C": "AWS WAF does not limit inspection to only POST requests.",
+        "D": "AWS WAF can inspect requests from any source, not just AWS services.",
+        "E": "AWS WAF supports requests coming from both IPv4 and IPv6 addresses."
+      }
+    },
+    {
+      "question": "Which feature of AWS WAF allows it to be integrated into the development process?",
+      "options": [
+        "A. Custom rules",
+        "B. Full feature API",
+        "C. Real-time metrics",
+        "D. CloudFormation templates",
+        "E. Multi-region deployment"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "While custom rules are important, they do not directly facilitate integration into the development process.",
+        "B": "The full feature API allows organizations to automate rule creation and management, integrating it into the development process.",
+        "C": "Real-time metrics provide visibility but do not directly enable integration into development.",
+        "D": "CloudFormation templates allow for deployment but do not provide the same level of integration as the API.",
+        "E": "Multi-region deployment is a capability but does not specifically relate to integrating with the development process."
+      }
+    },
+    {
+      "question": "AWS Shield Advanced provides which of the following additional features compared to AWS Shield Standard?",
+      "options": [
+        "A. Basic DDoS protection",
+        "B. Near real-time visibility into attacks",
+        "C. Automatic protection",
+        "D. 24/7 customer support",
+        "E. Cost protection against scaling charges"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Both AWS Shield Standard and Advanced provide basic DDoS protection, but Advanced offers more.",
+        "B": "AWS Shield Advanced offers near real-time visibility into attacks, which is not a feature of the Standard tier.",
+        "C": "Automatic protection is available in both Shield Standard and Advanced.",
+        "D": "While Shield Advanced offers support, it does not guarantee direct customer support like dedicated account management.",
+        "E": "Cost protection against scaling charges is a feature of AWS Shield Advanced, but it is not the only additional feature."
+      }
+    },
+    {
+      "question": "AWS WAF can block which of the following common web exploits?",
+      "options": [
+        "A. Phishing attacks",
+        "B. SQL injection",
+        "C. Man-in-the-middle attacks",
+        "D. Ransomware",
+        "E. Denial of Service"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Phishing attacks are not specifically addressed by AWS WAF.",
+        "B": "AWS WAF is capable of blocking SQL injection attacks, which are a common web exploit.",
+        "C": "Man-in-the-middle attacks are not something AWS WAF specifically protects against.",
+        "D": "Ransomware protection is not a direct function of AWS WAF.",
+        "E": "Denial of Service attacks are protected against by AWS Shield, not AWS WAF."
+      }
+    },
+    {
+      "question": "What type of layer does AWS Shield Standard protect against?",
+      "options": [
+        "A. Application layer",
+        "B. Network layer",
+        "C. Data layer",
+        "D. Physical layer",
+        "E. Management layer"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Shield Standard primarily protects against network layer attacks, not application layer.",
+        "B": "AWS Shield Standard provides protection against common network layer DDoS attacks.",
+        "C": "Data layer attacks are not specifically addressed by AWS Shield Standard.",
+        "D": "Physical layer protection is not relevant to AWS Shield's scope of service.",
+        "E": "Management layer attacks are not specifically mentioned in the context of AWS Shield Standard."
+      }
+    },
+    {
+      "question": "Which AWS service can be protected by AWS Shield Advanced?",
+      "options": [
+        "A. Amazon S3",
+        "B. AWS Lambda",
+        "C. Amazon EC2",
+        "D. Amazon RDS",
+        "E. Amazon EFS"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "While you can protect websites hosted on S3, it's not the primary focus of AWS Shield Advanced.",
+        "B": "AWS Lambda is not explicitly mentioned as a service protected by AWS Shield Advanced.",
+        "C": "AWS Shield Advanced provides protection for applications running on Amazon EC2, among others.",
+        "D": "Amazon RDS is not explicitly mentioned in the context of AWS Shield Advanced protections.",
+        "E": "Amazon EFS is not one of the primary services that AWS Shield Advanced protects."
+      }
+    },
+    {
+      "question": "How does AWS WAF enhance performance while providing security?",
+      "options": [
+        "A. By blocking requests at the origin server",
+        "B. By inspecting requests at the edge",
+        "C. By caching requests",
+        "D. By redirecting traffic",
+        "E. By using machine learning"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Blocking requests at the origin server can add latency; AWS WAF blocks them before they reach the server.",
+        "B": "By inspecting requests at AWS Edge Locations, AWS WAF enhances performance without sacrificing security.",
+        "C": "Caching requests is not a function of AWS WAF.",
+        "D": "Redirecting traffic is not a primary function of AWS WAF.",
+        "E": "Machine learning is not specifically mentioned as a feature of AWS WAF."
+      }
+    },
+    {
+      "question": "What feature allows AWS WAF to provide real-time visibility?",
+      "options": [
+        "A. Integration with CloudTrail",
+        "B. Custom alarms with CloudWatch",
+        "C. DDoS attack analytics",
+        "D. Manual rule updates",
+        "E. Regular audits"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS CloudTrail is primarily for logging and monitoring API calls, not for WAF visibility.",
+        "B": "AWS WAF integrates with Amazon CloudWatch to provide real-time metrics and custom alarms.",
+        "C": "DDoS attack analytics is a feature of AWS Shield, not AWS WAF.",
+        "D": "Manual rule updates do not enhance real-time visibility.",
+        "E": "Regular audits are not a feature of AWS WAF for real-time visibility."
+      }
+    }
+  ]
+},

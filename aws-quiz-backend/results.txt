@@ -1186,3 +1186,125 @@
     "userExplanation": "Incorrect. Scans are not automatically split."
   }
 ],
+[
+  {
+    "question": "Which of the following categories does AWS Trusted Advisor provide guidance on?",
+    "userAnswer": "A. Cost Optimization, Performance, Security, Fault Tolerance, Service Limits",
+    "correctAnswer": "A. Cost Optimization, Performance, Security, Fault Tolerance, Service Limits",
+    "correct": true,
+    "explanation": "Trusted Advisor provides guidance on Cost Optimization, Performance, Security, Fault Tolerance, and Service Limits.",
+    "userExplanation": "Trusted Advisor provides guidance on Cost Optimization, Performance, Security, Fault Tolerance, and Service Limits."
+  },
+  {
+    "question": "What type of access does the Core Checks and Recommendations version of Trusted Advisor provide?",
+    "userAnswer": "B. Access to 7 core checks for increasing security and performance.",
+    "correctAnswer": "B. Access to 7 core checks for increasing security and performance.",
+    "correct": true,
+    "explanation": "The Core Checks and Recommendations version provides access to 7 core checks focused on increasing security and performance.",
+    "userExplanation": "The Core Checks and Recommendations version provides access to 7 core checks focused on increasing security and performance."
+  },
+  {
+    "question": "Which AWS Trusted Advisor feature is available only with business and enterprise support plans?",
+    "userAnswer": "B. Weekly update notifications",
+    "correctAnswer": "B. Weekly update notifications",
+    "correct": true,
+    "explanation": "Weekly update notifications are part of the additional benefits in the full Trusted Advisor benefits, available with business and enterprise support plans.",
+    "userExplanation": "Weekly update notifications are part of the additional benefits in the full Trusted Advisor benefits, available with business and enterprise support plans."
+  },
+  {
+    "question": "What additional capabilities does the full Trusted Advisor Benefits provide over the Core Checks and Recommendations?",
+    "userAnswer": "B. Automated actions with CloudWatch",
+    "correctAnswer": "B. Automated actions with CloudWatch",
+    "correct": true,
+    "explanation": "Automated actions with CloudWatch are additional benefits available in the full Trusted Advisor Benefits.",
+    "userExplanation": "Automated actions with CloudWatch are additional benefits available in the full Trusted Advisor Benefits."
+  },
+  {
+    "question": "Which of the following checks is included in the Core Checks and Recommendations?",
+    "userAnswer": "C. EBS public snapshots check",
+    "correctAnswer": "C. EBS public snapshots check",
+    "correct": true,
+    "explanation": "EBS public snapshots check is included in the Core Checks and Recommendations.",
+    "userExplanation": "EBS public snapshots check is included in the Core Checks and Recommendations."
+  },
+  {
+    "question": "What is the primary purpose of AWS Trusted Advisor?",
+    "userAnswer": "B. To help reduce cost, increase performance, and improve security",
+    "correctAnswer": "B. To help reduce cost, increase performance, and improve security",
+    "correct": true,
+    "explanation": "Trusted Advisor's primary purpose is to help reduce cost, increase performance, and improve security by optimizing the AWS environment.",
+    "userExplanation": "Trusted Advisor's primary purpose is to help reduce cost, increase performance, and improve security by optimizing the AWS environment."
+  },
+  {
+    "question": "Which of the following Trusted Advisor checks is related to security?",
+    "userAnswer": "B. EBS public snapshots",
+    "correctAnswer": "B. EBS public snapshots",
+    "correct": true,
+    "explanation": "EBS public snapshots check is a security-related check.",
+    "userExplanation": "EBS public snapshots check is a security-related check."
+  },
+  {
+    "question": "How does Trusted Advisor help in following AWS best practices?",
+    "userAnswer": "B. By comparing infrastructure to AWS best practices",
+    "correctAnswer": "B. By comparing infrastructure to AWS best practices",
+    "correct": true,
+    "explanation": "Trusted Advisor scans your AWS infrastructure and compares it to AWS best practices.",
+    "userExplanation": "Trusted Advisor scans your AWS infrastructure and compares it to AWS best practices."
+  },
+  {
+    "question": "What is not a feature of the full Trusted Advisor Benefits?",
+    "userAnswer": "A. Access to 7 core checks",
+    "correctAnswer": "A. Access to 7 core checks",
+    "correct": true,
+    "explanation": "Access to 7 core checks is part of the Core Checks and Recommendations, not the full Trusted Advisor Benefits.",
+    "userExplanation": "Access to 7 core checks is part of the Core Checks and Recommendations, not the full Trusted Advisor Benefits."
+  },
+  {
+    "question": "Which of the following is NOT a category assessed by AWS Trusted Advisor?",
+    "userAnswer": "D. Networking",
+    "correctAnswer": "D. Networking",
+    "correct": true,
+    "explanation": "Networking is not a specific category assessed by AWS Trusted Advisor.",
+    "userExplanation": "Networking is not a specific category assessed by AWS Trusted Advisor."
+  },
+  {
+    "question": "Which feature of Trusted Advisor is specifically available in business and enterprise support plans?",
+    "userAnswer": "B. Full set of checks for optimizing AWS infrastructure",
+    "correctAnswer": "B. Full set of checks for optimizing AWS infrastructure",
+    "correct": true,
+    "explanation": "The full set of checks for optimizing AWS infrastructure is available in business and enterprise support plans.",
+    "userExplanation": "The full set of checks for optimizing AWS infrastructure is available in business and enterprise support plans."
+  },
+  {
+    "question": "What does Trusted Advisor use to inform users about best practices?",
+    "userAnswer": "B. AWS infrastructure scans",
+    "correctAnswer": "B. AWS infrastructure scans",
+    "correct": true,
+    "explanation": "AWS infrastructure scans are used by Trusted Advisor to inform users about best practices.",
+    "userExplanation": "AWS infrastructure scans are used by Trusted Advisor to inform users about best practices."
+  },
+  {
+    "question": "What is the purpose of the service limits check in AWS Trusted Advisor?",
+    "userAnswer": "C. To manage and monitor the limits of AWS services",
+    "correctAnswer": "C. To manage and monitor the limits of AWS services",
+    "correct": true,
+    "explanation": "The purpose of the service limits check is to manage and monitor the limits of AWS services.",
+    "userExplanation": "The purpose of the service limits check is to manage and monitor the limits of AWS services."
+  },
+  {
+    "question": "Which check is NOT included in the Core Checks and Recommendations version of Trusted Advisor?",
+    "userAnswer": "E. Weekly update notifications",
+    "correctAnswer": "E. Weekly update notifications",
+    "correct": true,
+    "explanation": "Weekly update notifications are not part of the Core Checks and Recommendations.",
+    "userExplanation": "Weekly update notifications are not part of the Core Checks and Recommendations."
+  },
+  {
+    "question": "How can users access the full set of checks provided by Trusted Advisor?",
+    "userAnswer": "B. By subscribing to business or enterprise support plans",
+    "correctAnswer": "B. By subscribing to business or enterprise support plans",
+    "correct": true,
+    "explanation": "Subscribing to business or enterprise support plans grants access to the full set of checks.",
+    "userExplanation": "Subscribing to business or enterprise support plans grants access to the full set of checks."
+  }
+],
