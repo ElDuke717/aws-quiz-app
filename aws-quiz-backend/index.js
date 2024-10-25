@@ -31,7 +31,11 @@ app.use(express.json());
 const PORT = process.env.PORT || 5050;
 
 app.post("/generate-questions", async (req, res) => {
-  let { service, cheatSheet, difficulty, model } = req.body;
+  let { service, cheatSheet, difficulty, model, questionType } = req.body;
+if (!questionType) {
+  questionType = "basic"; // Default to 'basic'
+}
+  
   try {
     // Validate difficulty level
     const allowedDifficulties = ["easy", "medium", "hard"];
@@ -40,19 +44,34 @@ app.post("/generate-questions", async (req, res) => {
     }
 
     // Build the prompt dynamically
-    let prompt = "";
+    // Build the prompt dynamically
+let prompt = "";
 
-    if (cheatSheet) {
-      prompt += `Based on the following text, generate 15 ${difficulty} multiple-choice questions with 5 options each for the AWS Solutions Architect Associate Exam. The text is: "${cheatSheet}". `;
-    } else if (service) {
-      prompt += `Generate 15 ${difficulty} multiple-choice questions with 5 options each on AWS ${service} for the Solutions Architect Associate Exam. `;
-    } else {
-      return res
-        .status(400)
-        .send("Please provide either an AWS service or cheat sheet text.");
-    }
+if (cheatSheet) {
+  prompt += `Based on the following text, generate 10 ${difficulty} `;
+} else if (service) {
+  prompt += `Generate 10 ${difficulty} `;
+} else {
+  return res
+    .status(400)
+    .send("Please provide either an AWS service or cheat sheet text.");
+}
 
-    prompt += `Provide the correct answer and explanations for each option without revealing the correct answer upfront.
+if (questionType === "situational") {
+  prompt += `scenario-based multiple-choice questions `;
+} else {
+  prompt += `multiple-choice questions `;
+}
+
+if (cheatSheet) {
+  prompt += `for the AWS Solutions Architect Associate Exam. The text is: "${cheatSheet}". `;
+} else if (service) {
+  prompt += `on AWS ${service} for the AWS Solutions Architect Associate Exam. `;
+}
+
+prompt += `Each question should have 4 options (A, B, C, D), and some questions may require selecting multiple correct answers (e.g., "Select TWO"). 
+
+Provide the correct answer(s) and explanations for each option without revealing the correct answer upfront.
 
 **Important Instructions:**
 - **Format the response as a JSON array without any code block formatting** (do not include any \`\`\`json or \`\`\`).
@@ -63,14 +82,13 @@ Here is the structure to follow for each question object:
 
 {
   "question": "Question text",
-  "options": ["A. Option 1", "B. Option 2", "C. Option 3", "D. Option 4", "E. Option 5"],
-  "correctAnswer": "A/B/C/D/E",
+  "options": ["A. Option 1", "B. Option 2", "C. Option 3", "D. Option 4"],
+  "correctAnswers": ["A", "C"], // An array of correct answer(s)
   "explanation": {
     "A": "Explanation for option A",
     "B": "Explanation for option B",
     "C": "Explanation for option C",
-    "D": "Explanation for option D",
-    "E": "Explanation for option E"
+    "D": "Explanation for option D"
   }
 }
 
@@ -124,8 +142,12 @@ Provide only the JSON array as the output.`;
 
       // Validate question format
       questions.forEach((q, i) => {
-        if (!q.question || !q.options || !q.correctAnswer || !q.explanation) {
+        if (!q.question || !q.options || !q.correctAnswers || !q.explanation) {
           console.error(`Question ${i} is missing required fields:`, q);
+        }
+        // Ensure correctAnswers is an array
+        if (!Array.isArray(q.correctAnswers)) {
+          q.correctAnswers = [q.correctAnswers];
         }
       });
 
@@ -162,35 +184,32 @@ app.post("/check-answers", async (req, res) => {
   const { userAnswers, questions, model } = req.body;
   try {
     const results = questions.map((question, index) => {
-      const userAnswer = userAnswers[index];
-      const correct = userAnswer === question.correctAnswer;
+      const userAnswer = userAnswers[index] || [];
+      const correctAnswers = question.correctAnswers || [];
 
-      // Get the full option text for user's answer
-      const userAnswerText = question.options.find((opt) =>
-        opt.startsWith(userAnswer)
+      // Compare user's answers with correct answers
+      const correct = arraysEqual(
+        userAnswer.map((a) => a.trim().toUpperCase()).sort(),
+        correctAnswers.map((a) => a.trim().toUpperCase()).sort()
       );
 
-      // Get the full option text for correct answer
-      const correctAnswerText = question.options.find((opt) =>
-        opt.startsWith(question.correctAnswer)
+      // Get the full option texts for user's answers
+      const userAnswerTexts = userAnswer.map((ua) =>
+        question.options.find((opt) => opt.startsWith(ua))
       );
 
-      // Create result object with error checking and proper explanation access
+      // Get the full option texts for correct answers
+      const correctAnswerTexts = correctAnswers.map((ca) =>
+        question.options.find((opt) => opt.startsWith(ca))
+      );
+
+      // Create result object
       const result = {
         question: question.question,
-        userAnswer: userAnswerText || "No answer provided",
-        correctAnswer: correctAnswerText || "Answer not available",
+        userAnswer: userAnswerTexts.length > 0 ? userAnswerTexts.join(', ') : "No answer provided",
+        correctAnswer: correctAnswerTexts.join(', '),
         correct: correct,
-        // Get explanation for correct answer
-        explanation:
-          question.explanation && question.correctAnswer
-            ? question.explanation[question.correctAnswer]
-            : "Explanation not available",
-        // Get explanation for user's answer if one was provided
-        userExplanation:
-          userAnswer && question.explanation
-            ? question.explanation[userAnswer]
-            : "No answer provided",
+        explanation: question.explanation || "Explanation not available",
       };
 
       return result;
@@ -198,10 +217,14 @@ app.post("/check-answers", async (req, res) => {
     res.json({ results });
   } catch (error) {
     console.error("Error in check-answers:", error);
-    console.error("Questions:", JSON.stringify(questions, null, 2));
     res.status(500).send("Error checking answers.");
   }
 });
+
+// Helper function to compare arrays
+function arraysEqual(a, b) {
+  return JSON.stringify(a) === JSON.stringify(b);
+}
 
 app.post("/save-results", async (req, res) => {
   const { results } = req.body;

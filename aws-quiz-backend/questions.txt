@@ -4875,3 +4875,576 @@
     }
   ]
 },
+{
+  "service": "AWS Config",
+  "cheatSheet": "",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "question": "What is the primary purpose of AWS Config?",
+      "options": [
+        "A. To provide monitoring of AWS resources",
+        "B. To manage user permissions",
+        "C. To track configuration changes to AWS resources",
+        "D. To automate deployment of applications"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "While AWS Config can provide monitoring capabilities, its primary role is to track configuration changes.",
+        "B": "Managing user permissions is done through IAM, not AWS Config.",
+        "C": "AWS Config's main purpose is to track configuration changes to AWS resources and ensure compliance.",
+        "D": "Deployment automation is handled by services like AWS CloudFormation or AWS CodeDeploy, not AWS Config."
+      }
+    },
+    {
+      "question": "Which of the following AWS services can AWS Config integrate with? Select TWO.",
+      "options": [
+        "A. AWS Lambda",
+        "B. Amazon RDS",
+        "C. AWS CloudTrail",
+        "D. Amazon S3"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "AWS Config can trigger AWS Lambda functions based on configuration changes, allowing for custom remediation actions.",
+        "B": "Amazon RDS is a resource type that AWS Config can track, but it does not directly integrate with it.",
+        "C": "AWS Config integrates with AWS CloudTrail to provide a history of configuration changes and related events.",
+        "D": "Amazon S3 can store configuration snapshots, but it is not an integration service for AWS Config."
+      }
+    },
+    {
+      "question": "What type of information can AWS Config provide about your resources?",
+      "options": [
+        "A. Real-time performance metrics",
+        "B. Historical configuration data",
+        "C. Security vulnerability assessments",
+        "D. Billing information"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "AWS Config does not provide real-time performance metrics; this is done by Amazon CloudWatch.",
+        "B": "AWS Config provides historical configuration data, allowing you to see how resources have changed over time.",
+        "C": "While AWS Config can help identify compliance issues, it does not perform security vulnerability assessments.",
+        "D": "Billing information is handled by AWS Billing and Cost Management, not AWS Config."
+      }
+    },
+    {
+      "question": "Which of the following features does AWS Config offer for compliance auditing?",
+      "options": [
+        "A. Continuous monitoring",
+        "B. Automated backups",
+        "C. Resource group creation",
+        "D. Manual resource tagging"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "AWS Config offers continuous monitoring of resource configurations to ensure compliance with policies.",
+        "B": "Automated backups are not a feature of AWS Config; they are managed by services like AWS Backup.",
+        "C": "Resource group creation is a feature of AWS Resource Groups, not AWS Config.",
+        "D": "Manual resource tagging is not a compliance auditing feature of AWS Config."
+      }
+    },
+    {
+      "question": "When enabling AWS Config, which of the following settings can be configured? Select TWO.",
+      "options": [
+        "A. Resource types to track",
+        "B. IAM roles for access",
+        "C. Notification settings for SNS",
+        "D. EC2 instance types to monitor"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "You can specify which resource types AWS Config should track when you enable it.",
+        "B": "While IAM roles are used, they are not configured directly in the AWS Config settings; they are set up through IAM.",
+        "C": "You can configure AWS Config to send notifications to Amazon SNS when configuration changes occur.",
+        "D": "You do not specify EC2 instance types; instead, you choose the resource types AWS Config should monitor."
+      }
+    },
+    {
+      "question": "Which AWS Config rule would you apply to ensure that all EC2 instances have a specific tag?",
+      "options": [
+        "A. required-tags",
+        "B. s3-bucket-public-read-prohibited",
+        "C. ebs-volume-in-use-check",
+        "D. cloudtrail-enabled"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "The 'required-tags' rule checks whether the specified tags are present on EC2 instances.",
+        "B": "The 's3-bucket-public-read-prohibited' rule is specific to S3 buckets, not EC2 instances.",
+        "C": "The 'ebs-volume-in-use-check' rule checks EBS volumes, not EC2 instance tags.",
+        "D": "The 'cloudtrail-enabled' rule checks for the presence of CloudTrail, not specific tags on EC2 instances."
+      }
+    },
+    {
+      "question": "What happens when an AWS Config rule is non-compliant?",
+      "options": [
+        "A. AWS Config automatically fixes the issue",
+        "B. AWS Config sends a notification to SNS",
+        "C. You receive an AWS Config report",
+        "D. AWS Config changes the resource configuration"
+      ],
+      "correctAnswers": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "A": "AWS Config does not automatically fix non-compliant resources; it requires manual intervention or automation through Lambda.",
+        "B": "AWS Config can send notifications to SNS when a rule is non-compliant.",
+        "C": "You can receive an AWS Config report indicating compliance status of your resources.",
+        "D": "AWS Config does not change resource configurations but allows you to review and remediate them."
+      }
+    },
+    {
+      "question": "Which of the following actions can AWS Config take when a resource becomes non-compliant? Select TWO.",
+      "options": [
+        "A. Send a notification to Amazon SNS",
+        "B. Terminate the resource",
+        "C. Trigger an AWS Lambda function",
+        "D. Automatically remediate the issue"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "AWS Config can send notifications to Amazon SNS when resources become non-compliant.",
+        "B": "AWS Config does not have the ability to terminate resources directly in response to non-compliance.",
+        "C": "AWS Config can trigger an AWS Lambda function to take custom actions when a resource is non-compliant.",
+        "D": "AWS Config does not automatically remediate issues; this requires setting up additional automation."
+      }
+    },
+    {
+      "question": "In which of the following scenarios would you use AWS Config's snapshot feature?",
+      "options": [
+        "A. To create a backup of EC2 instance data",
+        "B. To analyze changes over time to a resource's configuration",
+        "C. To set up a firewall for an application",
+        "D. To monitor the performance of a RDS instance"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "AWS Config's snapshot feature is not designed for backing up EC2 instance data; that's done with EBS snapshots.",
+        "B": "You would use AWS Config's snapshot feature to analyze the historical changes in a resource's configuration.",
+        "C": "Setting up a firewall is not related to AWS Config's snapshot feature.",
+        "D": "Monitoring RDS performance is handled by Amazon CloudWatch, not AWS Config."
+      }
+    },
+    {
+      "question": "Which of the following statements about AWS Config Aggregators is TRUE?",
+      "options": [
+        "A. They help you aggregate AWS Config data across multiple accounts and regions",
+        "B. They can only aggregate data from a single AWS account",
+        "C. They automatically remediate non-compliant resources",
+        "D. They only work with Amazon S3 resources"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "AWS Config Aggregators enable you to aggregate AWS Config data across multiple accounts and regions for a consolidated view.",
+        "B": "Aggregators are designed specifically to work across multiple accounts, not just a single account.",
+        "C": "AWS Config Aggregators do not automatically remediate non-compliant resources; that requires additional setup.",
+        "D": "Aggregators can work with various resource types, not limited to Amazon S3."
+      }
+    }
+  ]
+},
+{
+  "service": "AWS EC2",
+  "cheatSheet": "",
+  "difficulty": "easy",
+  "questions": [
+    {
+      "question": "You need to launch an EC2 instance that can automatically scale based on load. Which of the following services should you use? Select TWO.",
+      "options": [
+        "A. Elastic Load Balancing",
+        "B. AWS Lambda",
+        "C. Auto Scaling",
+        "D. Amazon RDS"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "Elastic Load Balancing distributes incoming application traffic across multiple targets, such as EC2 instances, which helps in scaling.",
+        "B": "AWS Lambda is a serverless compute service and does not directly relate to EC2 instance scaling.",
+        "C": "Auto Scaling allows you to automatically adjust the number of EC2 instances in response to demand, making it essential for scaling.",
+        "D": "Amazon RDS is a managed database service and does not help in scaling EC2 instances."
+      }
+    },
+    {
+      "question": "You want to ensure that your EC2 instances are secure and can only be accessed through specific IP addresses. What should you configure?",
+      "options": [
+        "A. Security Groups",
+        "B. IAM Roles",
+        "C. VPC Peering",
+        "D. Network ACLs"
+      ],
+      "correctAnswers": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "A": "Security Groups act as virtual firewalls for your EC2 instances to control incoming and outgoing traffic based on IP addresses.",
+        "B": "IAM Roles provide permissions for AWS services but do not control network access.",
+        "C": "VPC Peering connects two VPCs but does not restrict access to specific IPs.",
+        "D": "Network ACLs provide an additional layer of security at the subnet level and can restrict traffic based on IP addresses."
+      }
+    },
+    {
+      "question": "You need to store data on an EC2 instance that persists even when the instance is stopped. Which storage option should you use?",
+      "options": [
+        "A. Instance Store",
+        "B. EBS Volume",
+        "C. S3 Bucket",
+        "D. EFS File System"
+      ],
+      "correctAnswers": [
+        "B",
+        "D"
+      ],
+      "explanation": {
+        "A": "Instance Store provides temporary storage that is lost when the instance stops or terminates.",
+        "B": "EBS Volumes are persistent block storage that remains even when the instance is stopped.",
+        "C": "S3 is an object storage service and is not directly attached to EC2 instances for persistent storage.",
+        "D": "EFS File System provides persistent file storage that can be accessed by multiple instances."
+      }
+    },
+    {
+      "question": "What is the purpose of Amazon EC2 Reserved Instances?",
+      "options": [
+        "A. To provide temporary instances for short-term projects",
+        "B. To allow users to reserve capacity for a specific term",
+        "C. To automatically scale instances based on demand",
+        "D. To provide a discount on on-demand pricing"
+      ],
+      "correctAnswers": [
+        "B",
+        "D"
+      ],
+      "explanation": {
+        "A": "Temporary instances are typically covered by On-Demand pricing, not Reserved Instances.",
+        "B": "Reserved Instances allow you to reserve capacity for a specific term (1 or 3 years) and provide cost savings.",
+        "C": "Auto Scaling is responsible for scaling instances based on demand, not Reserved Instances.",
+        "D": "Reserved Instances offer a discount on the regular On-Demand pricing compared to hourly rates."
+      }
+    },
+    {
+      "question": "You have an EC2 instance running a web application. You want to ensure that it can withstand sudden spikes in traffic. What should you implement?",
+      "options": [
+        "A. Elastic Load Balancer",
+        "B. EBS Snapshots",
+        "C. VPC Subnets",
+        "D. CloudFormation Templates"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "An Elastic Load Balancer distributes incoming traffic across multiple instances, helping to manage sudden spikes.",
+        "B": "EBS Snapshots are for backup purposes and do not help with traffic management.",
+        "C": "VPC Subnets are used for network segmentation but do not manage traffic spikes.",
+        "D": "CloudFormation Templates are for infrastructure management and do not directly address traffic spikes."
+      }
+    },
+    {
+      "question": "Which of the following factors determine the cost of running an EC2 instance? Select TWO.",
+      "options": [
+        "A. Instance Type",
+        "B. EBS Volume Size",
+        "C. Data Transfer Out",
+        "D. Security Group Rules"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "The instance type directly affects the pricing based on its capabilities (CPU, memory, etc.).",
+        "B": "EBS Volume Size affects storage costs but is not a direct factor of EC2 instance running costs.",
+        "C": "Data Transfer Out (data sent from your instance) incurs additional charges, impacting total costs.",
+        "D": "Security Group Rules do not affect pricing; they are related to network security."
+      }
+    },
+    {
+      "question": "You are deploying a multi-tier application on EC2. Which deployment strategy would be ideal for minimizing downtime?",
+      "options": [
+        "A. Blue/Green Deployment",
+        "B. Rolling Deployment",
+        "C. Recreate Deployment",
+        "D. Canary Deployment"
+      ],
+      "correctAnswers": [
+        "A",
+        "B"
+      ],
+      "explanation": {
+        "A": "Blue/Green Deployment allows you to switch traffic between two environments with minimal downtime.",
+        "B": "Rolling Deployment updates instances in batches, ensuring that some instances are always running.",
+        "C": "Recreate Deployment replaces all instances at once, which may lead to downtime.",
+        "D": "Canary Deployment introduces changes to a small subset of users first, which can also cause downtime if not managed properly."
+      }
+    },
+    {
+      "question": "You need to ensure that your EC2 instances can communicate securely with AWS services. Which service should you use?",
+      "options": [
+        "A. Security Groups",
+        "B. IAM Roles",
+        "C. VPC Peering",
+        "D. Direct Connect"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Security Groups control access to instances but do not manage permissions for AWS services.",
+        "B": "IAM Roles provide temporary credentials to EC2 instances, allowing them to securely access AWS services.",
+        "C": "VPC Peering allows network communication between VPCs but does not relate to service access.",
+        "D": "Direct Connect is a dedicated network connection to AWS but is not specifically for EC2 to AWS services communication."
+      }
+    },
+    {
+      "question": "You have a requirement to run a containerized application on EC2 instances. Which service would be most suitable?",
+      "options": [
+        "A. Amazon ECS",
+        "B. AWS Lambda",
+        "C. Amazon RDS",
+        "D. Amazon S3"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Amazon ECS (Elastic Container Service) is designed for running and managing containerized applications on EC2 instances.",
+        "B": "AWS Lambda is a serverless compute service that is not focused on EC2 or container management.",
+        "C": "Amazon RDS is a managed database service and not for running containerized applications.",
+        "D": "Amazon S3 is an object storage service and does not run applications."
+      }
+    },
+    {
+      "question": "Which of the following EC2 pricing models allows you to pay only for the compute time you use?",
+      "options": [
+        "A. Reserved Instances",
+        "B. On-Demand Instances",
+        "C. Spot Instances",
+        "D. Dedicated Hosts"
+      ],
+      "correctAnswers": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "A": "Reserved Instances require a commitment to a term (1 or 3 years), offering lower pricing but not paying only for what you use.",
+        "B": "On-Demand Instances allow you to pay for compute capacity by the hour or second without long-term commitments.",
+        "C": "Spot Instances allow you to bid on unused EC2 capacity at a lower price, paying only for the time you use them.",
+        "D": "Dedicated Hosts provide a physical server for your instance but are billed on a per-host basis, not per-use."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon RDS",
+  "cheatSheet": "",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "question": "You have a mission-critical application running on Amazon RDS MySQL, and you want to minimize downtime during maintenance. Which of the following strategies should you implement? Select TWO.",
+      "options": [
+        "A. Enable Multi-AZ deployments",
+        "B. Use Read Replicas",
+        "C. Schedule maintenance windows during peak hours",
+        "D. Use the default maintenance window"
+      ],
+      "correctAnswers": [
+        "A",
+        "B"
+      ],
+      "explanation": {
+        "A": "Multi-AZ deployments provide high availability and failover support for DB instances, minimizing downtime.",
+        "B": "Read Replicas can be used to offload read traffic and can be promoted to a standalone database in the event of a failure.",
+        "C": "Scheduling maintenance during peak hours is not advisable as it can lead to higher downtime during critical operation times.",
+        "D": "Using the default maintenance window may not align with your low-traffic periods, potentially increasing downtime."
+      }
+    },
+    {
+      "question": "Your company needs to comply with strict data residency requirements. Which RDS feature allows you to improve data locality and optimize latency when accessing data from a specific AWS Region?",
+      "options": [
+        "A. Global Databases",
+        "B. Multi-AZ Deployments",
+        "C. Read Replicas in different regions",
+        "D. Reserved Instances"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Global Databases are used for disaster recovery and do not specifically address data locality within a region.",
+        "B": "Multi-AZ deployments do not allow you to specify different regions; they are primarily for high availability.",
+        "C": "Read Replicas can be created in different regions, providing better locality and optimizing latency for read operations.",
+        "D": "Reserved Instances are a cost-optimization feature and do not relate to data locality or residency."
+      }
+    },
+    {
+      "question": "You are tasked with migrating an on-premises PostgreSQL database to AWS RDS. Which service or feature would you use to ensure a smooth migration with minimal downtime?",
+      "options": [
+        "A. AWS Database Migration Service (DMS)",
+        "B. AWS Snowball",
+        "C. RDS Automated Backups",
+        "D. RDS Data Transfer"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "AWS DMS is specifically designed for database migration with minimal downtime, supporting various database engines including PostgreSQL.",
+        "B": "AWS Snowball is used for large-scale data transfer, not specifically for database migration.",
+        "C": "RDS Automated Backups provide point-in-time recovery but do not facilitate the migration of on-premises databases.",
+        "D": "RDS Data Transfer refers to data movement within AWS and does not address migration from on-premises databases."
+      }
+    },
+    {
+      "question": "Which of the following features would you leverage to encrypt data at rest for Amazon RDS?",
+      "options": [
+        "A. AWS Key Management Service (KMS)",
+        "B. Amazon GuardDuty",
+        "C. VPC Peering",
+        "D. AWS Shield"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "AWS KMS provides key management and encryption services that can be used to encrypt data at rest in RDS.",
+        "B": "Amazon GuardDuty is a threat detection service, not used for encryption.",
+        "C": "VPC Peering connects VPCs, but does not provide encryption capabilities.",
+        "D": "AWS Shield is a DDoS protection service, unrelated to data encryption."
+      }
+    },
+    {
+      "question": "Which of the following is a benefit of using Amazon RDS Read Replicas?",
+      "options": [
+        "A. Automated failover",
+        "B. Performance enhancement for read-heavy workloads",
+        "C. Automated backups",
+        "D. Cross-region disaster recovery"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Automated failover is a feature of Multi-AZ deployments, not Read Replicas.",
+        "B": "Read Replicas help scale out read-heavy workloads by distributing read traffic.",
+        "C": "Automated backups are a separate RDS feature, not specific to Read Replicas.",
+        "D": "While Read Replicas can be used across regions, their primary purpose is to enhance performance for read-heavy workloads."
+      }
+    },
+    {
+      "question": "You need to monitor the database load on your Amazon RDS instance. Which service or feature should you use?",
+      "options": [
+        "A. Amazon CloudWatch",
+        "B. AWS Config",
+        "C. AWS CloudTrail",
+        "D. Amazon Inspector"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Amazon CloudWatch provides monitoring for AWS resources, including performance metrics for RDS instances.",
+        "B": "AWS Config is used for assessing, auditing, and evaluating the configurations of your AWS resources.",
+        "C": "AWS CloudTrail logs API calls and related events for auditing purposes, not performance monitoring.",
+        "D": "Amazon Inspector is a security assessment service, not a performance monitoring tool."
+      }
+    },
+    {
+      "question": "Which Amazon RDS feature allows you to retain a snapshot of your database at a specific point in time?",
+      "options": [
+        "A. Automated Backups",
+        "B. Manual Snapshots",
+        "C. Event Subscriptions",
+        "D. Parameter Groups"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Automated Backups provide automatic backups but are not specifically user-initiated snapshots.",
+        "B": "Manual Snapshots allow the user to create a snapshot of the database at any point in time for long-term retention.",
+        "C": "Event Subscriptions notify you about database events, not related to creating snapshots.",
+        "D": "Parameter Groups are used to manage database engine configuration values, not snapshots."
+      }
+    },
+    {
+      "question": "Your organization needs to ensure that database logs are retained for compliance reasons. Which Amazon RDS feature should you use?",
+      "options": [
+        "A. Enhanced Monitoring",
+        "B. DB Parameter Groups",
+        "C. CloudWatch Logs Export",
+        "D. Performance Insights"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Enhanced Monitoring provides real-time metrics for the operating system hosting your DB instance.",
+        "B": "DB Parameter Groups are used for configuring database engine settings.",
+        "C": "CloudWatch Logs Export allows you to export RDS logs to CloudWatch Logs, enabling long-term retention and compliance.",
+        "D": "Performance Insights is used for database performance tuning, not for log retention."
+      }
+    },
+    {
+      "question": "Which Amazon RDS feature should you use to automatically scale storage capacity as your database grows?",
+      "options": [
+        "A. Multi-AZ Deployments",
+        "B. Storage Auto Scaling",
+        "C. Reserved Instances",
+        "D. Read Replicas"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Multi-AZ Deployments are used for high availability, not for scaling storage.",
+        "B": "Storage Auto Scaling automatically scales your storage capacity to meet demand, ensuring you don't run out of storage.",
+        "C": "Reserved Instances offer cost savings but do not affect storage scaling.",
+        "D": "Read Replicas are used to scale read performance, not storage capacity."
+      }
+    },
+    {
+      "question": "You are concerned about potential data loss in your Amazon RDS instance. Which feature helps you restore your database to a specific point in time?",
+      "options": [
+        "A. Manual Snapshots",
+        "B. Automated Backups",
+        "C. Multi-AZ Deployments",
+        "D. Read Replicas"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Manual Snapshots provide a snapshot at a specific time but require manual intervention for restoration.",
+        "B": "Automated Backups allow you to restore your database to any point in time within the backup retention window.",
+        "C": "Multi-AZ Deployments provide high availability and failover but do not offer point-in-time recovery.",
+        "D": "Read Replicas are designed for scaling reads, not for point-in-time recovery."
+      }
+    }
+  ]
+},
