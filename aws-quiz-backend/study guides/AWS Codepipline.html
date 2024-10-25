@@ -1,0 +1,97 @@
+```markdown
+# AWS CodePipeline Study Guide
+
+## Key Concepts and Definitions
+
+- **AWS CodePipeline**: A continuous integration and continuous delivery (CI/CD) service for fast and reliable application and infrastructure updates. It automates the build, test, and deploy phases of your release process.
+- **Pipeline**: A workflow that defines how software changes should progress through your release process.
+- **Stage**: A logical unit in a pipeline where actions such as build, test, and deploy are performed.
+- **Action**: A task performed in a stage, such as source, build, test, or deploy.
+- **Artifact**: The output of an action, which can be input for a subsequent action.
+- **Source Action**: The first action in a pipeline, which retrieves the source code from a specified location like AWS S3, GitHub, or AWS CodeCommit.
+- **Build Action**: Compiles the source code into an executable form and runs tests.
+- **Deploy Action**: Deploys the artifacts to environments such as AWS Elastic Beanstalk, AWS ECS, or AWS Lambda.
+
+## Mnemonics or Memory Aids
+
+- **"SBDA"**: **S**ource, **B**uild, **D**eploy, **A**rtifact - Remember the order of key actions in AWS CodePipeline stages.
+
+## Comparison Table
+
+| Feature        | AWS CodePipeline                        | Jenkins                              |
+|----------------|----------------------------------------|--------------------------------------|
+| Service Type   | Managed CI/CD service                   | Self-hosted CI/CD tool               |
+| Integration    | Seamless integration with AWS services  | Requires plugins for AWS integration |
+| Cost           | Pay-per-use model                       | Free (but requires infrastructure)   |
+| Scalability    | Automatically scales with demand        | Requires manual scaling              |
+| Setup          | Quick setup with AWS console            | Requires server setup and maintenance|
+
+## Outline of Processes
+
+1. **Create a Pipeline**:
+   - Define the pipeline structure by specifying stages and actions.
+   - Configure source action to fetch code.
+   - Add build action to compile and test code.
+   - Define deploy action to release code to environments.
+
+2. **Configure Stages**:
+   - **Source Stage**: Connect to a version control system.
+   - **Build Stage**: Use AWS CodeBuild or third-party services.
+   - **Deploy Stage**: Deploy using AWS services like Elastic Beanstalk or Lambda.
+
+3. **Trigger Pipeline Execution**:
+   - Manual trigger via AWS Management Console.
+   - Automatic trigger based on code changes or schedule.
+
+4. **Monitor and Manage**:
+   - Use AWS Management Console to monitor pipeline status.
+   - Review logs and metrics for troubleshooting.
+
+## Practice Questions
+
+1. **What is the primary purpose of AWS CodePipeline?**
+   - A) To host applications
+   - B) To automate the build, test, and deploy phases
+   - C) To manage AWS IAM roles
+   - D) To create virtual networks
+
+   **Answer**: B
+
+2. **Which AWS service is commonly used for the build stage in AWS CodePipeline?**
+   - A) AWS Lambda
+   - B) AWS CodeBuild
+   - C) AWS CodeDeploy
+   - D) Amazon S3
+
+   **Answer**: B
+
+3. **What is an artifact in AWS CodePipeline?**
+   - A) A stage in the pipeline
+   - B) A task performed in a stage
+   - C) The output of an action
+   - D) A trigger for pipeline execution
+
+   **Answer**: C
+
+4. **How can you trigger an AWS CodePipeline execution?**
+   - A) Only manually via AWS CLI
+   - B) Automatically based on events or schedule
+   - C) Only on a fixed schedule
+   - D) Only upon user request
+
+   **Answer**: B
+
+5. **Which of the following is a deploy action destination in AWS CodePipeline?**
+   - A) AWS Elastic Beanstalk
+   - B) Amazon S3
+   - C) AWS IAM
+   - D) AWS CloudWatch
+
+   **Answer**: A
+
+## Potential Points of Confusion
+
+- **Artifacts vs. Actions**: Artifacts are the outputs of actions, not the actions themselves.
+- **Managed vs. Self-hosted**: AWS CodePipeline is managed by AWS, reducing infrastructure maintenance needs compared to tools like Jenkins.
+- **Integration Capabilities**: Understanding the integration between CodePipeline and other AWS services is crucial for effective pipeline setup.
+```

@@ -67,7 +67,8 @@ app.post("/generate-content", async (req, res) => {
     if (contentType === "studyGuide") {
       prompt += `Create a comprehensive study guide for the AWS Solutions Architect Associate Exam. The study guide should include:
 - Key concepts and definitions
-- Mnemonics or memory aids to help remember information about the subject
+- Mnemonics, heuristics and/or memory aids to help remember information about the subject
+- Simple diagrams or visual aids to illustrate important points
 - If applicable, tables that compare and contrast key aspects of the service or topic
 - Outlines of any processes involved with the topic
 - Five practice questions about the service or topic
@@ -319,7 +320,7 @@ app.post("/save-results", async (req, res) => {
 app.post("/save-study-guide", async (req, res) => {
   const { studyGuide, service } = req.body;
   try {
-    const fileName = `${service || "study_guide"}.html`;
+    const fileName = `${service || "study_guide"}.md`;
     const studyGuidesDir = path.join(__dirname, "study guides");
 
     // Ensure the directory exists
