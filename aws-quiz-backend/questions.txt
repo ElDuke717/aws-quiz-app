@@ -5826,3 +5826,756 @@
     }
   ]
 },
+{
+  "service": "",
+  "cheatSheet": "Amazon Cognito lets you add user sign-up, sign-in, and access control to your web and mobile apps quickly and easily.\n\nAmazon Cognito provides authentication, authorization, and user management for your web and mobile apps.\n\nYour users can sign in directly with a user name and password, or through a third party such as Facebook, Amazon, or Google.\n\n## Web Identity Federation\n\nAWS Cognito works with external identity providers that support SAML or OpenID Connect, social identity providers (such as Facebook, Twitter, Amazon)\n\nFederation allows users to authenticate with a Web Identity Provider (e.g. Google, Facebook, Amazon).\n\nThe user authenticates first with the Web ID provider and receives an authentication token, which is then exchanges for temporary AWS credentials allowing them to assume an IAM role allowing access to the required resources.\n\nCognito is an Identity Broker which handles interaction between your applications and the Web ID provider (you don’t need to write your own code to do this).\n\nYou can use Amazon, Facebook, Twitter, Digits, Google and any other OpenID Connect compatible identity provider.\n\nYou can also integrate your own identity provider.\n\n## User Pools and Identity Pools\n\nThe two main components of AWS Cognito are user pools and identity pools:\n\n- User pools are user directories that provide sign-up and sign-in options for your app users.\n- Identity pools enable you to grant your users access to other AWS services.\n\nYou can use identity pools and user pools separately or together.\n\nNo need for the application to embed or store AWS credentials locally on the device and it gives users a seamless experience across all mobile devices.\n\nCognito Identity provides temporary security credentials to access your app’s backend resources in AWS or any service behind Amazon API Gateway.\n\nCognito exposes server-side APIs.\n\nUsers can sign-up and sign-in using email, phone number, or user name.\n\nEnd users of an application can also sign in with SMS-based MFA.\n\nThere is an import tool for migrating users into an Amazon Cognito User Pool.\n\n![Amazon Cognito Authentication and Authorization](https://digitalcloud.training/wp-content/uploads/2022/01/amazon-cognito-authentication-and-authorization.jpeg)\n\n## User Pools\n\nCognito User Pools are user directories used to manage sign-up and sign-in functionality for mobile and web applications.\n\nWith a user pool, users can sign in to your web or mobile app through Amazon Cognito.\n\nUsers can also sign in through social identity providers like Facebook or Amazon, and through SAML identity providers.\n\nWhether users sign-in directly or through a third party, all members of the user pool have a directory profile that you can access through an SDK.\n\nCognito acts as an Identity Broker between the ID provider and AWS.\n\nUser pools provide:\n\n- Sign-up and sign-in services.\n- A built-in, customizable web UI to sign in users.\n- Social sign-in with Facebook, Google, and Login with Amazon, as well as sign-in with SAML identity providers from your user pool.\n- User directory management and user profiles.\n- Security features such as multi-factor authentication (MFA), checks for compromised credentials, account takeover protection, and phone and email verification.\n- Customized workflows and user migration through AWS Lambda triggers.\n\nAfter successfully authenticating a user, Amazon Cognito issues JSON web tokens (JWT) that you can use to secure and authorize access to your own APIs, or exchange for AWS credentials.\n\n![Amazon Cognito User Pool Token](https://digitalcloud.training/wp-content/uploads/2022/01/amazon-cognito-user-pool-token.jpeg)\n\n## Identity Pools\n\nIdentity Pools enable you to create unique identities for your users and authenticate them with identity providers.\n\nWith an identity, you can obtain temporary, limited-privilege AWS credentials to access other AWS services.\n\nCognito tracks the association between user identity and the various different devices they sign-in from.\n\nIn order to provide a seamless user experience for your application, Cognito uses Push Synchronization to push updates and synchronize user data across multiple devices.\n\nAmazon SNS is used to send a silent push notification to all the devices whenever data stored in the cloud changes.\n\nAmazon Cognito identity pools support the following identity providers:\n\n- Public providers: Login with Amazon (Identity Pools), Facebook (Identity Pools), Google (Identity Pools).\n- Amazon Cognito User Pools.\n- Open ID Connect Providers (Identity Pools).\n- SAML Identity Providers (Identity Pools).\n- Developer Authenticated Identities (Identity Pools).\n\n![Amazon Cognito Identity Pool](https://digitalcloud.training/wp-content/uploads/2022/01/amazon-cognito-identity-pool.jpeg)\n\n**_Exam tip:_** _To make it easier to remember the different between User Pools and Identity Pools, think of Users Pools as being like IAM Users or Active Directory and an Identity Pools as being like an IAM Role._\n\n## Amazon Cognito Sync\n\nAmazon Cognito Sync is an AWS service and client library that enables cross-device syncing of application-related user data.\n\nYou can use it to synchronize user profile data across mobile devices and the web without requiring your own backend.\n\nThe client libraries cache data locally so your app can read and write data regardless of device connectivity status.\n\nWhen the device is online, you can synchronize data, and if you set up push sync, notify other devices immediately that an update is available.\n\n**_Exam tip:_** _AWS AppSync is a similar service that has additional capabilities. With AppSync you can synchronize mobile app data across devices and users (Cognito Sync cannot synchronize across users, only devices), it has support for additional devices and data types, and is based on GraphQL._",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "What is the primary purpose of Amazon Cognito User Pools?",
+      "options": [
+        "A. To manage user authentication and directories",
+        "B. To grant AWS credentials",
+        "C. To synchronize user data across devices",
+        "D. To provide web hosting services"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "User Pools are designed to manage sign-up and sign-in functionality for applications, acting as user directories.",
+        "B": "Granting AWS credentials is the role of Identity Pools, not User Pools.",
+        "C": "Data synchronization is handled by Amazon Cognito Sync, not User Pools.",
+        "D": "Web hosting services are not a function of Amazon Cognito."
+      }
+    },
+    {
+      "question": "Which of the following identity providers can be used with Amazon Cognito Identity Pools? Select TWO.",
+      "options": [
+        "A. Facebook",
+        "B. Active Directory",
+        "C. Google",
+        "D. SAML Identity Providers"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "Facebook is a supported public provider for Identity Pools.",
+        "B": "Active Directory is not directly supported as a public provider in Cognito Identity Pools.",
+        "C": "Google is also a supported public provider for Identity Pools.",
+        "D": "SAML Identity Providers are supported, but the question specifies public providers."
+      }
+    },
+    {
+      "question": "What does Amazon Cognito provide to manage user data synchronization across multiple devices?",
+      "options": [
+        "A. AWS Lambda",
+        "B. Amazon Cognito Sync",
+        "C. Amazon API Gateway",
+        "D. Amazon SNS"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "AWS Lambda is used for serverless compute but not specifically for user data synchronization.",
+        "B": "Amazon Cognito Sync is the service designed specifically for synchronizing user data across devices.",
+        "C": "Amazon API Gateway is used for creating, publishing, and managing APIs, not for synchronization.",
+        "D": "Amazon SNS is used for notifications but not for data synchronization."
+      }
+    },
+    {
+      "question": "How does Amazon Cognito handle authentication when users sign in through a third-party provider?",
+      "options": [
+        "A. Users are directly authenticated by AWS",
+        "B. Users authenticate with the third-party provider and receive a token",
+        "C. AWS stores the user's credentials",
+        "D. Users must create a separate AWS account"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "AWS does not directly authenticate users; it relies on third-party providers to authenticate.",
+        "B": "Users authenticate with the third-party provider and receive an authentication token, which is then used.",
+        "C": "AWS does not store user credentials; it relies on tokens for authentication.",
+        "D": "Users do not need to create a separate AWS account when using third-party authentication."
+      }
+    },
+    {
+      "question": "What feature does Amazon Cognito provide to enhance security during user sign-in?",
+      "options": [
+        "A. Multi-Factor Authentication (MFA)",
+        "B. IP Whitelisting",
+        "C. Automatic password resets",
+        "D. Device fingerprinting"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Cognito supports Multi-Factor Authentication (MFA) as a security feature during sign-in.",
+        "B": "IP Whitelisting is not a feature provided by Amazon Cognito.",
+        "C": "While password resets can be managed, automatic resets are not a specific feature of Cognito.",
+        "D": "Device fingerprinting is not explicitly mentioned as a feature of Amazon Cognito."
+      }
+    },
+    {
+      "question": "What is the role of JSON Web Tokens (JWT) issued by Amazon Cognito after successful authentication?",
+      "options": [
+        "A. To store user credentials",
+        "B. To secure and authorize access to APIs",
+        "C. To synchronize data across devices",
+        "D. To manage user directories"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "JWTs do not store user credentials; they represent authorization information.",
+        "B": "JWTs are used to secure and authorize access to APIs after user authentication.",
+        "C": "Data synchronization is not a function of JWTs.",
+        "D": "JWTs do not manage directories; they provide authorization."
+      }
+    },
+    {
+      "question": "Which of the following statements about Cognito User Pools and Identity Pools is correct?",
+      "options": [
+        "A. User Pools are like IAM Roles",
+        "B. Identity Pools are used for user directory management",
+        "C. User Pools provide authentication, while Identity Pools provide AWS credentials",
+        "D. Identity Pools are specifically for social sign-in only"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "User Pools are more analogous to IAM Users, not Roles.",
+        "B": "Identity Pools do not manage user directories; that is the role of User Pools.",
+        "C": "User Pools provide authentication, while Identity Pools enable access to AWS services with credentials.",
+        "D": "Identity Pools support various identity providers, not just social sign-in."
+      }
+    },
+    {
+      "question": "What happens when a user successfully signs in to an application using Amazon Cognito?",
+      "options": [
+        "A. The user is automatically logged into AWS Management Console",
+        "B. The user receives temporary AWS credentials",
+        "C. The user must enter their credentials again for each session",
+        "D. The system sends a verification code every time"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Signing in through Cognito does not automatically log users into the AWS Management Console.",
+        "B": "After successful sign-in, users receive temporary AWS credentials for accessing services.",
+        "C": "Users do not need to enter credentials again if they are using the same session.",
+        "D": "A verification code is not sent every time; it is used during MFA setups."
+      }
+    },
+    {
+      "question": "Which of the following is NOT a feature of Cognito User Pools?",
+      "options": [
+        "A. Multi-factor authentication",
+        "B. User directory management",
+        "C. Temporary AWS credentials",
+        "D. Customizable web UI"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Multi-factor authentication is indeed a feature of User Pools.",
+        "B": "User directory management is a primary function of User Pools.",
+        "C": "Temporary AWS credentials are provided by Identity Pools, not User Pools.",
+        "D": "User Pools allow for a customizable web UI for user sign-in."
+      }
+    },
+    {
+      "question": "What is the function of Amazon Cognito Sync?",
+      "options": [
+        "A. To manage IAM roles",
+        "B. To synchronize user profile data across devices",
+        "C. To provide user authentication",
+        "D. To create and manage user pools"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Amazon Cognito Sync does not manage IAM roles.",
+        "B": "Cognito Sync is designed specifically for synchronizing user profile data across devices.",
+        "C": "User authentication is primarily handled by User Pools.",
+        "D": "Creating and managing user pools is the role of Amazon Cognito User Pools."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon ECS",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "You are tasked with deploying a microservices application using Amazon ECS. The application requires dynamic scaling based on CPU utilization. Which service can automatically adjust the number of tasks in your ECS service?",
+      "options": [
+        "A. Amazon EC2 Auto Scaling",
+        "B. AWS Lambda",
+        "C. AWS Application Auto Scaling",
+        "D. Elastic Load Balancing"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Amazon EC2 Auto Scaling is used for scaling EC2 instances, not ECS tasks.",
+        "B": "AWS Lambda is used for serverless computing, not directly for ECS task scaling.",
+        "C": "AWS Application Auto Scaling is designed to scale ECS services based on metrics such as CPU utilization.",
+        "D": "Elastic Load Balancing distributes traffic but does not scale ECS tasks."
+      }
+    },
+    {
+      "question": "You need to ensure that your ECS tasks can access AWS services securely. Which of the following methods could be used to provide permissions to your ECS tasks? (Select TWO)",
+      "options": [
+        "A. IAM Roles for Tasks",
+        "B. IAM Users",
+        "C. Security Groups",
+        "D. IAM Roles for EC2"
+      ],
+      "correctAnswers": [
+        "A",
+        "D"
+      ],
+      "explanation": {
+        "A": "IAM Roles for Tasks allow ECS tasks to access AWS services securely.",
+        "B": "IAM Users are not used to provide permissions to ECS tasks.",
+        "C": "Security Groups control inbound and outbound traffic, not permissions.",
+        "D": "IAM Roles for EC2 can be attached to EC2 instances running your ECS tasks, indirectly providing permissions."
+      }
+    },
+    {
+      "question": "Your company wants to deploy a highly available ECS service across multiple AZs. What ECS feature allows you to distribute tasks across multiple Availability Zones?",
+      "options": [
+        "A. Task Placement Strategies",
+        "B. Cluster Auto Scaling",
+        "C. Amazon CloudWatch",
+        "D. Service Discovery"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Task Placement Strategies in ECS can be used to distribute tasks across multiple Availability Zones.",
+        "B": "Cluster Auto Scaling adjusts the number of instances in the cluster but does not directly manage task distribution across AZs.",
+        "C": "Amazon CloudWatch provides monitoring and does not distribute tasks.",
+        "D": "Service Discovery is used for locating services, not distributing tasks."
+      }
+    },
+    {
+      "question": "You are setting up an ECS service that needs to communicate with an RDS database. Which network mode should you use to simplify the networking configuration and allow tasks to connect directly to the database?",
+      "options": [
+        "A. Bridge",
+        "B. Host",
+        "C. None",
+        "D. AWSVPC"
+      ],
+      "correctAnswers": [
+        "D"
+      ],
+      "explanation": {
+        "A": "Bridge mode creates a private bridge network, which may complicate direct database access.",
+        "B": "Host mode allows tasks to use the host network interface but might not simplify configuration.",
+        "C": "None mode does not provide networking capabilities needed for database connectivity.",
+        "D": "AWSVPC mode assigns each task a dedicated ENI, allowing direct connectivity to the database."
+      }
+    },
+    {
+      "question": "An ECS service running on Fargate requires environment-specific configurations for development, testing, and production. Which ECS feature can help manage these configurations?",
+      "options": [
+        "A. Task Definitions",
+        "B. ECS Exec",
+        "C. Elastic Load Balancer",
+        "D. AWS IAM"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Task Definitions can be used to define environment variables and other configurations specific to each environment.",
+        "B": "ECS Exec is used for executing commands within containers, not for managing configurations.",
+        "C": "Elastic Load Balancer manages traffic, not configurations.",
+        "D": "AWS IAM manages permissions, not environment-specific configurations."
+      }
+    },
+    {
+      "question": "Which of the following ECS features allows you to update the container images of your service tasks without downtime?",
+      "options": [
+        "A. Service Auto Scaling",
+        "B. Blue/Green Deployment",
+        "C. Task Placement Constraints",
+        "D. Rolling Updates"
+      ],
+      "correctAnswers": [
+        "D"
+      ],
+      "explanation": {
+        "A": "Service Auto Scaling adjusts the number of running tasks, not the container image.",
+        "B": "Blue/Green Deployment is a deployment strategy but not a direct ECS feature.",
+        "C": "Task Placement Constraints affect where tasks are placed, not how they are updated.",
+        "D": "Rolling Updates allow you to update the container image gradually, minimizing downtime."
+      }
+    },
+    {
+      "question": "You are deploying an ECS service that needs to handle sensitive data and requires encryption between tasks. Which AWS service can you use to encrypt data in transit?",
+      "options": [
+        "A. AWS Key Management Service",
+        "B. AWS Secrets Manager",
+        "C. AWS Certificate Manager",
+        "D. Amazon CloudFront"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "AWS Key Management Service manages encryption keys but does not directly encrypt data in transit.",
+        "B": "AWS Secrets Manager is for managing secrets, not encrypting data in transit.",
+        "C": "AWS Certificate Manager can manage SSL/TLS certificates for encrypting data in transit.",
+        "D": "Amazon CloudFront is a content delivery network, not directly related to ECS data encryption."
+      }
+    },
+    {
+      "question": "An ECS service running on EC2 instances is experiencing uneven distribution of traffic. Which feature can help ensure that traffic is evenly distributed across tasks in your ECS service?",
+      "options": [
+        "A. Elastic Load Balancing",
+        "B. Service Auto Scaling",
+        "C. Task Placement Constraints",
+        "D. Amazon CloudWatch"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Elastic Load Balancing can distribute incoming traffic evenly across tasks in your ECS service.",
+        "B": "Service Auto Scaling adjusts the number of tasks but does not directly manage traffic distribution.",
+        "C": "Task Placement Constraints affect task placement, not traffic distribution.",
+        "D": "Amazon CloudWatch provides monitoring capabilities, not traffic distribution."
+      }
+    },
+    {
+      "question": "You need to run a batch job on ECS that processes data and then shuts down automatically. What ECS feature is best suited for this use case?",
+      "options": [
+        "A. ECS Service",
+        "B. ECS Task",
+        "C. ECS Cluster",
+        "D. ECS Task Definition"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "An ECS Service is designed for long-running applications, not one-time batch jobs.",
+        "B": "An ECS Task is suitable for running a batch job that processes data and then stops.",
+        "C": "An ECS Cluster is a logical grouping of tasks or services, not directly used for batch jobs.",
+        "D": "An ECS Task Definition is a blueprint for creating tasks, not the task itself."
+      }
+    },
+    {
+      "question": "Your ECS service needs to access an S3 bucket. Which of the following is the recommended best practice to allow access?",
+      "options": [
+        "A. Use hardcoded IAM credentials in the task",
+        "B. Attach an IAM role to the ECS task",
+        "C. Use S3 bucket policies",
+        "D. Use AWS Secrets Manager to store credentials"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Hardcoding IAM credentials is not a secure practice.",
+        "B": "Attaching an IAM role to the ECS task is the recommended secure method to provide AWS service access.",
+        "C": "S3 bucket policies control access to the bucket but do not provide IAM permissions to tasks.",
+        "D": "AWS Secrets Manager is used for managing secrets, not directly providing access to AWS services."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon EKS",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "You are tasked with setting up an Amazon EKS cluster for a new application. Which of the following components is required to communicate with the Kubernetes API server?",
+      "options": [
+        "A. AWS CLI",
+        "B. kubectl",
+        "C. AWS Management Console",
+        "D. AWS CloudFormation"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "The AWS CLI can manage EKS but is not used to communicate directly with the Kubernetes API server.",
+        "B": "kubectl is the command-line tool for communicating with the Kubernetes API server.",
+        "C": "The AWS Management Console is used for managing AWS resources but does not communicate directly with the Kubernetes API server.",
+        "D": "AWS CloudFormation is used for provisioning infrastructure but does not communicate directly with the Kubernetes API server."
+      }
+    },
+    {
+      "question": "Your company needs to ensure that all EKS worker nodes are automatically updated to the latest AMI version. Which service can automate this process?",
+      "options": [
+        "A. AWS Lambda",
+        "B. AWS Systems Manager",
+        "C. AWS Auto Scaling",
+        "D. AWS CodePipeline"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "AWS Lambda can run code but is not suitable for updating AMI versions across instances.",
+        "B": "AWS Systems Manager can manage instances but does not handle automatic AMI updates.",
+        "C": "AWS Auto Scaling can be configured to replace instances with the latest AMI version when scaling activities occur.",
+        "D": "AWS CodePipeline is used for continuous delivery, not for updating AMI versions."
+      }
+    },
+    {
+      "question": "When configuring IAM roles for your Amazon EKS cluster, which of the following is a best practice?",
+      "options": [
+        "A. Use a single IAM role for all cluster operations",
+        "B. Use IAM roles for service accounts",
+        "C. Assign permissions directly to users",
+        "D. Use the root account for cluster management"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Using a single IAM role for all operations does not follow the principle of least privilege.",
+        "B": "Using IAM roles for service accounts allows for fine-grained access control and is a best practice.",
+        "C": "Assigning permissions directly to users is not recommended as it can lead to security risks.",
+        "D": "Using the root account for cluster management is a security risk and should be avoided."
+      }
+    },
+    {
+      "question": "Your EKS application requires persistent storage. Which of the following storage options can be used with Amazon EKS? Select TWO.",
+      "options": [
+        "A. Amazon S3",
+        "B. Amazon EBS",
+        "C. Amazon EFS",
+        "D. AWS Lambda"
+      ],
+      "correctAnswers": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "A": "Amazon S3 is an object storage service and not typically used for Kubernetes persistent storage.",
+        "B": "Amazon EBS can be used for block storage in EKS and is suitable for persistent storage.",
+        "C": "Amazon EFS provides file storage accessible by EKS pods and is suitable for persistent storage.",
+        "D": "AWS Lambda is a compute service and not a storage option."
+      }
+    },
+    {
+      "question": "Which of the following AWS services can be used to create a continuous delivery pipeline for an Amazon EKS application?",
+      "options": [
+        "A. AWS CodePipeline",
+        "B. AWS CloudWatch",
+        "C. AWS Direct Connect",
+        "D. AWS Glue"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "AWS CodePipeline can be used to automate the build, test, and deploy phases of your release process.",
+        "B": "AWS CloudWatch is used for monitoring and logging, not for creating delivery pipelines.",
+        "C": "AWS Direct Connect provides dedicated network connections, not related to continuous delivery pipelines.",
+        "D": "AWS Glue is a data integration service and not used for deploying applications."
+      }
+    },
+    {
+      "question": "Which feature of Amazon EKS allows you to run and manage Kubernetes applications without managing the underlying infrastructure?",
+      "options": [
+        "A. EKS Fargate",
+        "B. EKS Node Groups",
+        "C. EKS Managed Nodes",
+        "D. EKS Control Plane"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "EKS Fargate allows you to run Kubernetes pods without managing EC2 instances, handling the underlying infrastructure for you.",
+        "B": "EKS Node Groups require managing EC2 instances and are not serverless.",
+        "C": "EKS Managed Nodes simplify node management but still involve EC2 instances.",
+        "D": "The EKS Control Plane manages the Kubernetes control plane components but not the application infrastructure."
+      }
+    },
+    {
+      "question": "Your EKS environment needs to be configured for high availability. Which AWS region configuration should you consider?",
+      "options": [
+        "A. Deploying all resources in a single Availability Zone",
+        "B. Spanning EKS clusters across multiple regions",
+        "C. Distributing resources across multiple Availability Zones within a region",
+        "D. Using AWS Outposts for local deployments"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Deploying in a single Availability Zone risks downtime during an AZ outage.",
+        "B": "Spanning EKS clusters across regions is complex and not required for high availability within a region.",
+        "C": "Distributing resources across multiple Availability Zones within a region ensures high availability and resilience.",
+        "D": "AWS Outposts are for on-premises deployments and do not address high availability across AZs."
+      }
+    },
+    {
+      "question": "Which of the following is a security best practice when running applications on Amazon EKS?",
+      "options": [
+        "A. Use the root account for accessing the EKS cluster",
+        "B. Disable logging to enhance performance",
+        "C. Use network policies to restrict traffic",
+        "D. Allow unrestricted access to the Kubernetes API server"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Using the root account is insecure and should be avoided.",
+        "B": "Disabling logging can hinder troubleshooting and security auditing.",
+        "C": "Using network policies to restrict traffic enhances security by controlling pod communication.",
+        "D": "Unrestricted access to the Kubernetes API server poses a significant security risk."
+      }
+    },
+    {
+      "question": "Which of the following tools can help you monitor the health and performance of your Amazon EKS cluster?",
+      "options": [
+        "A. Amazon Athena",
+        "B. Amazon CloudWatch",
+        "C. AWS CodeBuild",
+        "D. AWS IAM"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Amazon Athena is used for querying data in S3 using SQL, not for monitoring EKS.",
+        "B": "Amazon CloudWatch provides robust monitoring and logging capabilities for EKS clusters.",
+        "C": "AWS CodeBuild is a build service and does not provide monitoring features.",
+        "D": "AWS IAM is used for identity and access management, not for monitoring."
+      }
+    },
+    {
+      "question": "You need to configure a custom domain for your application running on Amazon EKS. Which service can you use to manage DNS records for this domain?",
+      "options": [
+        "A. Amazon VPC",
+        "B. Amazon EC2",
+        "C. Amazon Route 53",
+        "D. AWS S3"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Amazon VPC is used for networking, not DNS management.",
+        "B": "Amazon EC2 provides compute resources and does not manage DNS records.",
+        "C": "Amazon Route 53 is a scalable DNS web service that can manage DNS records for your domain.",
+        "D": "AWS S3 is an object storage service, not used for DNS management."
+      }
+    }
+  ]
+},
+{
+  "service": "AWS Fargate",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "Which of the following statements about AWS Fargate is true?",
+      "options": [
+        "A. AWS Fargate requires you to provision and manage EC2 instances.",
+        "B. AWS Fargate is a serverless compute engine for containers.",
+        "C. AWS Fargate only supports Kubernetes workloads.",
+        "D. AWS Fargate requires you to manage the underlying infrastructure."
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "AWS Fargate does not require provisioning or managing EC2 instances. It abstracts the infrastructure layer.",
+        "B": "Correct. AWS Fargate is a serverless compute engine for containers, allowing you to run containers without managing servers.",
+        "C": "AWS Fargate supports both Amazon ECS and Amazon EKS, not just Kubernetes.",
+        "D": "AWS Fargate abstracts the management of the underlying infrastructure."
+      }
+    },
+    {
+      "question": "Which AWS service is primarily used in conjunction with AWS Fargate to orchestrate container deployments?",
+      "options": [
+        "A. Amazon S3",
+        "B. Amazon RDS",
+        "C. Amazon ECS",
+        "D. Amazon DynamoDB"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Amazon S3 is a storage service, not used for orchestrating containers.",
+        "B": "Amazon RDS is a database service, not related to container orchestration.",
+        "C": "Correct. Amazon ECS (Elastic Container Service) is used in conjunction with AWS Fargate for container orchestration.",
+        "D": "Amazon DynamoDB is a NoSQL database service, not used for container orchestration."
+      }
+    },
+    {
+      "question": "What is a key benefit of using AWS Fargate for running containers?",
+      "options": [
+        "A. Full control over the underlying operating system",
+        "B. Automatic scaling and load balancing",
+        "C. Pay only for the resources you use",
+        "D. Requires manual capacity planning"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "AWS Fargate abstracts the underlying infrastructure, so you don't manage the operating system.",
+        "B": "While AWS Fargate simplifies scaling, load balancing is handled by additional services like Application Load Balancer.",
+        "C": "Correct. AWS Fargate allows you to pay only for the resources you use, which is a key benefit.",
+        "D": "AWS Fargate eliminates the need for manual capacity planning."
+      }
+    },
+    {
+      "question": "Which of the following are supported networking modes in AWS Fargate? (Select TWO)",
+      "options": [
+        "A. awsvpc",
+        "B. bridge",
+        "C. host",
+        "D. none"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Correct. The 'awsvpc' mode is supported in AWS Fargate, providing each task with its own elastic network interface.",
+        "B": "The 'bridge' mode is not supported in AWS Fargate.",
+        "C": "The 'host' mode is not supported in AWS Fargate.",
+        "D": "The 'none' mode is not supported in AWS Fargate."
+      }
+    },
+    {
+      "question": "When using AWS Fargate, which of the following do you need to specify for your tasks?",
+      "options": [
+        "A. EC2 instance type",
+        "B. Task execution IAM role",
+        "C. VPC and Subnets",
+        "D. OS patches and updates"
+      ],
+      "correctAnswers": [
+        "B",
+        "C"
+      ],
+      "explanation": {
+        "A": "You do not specify an EC2 instance type with AWS Fargate.",
+        "B": "Correct. You need to specify a task execution IAM role to allow your Fargate tasks to call AWS APIs.",
+        "C": "Correct. You need to specify a VPC and subnets for your Fargate tasks to run in.",
+        "D": "Fargate abstracts the management of OS patches and updates."
+      }
+    },
+    {
+      "question": "Which feature of AWS Fargate allows you to run containers without provisioning and managing servers?",
+      "options": [
+        "A. Elastic File System",
+        "B. Serverless compute",
+        "C. Auto Scaling Groups",
+        "D. Elastic Load Balancing"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Elastic File System provides scalable file storage, not related to compute provisioning.",
+        "B": "Correct. AWS Fargate provides serverless compute for running containers without managing servers.",
+        "C": "Auto Scaling Groups are related to EC2 instances, not Fargate.",
+        "D": "Elastic Load Balancing distributes traffic but does not eliminate server management."
+      }
+    },
+    {
+      "question": "Which of the following container orchestration services can be used with AWS Fargate? (Select TWO)",
+      "options": [
+        "A. Amazon ECS",
+        "B. Kubernetes",
+        "C. Docker Swarm",
+        "D. OpenShift"
+      ],
+      "correctAnswers": [
+        "A",
+        "B"
+      ],
+      "explanation": {
+        "A": "Correct. AWS Fargate can be used with Amazon ECS for container orchestration.",
+        "B": "Correct. AWS Fargate can be used with Amazon EKS, which is a Kubernetes service.",
+        "C": "Docker Swarm is not natively supported with AWS Fargate.",
+        "D": "OpenShift is not natively supported with AWS Fargate."
+      }
+    },
+    {
+      "question": "What is a key difference between AWS Fargate and EC2 launch types in Amazon ECS?",
+      "options": [
+        "A. Fargate requires more manual configuration",
+        "B. EC2 launch type is more cost-effective for small workloads",
+        "C. Fargate does not require managing the underlying infrastructure",
+        "D. EC2 provides serverless capabilities"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Fargate requires less manual configuration as it abstracts the infrastructure management.",
+        "B": "EC2 can be more cost-effective for specific workloads but requires managing infrastructure.",
+        "C": "Correct. Fargate abstracts the management of the underlying infrastructure.",
+        "D": "EC2 does not provide serverless capabilities; it's Fargate that offers serverless compute."
+      }
+    },
+    {
+      "question": "Which of the following does AWS Fargate use to provide network isolation for tasks?",
+      "options": [
+        "A. Security Groups",
+        "B. Network Access Control Lists",
+        "C. VPC peering",
+        "D. Elastic Load Balancer"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Correct. Security Groups in AWS Fargate provide network isolation for tasks.",
+        "B": "Network ACLs can also be used, but Security Groups are directly associated with tasks.",
+        "C": "VPC peering connects different VPCs and is not specific to task network isolation.",
+        "D": "Elastic Load Balancer is used for distributing traffic, not directly for network isolation."
+      }
+    },
+    {
+      "question": "Which AWS service should be used to monitor and collect metrics from AWS Fargate tasks?",
+      "options": [
+        "A. AWS CloudTrail",
+        "B. Amazon CloudWatch",
+        "C. AWS Config",
+        "D. AWS X-Ray"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "AWS CloudTrail records API calls but is not used for monitoring metrics.",
+        "B": "Correct. Amazon CloudWatch is used to monitor and collect metrics from AWS Fargate tasks.",
+        "C": "AWS Config provides configuration history and changes, not metric monitoring.",
+        "D": "AWS X-Ray is used for tracing and debugging, not directly for metric collection."
+      }
+    }
+  ]
+},

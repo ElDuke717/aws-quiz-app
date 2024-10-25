@@ -3124,3 +3124,501 @@
     }
   }
 ],
+[
+  {
+    "question": "What is the primary purpose of Amazon Cognito User Pools?",
+    "userAnswer": "A. To manage user authentication and directories",
+    "correctAnswer": "A. To manage user authentication and directories",
+    "correct": true,
+    "userExplanation": {
+      "A": "User Pools are designed to manage sign-up and sign-in functionality for applications, acting as user directories."
+    },
+    "correctExplanation": {
+      "A": "User Pools are designed to manage sign-up and sign-in functionality for applications, acting as user directories."
+    }
+  },
+  {
+    "question": "Which of the following identity providers can be used with Amazon Cognito Identity Pools? Select TWO.",
+    "userAnswer": "B. Active Directory, D. SAML Identity Providers",
+    "correctAnswer": "A. Facebook, C. Google",
+    "correct": false,
+    "userExplanation": {
+      "B": "Active Directory is not directly supported as a public provider in Cognito Identity Pools.",
+      "D": "SAML Identity Providers are supported, but the question specifies public providers."
+    },
+    "correctExplanation": {
+      "A": "Facebook is a supported public provider for Identity Pools.",
+      "C": "Google is also a supported public provider for Identity Pools."
+    }
+  },
+  {
+    "question": "What does Amazon Cognito provide to manage user data synchronization across multiple devices?",
+    "userAnswer": "B. Amazon Cognito Sync",
+    "correctAnswer": "B. Amazon Cognito Sync",
+    "correct": true,
+    "userExplanation": {
+      "B": "Amazon Cognito Sync is the service designed specifically for synchronizing user data across devices."
+    },
+    "correctExplanation": {
+      "B": "Amazon Cognito Sync is the service designed specifically for synchronizing user data across devices."
+    }
+  },
+  {
+    "question": "How does Amazon Cognito handle authentication when users sign in through a third-party provider?",
+    "userAnswer": "B. Users authenticate with the third-party provider and receive a token",
+    "correctAnswer": "B. Users authenticate with the third-party provider and receive a token",
+    "correct": true,
+    "userExplanation": {
+      "B": "Users authenticate with the third-party provider and receive an authentication token, which is then used."
+    },
+    "correctExplanation": {
+      "B": "Users authenticate with the third-party provider and receive an authentication token, which is then used."
+    }
+  },
+  {
+    "question": "What feature does Amazon Cognito provide to enhance security during user sign-in?",
+    "userAnswer": "A. Multi-Factor Authentication (MFA)",
+    "correctAnswer": "A. Multi-Factor Authentication (MFA)",
+    "correct": true,
+    "userExplanation": {
+      "A": "Cognito supports Multi-Factor Authentication (MFA) as a security feature during sign-in."
+    },
+    "correctExplanation": {
+      "A": "Cognito supports Multi-Factor Authentication (MFA) as a security feature during sign-in."
+    }
+  },
+  {
+    "question": "What is the role of JSON Web Tokens (JWT) issued by Amazon Cognito after successful authentication?",
+    "userAnswer": "B. To secure and authorize access to APIs",
+    "correctAnswer": "B. To secure and authorize access to APIs",
+    "correct": true,
+    "userExplanation": {
+      "B": "JWTs are used to secure and authorize access to APIs after user authentication."
+    },
+    "correctExplanation": {
+      "B": "JWTs are used to secure and authorize access to APIs after user authentication."
+    }
+  },
+  {
+    "question": "Which of the following statements about Cognito User Pools and Identity Pools is correct?",
+    "userAnswer": "B. Identity Pools are used for user directory management",
+    "correctAnswer": "C. User Pools provide authentication, while Identity Pools provide AWS credentials",
+    "correct": false,
+    "userExplanation": {
+      "B": "Identity Pools do not manage user directories; that is the role of User Pools."
+    },
+    "correctExplanation": {
+      "C": "User Pools provide authentication, while Identity Pools enable access to AWS services with credentials."
+    }
+  },
+  {
+    "question": "What happens when a user successfully signs in to an application using Amazon Cognito?",
+    "userAnswer": "B. The user receives temporary AWS credentials",
+    "correctAnswer": "B. The user receives temporary AWS credentials",
+    "correct": true,
+    "userExplanation": {
+      "B": "After successful sign-in, users receive temporary AWS credentials for accessing services."
+    },
+    "correctExplanation": {
+      "B": "After successful sign-in, users receive temporary AWS credentials for accessing services."
+    }
+  },
+  {
+    "question": "Which of the following is NOT a feature of Cognito User Pools?",
+    "userAnswer": "D. Customizable web UI",
+    "correctAnswer": "C. Temporary AWS credentials",
+    "correct": false,
+    "userExplanation": {
+      "D": "User Pools allow for a customizable web UI for user sign-in."
+    },
+    "correctExplanation": {
+      "C": "Temporary AWS credentials are provided by Identity Pools, not User Pools."
+    }
+  },
+  {
+    "question": "What is the function of Amazon Cognito Sync?",
+    "userAnswer": "B. To synchronize user profile data across devices",
+    "correctAnswer": "B. To synchronize user profile data across devices",
+    "correct": true,
+    "userExplanation": {
+      "B": "Cognito Sync is designed specifically for synchronizing user profile data across devices."
+    },
+    "correctExplanation": {
+      "B": "Cognito Sync is designed specifically for synchronizing user profile data across devices."
+    }
+  }
+],
+[
+  {
+    "question": "You are tasked with deploying a microservices application using Amazon ECS. The application requires dynamic scaling based on CPU utilization. Which service can automatically adjust the number of tasks in your ECS service?",
+    "userAnswer": "A. Amazon EC2 Auto Scaling",
+    "correctAnswer": "C. AWS Application Auto Scaling",
+    "correct": false,
+    "userExplanation": {
+      "A": "Amazon EC2 Auto Scaling is used for scaling EC2 instances, not ECS tasks."
+    },
+    "correctExplanation": {
+      "C": "AWS Application Auto Scaling is designed to scale ECS services based on metrics such as CPU utilization."
+    }
+  },
+  {
+    "question": "You need to ensure that your ECS tasks can access AWS services securely. Which of the following methods could be used to provide permissions to your ECS tasks? (Select TWO)",
+    "userAnswer": "A. IAM Roles for Tasks, C. Security Groups",
+    "correctAnswer": "A. IAM Roles for Tasks, D. IAM Roles for EC2",
+    "correct": false,
+    "userExplanation": {
+      "A": "IAM Roles for Tasks allow ECS tasks to access AWS services securely.",
+      "C": "Security Groups control inbound and outbound traffic, not permissions."
+    },
+    "correctExplanation": {
+      "A": "IAM Roles for Tasks allow ECS tasks to access AWS services securely.",
+      "D": "IAM Roles for EC2 can be attached to EC2 instances running your ECS tasks, indirectly providing permissions."
+    }
+  },
+  {
+    "question": "Your company wants to deploy a highly available ECS service across multiple AZs. What ECS feature allows you to distribute tasks across multiple Availability Zones?",
+    "userAnswer": "B. Cluster Auto Scaling",
+    "correctAnswer": "A. Task Placement Strategies",
+    "correct": false,
+    "userExplanation": {
+      "B": "Cluster Auto Scaling adjusts the number of instances in the cluster but does not directly manage task distribution across AZs."
+    },
+    "correctExplanation": {
+      "A": "Task Placement Strategies in ECS can be used to distribute tasks across multiple Availability Zones."
+    }
+  },
+  {
+    "question": "You are setting up an ECS service that needs to communicate with an RDS database. Which network mode should you use to simplify the networking configuration and allow tasks to connect directly to the database?",
+    "userAnswer": "D. AWSVPC",
+    "correctAnswer": "D. AWSVPC",
+    "correct": true,
+    "userExplanation": {
+      "D": "AWSVPC mode assigns each task a dedicated ENI, allowing direct connectivity to the database."
+    },
+    "correctExplanation": {
+      "D": "AWSVPC mode assigns each task a dedicated ENI, allowing direct connectivity to the database."
+    }
+  },
+  {
+    "question": "An ECS service running on Fargate requires environment-specific configurations for development, testing, and production. Which ECS feature can help manage these configurations?",
+    "userAnswer": "A. Task Definitions",
+    "correctAnswer": "A. Task Definitions",
+    "correct": true,
+    "userExplanation": {
+      "A": "Task Definitions can be used to define environment variables and other configurations specific to each environment."
+    },
+    "correctExplanation": {
+      "A": "Task Definitions can be used to define environment variables and other configurations specific to each environment."
+    }
+  },
+  {
+    "question": "Which of the following ECS features allows you to update the container images of your service tasks without downtime?",
+    "userAnswer": "D. Rolling Updates",
+    "correctAnswer": "D. Rolling Updates",
+    "correct": true,
+    "userExplanation": {
+      "D": "Rolling Updates allow you to update the container image gradually, minimizing downtime."
+    },
+    "correctExplanation": {
+      "D": "Rolling Updates allow you to update the container image gradually, minimizing downtime."
+    }
+  },
+  {
+    "question": "You are deploying an ECS service that needs to handle sensitive data and requires encryption between tasks. Which AWS service can you use to encrypt data in transit?",
+    "userAnswer": "C. AWS Certificate Manager",
+    "correctAnswer": "C. AWS Certificate Manager",
+    "correct": true,
+    "userExplanation": {
+      "C": "AWS Certificate Manager can manage SSL/TLS certificates for encrypting data in transit."
+    },
+    "correctExplanation": {
+      "C": "AWS Certificate Manager can manage SSL/TLS certificates for encrypting data in transit."
+    }
+  },
+  {
+    "question": "An ECS service running on EC2 instances is experiencing uneven distribution of traffic. Which feature can help ensure that traffic is evenly distributed across tasks in your ECS service?",
+    "userAnswer": "A. Elastic Load Balancing",
+    "correctAnswer": "A. Elastic Load Balancing",
+    "correct": true,
+    "userExplanation": {
+      "A": "Elastic Load Balancing can distribute incoming traffic evenly across tasks in your ECS service."
+    },
+    "correctExplanation": {
+      "A": "Elastic Load Balancing can distribute incoming traffic evenly across tasks in your ECS service."
+    }
+  },
+  {
+    "question": "You need to run a batch job on ECS that processes data and then shuts down automatically. What ECS feature is best suited for this use case?",
+    "userAnswer": "D. ECS Task Definition",
+    "correctAnswer": "B. ECS Task",
+    "correct": false,
+    "userExplanation": {
+      "D": "An ECS Task Definition is a blueprint for creating tasks, not the task itself."
+    },
+    "correctExplanation": {
+      "B": "An ECS Task is suitable for running a batch job that processes data and then stops."
+    }
+  },
+  {
+    "question": "Your ECS service needs to access an S3 bucket. Which of the following is the recommended best practice to allow access?",
+    "userAnswer": "B. Attach an IAM role to the ECS task",
+    "correctAnswer": "B. Attach an IAM role to the ECS task",
+    "correct": true,
+    "userExplanation": {
+      "B": "Attaching an IAM role to the ECS task is the recommended secure method to provide AWS service access."
+    },
+    "correctExplanation": {
+      "B": "Attaching an IAM role to the ECS task is the recommended secure method to provide AWS service access."
+    }
+  }
+],
+[
+  {
+    "question": "You are tasked with setting up an Amazon EKS cluster for a new application. Which of the following components is required to communicate with the Kubernetes API server?",
+    "userAnswer": "B. kubectl",
+    "correctAnswer": "B. kubectl",
+    "correct": true,
+    "userExplanation": {
+      "B": "kubectl is the command-line tool for communicating with the Kubernetes API server."
+    },
+    "correctExplanation": {
+      "B": "kubectl is the command-line tool for communicating with the Kubernetes API server."
+    }
+  },
+  {
+    "question": "Your company needs to ensure that all EKS worker nodes are automatically updated to the latest AMI version. Which service can automate this process?",
+    "userAnswer": "D. AWS CodePipeline",
+    "correctAnswer": "C. AWS Auto Scaling",
+    "correct": false,
+    "userExplanation": {
+      "D": "AWS CodePipeline is used for continuous delivery, not for updating AMI versions."
+    },
+    "correctExplanation": {
+      "C": "AWS Auto Scaling can be configured to replace instances with the latest AMI version when scaling activities occur."
+    }
+  },
+  {
+    "question": "When configuring IAM roles for your Amazon EKS cluster, which of the following is a best practice?",
+    "userAnswer": "B. Use IAM roles for service accounts",
+    "correctAnswer": "B. Use IAM roles for service accounts",
+    "correct": true,
+    "userExplanation": {
+      "B": "Using IAM roles for service accounts allows for fine-grained access control and is a best practice."
+    },
+    "correctExplanation": {
+      "B": "Using IAM roles for service accounts allows for fine-grained access control and is a best practice."
+    }
+  },
+  {
+    "question": "Your EKS application requires persistent storage. Which of the following storage options can be used with Amazon EKS? Select TWO.",
+    "userAnswer": "A. Amazon S3, B. Amazon EBS",
+    "correctAnswer": "B. Amazon EBS, C. Amazon EFS",
+    "correct": false,
+    "userExplanation": {
+      "A": "Amazon S3 is an object storage service and not typically used for Kubernetes persistent storage.",
+      "B": "Amazon EBS can be used for block storage in EKS and is suitable for persistent storage."
+    },
+    "correctExplanation": {
+      "B": "Amazon EBS can be used for block storage in EKS and is suitable for persistent storage.",
+      "C": "Amazon EFS provides file storage accessible by EKS pods and is suitable for persistent storage."
+    }
+  },
+  {
+    "question": "Which of the following AWS services can be used to create a continuous delivery pipeline for an Amazon EKS application?",
+    "userAnswer": "A. AWS CodePipeline",
+    "correctAnswer": "A. AWS CodePipeline",
+    "correct": true,
+    "userExplanation": {
+      "A": "AWS CodePipeline can be used to automate the build, test, and deploy phases of your release process."
+    },
+    "correctExplanation": {
+      "A": "AWS CodePipeline can be used to automate the build, test, and deploy phases of your release process."
+    }
+  },
+  {
+    "question": "Which feature of Amazon EKS allows you to run and manage Kubernetes applications without managing the underlying infrastructure?",
+    "userAnswer": "D. EKS Control Plane",
+    "correctAnswer": "A. EKS Fargate",
+    "correct": false,
+    "userExplanation": {
+      "D": "The EKS Control Plane manages the Kubernetes control plane components but not the application infrastructure."
+    },
+    "correctExplanation": {
+      "A": "EKS Fargate allows you to run Kubernetes pods without managing EC2 instances, handling the underlying infrastructure for you."
+    }
+  },
+  {
+    "question": "Your EKS environment needs to be configured for high availability. Which AWS region configuration should you consider?",
+    "userAnswer": "C. Distributing resources across multiple Availability Zones within a region",
+    "correctAnswer": "C. Distributing resources across multiple Availability Zones within a region",
+    "correct": true,
+    "userExplanation": {
+      "C": "Distributing resources across multiple Availability Zones within a region ensures high availability and resilience."
+    },
+    "correctExplanation": {
+      "C": "Distributing resources across multiple Availability Zones within a region ensures high availability and resilience."
+    }
+  },
+  {
+    "question": "Which of the following is a security best practice when running applications on Amazon EKS?",
+    "userAnswer": "C. Use network policies to restrict traffic",
+    "correctAnswer": "C. Use network policies to restrict traffic",
+    "correct": true,
+    "userExplanation": {
+      "C": "Using network policies to restrict traffic enhances security by controlling pod communication."
+    },
+    "correctExplanation": {
+      "C": "Using network policies to restrict traffic enhances security by controlling pod communication."
+    }
+  },
+  {
+    "question": "Which of the following tools can help you monitor the health and performance of your Amazon EKS cluster?",
+    "userAnswer": "B. Amazon CloudWatch",
+    "correctAnswer": "B. Amazon CloudWatch",
+    "correct": true,
+    "userExplanation": {
+      "B": "Amazon CloudWatch provides robust monitoring and logging capabilities for EKS clusters."
+    },
+    "correctExplanation": {
+      "B": "Amazon CloudWatch provides robust monitoring and logging capabilities for EKS clusters."
+    }
+  },
+  {
+    "question": "You need to configure a custom domain for your application running on Amazon EKS. Which service can you use to manage DNS records for this domain?",
+    "userAnswer": "C. Amazon Route 53",
+    "correctAnswer": "C. Amazon Route 53",
+    "correct": true,
+    "userExplanation": {
+      "C": "Amazon Route 53 is a scalable DNS web service that can manage DNS records for your domain."
+    },
+    "correctExplanation": {
+      "C": "Amazon Route 53 is a scalable DNS web service that can manage DNS records for your domain."
+    }
+  }
+],
+[
+  {
+    "question": "Which of the following statements about AWS Fargate is true?",
+    "userAnswer": "B. AWS Fargate is a serverless compute engine for containers.",
+    "correctAnswer": "B. AWS Fargate is a serverless compute engine for containers.",
+    "correct": true,
+    "userExplanation": {
+      "B": "Correct. AWS Fargate is a serverless compute engine for containers, allowing you to run containers without managing servers."
+    },
+    "correctExplanation": {
+      "B": "Correct. AWS Fargate is a serverless compute engine for containers, allowing you to run containers without managing servers."
+    }
+  },
+  {
+    "question": "Which AWS service is primarily used in conjunction with AWS Fargate to orchestrate container deployments?",
+    "userAnswer": "C. Amazon ECS",
+    "correctAnswer": "C. Amazon ECS",
+    "correct": true,
+    "userExplanation": {
+      "C": "Correct. Amazon ECS (Elastic Container Service) is used in conjunction with AWS Fargate for container orchestration."
+    },
+    "correctExplanation": {
+      "C": "Correct. Amazon ECS (Elastic Container Service) is used in conjunction with AWS Fargate for container orchestration."
+    }
+  },
+  {
+    "question": "What is a key benefit of using AWS Fargate for running containers?",
+    "userAnswer": "B. Automatic scaling and load balancing",
+    "correctAnswer": "C. Pay only for the resources you use",
+    "correct": false,
+    "userExplanation": {
+      "B": "While AWS Fargate simplifies scaling, load balancing is handled by additional services like Application Load Balancer."
+    },
+    "correctExplanation": {
+      "C": "Correct. AWS Fargate allows you to pay only for the resources you use, which is a key benefit."
+    }
+  },
+  {
+    "question": "Which of the following are supported networking modes in AWS Fargate? (Select TWO)",
+    "userAnswer": "A. awsvpc, C. host",
+    "correctAnswer": "A. awsvpc",
+    "correct": false,
+    "userExplanation": {
+      "A": "Correct. The 'awsvpc' mode is supported in AWS Fargate, providing each task with its own elastic network interface.",
+      "C": "The 'host' mode is not supported in AWS Fargate."
+    },
+    "correctExplanation": {
+      "A": "Correct. The 'awsvpc' mode is supported in AWS Fargate, providing each task with its own elastic network interface."
+    }
+  },
+  {
+    "question": "When using AWS Fargate, which of the following do you need to specify for your tasks?",
+    "userAnswer": "B. Task execution IAM role",
+    "correctAnswer": "B. Task execution IAM role, C. VPC and Subnets",
+    "correct": false,
+    "userExplanation": {
+      "B": "Correct. You need to specify a task execution IAM role to allow your Fargate tasks to call AWS APIs."
+    },
+    "correctExplanation": {
+      "B": "Correct. You need to specify a task execution IAM role to allow your Fargate tasks to call AWS APIs.",
+      "C": "Correct. You need to specify a VPC and subnets for your Fargate tasks to run in."
+    }
+  },
+  {
+    "question": "Which feature of AWS Fargate allows you to run containers without provisioning and managing servers?",
+    "userAnswer": "B. Serverless compute",
+    "correctAnswer": "B. Serverless compute",
+    "correct": true,
+    "userExplanation": {
+      "B": "Correct. AWS Fargate provides serverless compute for running containers without managing servers."
+    },
+    "correctExplanation": {
+      "B": "Correct. AWS Fargate provides serverless compute for running containers without managing servers."
+    }
+  },
+  {
+    "question": "Which of the following container orchestration services can be used with AWS Fargate? (Select TWO)",
+    "userAnswer": "B. Kubernetes, A. Amazon ECS",
+    "correctAnswer": "A. Amazon ECS, B. Kubernetes",
+    "correct": true,
+    "userExplanation": {
+      "B": "Correct. AWS Fargate can be used with Amazon EKS, which is a Kubernetes service.",
+      "A": "Correct. AWS Fargate can be used with Amazon ECS for container orchestration."
+    },
+    "correctExplanation": {
+      "A": "Correct. AWS Fargate can be used with Amazon ECS for container orchestration.",
+      "B": "Correct. AWS Fargate can be used with Amazon EKS, which is a Kubernetes service."
+    }
+  },
+  {
+    "question": "What is a key difference between AWS Fargate and EC2 launch types in Amazon ECS?",
+    "userAnswer": "B. EC2 launch type is more cost-effective for small workloads",
+    "correctAnswer": "C. Fargate does not require managing the underlying infrastructure",
+    "correct": false,
+    "userExplanation": {
+      "B": "EC2 can be more cost-effective for specific workloads but requires managing infrastructure."
+    },
+    "correctExplanation": {
+      "C": "Correct. Fargate abstracts the management of the underlying infrastructure."
+    }
+  },
+  {
+    "question": "Which of the following does AWS Fargate use to provide network isolation for tasks?",
+    "userAnswer": "B. Network Access Control Lists",
+    "correctAnswer": "A. Security Groups",
+    "correct": false,
+    "userExplanation": {
+      "B": "Network ACLs can also be used, but Security Groups are directly associated with tasks."
+    },
+    "correctExplanation": {
+      "A": "Correct. Security Groups in AWS Fargate provide network isolation for tasks."
+    }
+  },
+  {
+    "question": "Which AWS service should be used to monitor and collect metrics from AWS Fargate tasks?",
+    "userAnswer": "D. AWS X-Ray",
+    "correctAnswer": "B. Amazon CloudWatch",
+    "correct": false,
+    "userExplanation": {
+      "D": "AWS X-Ray is used for tracing and debugging, not directly for metric collection."
+    },
+    "correctExplanation": {
+      "B": "Correct. Amazon CloudWatch is used to monitor and collect metrics from AWS Fargate tasks."
+    }
+  }
+],
