@@ -3010,3 +3010,117 @@
     }
   }
 ],
+[
+  {
+    "question": "What is Amazon ElastiCache primarily used for?",
+    "userAnswer": "A. Caching data in-memory",
+    "correctAnswer": "A. Caching data in-memory",
+    "correct": true,
+    "userExplanation": {
+      "A": "ElastiCache is designed for in-memory caching to improve the performance of web applications by retrieving data from high throughput and low latency in-memory caches."
+    },
+    "correctExplanation": {
+      "A": "ElastiCache is designed for in-memory caching to improve the performance of web applications by retrieving data from high throughput and low latency in-memory caches."
+    }
+  },
+  {
+    "question": "Which of the following caching engines are supported by Amazon ElastiCache? Select TWO.",
+    "userAnswer": "A. Redis, C. Memcached",
+    "correctAnswer": "A. Redis, C. Memcached",
+    "correct": true,
+    "userExplanation": {
+      "A": "Redis is a supported caching engine in ElastiCache, known for its rich data structure capabilities.",
+      "C": "Memcached is another supported caching engine that is optimized for simplicity and speed."
+    },
+    "correctExplanation": {
+      "A": "Redis is a supported caching engine in ElastiCache, known for its rich data structure capabilities.",
+      "C": "Memcached is another supported caching engine that is optimized for simplicity and speed."
+    }
+  },
+  {
+    "question": "What is the maximum size of a single Redis key in AWS ElastiCache?",
+    "userAnswer": "B. 1 KB",
+    "correctAnswer": "C. 2 GB",
+    "correct": false,
+    "userExplanation": {
+      "B": "1 KB is also too small for a Redis key."
+    },
+    "correctExplanation": {
+      "C": "The maximum size of a single Redis key in AWS ElastiCache is 2 GB."
+    }
+  },
+  {
+    "question": "Which feature of Amazon ElastiCache helps in automatic data replication?",
+    "userAnswer": "B. Sharding",
+    "correctAnswer": "C. Replication Groups",
+    "correct": false,
+    "userExplanation": {
+      "B": "Sharding is a method of distributing data but is not specifically for replication."
+    },
+    "correctExplanation": {
+      "C": "Replication Groups in ElastiCache allow for automatic data replication across multiple nodes."
+    }
+  },
+  {
+    "question": "In which scenarios would you choose Memcached over Redis in ElastiCache? Select TWO.",
+    "userAnswer": "No answer provided",
+    "correctAnswer": "A. When you need a simple caching solution, C. When you need to cache objects with a simple key-value structure",
+    "correct": false,
+    "userExplanation": {},
+    "correctExplanation": {
+      "A": "Memcached is preferred for simple caching needs due to its simplicity and speed.",
+      "C": "Memcached is well-suited for caching simple key-value pairs."
+    }
+  },
+  {
+    "question": "Which of the following statements is true about ElastiCache Security Groups?",
+    "userAnswer": "No answer provided",
+    "correctAnswer": "A. They control access to ElastiCache nodes",
+    "correct": false,
+    "userExplanation": {},
+    "correctExplanation": {
+      "A": "Security Groups in ElastiCache control the inbound and outbound traffic to ElastiCache nodes."
+    }
+  },
+  {
+    "question": "What does the ElastiCache feature 'Cluster Mode' offer?",
+    "userAnswer": "No answer provided",
+    "correctAnswer": "C. Horizontal scaling",
+    "correct": false,
+    "userExplanation": {},
+    "correctExplanation": {
+      "C": "Cluster Mode allows for horizontal scaling by partitioning data across multiple nodes."
+    }
+  },
+  {
+    "question": "What is the purpose of the ElastiCache parameter group?",
+    "userAnswer": "No answer provided",
+    "correctAnswer": "B. To customize engine configurations",
+    "correct": false,
+    "userExplanation": {},
+    "correctExplanation": {
+      "B": "Parameter groups are used to customize specific configurations for the cache engine."
+    }
+  },
+  {
+    "question": "Which of the following is a benefit of using ElastiCache?",
+    "userAnswer": "No answer provided",
+    "correctAnswer": "A. Reduced latency",
+    "correct": false,
+    "userExplanation": {},
+    "correctExplanation": {
+      "A": "ElastiCache significantly reduces latency for data retrieval by using in-memory caching."
+    }
+  },
+  {
+    "question": "Which metrics would be most useful for monitoring ElastiCache performance? Select TWO.",
+    "userAnswer": "No answer provided",
+    "correctAnswer": "A. CPU utilization, C. Cache hit ratio",
+    "correct": false,
+    "userExplanation": {},
+    "correctExplanation": {
+      "A": "CPU utilization is a critical metric for understanding the performance of ElastiCache nodes.",
+      "C": "Cache hit ratio indicates how effectively the cache is being utilized, making it essential for performance monitoring."
+    }
+  }
+],

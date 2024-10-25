@@ -5448,3 +5448,381 @@
     }
   ]
 },
+{
+  "service": "Amazon DynamoDB ",
+  "cheatSheet": "",
+  "difficulty": "easy",
+  "questions": [
+    {
+      "question": "What is the primary use of Amazon DynamoDB?",
+      "options": [
+        "A. To provide a NoSQL database service",
+        "B. To host static websites",
+        "C. To manage API keys",
+        "D. To provide email notifications"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Amazon DynamoDB is a fully managed NoSQL database service.",
+        "B": "Static websites are typically hosted using Amazon S3 or AWS Amplify.",
+        "C": "API key management is not a primary feature of DynamoDB; this is more related to AWS API Gateway.",
+        "D": "Email notifications are handled by Amazon SNS or Amazon SES."
+      }
+    },
+    {
+      "question": "Which of the following statements about Amazon DynamoDB is true?",
+      "options": [
+        "A. It automatically scales throughput capacity.",
+        "B. It requires manual partitioning of data.",
+        "C. It supports SQL queries.",
+        "D. It is optimized for read-heavy workloads only."
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "DynamoDB automatically scales throughput capacity with its on-demand and provisioned capacity modes.",
+        "B": "DynamoDB handles partitioning automatically; users do not need to manage partitions.",
+        "C": "DynamoDB uses a NoSQL query language, not SQL.",
+        "D": "DynamoDB is suitable for both read-heavy and write-heavy workloads."
+      }
+    },
+    {
+      "question": "What are the two primary key types available in DynamoDB? (Select TWO)",
+      "options": [
+        "A. Simple primary key",
+        "B. Composite primary key",
+        "C. Hash key",
+        "D. Range key"
+      ],
+      "correctAnswers": [
+        "A",
+        "B"
+      ],
+      "explanation": {
+        "A": "A simple primary key consists of one attribute, known as the partition key.",
+        "B": "A composite primary key consists of two attributes, a partition key and a sort key.",
+        "C": "The term 'hash key' is often used interchangeably with 'partition key', but it is not a type of primary key.",
+        "D": "A range key is part of the composite primary key, but not a primary key type by itself."
+      }
+    },
+    {
+      "question": "Which DynamoDB feature allows for automatic data replication across AWS Regions?",
+      "options": [
+        "A. Global Tables",
+        "B. DynamoDB Streams",
+        "C. DAX",
+        "D. RDS Read Replicas"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Global Tables provide a fully managed solution to replicate DynamoDB tables across AWS Regions.",
+        "B": "DynamoDB Streams capture data modification events in a table, but do not perform replication.",
+        "C": "DAX is a caching solution to accelerate reads from DynamoDB, not for replication.",
+        "D": "RDS Read Replicas are used in Amazon RDS, not DynamoDB."
+      }
+    },
+    {
+      "question": "What is the purpose of DynamoDB Streams?",
+      "options": [
+        "A. To provide event-driven processing",
+        "B. To replicate data to other regions",
+        "C. To archive data for compliance",
+        "D. To increase read capacity"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "DynamoDB Streams enable event-driven processing by capturing changes to items in a table.",
+        "B": "Data replication to other regions is handled by Global Tables, not Streams.",
+        "C": "Data archiving is not the primary purpose of DynamoDB Streams.",
+        "D": "Increasing read capacity is managed through capacity settings, not Streams."
+      }
+    },
+    {
+      "question": "Which of the following can be used to improve read performance in DynamoDB?",
+      "options": [
+        "A. Global Tables",
+        "B. DynamoDB Streams",
+        "C. DAX",
+        "D. Lambda"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Global Tables are for multi-region replication, not specifically for read performance.",
+        "B": "DynamoDB Streams are for capturing table changes, not improving read performance.",
+        "C": "DynamoDB Accelerator (DAX) provides in-memory caching to improve read performance.",
+        "D": "AWS Lambda is used for serverless computing, not directly for improving read performance."
+      }
+    },
+    {
+      "question": "What type of consistency does DynamoDB provide by default for reads?",
+      "options": [
+        "A. Strongly consistent",
+        "B. Eventually consistent",
+        "C. Transactionally consistent",
+        "D. Sequentially consistent"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Strongly consistent reads are available but not the default.",
+        "B": "Eventually consistent reads are the default in DynamoDB.",
+        "C": "Transactional consistency is achieved using transactions, not the default read consistency.",
+        "D": "Sequential consistency is not a term used in DynamoDB's consistency models."
+      }
+    },
+    {
+      "question": "What is the maximum item size in DynamoDB?",
+      "options": [
+        "A. 400 KB",
+        "B. 1 MB",
+        "C. 4 MB",
+        "D. 10 MB"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "The maximum item size in DynamoDB is 400 KB.",
+        "B": "1 MB is not the correct maximum item size.",
+        "C": "4 MB exceeds the maximum item size limit in DynamoDB.",
+        "D": "10 MB is also beyond the supported item size limit."
+      }
+    },
+    {
+      "question": "Which of the following features can be used for backup and restore operations in DynamoDB?",
+      "options": [
+        "A. DAX",
+        "B. On-Demand Backup",
+        "C. DynamoDB Streams",
+        "D. RDS Snapshots"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "DAX is a caching solution and not used for backups.",
+        "B": "On-Demand Backup is a feature specifically for backing up and restoring DynamoDB tables.",
+        "C": "DynamoDB Streams capture changes, not backups.",
+        "D": "RDS Snapshots are used in Amazon RDS, not DynamoDB."
+      }
+    },
+    {
+      "question": "What is the purpose of a partition key in a DynamoDB table?",
+      "options": [
+        "A. To define the primary key for the table",
+        "B. To sort the data within partitions",
+        "C. To ensure data consistency",
+        "D. To encrypt the data at rest"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "The partition key is part of the primary key and determines how data is distributed across partitions.",
+        "B": "Sorting data within partitions is done using the sort key, not the partition key.",
+        "C": "Data consistency is managed by read and write settings, not the partition key.",
+        "D": "Encryption at rest is handled by AWS KMS, not the partition key."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon Elasticache",
+  "cheatSheet": "",
+  "difficulty": "easy",
+  "questions": [
+    {
+      "question": "What is Amazon ElastiCache primarily used for?",
+      "options": [
+        "A. Caching data in-memory",
+        "B. Storing large binary objects",
+        "C. Hosting web applications",
+        "D. Creating virtual servers"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "ElastiCache is designed for in-memory caching to improve the performance of web applications by retrieving data from high throughput and low latency in-memory caches.",
+        "B": "Storing large binary objects is typically done using services like Amazon S3, not ElastiCache.",
+        "C": "Hosting web applications is the function of services like AWS Elastic Beanstalk or EC2, not ElastiCache.",
+        "D": "Creating virtual servers is the primary function of services like Amazon EC2."
+      }
+    },
+    {
+      "question": "Which of the following caching engines are supported by Amazon ElastiCache? Select TWO.",
+      "options": [
+        "A. Redis",
+        "B. MongoDB",
+        "C. Memcached",
+        "D. Cassandra"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "Redis is a supported caching engine in ElastiCache, known for its rich data structure capabilities.",
+        "B": "MongoDB is not supported by ElastiCache; it is a NoSQL database.",
+        "C": "Memcached is another supported caching engine that is optimized for simplicity and speed.",
+        "D": "Cassandra is not supported by ElastiCache; it is a separate NoSQL database solution."
+      }
+    },
+    {
+      "question": "What is the maximum size of a single Redis key in AWS ElastiCache?",
+      "options": [
+        "A. 512 bytes",
+        "B. 1 KB",
+        "C. 2 GB",
+        "D. 16 MB"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "512 bytes is too small for a Redis key in ElastiCache.",
+        "B": "1 KB is also too small for a Redis key.",
+        "C": "The maximum size of a single Redis key in AWS ElastiCache is 2 GB.",
+        "D": "16 MB is not the limit for Redis keys; it is larger."
+      }
+    },
+    {
+      "question": "Which feature of Amazon ElastiCache helps in automatic data replication?",
+      "options": [
+        "A. Clustering",
+        "B. Sharding",
+        "C. Replication Groups",
+        "D. Backup and Restore"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Clustering in ElastiCache allows for partitioning data but does not inherently handle replication.",
+        "B": "Sharding is a method of distributing data but is not specifically for replication.",
+        "C": "Replication Groups in ElastiCache allow for automatic data replication across multiple nodes.",
+        "D": "Backup and Restore is a feature for data recovery, not for real-time replication."
+      }
+    },
+    {
+      "question": "In which scenarios would you choose Memcached over Redis in ElastiCache? Select TWO.",
+      "options": [
+        "A. When you need a simple caching solution",
+        "B. When you require persistence of data",
+        "C. When you need to cache objects with a simple key-value structure",
+        "D. When you need advanced data structures"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "Memcached is preferred for simple caching needs due to its simplicity and speed.",
+        "B": "Redis provides persistence options, whereas Memcached does not.",
+        "C": "Memcached is well-suited for caching simple key-value pairs.",
+        "D": "Redis supports advanced data structures, while Memcached does not."
+      }
+    },
+    {
+      "question": "Which of the following statements is true about ElastiCache Security Groups?",
+      "options": [
+        "A. They control access to ElastiCache nodes",
+        "B. They are used to encrypt data in transit",
+        "C. They are mandatory for all ElastiCache clusters",
+        "D. They only allow access from VPC endpoints"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "Security Groups in ElastiCache control the inbound and outbound traffic to ElastiCache nodes.",
+        "B": "Encryption in transit is a separate feature and not managed by Security Groups.",
+        "C": "Security Groups are not mandatory; they are optional for access control.",
+        "D": "Security Groups can allow access from other sources, not just VPC endpoints."
+      }
+    },
+    {
+      "question": "What does the ElastiCache feature 'Cluster Mode' offer?",
+      "options": [
+        "A. Automatic failover",
+        "B. Enhanced data replication",
+        "C. Horizontal scaling",
+        "D. Multi-AZ deployments"
+      ],
+      "correctAnswers": [
+        "C"
+      ],
+      "explanation": {
+        "A": "Automatic failover is not specifically tied to Cluster Mode; it's more related to Redis replication.",
+        "B": "Enhanced data replication is a feature of Redis replication but not specific to Cluster Mode.",
+        "C": "Cluster Mode allows for horizontal scaling by partitioning data across multiple nodes.",
+        "D": "Multi-AZ deployments are supported, but they are not exclusive to Cluster Mode."
+      }
+    },
+    {
+      "question": "What is the purpose of the ElastiCache parameter group?",
+      "options": [
+        "A. To manage node types",
+        "B. To customize engine configurations",
+        "C. To monitor performance metrics",
+        "D. To define security settings"
+      ],
+      "correctAnswers": [
+        "B"
+      ],
+      "explanation": {
+        "A": "Node types are selected at cluster creation and are not managed through parameter groups.",
+        "B": "Parameter groups are used to customize specific configurations for the cache engine.",
+        "C": "Monitoring performance metrics is done through CloudWatch, not parameter groups.",
+        "D": "Security settings are managed through IAM and Security Groups, not parameter groups."
+      }
+    },
+    {
+      "question": "Which of the following is a benefit of using ElastiCache?",
+      "options": [
+        "A. Reduced latency",
+        "B. Increased storage capacity",
+        "C. Complex query support",
+        "D. Data transformation capabilities"
+      ],
+      "correctAnswers": [
+        "A"
+      ],
+      "explanation": {
+        "A": "ElastiCache significantly reduces latency for data retrieval by using in-memory caching.",
+        "B": "ElastiCache does not increase storage capacity; it is used for caching, not extensive data storage.",
+        "C": "ElastiCache does not support complex queries, as it is a caching service.",
+        "D": "Data transformation is not a feature of ElastiCache; it focuses on caching."
+      }
+    },
+    {
+      "question": "Which metrics would be most useful for monitoring ElastiCache performance? Select TWO.",
+      "options": [
+        "A. CPU utilization",
+        "B. Disk I/O",
+        "C. Cache hit ratio",
+        "D. Network traffic"
+      ],
+      "correctAnswers": [
+        "A",
+        "C"
+      ],
+      "explanation": {
+        "A": "CPU utilization is a critical metric for understanding the performance of ElastiCache nodes.",
+        "B": "Disk I/O is less relevant for ElastiCache, as it is an in-memory service.",
+        "C": "Cache hit ratio indicates how effectively the cache is being utilized, making it essential for performance monitoring.",
+        "D": "Network traffic can be useful, but it is not as directly indicative of cache performance as CPU utilization and cache hit ratio."
+      }
+    }
+  ]
+},
