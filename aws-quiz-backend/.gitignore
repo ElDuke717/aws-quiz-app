@@ -27,3 +27,6 @@ yarn-debug.log*
 yarn-error.log*
 
 results.txt
+
+/study-guides
+aws-quiz-backend/study-guides

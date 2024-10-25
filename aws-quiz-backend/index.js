@@ -130,7 +130,9 @@ Provide only the JSON array as the output.`;
         temperature: 0.7,
         stop_sequences: ["\n\nHuman:"],
       });
+      console.log("response:", response);
       assistantMessage = response.completion.trim();
+      console.log("assistantMessage:", assistantMessage);
 
       // Additional cleanup for Claude's response
       if (assistantMessage.startsWith("```")) {
