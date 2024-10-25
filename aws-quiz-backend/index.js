@@ -17,12 +17,12 @@ const anthropic = new Anthropic({
 
 // Model-specific token limits
 const TOKEN_LIMITS = {
-  'gpt-4o-mini': 15000,
-  'gpt-4o': 15000,
-  'claude-3-5-sonnet-20241022': 8000,
-  'claude-3-opus-20240229': 4000,
-  'claude-3-sonnet-20240229': 4000,
-  'claude-3-haiku-20240229': 8000
+  "gpt-4o-mini": 15000,
+  "gpt-4o": 15000,
+  "claude-3-5-sonnet-20241022": 8000,
+  "claude-3-opus-20240229": 4000,
+  "claude-3-sonnet-20240229": 4000,
+  "claude-3-haiku-20240229": 8000,
 };
 
 const app = express();
@@ -30,46 +30,67 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 const PORT = process.env.PORT || 5050;
 
-app.post("/generate-questions", async (req, res) => {
-  let { service, cheatSheet, difficulty, model, questionType } = req.body;
-if (!questionType) {
-  questionType = "basic"; // Default to 'basic'
-}
-  
+app.post("/generate-content", async (req, res) => {
+  let { service, cheatSheet, difficulty, model, questionType, contentType } =
+    req.body;
+
   try {
+    // Validate contentType
+    if (!contentType) {
+      contentType = "quiz"; // Default to 'quiz'
+    }
+
     // Validate difficulty level
     const allowedDifficulties = ["easy", "medium", "hard"];
     if (!allowedDifficulties.includes(difficulty)) {
       difficulty = "medium";
     }
 
+    // Validate questionType
+    if (!questionType) {
+      questionType = "basic"; // Default to 'basic'
+    }
+
     // Build the prompt dynamically
-    // Build the prompt dynamically
-let prompt = "";
+    let prompt = "";
 
-if (cheatSheet) {
-  prompt += `Based on the following text, generate 10 ${difficulty} `;
-} else if (service) {
-  prompt += `Generate 10 ${difficulty} `;
-} else {
-  return res
-    .status(400)
-    .send("Please provide either an AWS service or cheat sheet text.");
-}
+    if (cheatSheet) {
+      prompt += `Based on the following text, `;
+    } else if (service) {
+      prompt += `Provide detailed information on AWS ${service}. `;
+    } else {
+      return res
+        .status(400)
+        .send("Please provide either an AWS service or cheat sheet text.");
+    }
 
-if (questionType === "situational") {
-  prompt += `scenario-based multiple-choice questions `;
-} else {
-  prompt += `multiple-choice questions `;
-}
+    if (contentType === "studyGuide") {
+      prompt += `Create a comprehensive study guide for the AWS Solutions Architect Associate Exam. The study guide should include:
+- Key concepts and definitions
+- Mnemonics or memory aids to help remember information about the subject
+- If applicable, tables that compare and contrast key aspects of the service or topic
+- Outlines of any processes involved with the topic
+- Five practice questions about the service or topic
+- Potential points of confusion about the subject
 
-if (cheatSheet) {
-  prompt += `for the AWS Solutions Architect Associate Exam. The text is: "${cheatSheet}". `;
-} else if (service) {
-  prompt += `on AWS ${service} for the AWS Solutions Architect Associate Exam. `;
-}
+The study guide should be formatted in Markdown, using appropriate headings, lists, and tables where necessary. Do not include any additional text outside of the study guide.`;
+    } else if (contentType === "quiz") {
+      // Quiz generation logic
+      prompt += `generate 10 ${difficulty} `;
 
-prompt += `Each question should have 4 options (A, B, C, D), and some questions may require selecting multiple correct answers (e.g., "Select TWO"). 
+      if (questionType === "situational") {
+        prompt += `scenario-based multiple-choice questions `;
+      } else {
+        prompt += `multiple-choice questions `;
+      }
+
+      if (cheatSheet) {
+        prompt += `for the AWS Solutions Architect Associate Exam. The text is: "${cheatSheet}". `;
+      } else if (service) {
+        prompt += `on AWS ${service} for the AWS Solutions Architect Associate Exam. `;
+      }
+
+      prompt += `Each question should have 4 options (A, B, C, D), and some questions may require selecting multiple correct answers (e.g., "Select TWO").
 
 Provide the correct answer(s) and explanations for each option without revealing the correct answer upfront.
 
@@ -93,27 +114,29 @@ Here is the structure to follow for each question object:
 }
 
 Provide only the JSON array as the output.`;
+    }
 
     let assistantMessage;
     const maxTokens = TOKEN_LIMITS[model] || 15000;
 
     // Handle different model types
-    if (model.startsWith('claude')) {
-      const response = await anthropic.messages.create({
+    if (model.startsWith("claude")) {
+      // For Claude models
+      const response = await anthropic.completions.create({
         model: model,
-        max_tokens: maxTokens,
+        prompt: `\n\nHuman: ${prompt}\n\nAssistant:`,
+        max_tokens_to_sample: maxTokens,
         temperature: 0.7,
-        messages: [{ role: "user", content: prompt }]
+        stop_sequences: ["\n\nHuman:"],
       });
-      
-      // Extract the content from Claude's response
-      assistantMessage = response.content[0].text;
-      
+      assistantMessage = response.completion.trim();
+
       // Additional cleanup for Claude's response
-      if (assistantMessage.includes('```json')) {
-        assistantMessage = assistantMessage.split('```json')[1].split('```')[0].trim();
+      if (assistantMessage.startsWith("```")) {
+        assistantMessage = assistantMessage.replace(/```(?:json)?/g, "").trim();
       }
     } else {
+      // For OpenAI models
       const response = await openai.chat.completions.create({
         model: model || "gpt-4o-mini",
         messages: [{ role: "user", content: prompt }],
@@ -126,57 +149,71 @@ Provide only the JSON array as the output.`;
     // Clean up the response
     assistantMessage = assistantMessage.trim();
 
-    // Remove code block markers if they exist
-    if (assistantMessage.startsWith('```')) {
-      assistantMessage = assistantMessage.replace(/```(?:json)?/g, '').trim();
-    }
-    
-    try {
-      // Parse and validate the JSON
-      const questions = JSON.parse(assistantMessage);
-
-      // Ensure questions is an array
-      if (!Array.isArray(questions)) {
-        throw new Error("Response is not an array of questions");
+    if (contentType === "studyGuide") {
+      // Send the study guide back to the frontend
+      res.json({ studyGuide: assistantMessage });
+    } else if (contentType === "quiz") {
+      // Parse and validate the JSON for quiz
+      // Remove code block markers if they exist
+      if (assistantMessage.startsWith("```")) {
+        assistantMessage = assistantMessage.replace(/```(?:json)?/g, "").trim();
       }
 
-      // Validate question format
-      questions.forEach((q, i) => {
-        if (!q.question || !q.options || !q.correctAnswers || !q.explanation) {
-          console.error(`Question ${i} is missing required fields:`, q);
-        }
-        // Ensure correctAnswers is an array
-        if (!Array.isArray(q.correctAnswers)) {
-          q.correctAnswers = [q.correctAnswers];
-        }
-      });
+      try {
+        // Parse and validate the JSON
+        const questions = JSON.parse(assistantMessage);
 
-      // Save the questions along with the service to a file
-      const dataToSave =
-        JSON.stringify({ service, cheatSheet, difficulty, questions }, null, 2) +
-        ",\n";
-      const filePath = path.join(__dirname, "questions.txt");
-
-      fs.appendFile(filePath, dataToSave, (err) => {
-        if (err) {
-          console.error("Error saving questions:", err);
-        } else {
-          console.log("Questions saved successfully.");
+        // Ensure questions is an array
+        if (!Array.isArray(questions)) {
+          throw new Error("Response is not an array of questions");
         }
-      });
 
-      res.json({ questions });
-    } catch (parseError) {
-      console.error("Error parsing response:", parseError);
-      console.error("Raw response:", assistantMessage);
-      res.status(500).send("Error parsing AI response: Invalid JSON format");
+        // Validate question format
+        questions.forEach((q, i) => {
+          if (
+            !q.question ||
+            !q.options ||
+            !q.correctAnswers ||
+            !q.explanation
+          ) {
+            console.error(`Question ${i} is missing required fields:`, q);
+          }
+          // Ensure correctAnswers is an array
+          if (!Array.isArray(q.correctAnswers)) {
+            q.correctAnswers = [q.correctAnswers];
+          }
+        });
+
+        // Save the questions along with the service to a file
+        const dataToSave =
+          JSON.stringify(
+            { service, cheatSheet, difficulty, questions },
+            null,
+            2
+          ) + ",\n";
+        const filePath = path.join(__dirname, "questions.txt");
+
+        fs.appendFile(filePath, dataToSave, (err) => {
+          if (err) {
+            console.error("Error saving questions:", err);
+          } else {
+            console.log("Questions saved successfully.");
+          }
+        });
+
+        res.json({ questions });
+      } catch (parseError) {
+        console.error("Error parsing response:", parseError);
+        console.error("Raw response:", assistantMessage);
+        res.status(500).send("Error parsing AI response: Invalid JSON format");
+      }
     }
   } catch (error) {
     console.error(
-      "Error generating questions:",
+      "Error generating content:",
       error.response ? error.response.data : error.message
     );
-    res.status(500).send("Error generating questions.");
+    res.status(500).send("Error generating content.");
   }
 });
 
@@ -188,8 +225,12 @@ app.post("/check-answers", async (req, res) => {
       const correctAnswers = question.correctAnswers || [];
 
       // Ensure userAnswer and correctAnswers are arrays
-      const userAnswerArray = Array.isArray(userAnswer) ? userAnswer : [userAnswer];
-      const correctAnswerArray = Array.isArray(correctAnswers) ? correctAnswers : [correctAnswers];
+      const userAnswerArray = Array.isArray(userAnswer)
+        ? userAnswer
+        : [userAnswer];
+      const correctAnswerArray = Array.isArray(correctAnswers)
+        ? correctAnswers
+        : [correctAnswers];
 
       // Compare user's answers with correct answers
       const correct = arraysEqual(
@@ -226,8 +267,11 @@ app.post("/check-answers", async (req, res) => {
       // Create result object
       const result = {
         question: question.question,
-        userAnswer: userAnswerTexts.length > 0 ? userAnswerTexts.join(', ') : "No answer provided",
-        correctAnswer: correctAnswerTexts.join(', '),
+        userAnswer:
+          userAnswerTexts.length > 0
+            ? userAnswerTexts.join(", ")
+            : "No answer provided",
+        correctAnswer: correctAnswerTexts.join(", "),
         correct: correct,
         userExplanation: userExplanations,
         correctExplanation: correctExplanations,
@@ -269,6 +313,33 @@ app.post("/save-results", async (req, res) => {
   } catch (error) {
     console.error("Error in save-results:", error);
     res.status(500).send("Error saving results.");
+  }
+});
+
+app.post("/save-study-guide", async (req, res) => {
+  const { studyGuide, service } = req.body;
+  try {
+    const fileName = `${service || "study_guide"}.html`;
+    const studyGuidesDir = path.join(__dirname, "study guides");
+
+    // Ensure the directory exists
+    if (!fs.existsSync(studyGuidesDir)) {
+      fs.mkdirSync(studyGuidesDir);
+    }
+
+    const filePath = path.join(studyGuidesDir, fileName);
+
+    fs.writeFile(filePath, studyGuide, (err) => {
+      if (err) {
+        console.error("Error saving study guide:", err);
+        res.status(500).send("Error saving study guide.");
+      } else {
+        res.send("Study guide saved successfully.");
+      }
+    });
+  } catch (error) {
+    console.error("Error in save-study-guide:", error);
+    res.status(500).send("Error saving study guide.");
   }
 });
 

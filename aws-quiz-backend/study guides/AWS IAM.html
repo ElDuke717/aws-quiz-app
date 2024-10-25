@@ -1,0 +1,117 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS IAM Study Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #005EB8;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>AWS IAM Study Guide</h1>
+
+<h2>Key Concepts and Definitions</h2>
+<ul>
+    <li><strong>AWS IAM (Identity and Access Management):</strong> A service that helps you securely control access to AWS services and resources for your users.</li>
+    <li><strong>Users:</strong> Represents an individual person or service that interacts with AWS.</li>
+    <li><strong>Groups:</strong> A collection of IAM users that can be managed as a single entity.</li>
+    <li><strong>Roles:</strong> An IAM identity with specific permissions that can be assumed by users or services.</li>
+    <li><strong>Policies:</strong> Documents that define permissions and are attached to users, groups, or roles.</li>
+    <li><strong>Multi-Factor Authentication (MFA):</strong> An extra layer of security that requires not only a username and password but also something that only the user has (like a security token).</li>
+</ul>
+
+<h2>Mnemonics or Memory Aids</h2>
+<ul>
+    <li><strong>U.G.R.P:</strong> Remember "User Groups Roles Policies" as the core components of IAM.</li>
+    <li><strong>R.U.L.E:</strong> "Roles Users List Permissions" to remember how access is structured in IAM.</li>
+</ul>
+
+<h2>Comparison Table</h2>
+<table>
+    <tr>
+        <th>Aspect</th>
+        <th>Users</th>
+        <th>Groups</th>
+        <th>Roles</th</th>
+    </tr>
+    <tr>
+        <td>Definition</td>
+        <td>Individual AWS identity</td>
+        <td>Collection of users</td>
+        <td>Temporary permissions for AWS services or users</td>
+    </tr>
+    <tr>
+        <td>Use Case</td>
+        <td>For individual access</td>
+        <td>For collective management of permissions</td>
+        <td>For granting access to AWS services or cross-account access</td>
+    </tr>
+    <tr>
+        <td>Policy Attachment</td>
+        <td>Can attach policies directly</td>
+        <td>Policies can be applied to the entire group</td>
+        <td>Policies are attached to the role</td>
+    </tr>
+    <tr>
+        <td>Session Duration</td>
+        <td>No session duration</td>
+        <td>No session duration</td>
+        <td>Has a defined session duration</td>
+    </tr>
+</table>
+
+<h2>Outlines of Processes</h2>
+<h3>Creating an IAM User</h3>
+<ol>
+    <li>Sign in to the AWS Management Console.</li>
+    <li>Navigate to IAM service.</li>
+    <li>Select "Users" from the sidebar.</li>
+    <li>Click on "Add user".</li>
+    <li>Provide a username and select access type (programmatic and/or AWS Management Console).</li>
+    <li>Set permissions (attach existing policies, copy permissions from another user, or create a new policy).</li>
+    <li>Review and create the user.</li>
+</ol>
+
+<h2>Practice Questions</h2>
+<ol>
+    <li>What is the primary purpose of AWS IAM?</li>
+    <li>How do you grant temporary access privileges to a user in AWS IAM?</li>
+    <li>What is the difference between IAM Roles and IAM Users?</li>
+    <li>What are the two types of access you can provide to an IAM User?</li>
+    <li>What is the significance of Multi-Factor Authentication (MFA) in AWS IAM?</li>
+</ol>
+
+<h2>Potential Points of Confusion</h2>
+<ul>
+    <li>Understanding the difference between IAM Users and IAM Roles, particularly in regards to long-term vs. temporary access.</li>
+    <li>Confusing IAM Groups with IAM Users; Groups are collections of Users, not identities themselves.</li>
+    <li>The concept of permissions can be complex; understanding how policies work and how they are attached is crucial.</li>
+    <li>Multi-Factor Authentication (MFA) requirements may vary based on organizational security policies.</li>
+</ul>
+
+</body>
+</html>
+```
