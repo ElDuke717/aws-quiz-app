@@ -1,0 +1,834 @@
+{
+    "questions": [
+      {
+        "question": "A company wants to establish a dedicated network connection between their on-premises data center and AWS. The connection should support consistent network performance and reduce bandwidth costs. Which AWS service should they use?",
+        "options": [
+          "A. AWS VPN",
+          "B. AWS Direct Connect",
+          "C. AWS Transit Gateway",
+          "D. VPC Peering",
+          "E. AWS PrivateLink"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "AWS VPN provides encrypted connection over the internet, but doesn't guarantee consistent network performance and may have higher latency.",
+          "B": "AWS Direct Connect provides a dedicated physical connection with consistent network performance, reduced latency, and potential cost savings for high bandwidth usage.",
+          "C": "AWS Transit Gateway is a network transit hub to connect VPCs and on-premises networks, but doesn't provide the physical connection itself.",
+          "D": "VPC Peering is used to connect VPCs within AWS, not for connecting to on-premises networks.",
+          "E": "AWS PrivateLink provides private connectivity to services but doesn't establish dedicated connections to on-premises data centers."
+        }
+      },
+      {
+        "question": "Which bandwidth options are available for AWS Direct Connect dedicated connections?",
+        "options": [
+          "A. 50 Mbps, 100 Mbps, 200 Mbps",
+          "B. 1 Gbps and 10 Gbps only",
+          "C. 100 Mbps, 500 Mbps, 1 Gbps",
+          "D. 1 Gbps, 10 Gbps, and 100 Gbps",
+          "E. 10 Mbps to 100 Gbps (variable)"
+        ],
+        "correctAnswer": "D",
+        "explanation": {
+          "A": "These bandwidth options are available for Direct Connect hosted connections, not dedicated connections.",
+          "B": "This is incomplete as 100 Gbps is also available for dedicated connections.",
+          "C": "These bandwidth options are for hosted connections, not dedicated connections.",
+          "D": "AWS Direct Connect dedicated connections are available in 1 Gbps, 10 Gbps, and 100 Gbps ports.",
+          "E": "Direct Connect doesn't offer variable bandwidth options; it comes in specific port speeds."
+        }
+      },
+      {
+        "question": "A company needs to establish multiple Direct Connect connections for redundancy. Which of the following is a best practice for high availability?",
+        "options": [
+          "A. Set up connections through a single Direct Connect location",
+          "B. Use multiple Direct Connect locations with different service providers",
+          "C. Use a single service provider with multiple connections",
+          "D. Rely on a backup VPN connection only",
+          "E. Use multiple VPCs with a single connection"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Using a single location creates a single point of failure and doesn't provide true redundancy.",
+          "B": "Using multiple Direct Connect locations with different service providers provides the highest level of redundancy and availability.",
+          "C": "Using a single service provider could still result in a single point of failure if the provider has issues.",
+          "D": "While a backup VPN is good practice, it shouldn't be the only redundancy measure.",
+          "E": "Multiple VPCs don't provide connection redundancy."
+        }
+      },
+      {
+        "question": "What is the primary purpose of a Direct Connect gateway?",
+        "options": [
+          "A. To encrypt traffic over Direct Connect",
+          "B. To connect to multiple VPCs in different regions",
+          "C. To reduce Direct Connect costs",
+          "D. To increase bandwidth",
+          "E. To provide VPN backup"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Direct Connect gateway doesn't handle encryption; encryption must be handled at the application layer.",
+          "B": "Direct Connect gateway allows you to connect to multiple VPCs across different regions through a single Direct Connect connection.",
+          "C": "The gateway doesn't affect Direct Connect costs.",
+          "D": "The gateway doesn't increase bandwidth of the connection.",
+          "E": "The gateway doesn't provide VPN backup functionality."
+        }
+      },
+      {
+        "question": "Which statement is true about Direct Connect data transfer pricing?",
+        "options": [
+          "A. All data transfer is free",
+          "B. Inbound data transfer is free, outbound is charged",
+          "C. Both inbound and outbound transfers are charged equally",
+          "D. Only cross-region transfer is charged",
+          "E. Pricing depends on the time of day"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Data transfer is not completely free over Direct Connect.",
+          "B": "Data transfer into AWS (inbound) is free, while data transfer out (outbound) is charged at Direct Connect data transfer rates.",
+          "C": "Inbound and outbound transfers are not charged equally; inbound is free.",
+          "D": "All outbound transfer is charged, not just cross-region transfer.",
+          "E": "Direct Connect pricing doesn't vary based on time of day."
+        }
+      },
+      {
+        "question": "What is the minimum time commitment required for a dedicated Direct Connect connection?",
+        "options": [
+          "A. No minimum commitment",
+          "B. 6 months",
+          "C. 1 year",
+          "D. 3 years",
+          "E. 5 years"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Dedicated connections require a minimum commitment.",
+          "B": "The minimum commitment is longer than 6 months.",
+          "C": "AWS Direct Connect dedicated connections require a minimum 1-year commitment.",
+          "D": "The minimum commitment is not as long as 3 years.",
+          "E": "The minimum commitment is not as long as 5 years."
+        }
+      },
+      {
+        "question": "Which feature must be configured to enable routing between a Direct Connect connection and a VPC?",
+        "options": [
+          "A. Network ACL",
+          "B. Security Group",
+          "C. Virtual Interface",
+          "D. Internet Gateway",
+          "E. NAT Gateway"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Network ACLs control traffic but don't establish routing.",
+          "B": "Security Groups control instance-level security but don't establish routing.",
+          "C": "A Virtual Interface (VIF) must be created to establish routing between Direct Connect and a VPC.",
+          "D": "Internet Gateway is for internet connectivity, not Direct Connect routing.",
+          "E": "NAT Gateway is for internet access from private subnets, not Direct Connect routing."
+        }
+      },
+      {
+        "question": "What type of Virtual Interface (VIF) should you create to connect to AWS public services like S3?",
+        "options": [
+          "A. Private VIF",
+          "B. Public VIF",
+          "C. Transit VIF",
+          "D. Gateway VIF",
+          "E. Hybrid VIF"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Private VIF is used for connecting to VPCs, not public services.",
+          "B": "Public VIF is specifically designed for connecting to AWS public services like S3, DynamoDB, etc.",
+          "C": "Transit VIF is used with Transit Gateway, not for public services.",
+          "D": "Gateway VIF is not a valid VIF type.",
+          "E": "Hybrid VIF is not a valid VIF type."
+        }
+      },
+      {
+        "question": "What is required to establish a Direct Connect connection?",
+        "options": [
+          "A. Public IP addresses only",
+          "B. BGP-enabled router and Letter of Authorization (LOA)",
+          "C. VPN connection",
+          "D. Internet connection only",
+          "E. AWS Site-to-Site VPN"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Public IP addresses alone are not sufficient.",
+          "B": "A BGP-enabled router and LOA are required to establish Direct Connect connection with AWS.",
+          "C": "VPN connection is not required for Direct Connect.",
+          "D": "Direct Connect is independent of internet connection.",
+          "E": "Site-to-Site VPN is a different service and not required for Direct Connect."
+        }
+      },
+      {
+        "question": "Which statement is true about Direct Connect and data encryption?",
+        "options": [
+          "A. Direct Connect automatically encrypts all data",
+          "B. Encryption must be handled at the application layer",
+          "C. Direct Connect includes built-in VPN encryption",
+          "D. Only private VIFs are encrypted",
+          "E. Encryption is optional but built-in"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Direct Connect doesn't automatically encrypt data.",
+          "B": "Direct Connect doesn't encrypt data by default; encryption must be implemented at the application layer or using other methods.",
+          "C": "Direct Connect doesn't include built-in VPN encryption.",
+          "D": "Neither private nor public VIFs are encrypted by default.",
+          "E": "Encryption is not built into Direct Connect."
+        }
+      },
+      {
+        "question": "What is the purpose of a Link Aggregation Group (LAG) in Direct Connect?",
+        "options": [
+          "A. To encrypt multiple connections",
+          "B. To combine multiple connections for increased bandwidth",
+          "C. To provide VPN backup",
+          "D. To reduce latency",
+          "E. To connect multiple VPCs"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "LAG is not used for encryption.",
+          "B": "LAG allows you to aggregate multiple Direct Connect connections to increase bandwidth.",
+          "C": "LAG doesn't provide VPN backup functionality.",
+          "D": "LAG doesn't primarily reduce latency.",
+          "E": "LAG is not used for connecting multiple VPCs."
+        }
+      },
+      {
+        "question": "What happens to a Direct Connect connection if the BGP session goes down?",
+        "options": [
+          "A. Traffic automatically routes through the internet",
+          "B. Connection fails over to a backup Direct Connect",
+          "C. Traffic stops flowing",
+          "D. AWS automatically restarts BGP",
+          "E. Traffic routes through VPN"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Traffic doesn't automatically route through the internet.",
+          "B": "Failover to backup Direct Connect requires additional configuration.",
+          "C": "If the BGP session fails, traffic stops flowing through the Direct Connect connection.",
+          "D": "AWS doesn't automatically restart BGP sessions.",
+          "E": "Traffic doesn't automatically route through VPN unless configured."
+        }
+      },
+      {
+        "question": "Which AWS service can be used to monitor Direct Connect connection metrics?",
+        "options": [
+          "A. AWS Config",
+          "B. AWS CloudWatch",
+          "C. AWS Systems Manager",
+          "D. AWS Trusted Advisor",
+          "E. AWS Inspector"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "AWS Config tracks resource configurations but doesn't monitor connection metrics.",
+          "B": "CloudWatch provides metrics and monitoring for Direct Connect connections.",
+          "C": "Systems Manager is for resource management, not connection monitoring.",
+          "D": "Trusted Advisor provides best practice recommendations but not detailed monitoring.",
+          "E": "Inspector is for security assessments, not connection monitoring."
+        }
+      },
+      {
+        "question": "What is the maximum number of virtual interfaces (VIFs) that can be created per Direct Connect connection?",
+        "options": [
+          "A. 1 VIF only",
+          "B. 50 VIFs",
+          "C. 10 VIFs",
+          "D. Unlimited VIFs",
+          "E. 100 VIFs"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "More than one VIF can be created per connection.",
+          "B": "AWS allows up to 50 virtual interfaces per Direct Connect connection.",
+          "C": "The limit is higher than 10 VIFs.",
+          "D": "There is a specific limit on the number of VIFs.",
+          "E": "The limit is lower than 100 VIFs."
+        }
+      },
+      {
+        "question": "Which routing protocol is required for AWS Direct Connect?",
+        "options": [
+          "A. OSPF",
+          "B. BGP",
+          "C. RIP",
+          "D. EIGRP",
+          "E. Static routing"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "OSPF is not supported for Direct Connect.",
+          "B": "Border Gateway Protocol (BGP) is required for AWS Direct Connect connections.",
+          "C": "RIP is not supported for Direct Connect.",
+          "D": "EIGRP is not supported for Direct Connect.",
+          "E": "Static routing is not supported for Direct Connect."
+        }
+      }
+    ]
+  }
+  Error generating questions: questions.forEach is not a function
+  Assistant Message: [
+    {
+      "question": "What is AWS Direct Connect?",
+      "options": [
+        "A. A service that allows you to establish a dedicated network connection from your premises to AWS",
+        "B. A service that provides secure remote access to AWS resources",
+        "C. A service that allows you to transfer data between on-premises and AWS over the internet",
+        "D. A service that provides managed virtual private cloud (VPC) connectivity",
+        "E. A service that allows you to migrate data from on-premises to AWS"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "AWS Direct Connect is a cloud service that provides a dedicated network connection from your premises to AWS. This connection can reduce network costs, increase bandwidth throughput, and provide a more consistent network experience than internet-based connections.",
+        "B": "This is the description of AWS Client VPN, which provides secure remote access to AWS resources.",
+        "C": "This is the description of internet-based connectivity, which AWS Direct Connect aims to replace with a dedicated network connection.",
+        "D": "This is the description of AWS VPN, which provides managed VPC connectivity over the internet.",
+        "E": "AWS Direct Connect is primarily used for establishing a dedicated network connection, not for data migration."
+      }
+    },
+    {
+      "question": "What are the benefits of using AWS Direct Connect?",
+      "options": [
+        "A. Reduced network costs and increased bandwidth throughput",
+        "B. Improved network security and compliance",
+        "C. Ability to access AWS services that are not available over the internet",
+        "D. All of the above",
+        "E. None of the above"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "AWS Direct Connect can help reduce network costs and increase bandwidth throughput compared to internet-based connections.",
+        "B": "AWS Direct Connect provides a private, dedicated network connection, which can improve network security and compliance.",
+        "C": "AWS Direct Connect allows access to AWS services that are not available over the internet, such as Amazon EC2 instances within a VPC.",
+        "D": "All of the above statements are benefits of using AWS Direct Connect.",
+        "E": "This option is incorrect as the other options list valid benefits of AWS Direct Connect."
+      }
+    },
+    {
+      "question": "Which of the following connectivity options does AWS Direct Connect support?",
+      "options": [
+        "A. Dedicated connections from your data center to AWS",
+        "B. Virtual private network (VPN) connections",
+        "C. Internet connections",
+        "D. A and B",
+        "E. A and C"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "AWS Direct Connect supports dedicated connections from your data center or office to AWS.",
+        "B": "AWS Direct Connect does not support VPN connections. VPN connections are provided by AWS VPN.",
+        "C": "AWS Direct Connect is an alternative to internet connections, not an internet connection itself.",
+        "D": "AWS Direct Connect does not support VPN connections.",
+        "E": "AWS Direct Connect does not support internet connections."
+      }
+    },
+    {
+      "question": "What is the maximum bandwidth supported by AWS Direct Connect?",
+      "options": [
+        "A. 1 Gbps",
+        "B. 10 Gbps",
+        "C. 100 Gbps",
+        "D. 1 Tbps",
+        "E. There is no maximum bandwidth limit"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS Direct Connect supports higher bandwidths than 1 Gbps.",
+        "B": "AWS Direct Connect supports higher bandwidths than 10 Gbps.",
+        "C": "AWS Direct Connect supports bandwidth up to 100 Gbps.",
+        "D": "AWS Direct Connect does not currently support bandwidths as high as 1 Tbps.",
+        "E": "There is a maximum bandwidth limit of 100 Gbps for AWS Direct Connect."
+      }
+    },
+    {
+      "question": "What is a Direct Connect Gateway?",
+      "options": [
+        "A. A physical device that connects your on-premises network to AWS",
+        "B. A virtual gateway that allows you to establish Direct Connect connections from multiple locations",
+        "C. A security group that controls access to your Direct Connect resources",
+        "D. A routing table that manages traffic between your on-premises network and AWS",
+        "E. A monitoring service that tracks the performance of your Direct Connect connections"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "This is the description of a Direct Connect location, not a Direct Connect Gateway.",
+        "B": "A Direct Connect Gateway is a virtual gateway that allows you to establish Direct Connect connections from multiple locations.",
+        "C": "There is no such thing as a Direct Connect security group. Security groups are used for controlling access to EC2 instances.",
+        "D": "Routing tables are used for managing traffic within a VPC, not for Direct Connect connections.",
+        "E": "AWS does not have a dedicated monitoring service for Direct Connect connections."
+      }
+    },
+    {
+      "question": "Which of the following is a Direct Connect location?",
+      "options": [
+        "A. AWS Region",
+        "B. AWS Availability Zone",
+        "C. AWS Direct Connect Gateway",
+        "D. AWS Direct Connect Partner",
+        "E. AWS Outpost"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "AWS Regions are geographical locations where AWS has multiple Availability Zones.",
+        "B": "Availability Zones are isolated locations within an AWS Region.",
+        "C": "A Direct Connect Gateway is a virtual gateway, not a physical location.",
+        "D": "AWS Direct Connect Partners are the physical locations where you can establish a Direct Connect connection.",
+        "E": "AWS Outposts are AWS-managed infrastructure that can be deployed on-premises."
+      }
+    },
+    {
+      "question": "What is a Direct Connect virtual interface?",
+      "options": [
+        "A. A physical port on a Direct Connect location",
+        "B. A virtual representation of a Direct Connect connection",
+        "C. A VPN connection over a Direct Connect link",
+        "D. A routing table for managing Direct Connect traffic",
+        "E. A security group for controlling access to Direct Connect resources"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "This is the description of a physical Direct Connect port, not a virtual interface.",
+        "B": "A Direct Connect virtual interface is a virtual representation of a Direct Connect connection.",
+        "C": "Direct Connect does not support VPN connections.",
+        "D": "Routing tables are used for managing traffic within a VPC, not for Direct Connect connections.",
+        "E": "There is no such thing as a Direct Connect security group. Security groups are used for controlling access to EC2 instances."
+      }
+    },
+    {
+      "question": "What are the two types of Direct Connect virtual interfaces?",
+      "options": [
+        "A. Public and Private",
+        "B. Internet and Intranet",
+        "C. Public and Transit",
+        "D. Private and Transit",
+        "E. Virtual and Physical"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Direct Connect virtual interfaces are not classified as public or private.",
+        "B": "Direct Connect virtual interfaces are not classified as internet or intranet.",
+        "C": "Direct Connect virtual interfaces are not classified as public and transit.",
+        "D": "The two types of Direct Connect virtual interfaces are private and transit.",
+        "E": "Direct Connect virtual interfaces are virtual representations, not physical interfaces."
+      }
+    },
+    {
+      "question": "What is the purpose of a transit virtual interface in AWS Direct Connect?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect your on-premises network to the internet",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect multiple VPCs within the same AWS Region",
+        "E. To connect multiple VPCs across different AWS Regions"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "Direct Connect does not provide internet connectivity.",
+        "C": "A private virtual interface can be used to connect to other AWS services.",
+        "D": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "E": "Transit virtual interfaces cannot connect VPCs across different AWS Regions."
+      }
+    },
+    {
+      "question": "What is a Direct Connect link aggregation group (LAG)?",
+      "options": [
+        "A. A group of multiple Direct Connect connections for increased bandwidth and redundancy",
+        "B. A virtual interface that connects multiple VPCs within the same AWS Region",
+        "C. A routing table for managing Direct Connect traffic",
+        "D. A security group for controlling access to Direct Connect resources",
+        "E. A monitoring service that tracks the performance of Direct Connect connections"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "A Direct Connect LAG is a group of multiple Direct Connect connections for increased bandwidth and redundancy.",
+        "B": "This is the description of a transit virtual interface, not a LAG.",
+        "C": "Routing tables are used for managing traffic within a VPC, not for Direct Connect connections.",
+        "D": "There is no such thing as a Direct Connect security group. Security groups are used for controlling access to EC2 instances.",
+        "E": "AWS does not have a dedicated monitoring service for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect SiteLink?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect multiple on-premises locations to a single Direct Connect connection",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A private virtual interface can be used to connect to other AWS services.",
+        "D": "A Direct Connect SiteLink allows you to connect multiple on-premises locations to a single Direct Connect connection.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect Gateway?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect multiple on-premises locations to a single Direct Connect connection",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A Direct Connect Gateway is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A private virtual interface can be used to connect to other AWS services.",
+        "D": "A Direct Connect SiteLink is used to connect multiple on-premises locations to a single Direct Connect connection.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect hosted virtual interface?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect multiple on-premises locations to a single Direct Connect connection",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A hosted virtual interface is used to connect your on-premises network to other AWS services, such as Amazon S3 or Amazon DynamoDB.",
+        "D": "A Direct Connect SiteLink is used to connect multiple on-premises locations to a single Direct Connect connection.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect public virtual interface?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to the internet",
+        "D. To connect multiple on-premises locations to a single Direct Connect connection",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A public virtual interface is used to connect your on-premises network to the internet through AWS. However, this is not a common use case for Direct Connect.",
+        "D": "A Direct Connect SiteLink is used to connect multiple on-premises locations to a single Direct Connect connection.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect customer router?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect your on-premises network to the Direct Connect location",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A hosted virtual interface is used to connect your on-premises network to other AWS services.",
+        "D": "A customer router is used to connect your on-premises network to the Direct Connect location.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    }
+  ]
+  Questions saved successfully.
+  ^C
+  nickhuemmer@Nicks-Mac-mini aws-quiz-backend % node index.js
+  Server is running on port 5050
+  Error generating questions: 400 {"type":"error","error":{"type":"invalid_request_error","message":"max_tokens: 15000 > 8192, which is the maximum allowed number of output tokens for claude-3-5-sonnet-20241022"}}
+  ^C
+  nickhuemmer@Nicks-Mac-mini aws-quiz-backend % node index.js
+  Server is running on port 5050
+  Error parsing response: Error: Response is not an array of questions
+      at /Users/nickhuemmer/projects/aws-quiz/aws-quiz-backend/index.js:107:15
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+  Raw response: {
+    "questions": [
+      {
+        "question": "A company wants to route traffic to different endpoints based on the latency between the user and AWS regions. Which Route 53 routing policy should they use?",
+        "options": [
+          "A. Geolocation routing policy",
+          "B. Latency routing policy",
+          "C. Weighted routing policy",
+          "D. Simple routing policy",
+          "E. Failover routing policy"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Geolocation routing routes based on the geographic location of users, not latency.",
+          "B": "Latency routing policy routes traffic to the region that provides the best latency for the user.",
+          "C": "Weighted routing distributes traffic based on assigned weights, not latency.",
+          "D": "Simple routing policy doesn't consider latency and only routes traffic to a single resource.",
+          "E": "Failover routing is used for active-passive failover configurations, not latency-based routing."
+        }
+      },
+      {
+        "question": "Which Route 53 health check type monitors the status of other Route 53 health checks?",
+        "options": [
+          "A. Endpoint health checks",
+          "B. Calculated health checks",
+          "C. CloudWatch alarm health checks",
+          "D. DNS health checks",
+          "E. State health checks"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Endpoint health checks monitor specific endpoints like web servers.",
+          "B": "Calculated health checks monitor the status of other health checks and combine them using AND, OR, or NOT.",
+          "C": "CloudWatch alarm health checks monitor CloudWatch alarms.",
+          "D": "DNS health checks verify DNS resolution.",
+          "E": "This is not a valid Route 53 health check type."
+        }
+      },
+      {
+        "question": "A company needs to route traffic to different endpoints based on the country of the user. Which DNS record type should they use with geolocation routing?",
+        "options": [
+          "A. CNAME records only",
+          "B. A records only",
+          "C. Either A or AAAA records",
+          "D. Any supported DNS record type",
+          "E. MX records only"
+        ],
+        "correctAnswer": "D",
+        "explanation": {
+          "A": "Geolocation routing is not limited to CNAME records.",
+          "B": "Geolocation routing is not limited to A records.",
+          "C": "Geolocation routing supports more than just A and AAAA records.",
+          "D": "Geolocation routing can be used with any supported DNS record type in Route 53.",
+          "E": "Geolocation routing is not limited to MX records."
+        }
+      },
+      {
+        "question": "What is the minimum TTL value that can be set for a Route 53 record?",
+        "options": [
+          "A. 0 seconds",
+          "B. 1 second",
+          "C. 30 seconds",
+          "D. 60 seconds",
+          "E. 300 seconds"
+        ],
+        "correctAnswer": "A",
+        "explanation": {
+          "A": "Route 53 allows a minimum TTL of 0 seconds, though this is not recommended for production.",
+          "B": "1 second is possible but not the minimum.",
+          "C": "30 seconds is possible but not the minimum.",
+          "D": "60 seconds is possible but not the minimum.",
+          "E": "300 seconds is possible but not the minimum."
+        }
+      },
+      {
+        "question": "Which Route 53 routing policy would you use to implement blue-green deployments?",
+        "options": [
+          "A. Simple routing policy",
+          "B. Failover routing policy",
+          "C. Weighted routing policy",
+          "D. Latency routing policy",
+          "E. Multivalue answer routing policy"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Simple routing doesn't allow traffic distribution control needed for blue-green deployments.",
+          "B": "Failover routing is for active-passive failover, not gradual traffic shifting.",
+          "C": "Weighted routing allows gradual traffic shifting between versions by adjusting weights.",
+          "D": "Latency routing bases decisions on network latency, not suitable for controlled deployments.",
+          "E": "Multivalue answer returns multiple random values, not suitable for controlled deployments."
+        }
+      },
+      {
+        "question": "A company wants to route traffic to multiple resources while using health checking. Which routing policy should they use?",
+        "options": [
+          "A. Simple routing policy",
+          "B. Weighted routing policy",
+          "C. Multivalue answer routing policy",
+          "D. Geolocation routing policy",
+          "E. Latency routing policy"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Simple routing doesn't support health checks or multiple values.",
+          "B": "Weighted routing supports health checks but is better for load distribution.",
+          "C": "Multivalue answer routing returns multiple healthy records and supports health checking.",
+          "D": "Geolocation routing is for geographic-based routing, not primarily for multiple healthy endpoints.",
+          "E": "Latency routing is for latency-based routing, not primarily for multiple healthy endpoints."
+        }
+      },
+      {
+        "question": "What happens when all records in a Route 53 failover routing policy are unhealthy?",
+        "options": [
+          "A. Route 53 returns no records",
+          "B. Route 53 returns all records",
+          "C. Route 53 returns the primary record",
+          "D. Route 53 returns the secondary record",
+          "E. Route 53 returns an error"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Route 53 doesn't return no records as this would break DNS resolution.",
+          "B": "When all records are unhealthy, Route 53 considers all records healthy and returns them all.",
+          "C": "The primary record isn't automatically selected when all are unhealthy.",
+          "D": "The secondary record isn't automatically selected when all are unhealthy.",
+          "E": "Route 53 doesn't return errors in this scenario."
+        }
+      },
+      {
+        "question": "Which Route 53 feature allows you to create a private hosted zone that's associated with multiple VPCs across different AWS accounts?",
+        "options": [
+          "A. Cross-account access",
+          "B. VPC association authorization",
+          "C. Resource sharing",
+          "D. VPC peering",
+          "E. Transit gateway"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Cross-account access is for IAM permissions, not VPC associations.",
+          "B": "VPC association authorization allows you to associate VPCs from different accounts with a private hosted zone.",
+          "C": "Resource sharing is not specific to Route 53 private hosted zones.",
+          "D": "VPC peering is for network connectivity, not DNS resolution.",
+          "E": "Transit gateway is for network connectivity, not DNS resolution."
+        }
+      },
+      {
+        "question": "What is the maximum number of health checks that can monitor the same endpoint in Route 53?",
+        "options": [
+          "A. 1",
+          "B. 5",
+          "C. 10",
+          "D. No limit",
+          "E. 100"
+        ],
+        "correctAnswer": "D",
+        "explanation": {
+          "A": "Multiple health checks can monitor the same endpoint.",
+          "B": "There is no limit of 5 health checks per endpoint.",
+          "C": "There is no limit of 10 health checks per endpoint.",
+          "D": "There is no limit to the number of health checks that can monitor the same endpoint.",
+          "E": "There is no limit of 100 health checks per endpoint."
+        }
+      },
+      {
+        "question": "Which DNS record type should you use to alias an S3 website endpoint?",
+        "options": [
+          "A. CNAME",
+          "B. A record with Alias",
+          "C. AAAA record",
+          "D. MX record",
+          "E. TXT record"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "CNAME can't be used at the zone apex and isn't optimal for AWS services.",
+          "B": "A record with Alias is the recommended way to point to S3 website endpoints.",
+          "C": "AAAA records are for IPv6 addresses and not appropriate for S3 websites.",
+          "D": "MX records are for mail servers, not websites.",
+          "E": "TXT records are for text information, not website routing."
+        }
+      },
+      {
+        "question": "What is the default evaluation period for Route 53 health checks?",
+        "options": [
+          "A. 10 seconds",
+          "B. 30 seconds",
+          "C. 60 seconds",
+          "D. 300 seconds",
+          "E. 600 seconds"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "10 seconds is too frequent for default health checks.",
+          "B": "Route 53 health checkers evaluate the health of an endpoint every 30 seconds by default.",
+          "C": "60 seconds is not the default evaluation period.",
+          "D": "300 seconds is too infrequent for default health checks.",
+          "E": "600 seconds is too infrequent for default health checks."
+        }
+      },
+      {
+        "question": "Which Route 53 routing policy would you use to implement active-passive failover?",
+        "options": [
+          "A. Simple routing policy",
+          "B. Weighted routing policy",
+          "C. Failover routing policy",
+          "D. Latency routing policy",
+          "E. Geolocation routing policy"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Simple routing doesn't support failover functionality.",
+          "B": "Weighted routing is for load distribution, not failover.",
+          "C": "Failover routing is specifically designed for active-passive failover configurations.",
+          "D": "Latency routing is for routing based on network latency, not failover.",
+          "E": "Geolocation routing is for geographic-based routing, not failover."
+        }
+      },
+      {
+        "question": "What is the maximum number of values that can be returned in a single Route 53 multivalue answer?",
+        "options": [
+          "A. 4",
+          "B. 8",
+          "C. 16",
+          "D. 32",
+          "E. 64"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "The limit is higher than 4 values.",
+          "B": "Route 53 returns up to 8 healthy records in response to DNS queries for multivalue answers.",
+          "C": "The limit is not 16 values.",
+          "D": "The limit is not 32 values.",
+          "E": "The limit is not 64 values."
+        }
+      },
+      {
+        "question": "Which Route 53 feature allows you to block DNS queries from specific countries?",
+        "options": [
+          "A. DNSSEC",
+          "B. Query logging",
+          "C. Geolocation routing",
+          "D. Traffic flow",
+          "E. Private DNS"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "DNSSEC is for DNS security, not geographic filtering.",
+          "B": "Query logging is for monitoring, not filtering.",
+          "C": "Geolocation routing can be used to block DNS queries from specific geographic locations.",
+          "D": "Traffic flow is for visual editing of routing policies, not geographic filtering.",
+          "E": "Private DNS is for VPC resolution, not geographic filtering."
+        }
+      },
+      {
+        "question": "What is the maximum interval between health checks that Route 53 supports?",
+        "options": [
+          "A. 30 seconds",
+          "B. 60 seconds",
+          "C. 120 seconds",
+          "D. 300 seconds",
+          "E. 900 seconds"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "30 seconds is the default, not the maximum interval.",
+          "B": "60 seconds is not the maximum interval.",
+          "C": "The maximum interval between Route 53 health checks is 120 seconds.",
+          "D": "300 seconds exceeds the maximum supported interval.",
+          "E": "900 seconds exceeds the maximum supported interval."
+        }
+      }
+    ]
+  }
+
+

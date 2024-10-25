@@ -2044,3 +2044,2834 @@
     }
   ]
 },
+{
+  "service": "EC2",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "Which of the following EC2 instance types is best suited for memory-intensive applications?",
+      "options": [
+        "A. T2.micro",
+        "B. C5.large",
+        "C. M5.large",
+        "D. R5.large",
+        "E. I3.large"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "T2.micro is a burstable performance instance, suitable for low to moderate baseline performance needs.",
+        "B": "C5.large is optimized for compute-intensive tasks, not memory-intensive workloads.",
+        "C": "M5.large is a general-purpose instance, providing a balance of compute, memory, and network resources.",
+        "D": "R5.large is optimized for memory-intensive applications, providing a higher memory-to-CPU ratio.",
+        "E": "I3.large is optimized for storage I/O, not specifically for memory-intensive applications."
+      }
+    },
+    {
+      "question": "What is the default tenancy option for an Amazon EC2 instance?",
+      "options": [
+        "A. Dedicated",
+        "B. Default",
+        "C. Reserved",
+        "D. Spot",
+        "E. Shared"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Dedicated tenancy means the instance will run on single-tenant hardware.",
+        "B": "Default tenancy allows instances to run on shared hardware, which is the standard option.",
+        "C": "Reserved instances are a billing option rather than a tenancy option.",
+        "D": "Spot instances are a purchasing option where you can bid on unused capacity.",
+        "E": "Shared is not a recognized tenancy option in AWS terminology."
+      }
+    },
+    {
+      "question": "Which of the following storage options is best for high-performance, transactional databases on EC2?",
+      "options": [
+        "A. Amazon EFS",
+        "B. Instance Store",
+        "C. Amazon S3",
+        "D. Provisioned IOPS SSD (io1)",
+        "E. Throughput Optimized HDD (st1)"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Amazon EFS is a file storage service for use with Amazon EC2, but not optimized for transactional databases.",
+        "B": "Instance Store provides temporary block-level storage and is not persistent.",
+        "C": "Amazon S3 is an object storage service, not suitable for transactional databases.",
+        "D": "Provisioned IOPS SSD (io1) provides high-performance storage ideal for transactional databases.",
+        "E": "Throughput Optimized HDD (st1) is designed for large, sequential workloads, not transactional databases."
+      }
+    },
+    {
+      "question": "Which feature allows you to automatically distribute incoming application traffic across multiple targets, such as EC2 instances?",
+      "options": [
+        "A. Auto Scaling",
+        "B. Elastic Load Balancing",
+        "C. Amazon Route 53",
+        "D. Amazon CloudFront",
+        "E. AWS Direct Connect"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Auto Scaling is used to automatically adjust the number of EC2 instances in response to demand.",
+        "B": "Elastic Load Balancing automatically distributes incoming application traffic across multiple targets.",
+        "C": "Amazon Route 53 is a DNS web service and does not distribute traffic across multiple targets.",
+        "D": "Amazon CloudFront is a content delivery network service.",
+        "E": "AWS Direct Connect provides dedicated network connections to AWS."
+      }
+    },
+    {
+      "question": "What is the purpose of an Elastic IP address in AWS?",
+      "options": [
+        "A. To provide a static public IP for dynamic cloud computing",
+        "B. To ensure high availability of EC2 instances",
+        "C. To increase the storage capacity of EC2 instances",
+        "D. To enhance the performance of network traffic",
+        "E. To automatically scale EC2 instances"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Elastic IP addresses allow you to have a static public IP for your EC2 instances, even if you stop and restart them.",
+        "B": "Elastic IP addresses are not directly related to high availability.",
+        "C": "Elastic IP addresses do not affect storage capacity.",
+        "D": "Elastic IP addresses do not enhance network traffic performance.",
+        "E": "Elastic IP addresses are not used for auto-scaling EC2 instances."
+      }
+    },
+    {
+      "question": "Which of the following is true about EC2 Spot Instances?",
+      "options": [
+        "A. They are always cheaper than On-Demand instances",
+        "B. They can be terminated by Amazon EC2 if the Spot price exceeds your bid",
+        "C. They are used for long-term, steady state workloads",
+        "D. They provide a fixed cost per hour",
+        "E. They are only available in certain AWS regions"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "While Spot Instances are often cheaper, the pricing can vary and is not guaranteed to be cheaper.",
+        "B": "Spot Instances can be terminated if the Spot price exceeds your bid.",
+        "C": "Spot Instances are ideal for flexible workloads that can withstand interruptions.",
+        "D": "Spot Instances do not have a fixed cost; the price fluctuates based on supply and demand.",
+        "E": "Spot Instances are generally available in all AWS regions."
+      }
+    },
+    {
+      "question": "How can you ensure that data stored on an EC2 instance is encrypted at rest?",
+      "options": [
+        "A. Use an EC2 instance with encrypted EBS volumes",
+        "B. Use EC2 Auto Scaling",
+        "C. Use a dedicated host",
+        "D. Use AWS CloudTrail",
+        "E. Use Amazon S3 for storage"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Encrypting EBS volumes ensures that the data stored on the volume is encrypted at rest.",
+        "B": "Auto Scaling does not relate to data encryption.",
+        "C": "Dedicated hosts are related to hardware tenancy, not encryption.",
+        "D": "AWS CloudTrail is used for logging API calls, not for encrypting data at rest.",
+        "E": "Amazon S3 is a separate service and using it does not directly encrypt EC2 instance data."
+      }
+    },
+    {
+      "question": "What is the primary benefit of using Amazon EC2 Auto Scaling?",
+      "options": [
+        "A. To automatically distribute incoming traffic",
+        "B. To automatically terminate unused Elastic IPs",
+        "C. To ensure that the number of instances scales to match demand",
+        "D. To provide static IP addresses",
+        "E. To automate the deployment of applications"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Distributing incoming traffic is the function of Elastic Load Balancing.",
+        "B": "Auto Scaling does not terminate unused Elastic IPs.",
+        "C": "EC2 Auto Scaling ensures that the number of instances scales with demand, maintaining performance and minimizing costs.",
+        "D": "Static IP addresses are managed using Elastic IPs.",
+        "E": "Automating application deployment is typically handled by AWS Elastic Beanstalk or AWS CodeDeploy."
+      }
+    },
+    {
+      "question": "Which service can be used to create a virtual network in AWS?",
+      "options": [
+        "A. Amazon VPC",
+        "B. AWS Lambda",
+        "C. Amazon S3",
+        "D. AWS CloudFormation",
+        "E. Amazon RDS"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Amazon VPC (Virtual Private Cloud) allows you to provision a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network.",
+        "B": "AWS Lambda is a compute service that runs your code in response to events and automatically manages the compute resources.",
+        "C": "Amazon S3 is an object storage service, not used for creating networks.",
+        "D": "AWS CloudFormation is a service for provisioning and managing AWS resources, but it does not create virtual networks.",
+        "E": "Amazon RDS is a managed database service."
+      }
+    },
+    {
+      "question": "What is the maximum size of an Amazon EBS volume?",
+      "options": [
+        "A. 1 TiB",
+        "B. 16 TiB",
+        "C. 64 TiB",
+        "D. 128 TiB",
+        "E. 256 TiB"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "1 TiB is much smaller than the maximum size for an EBS volume.",
+        "B": "16 TiB was an older limit but is not the current maximum.",
+        "C": "64 TiB is the correct maximum size for an Amazon EBS volume.",
+        "D": "128 TiB exceeds the current maximum size for an EBS volume.",
+        "E": "256 TiB is incorrect and exceeds the current maximum."
+      }
+    },
+    {
+      "question": "Which Amazon EC2 pricing model should you use for an application with predictable, steady-state usage?",
+      "options": [
+        "A. On-Demand",
+        "B. Reserved",
+        "C. Spot",
+        "D. Dedicated Hosts",
+        "E. Dedicated Instances"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "On-Demand is suitable for applications with unpredictable workloads or for testing.",
+        "B": "Reserved Instances offer a discounted price compared to On-Demand, ideal for predictable, steady-state usage.",
+        "C": "Spot Instances are best for flexible applications that can handle interruptions.",
+        "D": "Dedicated Hosts are used when you need control over instance placement.",
+        "E": "Dedicated Instances are similar to Dedicated Hosts but with less control over placement."
+      }
+    },
+    {
+      "question": "Which of the following features allows EC2 instances to access AWS resources without storing access keys on the instances?",
+      "options": [
+        "A. Security Groups",
+        "B. IAM Roles",
+        "C. Access Keys",
+        "D. VPC Peering",
+        "E. NACLs"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Security Groups act as a virtual firewall for your instance to control inbound and outbound traffic.",
+        "B": "IAM Roles allow EC2 instances to access AWS resources without storing access keys on the instances.",
+        "C": "Access Keys are used to make programmatic requests to AWS but should not be stored on instances.",
+        "D": "VPC Peering connects two VPCs to route traffic between them.",
+        "E": "Network ACLs (NACLs) provide an additional layer of security at the subnet level."
+      }
+    },
+    {
+      "question": "How can you ensure that your EC2 instances are distributed across multiple physical locations?",
+      "options": [
+        "A. Use a single Availability Zone",
+        "B. Use multiple EC2 instance types",
+        "C. Deploy in multiple regions",
+        "D. Use Elastic IPs",
+        "E. Use placement groups"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Using a single Availability Zone does not distribute instances across multiple locations.",
+        "B": "Using multiple EC2 instance types does not relate to geographic distribution.",
+        "C": "Deploying in multiple regions ensures that your instances are distributed across different physical locations.",
+        "D": "Elastic IPs are used for static IP addressing, not geographic distribution.",
+        "E": "Placement groups are used for specific network performance needs, not distribution across locations."
+      }
+    },
+    {
+      "question": "Which Amazon EC2 feature allows you to recover instances from hardware failure or availability issues?",
+      "options": [
+        "A. Elastic Load Balancing",
+        "B. Auto Recovery",
+        "C. Amazon CloudWatch",
+        "D. AWS CloudFormation",
+        "E. Elastic IP"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Elastic Load Balancing distributes incoming traffic, but does not directly recover instances.",
+        "B": "Auto Recovery automatically recovers your instance if it becomes impaired due to an underlying hardware failure or a problem that requires AWS involvement to repair.",
+        "C": "Amazon CloudWatch provides monitoring but does not recover instances.",
+        "D": "AWS CloudFormation automates resource provisioning but does not handle instance recovery.",
+        "E": "Elastic IP is used for maintaining a static IP address."
+      }
+    },
+    {
+      "question": "What is the primary purpose of Amazon EC2 Instance Store?",
+      "options": [
+        "A. To provide persistent block storage",
+        "B. To store temporary data that is deleted when the instance is stopped",
+        "C. To automatically backup EBS volumes",
+        "D. To provide additional network interfaces",
+        "E. To enhance instance performance"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Instance Store does not provide persistent storage; data is lost if the instance is stopped.",
+        "B": "Instance Store is used for temporary block-level storage, and data is deleted when the instance is stopped.",
+        "C": "Instance Store does not automatically backup EBS volumes.",
+        "D": "Instance Store does not provide additional network interfaces.",
+        "E": "While Instance Store can enhance performance for specific workloads, its primary purpose is temporary storage."
+      }
+    }
+  ]
+},
+{
+  "service": "AWS lamda",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "What is AWS Lambda primarily used for?",
+      "options": [
+        "A. Running virtual machines",
+        "B. Serverless computing",
+        "C. Cloud storage",
+        "D. Network management",
+        "E. Container orchestration"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Lambda does not run virtual machines; it executes code in response to events.",
+        "B": "AWS Lambda is designed for serverless computing, allowing users to run code without provisioning servers.",
+        "C": "While AWS provides cloud storage services like S3, Lambda is not primarily used for storage.",
+        "D": "Lambda does not focus on network management; it is more about executing code in response to events.",
+        "E": "Container orchestration is handled by services like Amazon ECS and EKS, not AWS Lambda."
+      }
+    },
+    {
+      "question": "Which of the following best describes how AWS Lambda handles scaling?",
+      "options": [
+        "A. Automatically scales based on the number of instances running",
+        "B. Requires manual intervention to scale",
+        "C. Scales automatically based on the number of requests received",
+        "D. Only scales when a specific threshold is reached",
+        "E. Does not support scaling"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Lambda does not run instances; it automatically scales based on events.",
+        "B": "AWS Lambda is designed to scale automatically without manual intervention.",
+        "C": "Lambda scales automatically in response to the number of requests, enabling high concurrency.",
+        "D": "AWS Lambda scales based on requests, not just when specific thresholds are reached.",
+        "E": "AWS Lambda supports automatic scaling as part of its serverless architecture."
+      }
+    },
+    {
+      "question": "What is the maximum execution time for an AWS Lambda function?",
+      "options": [
+        "A. 5 minutes",
+        "B. 10 minutes",
+        "C. 15 minutes",
+        "D. 30 minutes",
+        "E. 1 hour"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "The maximum execution time has been increased beyond 5 minutes.",
+        "B": "10 minutes is less than the current maximum allowed execution time.",
+        "C": "AWS Lambda functions can run for a maximum of 15 minutes.",
+        "D": "30 minutes exceeds the maximum execution time for Lambda functions.",
+        "E": "1 hour is not supported; the maximum is 15 minutes."
+      }
+    },
+    {
+      "question": "Which language runtimes are supported by AWS Lambda?",
+      "options": [
+        "A. Only Python and Node.js",
+        "B. Any programming language",
+        "C. Java, Python, Node.js, and C#",
+        "D. Only compiled languages",
+        "E. Only interpreted languages"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS Lambda supports more than just Python and Node.js.",
+        "B": "While you can use any language with a compatible runtime, AWS provides specific supported runtimes.",
+        "C": "AWS Lambda officially supports several runtimes, including Java, Python, Node.js, and C#.",
+        "D": "AWS Lambda supports both compiled and interpreted languages.",
+        "E": "AWS Lambda supports both interpreted and compiled languages, not just one type."
+      }
+    },
+    {
+      "question": "How does AWS Lambda charge for usage?",
+      "options": [
+        "A. Based on the number of requests and execution time",
+        "B. Only based on execution time",
+        "C. Fixed monthly fee",
+        "D. Based on the number of instances running",
+        "E. Based on data transfer only"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "AWS Lambda charges based on the number of requests and the duration of execution in milliseconds.",
+        "B": "Charges are not only based on execution time; requests also factor in.",
+        "C": "There is no fixed monthly fee; costs are variable based on usage.",
+        "D": "Lambda does not charge based on instances, as it is serverless.",
+        "E": "Data transfer may incur costs, but Lambda primarily charges for requests and execution duration."
+      }
+    },
+    {
+      "question": "What is the purpose of AWS Lambda layers?",
+      "options": [
+        "A. To increase function execution time",
+        "B. To share common code across multiple functions",
+        "C. To manage IAM permissions",
+        "D. To configure network settings",
+        "E. To deploy applications"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Lambda layers do not increase execution time; they help with code reuse.",
+        "B": "Layers allow you to package common libraries and code, making it reusable across functions.",
+        "C": "IAM permissions are managed separately from Lambda layers.",
+        "D": "Network settings are configured through the VPC settings, not layers.",
+        "E": "Layers are not meant for application deployment but for code sharing."
+      }
+    },
+    {
+      "question": "Which AWS service can be used to trigger AWS Lambda functions?",
+      "options": [
+        "A. Amazon S3",
+        "B. Amazon EC2",
+        "C. Amazon RDS",
+        "D. AWS CloudFormation",
+        "E. AWS Direct Connect"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Amazon S3 can trigger Lambda functions through events like object uploads.",
+        "B": "Amazon EC2 does not directly trigger Lambda functions.",
+        "C": "Amazon RDS can trigger Lambda through database events but is not a primary trigger.",
+        "D": "AWS CloudFormation is for infrastructure as code and does not trigger Lambda functions.",
+        "E": "AWS Direct Connect is a network service and does not trigger Lambda functions."
+      }
+    },
+    {
+      "question": "Which of the following is a benefit of using AWS Lambda?",
+      "options": [
+        "A. Requires provisioning of servers",
+        "B. Fixed pricing model",
+        "C. No need to manage infrastructure",
+        "D. Limited scalability",
+        "E. Only supports synchronous execution"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS Lambda does not require provisioning of servers; it is serverless.",
+        "B": "AWS Lambda has a pay-as-you-go pricing model, not fixed pricing.",
+        "C": "One of the main benefits of Lambda is that it abstracts infrastructure management.",
+        "D": "AWS Lambda is designed for high scalability, not limited scalability.",
+        "E": "AWS Lambda supports both synchronous and asynchronous executions."
+      }
+    },
+    {
+      "question": "What is the maximum size of a deployment package for AWS Lambda?",
+      "options": [
+        "A. 5 MB",
+        "B. 10 MB",
+        "C. 50 MB",
+        "D. 250 MB",
+        "E. 500 MB"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "5 MB is below the current maximum size limit.",
+        "B": "10 MB is also below the maximum deployment package size.",
+        "C": "50 MB is not the maximum; it can be larger.",
+        "D": "The maximum size for a deployment package is 250 MB (unzipped).",
+        "E": "500 MB exceeds the maximum deployment package size for Lambda."
+      }
+    },
+    {
+      "question": "Which of the following is true about AWS Lambda concurrency?",
+      "options": [
+        "A. There is no limit to concurrency",
+        "B. Concurrency can be limited by reserved concurrency settings",
+        "C. Concurrency is only applicable for synchronous invocations",
+        "D. Concurrency is determined by the number of instances",
+        "E. Only one invocation can occur at a time"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "There is a limit to concurrency; AWS Lambda accounts have default limits.",
+        "B": "You can set reserved concurrency limits to control the maximum number of concurrent executions.",
+        "C": "Concurrency applies to both synchronous and asynchronous invocations.",
+        "D": "Concurrency is not determined by instances since Lambda is serverless.",
+        "E": "Multiple invocations can run concurrently, depending on available concurrency limits."
+      }
+    },
+    {
+      "question": "What is the role of AWS CloudWatch in relation to AWS Lambda?",
+      "options": [
+        "A. To store Lambda functions",
+        "B. To monitor and log Lambda function metrics",
+        "C. To manage IAM policies for Lambda",
+        "D. To deploy Lambda functions",
+        "E. To configure VPC settings"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS CloudWatch does not store Lambda functions; it monitors and logs metrics.",
+        "B": "AWS CloudWatch provides monitoring, logging, and alerts for AWS Lambda function performance.",
+        "C": "IAM policies are managed separately from CloudWatch.",
+        "D": "Deployment of Lambda functions is not handled by CloudWatch.",
+        "E": "VPC settings for Lambda are configured separately and are not a function of CloudWatch."
+      }
+    },
+    {
+      "question": "Which AWS service can be used to create a REST API that triggers AWS Lambda functions?",
+      "options": [
+        "A. AWS IAM",
+        "B. AWS CloudFront",
+        "C. Amazon API Gateway",
+        "D. AWS CodeDeploy",
+        "E. Amazon Route 53"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS IAM is for access management and does not create APIs.",
+        "B": "AWS CloudFront is a content delivery network and does not create APIs.",
+        "C": "Amazon API Gateway allows you to create REST APIs that can trigger AWS Lambda functions.",
+        "D": "AWS CodeDeploy is for application deployment and does not manage APIs.",
+        "E": "Amazon Route 53 is a DNS service and does not create REST APIs."
+      }
+    },
+    {
+      "question": "How can you ensure that AWS Lambda functions have access to resources in a VPC?",
+      "options": [
+        "A. By using IAM roles only",
+        "B. By configuring VPC settings in the Lambda function",
+        "C. By using API Gateway",
+        "D. By using CloudFormation templates",
+        "E. By specifying resource policies"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "IAM roles handle permissions but do not provide VPC access.",
+        "B": "You must configure VPC settings in the Lambda function to grant it access to resources in a VPC.",
+        "C": "API Gateway is for creating APIs, not for configuring VPC access for Lambda.",
+        "D": "CloudFormation can help deploy Lambda functions, but VPC settings must be specifically configured.",
+        "E": "Resource policies manage access but do not provide VPC connectivity."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon ECS",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "What is Amazon ECS primarily used for?",
+      "options": [
+        "A. Managing databases",
+        "B. Running containerized applications",
+        "C. Creating static websites",
+        "D. Hosting serverless functions",
+        "E. Managing virtual machines"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "While databases can be managed as services, ECS is not primarily designed for that purpose.",
+        "B": "Amazon ECS is specifically designed for running and managing containerized applications using Docker.",
+        "C": "Static websites can be hosted on S3, not ECS.",
+        "D": "Serverless functions are primarily managed using AWS Lambda, not ECS.",
+        "E": "ECS does not manage virtual machines; it manages containers."
+      }
+    },
+    {
+      "question": "Which of the following is a key feature of Amazon ECS?",
+      "options": [
+        "A. Automatic scaling of EC2 instances",
+        "B. Container orchestration",
+        "C. Data warehousing",
+        "D. Serverless architecture",
+        "E. Static IP assignment"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "ECS can scale tasks but does not directly manage EC2 instance scaling.",
+        "B": "Container orchestration is a core feature of Amazon ECS, allowing users to manage container lifecycle.",
+        "C": "Data warehousing is not a feature of ECS; it relates to services like Amazon Redshift.",
+        "D": "Serverless architecture is a concept typically associated with AWS Lambda, not ECS.",
+        "E": "Static IP assignment is not a primary feature of ECS."
+      }
+    },
+    {
+      "question": "What is the role of a Task Definition in Amazon ECS?",
+      "options": [
+        "A. Defines the network settings for ECS",
+        "B. Specifies the parameters for running containers",
+        "C. Manages the underlying EC2 instances",
+        "D. Determines the load balancing strategy",
+        "E. Configures IAM roles for ECS tasks"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Network settings are part of the task definition but not the primary purpose.",
+        "B": "The task definition is essential for specifying how containers should run, including image, CPU, and memory requirements.",
+        "C": "ECS abstracts away the management of EC2 instances when using Fargate, but task definitions focus on containers.",
+        "D": "Load balancing can be defined separately; it is not a direct role of task definitions.",
+        "E": "IAM roles are important for permissions but are configured separately from task definitions."
+      }
+    },
+    {
+      "question": "How does Amazon ECS handle service discovery?",
+      "options": [
+        "A. Using Route 53",
+        "B. Using direct IP addresses",
+        "C. Using Lambda functions",
+        "D. Using CloudFormation",
+        "E. Using EC2 metadata"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Amazon ECS integrates with Route 53 for service discovery, allowing services to find each other easily.",
+        "B": "Direct IP addresses are not a scalable solution for service discovery in ECS.",
+        "C": "Lambda functions are not used for service discovery in ECS.",
+        "D": "CloudFormation is an infrastructure as code tool, not a service discovery mechanism.",
+        "E": "EC2 metadata is related to EC2 instances, not container service discovery."
+      }
+    },
+    {
+      "question": "Which launch type would you use in Amazon ECS to avoid managing servers?",
+      "options": [
+        "A. EC2",
+        "B. Fargate",
+        "C. On-Premises",
+        "D. Hybrid",
+        "E. Local"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The EC2 launch type requires management of the underlying EC2 instances.",
+        "B": "Fargate is a serverless compute engine that allows you to run containers without managing servers.",
+        "C": "On-Premises is not a launch type available in ECS.",
+        "D": "Hybrid refers to a mix of cloud and on-premises resources; it does not specifically relate to ECS launch types.",
+        "E": "Local is not a recognized launch type in ECS."
+      }
+    },
+    {
+      "question": "What does the ECS Service do?",
+      "options": [
+        "A. Monitors EC2 instances",
+        "B. Ensures the desired number of tasks are running",
+        "C. Deploys new versions of containers",
+        "D. Manages IAM roles",
+        "E. Configures networking settings"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "EC2 instance monitoring is not a function of the ECS service; it is managed separately.",
+        "B": "An ECS service ensures that the specified number of task instances are running as defined in the task definition.",
+        "C": "While services can help manage deployment, they do not directly deploy new versions; this is handled through other means.",
+        "D": "IAM roles are configured at the task level, not managed directly by the ECS service.",
+        "E": "Networking settings are configured in the task definition and service, but not managed by the ECS service itself."
+      }
+    },
+    {
+      "question": "What is the purpose of a Load Balancer in Amazon ECS?",
+      "options": [
+        "A. To process data",
+        "B. To manage container images",
+        "C. To distribute traffic among containers",
+        "D. To store configurations",
+        "E. To monitor application performance"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Load balancers do not process data; they route traffic.",
+        "B": "Container images are managed in Amazon ECR, not by load balancers.",
+        "C": "Load balancers are essential for distributing incoming traffic evenly across multiple container instances in ECS.",
+        "D": "Configuration management is handled separately; load balancers do not store configurations.",
+        "E": "While performance monitoring is important, it is not the primary role of load balancers."
+      }
+    },
+    {
+      "question": "Which feature allows containers in ECS to communicate with each other?",
+      "options": [
+        "A. Security groups",
+        "B. Task networking",
+        "C. IAM roles",
+        "D. CloudTrail",
+        "E. VPC Peering"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Security groups control access but do not facilitate direct communication between containers.",
+        "B": "Task networking (awsvpc mode) allows containers to have their own network interfaces, enabling direct communication.",
+        "C": "IAM roles provide permissions but do not influence network communication.",
+        "D": "CloudTrail is used for monitoring API calls, not for container communication.",
+        "E": "VPC Peering allows communication between VPCs but is not specific to ECS container communication."
+      }
+    },
+    {
+      "question": "What is the maximum number of tasks that can run in one ECS service by default?",
+      "options": [
+        "A. 10",
+        "B. 20",
+        "C. 50",
+        "D. 100",
+        "E. 200"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "10 is too low for the default limit of ECS service tasks.",
+        "B": "20 is also below the default maximum number of tasks.",
+        "C": "50 is incorrect; the limit is higher.",
+        "D": "By default, an ECS service can run up to 100 tasks per service in a single cluster.",
+        "E": "200 is above the default limit; the service would need to be adjusted for more."
+      }
+    },
+    {
+      "question": "Which of the following is a valid way to store Docker images for ECS?",
+      "options": [
+        "A. Amazon S3",
+        "B. Amazon RDS",
+        "C. Amazon ECR",
+        "D. Amazon DynamoDB",
+        "E. Amazon CloudFront"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "S3 can store files but is not designed for Docker images.",
+        "B": "RDS is a relational database service, not for storing Docker images.",
+        "C": "Amazon ECR (Elastic Container Registry) is specifically designed for storing Docker images.",
+        "D": "DynamoDB is a NoSQL database, not suitable for Docker image storage.",
+        "E": "CloudFront is a content delivery network and does not store Docker images."
+      }
+    },
+    {
+      "question": "What is the purpose of a task in Amazon ECS?",
+      "options": [
+        "A. To define network settings",
+        "B. To run a single Docker container",
+        "C. To manage EC2 instances",
+        "D. To configure IAM roles",
+        "E. To store application data"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Network settings are defined in the task definition but are not the purpose of a task.",
+        "B": "Each task in ECS is designed to run a single Docker container or multiple containers that share resources.",
+        "C": "EC2 instance management is handled outside of ECS tasks.",
+        "D": "IAM roles are assigned to tasks but are not the core purpose of a task.",
+        "E": "Application data storage is typically handled by services like Amazon RDS or DynamoDB."
+      }
+    },
+    {
+      "question": "How can you deploy updates to an application running on ECS?",
+      "options": [
+        "A. Stop the service and start a new one",
+        "B. Update the task definition and deploy a new revision",
+        "C. Modify the EC2 instance directly",
+        "D. Use AWS CloudTrail",
+        "E. Update the load balancer configuration"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Stopping the service is not a recommended practice for deploying updates.",
+        "B": "Updating the task definition and deploying a new revision is the standard approach for updating applications on ECS.",
+        "C": "Modifying EC2 instances directly is not advisable as it can lead to inconsistencies.",
+        "D": "CloudTrail monitors API activity but does not facilitate deployment.",
+        "E": "Updating the load balancer alone does not deploy application updates."
+      }
+    },
+    {
+      "question": "Which of the following is NOT a valid way to run ECS tasks?",
+      "options": [
+        "A. Using Fargate",
+        "B. Using EC2 launch type",
+        "C. Using AWS Batch",
+        "D. Using Local development",
+        "E. Using On-Premises"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Fargate is a valid way to run ECS tasks without managing infrastructure.",
+        "B": "The EC2 launch type allows running tasks on EC2 instances.",
+        "C": "AWS Batch is a service for batch processing, not for running ECS tasks directly.",
+        "D": "Local development is also a valid way to test and run ECS tasks.",
+        "E": "On-Premises configurations can leverage ECS, typically through hybrid approaches."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon EKS",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "What is Amazon EKS primarily used for?",
+      "options": [
+        "A. Container orchestration",
+        "B. Virtual machine management",
+        "C. Database hosting",
+        "D. Serverless computing",
+        "E. Static website hosting"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Amazon EKS is used for container orchestration, allowing you to run Kubernetes applications on AWS.",
+        "B": "Virtual machine management is primarily handled by services like Amazon EC2, not EKS.",
+        "C": "Database hosting is typically managed by services like Amazon RDS or DynamoDB.",
+        "D": "Serverless computing is handled by AWS Lambda, not EKS.",
+        "E": "Static website hosting can be done using Amazon S3, not EKS."
+      }
+    },
+    {
+      "question": "Which component in EKS is responsible for managing the Kubernetes control plane?",
+      "options": [
+        "A. EC2 Instances",
+        "B. Amazon RDS",
+        "C. EKS Control Plane",
+        "D. AWS Fargate",
+        "E. Amazon S3"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "EC2 Instances are used for worker nodes, not for managing the control plane.",
+        "B": "Amazon RDS is a managed database service and not related to Kubernetes control plane management.",
+        "C": "The EKS Control Plane is a managed service that handles the Kubernetes control plane components.",
+        "D": "AWS Fargate is a serverless compute engine for containers, not for managing the control plane.",
+        "E": "Amazon S3 is used for object storage and does not manage EKS control plane."
+      }
+    },
+    {
+      "question": "What is the purpose of Amazon EKS worker nodes?",
+      "options": [
+        "A. To manage Kubernetes API requests",
+        "B. To run containerized applications",
+        "C. To store data",
+        "D. To manage IAM roles",
+        "E. To provide load balancing"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Kubernetes API requests are managed by the control plane, not the worker nodes.",
+        "B": "Worker nodes in EKS run the containerized applications that you deploy in your Kubernetes cluster.",
+        "C": "Data storage is typically managed by services like Amazon S3 or RDS, not EKS worker nodes.",
+        "D": "IAM roles are managed at the AWS account level, not by EKS worker nodes.",
+        "E": "Load balancing is done through services like AWS Elastic Load Balancer, not directly by worker nodes."
+      }
+    },
+    {
+      "question": "Which AWS service can be used to automatically scale EKS worker nodes?",
+      "options": [
+        "A. AWS Auto Scaling",
+        "B. AWS Lambda",
+        "C. AWS CloudFormation",
+        "D. AWS CodeDeploy",
+        "E. AWS Elastic Beanstalk"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "AWS Auto Scaling can be configured to automatically scale EKS worker nodes based on demand.",
+        "B": "AWS Lambda is a serverless computing service and does not manage worker nodes.",
+        "C": "AWS CloudFormation is for infrastructure as code, not specifically for scaling EKS worker nodes.",
+        "D": "AWS CodeDeploy is for application deployment, not scaling of worker nodes.",
+        "E": "AWS Elastic Beanstalk is a platform as a service offering, not directly related to EKS worker node scaling."
+      }
+    },
+    {
+      "question": "How can you secure communication between services in an EKS cluster?",
+      "options": [
+        "A. Using IAM roles",
+        "B. Using Kubernetes Network Policies",
+        "C. Using Security Groups",
+        "D. Using VPC Peering",
+        "E. Using Amazon CloudTrail"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "IAM roles are used for permissions and access control, not for securing communication between services.",
+        "B": "Kubernetes Network Policies can control the traffic flow between pods in an EKS cluster, thus securing communications.",
+        "C": "Security Groups are used for controlling access to resources but do not specifically secure pod-to-pod communication.",
+        "D": "VPC Peering connects VPCs but does not secure communication within an EKS cluster.",
+        "E": "Amazon CloudTrail is for logging API calls, not for securing communication."
+      }
+    },
+    {
+      "question": "What is a primary benefit of using AWS Fargate with EKS?",
+      "options": [
+        "A. Manual scaling of instances",
+        "B. Serverless management of containers",
+        "C. Better resource utilization",
+        "D. Increased security",
+        "E. Simplified networking"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Fargate allows for automatic scaling, not manual scaling.",
+        "B": "AWS Fargate provides a serverless way to run containers without managing the underlying servers.",
+        "C": "While Fargate can improve resource utilization, its main benefit is the serverless management of containers.",
+        "D": "Fargate does improve security by abstracting the management of the underlying infrastructure.",
+        "E": "Networking can be simpler, but the primary benefit of Fargate is its serverless nature."
+      }
+    },
+    {
+      "question": "Which of the following is a required step to set up Amazon EKS?",
+      "options": [
+        "A. Create an Amazon S3 bucket",
+        "B. Configure a VPC",
+        "C. Launch an EC2 instance",
+        "D. Enable AWS CloudTrail",
+        "E. Set up AWS Direct Connect"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Creating an S3 bucket is not required to set up EKS.",
+        "B": "Configuring a VPC is a necessary step as EKS runs within a VPC.",
+        "C": "Launching an EC2 instance is not required; EKS can manage instances for you.",
+        "D": "AWS CloudTrail is for logging and is not required for EKS setup.",
+        "E": "AWS Direct Connect is for dedicated network connections and is not necessary for EKS."
+      }
+    },
+    {
+      "question": "Which tool can be used to manage Kubernetes resources in an EKS cluster?",
+      "options": [
+        "A. AWS CLI",
+        "B. AWS CloudFormation",
+        "C. kubectl",
+        "D. AWS Management Console",
+        "E. AWS Config"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS CLI can be used to manage AWS resources, but not specifically for Kubernetes resources.",
+        "B": "AWS CloudFormation is for infrastructure as code, not for managing Kubernetes resources directly.",
+        "C": "kubectl is the command-line tool specifically designed for managing Kubernetes resources.",
+        "D": "AWS Management Console provides a UI for managing AWS services but is not specifically for Kubernetes resources.",
+        "E": "AWS Config is for resource configuration tracking, not for managing Kubernetes resources."
+      }
+    },
+    {
+      "question": "What is the maximum number of pods that can be run on a single EKS node?",
+      "options": [
+        "A. 50",
+        "B. 100",
+        "C. 110",
+        "D. 150",
+        "E. Depends on node resources"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "There is no fixed limit of 50 pods; the number can be higher based on resources.",
+        "B": "100 is not a fixed limit; actual limits depend on node resources.",
+        "C": "110 is not a standard number; it's resource-dependent.",
+        "D": "150 is not the limit; it varies according to node resources.",
+        "E": "The number of pods that can be run on an EKS node depends on the resources (CPU, memory) available on that node."
+      }
+    },
+    {
+      "question": "Which AWS service can be integrated with EKS for centralized logging?",
+      "options": [
+        "A. AWS CloudTrail",
+        "B. Amazon CloudWatch",
+        "C. Amazon S3",
+        "D. AWS Config",
+        "E. AWS X-Ray"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS CloudTrail logs API calls, not centralized logging for applications.",
+        "B": "Amazon CloudWatch can be used for centralized logging and monitoring of applications running in EKS.",
+        "C": "Amazon S3 can store logs but is not a logging service itself.",
+        "D": "AWS Config is for resource compliance and tracking, not for logging.",
+        "E": "AWS X-Ray is used for application tracing, not specifically for centralized logging."
+      }
+    },
+    {
+      "question": "What is the purpose of the Amazon EKS add-on for Kubernetes?",
+      "options": [
+        "A. To manage Kubernetes updates",
+        "B. To provide additional features",
+        "C. To deploy applications",
+        "D. To monitor performance",
+        "E. To manage networking"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "While EKS manages Kubernetes updates, add-ons provide additional functionalities.",
+        "B": "Amazon EKS add-ons are used to provide additional features and capabilities to your Kubernetes cluster.",
+        "C": "Applications are deployed using kubectl or Helm, not through EKS add-ons directly.",
+        "D": "Monitoring performance is done using services like CloudWatch, not specifically through add-ons.",
+        "E": "Networking may be enhanced by add-ons, but their primary purpose is to add functionality."
+      }
+    },
+    {
+      "question": "What Kubernetes feature allows you to define how applications communicate within an EKS cluster?",
+      "options": [
+        "A. Services",
+        "B. Pods",
+        "C. Deployments",
+        "D. StatefulSets",
+        "E. ConfigMaps"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Services in Kubernetes define how to access and communicate with applications running in pods.",
+        "B": "Pods are the smallest deployable units, not responsible for communication.",
+        "C": "Deployments are used to manage the lifecycle of applications but not for communication definitions.",
+        "D": "StatefulSets manage stateful applications but do not define communication rules.",
+        "E": "ConfigMaps are used for configuration management, not for defining communication."
+      }
+    },
+    {
+      "question": "Which IAM policy is required for nodes to join an EKS cluster?",
+      "options": [
+        "A. AmazonEKSClusterPolicy",
+        "B. AmazonEKSWorkerNodePolicy",
+        "C. AmazonEC2FullAccess",
+        "D. AmazonS3ReadOnlyAccess",
+        "E. AmazonCloudWatchFullAccess"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AmazonEKSClusterPolicy is for managing the EKS cluster, not for worker nodes.",
+        "B": "AmazonEKSWorkerNodePolicy is required for nodes to join an EKS cluster and communicate with the control plane.",
+        "C": "AmazonEC2FullAccess is too broad and not specifically required for EKS worker nodes.",
+        "D": "AmazonS3ReadOnlyAccess is irrelevant for node joining.",
+        "E": "AmazonCloudWatchFullAccess is not required for nodes to join the cluster."
+      }
+    }
+  ]
+},
+{
+  "service": "AWS Fargate",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "Which of the following is a primary benefit of using AWS Fargate?",
+      "options": [
+        "A. It allows you to manage the underlying infrastructure.",
+        "B. It automatically scales to zero when not in use.",
+        "C. It provides full control over the operating system.",
+        "D. It eliminates the need to provision and manage servers.",
+        "E. It offers a fixed pricing model."
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "With AWS Fargate, you do not manage the underlying infrastructure.",
+        "B": "AWS Fargate does not automatically scale to zero; scaling policies have to be configured.",
+        "C": "Fargate abstracts the underlying OS, focusing on container management.",
+        "D": "Fargate eliminates the need to provision and manage servers, focusing on deploying containers.",
+        "E": "AWS Fargate uses a pay-as-you-go pricing model based on resources used."
+      }
+    },
+    {
+      "question": "Which AWS service is Fargate most commonly used with to run containerized applications?",
+      "options": [
+        "A. Amazon EC2",
+        "B. AWS Lambda",
+        "C. Amazon ECS",
+        "D. AWS S3",
+        "E. Amazon RDS"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "EC2 is used to provision virtual servers, not specifically for running containers.",
+        "B": "Lambda is for serverless functions, not container orchestration.",
+        "C": "Amazon ECS (Elastic Container Service) is commonly used with Fargate to run containerized applications.",
+        "D": "S3 is object storage, not for running containers.",
+        "E": "RDS is a relational database service, unrelated to container management."
+      }
+    },
+    {
+      "question": "How does AWS Fargate handle scaling for containerized applications?",
+      "options": [
+        "A. It requires manual adjustment of server instances.",
+        "B. It automatically adjusts based on the load.",
+        "C. It uses predefined configurations to scale resources.",
+        "D. It integrates with Elastic Load Balancing for scaling.",
+        "E. It scales based on the number of active users."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Fargate abstracts the need for manual server management.",
+        "B": "Fargate automatically adjusts resources based on the load, simplifying scaling.",
+        "C": "Predefined configurations are not used; scaling is dynamic.",
+        "D": "While integrating with ELB is possible, scaling is managed automatically by Fargate.",
+        "E": "Scaling is based on resource needs, not user count specifically."
+      }
+    },
+    {
+      "question": "Which of the following features is NOT supported by AWS Fargate?",
+      "options": [
+        "A. Running containers without servers",
+        "B. Automatic scaling",
+        "C. Operating system-level access",
+        "D. Integration with AWS CloudWatch",
+        "E. Compatibility with Amazon EKS"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Fargate allows running containers without managing servers.",
+        "B": "Automatic scaling is a core feature of Fargate.",
+        "C": "Fargate abstracts the operating system, so you don't have OS-level access.",
+        "D": "Fargate integrates with CloudWatch for monitoring.",
+        "E": "Fargate is compatible with Amazon EKS for Kubernetes management."
+      }
+    },
+    {
+      "question": "What is the primary pricing model for AWS Fargate?",
+      "options": [
+        "A. Reserved Instances",
+        "B. Pay-as-you-go",
+        "C. Spot Instances",
+        "D. Subscription-based",
+        "E. Free tier"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Reserved Instances are for EC2, not applicable to Fargate.",
+        "B": "Fargate uses a pay-as-you-go model based on the resources consumed.",
+        "C": "Spot Instances are for EC2, not directly applicable to Fargate.",
+        "D": "Fargate is not subscription-based; it's pay-as-you-go.",
+        "E": "While AWS offers a free tier for some services, Fargate is primarily pay-as-you-go."
+      }
+    },
+    {
+      "question": "What is the main difference between AWS Fargate and Amazon ECS on EC2?",
+      "options": [
+        "A. ECS on EC2 requires manual scaling.",
+        "B. Fargate requires you to manage EC2 instances.",
+        "C. ECS on EC2 offers automatic patching.",
+        "D. Fargate allows direct access to virtual machines.",
+        "E. Fargate abstracts infrastructure management."
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "ECS on EC2 can also be configured to auto-scale.",
+        "B": "Fargate does not require managing EC2 instances; it abstracts this layer.",
+        "C": "Patching is generally a responsibility when managing EC2 instances.",
+        "D": "Fargate does not provide access to virtual machines; it abstracts them.",
+        "E": "Fargate abstracts infrastructure management, unlike ECS on EC2."
+      }
+    },
+    {
+      "question": "Which of the following is necessary to run a container on AWS Fargate?",
+      "options": [
+        "A. EC2 Instance",
+        "B. ECS Task Definition",
+        "C. RDS Instance",
+        "D. Direct OS Access",
+        "E. CloudFormation Stack"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Fargate does not require EC2 instances for container deployment.",
+        "B": "ECS Task Definition is required to define how the containers should run.",
+        "C": "RDS is unrelated to running containers on Fargate.",
+        "D": "Fargate abstracts the OS layer, providing no direct OS access.",
+        "E": "CloudFormation can be used to manage deployments, but it's not required."
+      }
+    },
+    {
+      "question": "Which of the following statements about AWS Fargate is true?",
+      "options": [
+        "A. It is a serverless compute engine for containers.",
+        "B. It requires you to manage the underlying hardware.",
+        "C. It only supports Docker containers.",
+        "D. It cannot be used with Amazon EKS.",
+        "E. It automatically patches your containers."
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Fargate is a serverless compute engine designed for running containers.",
+        "B": "Fargate abstracts the need to manage underlying hardware.",
+        "C": "Fargate supports both Docker and other containerized applications.",
+        "D": "Fargate can be used with Amazon EKS for Kubernetes workloads.",
+        "E": "Automatic patching is not a feature of Fargate; it focuses on compute management."
+      }
+    },
+    {
+      "question": "How does AWS Fargate improve security for containerized applications?",
+      "options": [
+        "A. By providing encrypted EC2 instances",
+        "B. By allowing OS-level access for monitoring",
+        "C. By isolating containers at the task level",
+        "D. By enforcing manual security configurations",
+        "E. By integrating with AWS IAM for access control"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Fargate does not provide access to EC2 instances directly.",
+        "B": "Fargate abstracts OS-level access, focusing on container security.",
+        "C": "Fargate isolates containers at the task level, enhancing security through isolation.",
+        "D": "Security configurations can be automated and integrated with AWS services.",
+        "E": "While Fargate integrates with IAM, isolation at the task level is a key security feature."
+      }
+    },
+    {
+      "question": "Which of the following best describes the use case for AWS Fargate?",
+      "options": [
+        "A. Running serverless functions",
+        "B. Managing large-scale relational databases",
+        "C. Deploying containerized applications without managing infrastructure",
+        "D. Hosting static websites",
+        "E. Automating machine learning workflows"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Serverless functions are best managed with AWS Lambda.",
+        "B": "Relational databases are managed with services like Amazon RDS.",
+        "C": "Fargate is designed for deploying containerized applications without managing the underlying infrastructure.",
+        "D": "Static websites are often hosted using Amazon S3.",
+        "E": "Fargate is not specifically designed for machine learning workflows, though it can run ML containers."
+      }
+    },
+    {
+      "question": "Which resource management feature is NOT applicable to AWS Fargate?",
+      "options": [
+        "A. CPU and memory specification per task",
+        "B. Auto-scaling based on demand",
+        "C. Manual server provisioning",
+        "D. Integrated monitoring with CloudWatch",
+        "E. Network access control using security groups"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "You can specify CPU and memory for each Fargate task.",
+        "B": "Fargate supports auto-scaling based on demand.",
+        "C": "Fargate abstracts server provisioning; you don't manage servers directly.",
+        "D": "Monitoring is integrated with AWS CloudWatch.",
+        "E": "Fargate tasks can be controlled using security groups for network access."
+      }
+    },
+    {
+      "question": "What is the role of an ECS Task Definition in AWS Fargate?",
+      "options": [
+        "A. It defines the network configuration for containers.",
+        "B. It specifies the compute resources and container settings.",
+        "C. It manages the billing for Fargate tasks.",
+        "D. It acts as a firewall for containerized applications.",
+        "E. It provides a user interface for managing tasks."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Network configuration is part of the task definition but not its sole purpose.",
+        "B": "ECS Task Definitions specify the compute resources and settings for containers.",
+        "C": "Billing is managed by AWS based on resources used, not the task definition.",
+        "D": "Firewalls are managed using security groups, not task definitions.",
+        "E": "The task definition does not provide a user interface; it's a configuration file."
+      }
+    },
+    {
+      "question": "Which AWS service is used to orchestrate container deployment with Fargate?",
+      "options": [
+        "A. Amazon RDS",
+        "B. AWS CloudFormation",
+        "C. Amazon ECS",
+        "D. AWS Lambda",
+        "E. Amazon S3"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Amazon RDS is for databases, not container orchestration.",
+        "B": "CloudFormation can automate deployments but is not a container orchestrator.",
+        "C": "Amazon ECS is the service used for orchestrating container deployments with Fargate.",
+        "D": "Lambda is for serverless functions, not container orchestration.",
+        "E": "S3 is an object storage service, not related to container deployment."
+      }
+    },
+    {
+      "question": "What is a key advantage of using AWS Fargate with Amazon EKS?",
+      "options": [
+        "A. It provides persistent storage for containers.",
+        "B. It allows Kubernetes workloads without managing EC2 instances.",
+        "C. It reduces network latency between containers.",
+        "D. It provides default logging capabilities.",
+        "E. It offers a simplified UI for Kubernetes management."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Persistent storage is managed through separate services like EBS.",
+        "B": "Fargate with EKS allows running Kubernetes workloads without managing the EC2 infrastructure.",
+        "C": "Network latency is not specifically addressed by Fargate.",
+        "D": "Logging can be set up, but it's not a unique feature of Fargate.",
+        "E": "Fargate does not change the UI of Kubernetes; it abstracts infrastructure management."
+      }
+    },
+    {
+      "question": "Which component of AWS Fargate allows for task-level isolation?",
+      "options": [
+        "A. Security Groups",
+        "B. IAM Roles",
+        "C. VPCs",
+        "D. Task Definitions",
+        "E. ECS Clusters"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Security groups control network access but don't ensure task isolation.",
+        "B": "IAM Roles manage permissions, not isolation.",
+        "C": "VPCs provide network isolation but not specific to tasks.",
+        "D": "Task Definitions in Fargate provide task-level isolation by defining resource boundaries and environments.",
+        "E": "ECS Clusters organize tasks but do not provide isolation by themselves."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon LightSail",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "Which of the following is a primary benefit of using Amazon LightSail?",
+      "options": [
+        "A. High availability zones",
+        "B. Pre-configured application stacks",
+        "C. Advanced network configuration",
+        "D. Unlimited scalability",
+        "E. Real-time data analytics"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "High availability zones are a feature of AWS EC2, not specifically highlighted in LightSail.",
+        "B": "LightSail offers pre-configured application stacks, making it easy for users to deploy applications quickly.",
+        "C": "Advanced network configuration is more associated with AWS EC2, where users can configure VPC settings.",
+        "D": "While LightSail can scale, it is not known for unlimited scalability like AWS EC2.",
+        "E": "Real-time data analytics is not a primary feature of LightSail; it is more related to services like AWS Kinesis."
+      }
+    },
+    {
+      "question": "What is the maximum number of instances you can have in a single Amazon LightSail account by default?",
+      "options": [
+        "A. 10",
+        "B. 15",
+        "C. 20",
+        "D. 25",
+        "E. 30"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The default limit is higher than 10.",
+        "B": "The default maximum number of instances in a single LightSail account is 20.",
+        "C": "This was the default limit at an earlier time, but it is now 20.",
+        "D": "This is incorrect as the default limit is 20.",
+        "E": "This is incorrect as the default limit is 20."
+      }
+    },
+    {
+      "question": "Which of the following databases can you deploy directly within Amazon LightSail?",
+      "options": [
+        "A. Oracle Database",
+        "B. MongoDB",
+        "C. MySQL",
+        "D. Microsoft SQL Server",
+        "E. Amazon Aurora"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Oracle Database is not available directly within Amazon LightSail.",
+        "B": "MongoDB is not offered directly as a LightSail database option.",
+        "C": "MySQL is one of the database options you can deploy directly within Amazon LightSail.",
+        "D": "Microsoft SQL Server is not offered directly as a LightSail database option.",
+        "E": "Amazon Aurora is part of RDS, not LightSail."
+      }
+    },
+    {
+      "question": "What type of storage does LightSail use for instances?",
+      "options": [
+        "A. S3",
+        "B. EBS",
+        "C. Instance Store",
+        "D. NFS",
+        "E. EFS"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "S3 is an object storage service, not used for LightSail instance storage.",
+        "B": "LightSail uses EBS-backed storage for its instances.",
+        "C": "Instance Store is temporary storage and is not used by LightSail.",
+        "D": "NFS is a network file system, not directly used by LightSail for instance storage.",
+        "E": "EFS is used for file storage, not for LightSail instance storage."
+      }
+    },
+    {
+      "question": "Which LightSail feature allows you to easily configure DNS settings for your domain?",
+      "options": [
+        "A. LightSail Load Balancer",
+        "B. LightSail Networking",
+        "C. LightSail DNS Zone",
+        "D. LightSail Snapshots",
+        "E. LightSail Metrics"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Load Balancer is for distributing traffic, not for DNS configuration.",
+        "B": "Networking includes IP management but not specific DNS configuration.",
+        "C": "LightSail DNS Zone allows you to configure DNS settings for your domain.",
+        "D": "Snapshots are used for backup and restore operations, not DNS.",
+        "E": "Metrics provide monitoring data, not DNS configuration."
+      }
+    },
+    {
+      "question": "Which of the following does a LightSail instance blueprint NOT include?",
+      "options": [
+        "A. OS settings",
+        "B. Application software",
+        "C. Database configurations",
+        "D. Network configuration",
+        "E. Instance scaling settings"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "Blueprints can include OS settings.",
+        "B": "Blueprints can include application software.",
+        "C": "Blueprints can include database configurations.",
+        "D": "Blueprints can have predefined network configurations.",
+        "E": "Blueprints do not include instance scaling settings."
+      }
+    },
+    {
+      "question": "How can you connect to a LightSail instance from your local machine?",
+      "options": [
+        "A. Using SSH",
+        "B. Using RDP",
+        "C. Using the LightSail console",
+        "D. Using FTP",
+        "E. Using HTTP"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "SSH is the primary method for connecting to Linux-based LightSail instances.",
+        "B": "RDP is used for Windows instances, but SSH is the primary method for Linux.",
+        "C": "The LightSail console provides browser-based access, not direct connection from your local machine.",
+        "D": "FTP is a protocol for file transfer, not for direct instance access.",
+        "E": "HTTP is a protocol for accessing web services, not for direct instance connection."
+      }
+    },
+    {
+      "question": "What is the primary use case of LightSail's static IP feature?",
+      "options": [
+        "A. To allow dynamic scaling",
+        "B. To improve database performance",
+        "C. To ensure consistent access to instances",
+        "D. To increase storage capacity",
+        "E. To enhance security"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Static IPs do not enable dynamic scaling.",
+        "B": "Static IPs are not related to database performance.",
+        "C": "Static IPs provide a consistent address for accessing instances, even after reboots.",
+        "D": "Static IPs do not increase storage capacity.",
+        "E": "While they help with consistent access, they do not directly enhance security."
+      }
+    },
+    {
+      "question": "Which of the following can you use to automate backups in LightSail?",
+      "options": [
+        "A. LightSail Alarms",
+        "B. LightSail Blueprints",
+        "C. LightSail Snapshots",
+        "D. LightSail Load Balancer",
+        "E. LightSail IP Address"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Alarms are used for monitoring, not backups.",
+        "B": "Blueprints are templates for instances, not backup tools.",
+        "C": "Snapshots are used for creating backups of your LightSail instances.",
+        "D": "Load Balancers help distribute traffic, not backups.",
+        "E": "IP Addresses are for network configuration, not backups."
+      }
+    },
+    {
+      "question": "What is the primary purpose of Amazon LightSail's load balancer?",
+      "options": [
+        "A. To distribute traffic across multiple instances",
+        "B. To store large amounts of data",
+        "C. To monitor instance health",
+        "D. To increase CPU performance",
+        "E. To manage DNS settings"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "The load balancer is designed to distribute incoming network traffic across several instances.",
+        "B": "The load balancer is not used for data storage.",
+        "C": "While it can help with balancing based on health checks, its primary function is traffic distribution.",
+        "D": "The load balancer does not affect CPU performance.",
+        "E": "DNS settings are managed separately from the load balancing feature."
+      }
+    },
+    {
+      "question": "Which of the following is true about LightSail's pricing model?",
+      "options": [
+        "A. It is based on pay-as-you-go with no upfront costs.",
+        "B. It requires a yearly contract.",
+        "C. It charges for data transfers within AWS.",
+        "D. It includes costs for VPC peering.",
+        "E. It requires a separate license for software usage."
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "LightSail uses a pay-as-you-go model with no upfront costs.",
+        "B": "No yearly contract is required; it's pay-as-you-go.",
+        "C": "Data transfers within AWS are typically not charged.",
+        "D": "VPC peering is not applicable to LightSail.",
+        "E": "Software licenses are included in the instance cost."
+      }
+    },
+    {
+      "question": "Which AWS service is Amazon LightSail most comparable to in terms of launching virtual servers?",
+      "options": [
+        "A. Amazon RDS",
+        "B. Amazon EC2",
+        "C. AWS Lambda",
+        "D. Amazon S3",
+        "E. AWS Fargate"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Amazon RDS is used for managed databases, not virtual servers.",
+        "B": "Amazon EC2 and LightSail both provide virtual servers, though LightSail is simpler.",
+        "C": "AWS Lambda is for serverless computing, not virtual server hosting.",
+        "D": "Amazon S3 is for object storage, not virtual servers.",
+        "E": "AWS Fargate is for running containers, not directly comparable to LightSail's virtual servers."
+      }
+    },
+    {
+      "question": "Which feature of LightSail allows you to move instances to another AWS region?",
+      "options": [
+        "A. LightSail Blueprints",
+        "B. LightSail Snapshots",
+        "C. LightSail Load Balancer",
+        "D. LightSail Alarms",
+        "E. LightSail Static IPs"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Blueprints are templates for creating new instances, not for moving them.",
+        "B": "Snapshots can be used to copy and move instances across regions.",
+        "C": "Load Balancers distribute traffic, not move instances.",
+        "D": "Alarms are for monitoring, not moving instances.",
+        "E": "Static IPs are for network addressing, not moving instances."
+      }
+    },
+    {
+      "question": "Which of the following is a key feature of LightSail that simplifies deployment for users?",
+      "options": [
+        "A. Custom VPC setup",
+        "B. Pre-configured stack templates",
+        "C. Unlimited bandwidth",
+        "D. Advanced IAM configuration",
+        "E. Real-time streaming data"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Custom VPC setup is more relevant to AWS EC2.",
+        "B": "LightSail provides pre-configured stack templates to simplify application deployment.",
+        "C": "Unlimited bandwidth is not a feature of LightSail.",
+        "D": "Advanced IAM configuration is more relevant to other AWS services, beyond LightSail's simplicity scope.",
+        "E": "Real-time streaming data is not a core feature of LightSail."
+      }
+    },
+    {
+      "question": "How does Amazon LightSail simplify networking for its instances?",
+      "options": [
+        "A. By providing a dedicated VPC",
+        "B. Through automatic DNS configuration",
+        "C. By offering fixed pricing",
+        "D. By including a content delivery network",
+        "E. Through simplified IP management"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "LightSail instances run in a shared VPC, not a dedicated one.",
+        "B": "DNS configuration is possible but not automatic.",
+        "C": "Fixed pricing is a feature but not related to networking.",
+        "D": "LightSail does not include a CDN by default.",
+        "E": "LightSail simplifies networking with easy-to-manage static and dynamic IPs."
+      }
+    }
+  ]
+},
+{
+  "service": "AWS Batch",
+  "cheatSheet": "",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "question": "What is the primary purpose of AWS Batch?",
+      "options": [
+        "A. To manage serverless applications",
+        "B. To run batch computing workloads",
+        "C. To provide a managed database service",
+        "D. To create and manage virtual private clouds",
+        "E. To host web applications"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Batch is not designed for serverless applications; it focuses on batch processing.",
+        "B": "Correct! AWS Batch is specifically designed to enable users to run batch computing workloads efficiently.",
+        "C": "AWS Batch does not provide database services; it is focused on job scheduling and execution.",
+        "D": "While you can run workloads in a VPC, AWS Batch itself is not a service for managing VPCs.",
+        "E": "AWS Batch is not intended for hosting web applications; that would be more suited for services like AWS Elastic Beanstalk."
+      }
+    },
+    {
+      "question": "Which of the following components is NOT part of AWS Batch?",
+      "options": [
+        "A. Job Definitions",
+        "B. Job Queues",
+        "C. Compute Environments",
+        "D. Lambda Functions",
+        "E. Job Scheduling"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Job Definitions are a key component of AWS Batch that specify how jobs should be run.",
+        "B": "Job Queues are essential for managing job submissions and executions in AWS Batch.",
+        "C": "Compute Environments are where the jobs are actually executed within AWS Batch.",
+        "D": "Correct! Lambda Functions are not part of AWS Batch; they are a separate service for serverless computing.",
+        "E": "Job Scheduling is an integral part of AWS Batch's functionality, allowing users to manage when jobs run."
+      }
+    },
+    {
+      "question": "How does AWS Batch determine which compute resources to use for executing jobs?",
+      "options": [
+        "A. Based on the region where the job is submitted",
+        "B. By using predefined resource types in the job definition",
+        "C. Through dynamic resource provisioning based on job requirements",
+        "D. By selecting the least expensive compute resources available",
+        "E. By allowing the user to manually select the resources"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS Batch is region-specific, but resource selection is based on job requirements, not just the region.",
+        "B": "While resource types are defined, AWS Batch dynamically provisions resources based on job needs.",
+        "C": "Correct! AWS Batch dynamically provisions compute resources depending on the job's requirements and the compute environment settings.",
+        "D": "Cost is not the primary factor; AWS Batch focuses on meeting job requirements and availability.",
+        "E": "AWS Batch automates resource selection; users do not manually select resources but can define preferences."
+      }
+    },
+    {
+      "question": "What is the maximum runtime for a single job in AWS Batch?",
+      "options": [
+        "A. 1 hour",
+        "B. 12 hours",
+        "C. 24 hours",
+        "D. 36 hours",
+        "E. Unlimited"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "1 hour is too short for many batch jobs; the limit is longer.",
+        "B": "12 hours is still below the maximum allowed runtime for a job.",
+        "C": "Correct! The maximum runtime for a single job in AWS Batch is 24 hours.",
+        "D": "36 hours exceeds the maximum limit for job runtimes in AWS Batch.",
+        "E": "There is a limit; jobs cannot run indefinitely in AWS Batch."
+      }
+    },
+    {
+      "question": "Which of the following is a valid way to define job dependencies in AWS Batch?",
+      "options": [
+        "A. Using AWS Lambda to trigger jobs",
+        "B. By specifying job IDs in a job definition",
+        "C. Utilizing job dependency parameters when submitting jobs",
+        "D. Through the AWS Batch console only",
+        "E. By using AWS Step Functions exclusively"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS Lambda can trigger jobs, but it does not inherently define job dependencies in AWS Batch.",
+        "B": "Job IDs cannot be specified in the job definition; they are assigned after job submission.",
+        "C": "Correct! Job dependencies can be defined using dependency parameters when submitting jobs.",
+        "D": "Job dependencies can be defined through the console, but not exclusively; API calls also allow this.",
+        "E": "While AWS Step Functions can coordinate workflows, they are not the only way to manage job dependencies in AWS Batch."
+      }
+    },
+    {
+      "question": "What role does the compute environment play in AWS Batch?",
+      "options": [
+        "A. It defines the network configuration for jobs.",
+        "B. It specifies the job execution environment.",
+        "C. It determines the pricing model for jobs.",
+        "D. It manages job queue prioritization.",
+        "E. It allows setting up IAM roles for job execution."
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The network configuration is part of the VPC setup, not specifically defined by the compute environment.",
+        "B": "Correct! The compute environment specifies the type and configuration of resources used to run jobs.",
+        "C": "Pricing models are determined by the underlying resource used, not the compute environment itself.",
+        "D": "Job queue prioritization is handled at the job queue level, not by the compute environment.",
+        "E": "IAM role settings are part of job definitions and compute environment settings, but not the primary role of the compute environment."
+      }
+    },
+    {
+      "question": "Which of the following services can be integrated with AWS Batch for event-driven job submission?",
+      "options": [
+        "A. Amazon SNS",
+        "B. AWS Step Functions",
+        "C. Amazon S3",
+        "D. Amazon EventBridge",
+        "E. All of the above"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "Amazon SNS can trigger notifications that can lead to job submissions in AWS Batch.",
+        "B": "AWS Step Functions can orchestrate workflows that include job submissions to AWS Batch.",
+        "C": "Amazon S3 can trigger jobs based on object events, such as uploads.",
+        "D": "Amazon EventBridge can route events to AWS Batch for job submission based on various triggers.",
+        "E": "Correct! All of the listed services can be integrated with AWS Batch for event-driven job submissions."
+      }
+    },
+    {
+      "question": "What does the 'retry strategy' in an AWS Batch job definition control?",
+      "options": [
+        "A. The number of times a job can be resubmitted manually",
+        "B. The number of attempts to run a job in case of failure",
+        "C. The scheduling frequency of the job execution",
+        "D. The resource allocation for retry attempts",
+        "E. The order of job execution in the queue"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Retry strategy does not control manual resubmissions; it defines automatic retries.",
+        "B": "Correct! The retry strategy specifies how many times the job should be retried upon failure.",
+        "C": "Scheduling frequency is not controlled by the retry strategy; it is defined during job submission.",
+        "D": "Resource allocation is determined by the compute environment, not the retry strategy.",
+        "E": "Job execution order is managed through job queues, not the retry strategy."
+      }
+    },
+    {
+      "question": "Which AWS service is commonly used to monitor AWS Batch job executions?",
+      "options": [
+        "A. Amazon CloudWatch",
+        "B. AWS CloudTrail",
+        "C. AWS Config",
+        "D. Amazon EventBridge",
+        "E. AWS X-Ray"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Correct! Amazon CloudWatch provides metrics and logging capabilities to monitor AWS Batch jobs.",
+        "B": "AWS CloudTrail records AWS API calls, but it is not specifically for monitoring job executions.",
+        "C": "AWS Config monitors resource configurations, not specific job executions.",
+        "D": "Amazon EventBridge is used for event routing and triggering but not for monitoring job executions.",
+        "E": "AWS X-Ray is mainly for monitoring applications and debugging, not specifically for AWS Batch jobs."
+      }
+    },
+    {
+      "question": "In AWS Batch, what does a 'job definition' specify?",
+      "options": [
+        "A. The priority of jobs in the queue",
+        "B. The compute resources required for execution",
+        "C. The IAM roles and policies for job execution",
+        "D. The Docker image to use for the job",
+        "E. All of the above"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "Job definitions can include parameters that affect priority, but they encompass more than just priority settings.",
+        "B": "Correct! Job definitions specify the required compute resources for job execution.",
+        "C": "Job definitions include IAM roles and policies necessary for executing jobs.",
+        "D": "Job definitions also specify the Docker image that will be used to run the job.",
+        "E": "Correct! A job definition in AWS Batch specifies resource requirements, IAM roles, and the Docker image, covering all aspects listed."
+      }
+    },
+    {
+      "question": "What is the maximum number of job queues that can be created in AWS Batch within a single AWS account?",
+      "options": [
+        "A. 10",
+        "B. 50",
+        "C. 100",
+        "D. 200",
+        "E. 500"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "10 is below the limit; AWS Batch allows more job queues.",
+        "B": "50 is still below the maximum allowed; the limit is higher.",
+        "C": "Correct! The maximum number of job queues that can be created in AWS Batch is 100 per AWS account.",
+        "D": "200 exceeds the limit; AWS Batch restricts the number of job queues to 100.",
+        "E": "500 is far more than the limit; only 100 job queues can be created."
+      }
+    },
+    {
+      "question": "Which of the following best describes the scaling behavior of AWS Batch?",
+      "options": [
+        "A. It requires manual intervention to scale resources.",
+        "B. It can only scale down but not up.",
+        "C. It automatically scales based on the job queue and compute environment settings.",
+        "D. It scales resources based on fixed schedules.",
+        "E. It only uses EC2 Spot Instances for scaling."
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS Batch is designed to automate scaling; manual intervention is not required for typical operations.",
+        "B": "AWS Batch can scale both up and down based on demand and job requirements.",
+        "C": "Correct! AWS Batch automatically scales the compute resources based on job queue demand and the configuration of the compute environment.",
+        "D": "Scaling is based on job demand, not fixed schedules.",
+        "E": "AWS Batch can use both On-Demand and Spot Instances for scaling, not limited to Spot Instances."
+      }
+    }
+  ]
+},
+{
+  "service": "AWS Direct Connect",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "What is AWS Direct Connect?",
+      "options": [
+        "A. A service that allows you to establish a dedicated network connection from your premises to AWS",
+        "B. A service that provides secure remote access to AWS resources",
+        "C. A service that allows you to transfer data between on-premises and AWS over the internet",
+        "D. A service that provides managed virtual private cloud (VPC) connectivity",
+        "E. A service that allows you to migrate data from on-premises to AWS"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "AWS Direct Connect is a cloud service that provides a dedicated network connection from your premises to AWS. This connection can reduce network costs, increase bandwidth throughput, and provide a more consistent network experience than internet-based connections.",
+        "B": "This is the description of AWS Client VPN, which provides secure remote access to AWS resources.",
+        "C": "This is the description of internet-based connectivity, which AWS Direct Connect aims to replace with a dedicated network connection.",
+        "D": "This is the description of AWS VPN, which provides managed VPC connectivity over the internet.",
+        "E": "AWS Direct Connect is primarily used for establishing a dedicated network connection, not for data migration."
+      }
+    },
+    {
+      "question": "What are the benefits of using AWS Direct Connect?",
+      "options": [
+        "A. Reduced network costs and increased bandwidth throughput",
+        "B. Improved network security and compliance",
+        "C. Ability to access AWS services that are not available over the internet",
+        "D. All of the above",
+        "E. None of the above"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "AWS Direct Connect can help reduce network costs and increase bandwidth throughput compared to internet-based connections.",
+        "B": "AWS Direct Connect provides a private, dedicated network connection, which can improve network security and compliance.",
+        "C": "AWS Direct Connect allows access to AWS services that are not available over the internet, such as Amazon EC2 instances within a VPC.",
+        "D": "All of the above statements are benefits of using AWS Direct Connect.",
+        "E": "This option is incorrect as the other options list valid benefits of AWS Direct Connect."
+      }
+    },
+    {
+      "question": "Which of the following connectivity options does AWS Direct Connect support?",
+      "options": [
+        "A. Dedicated connections from your data center to AWS",
+        "B. Virtual private network (VPN) connections",
+        "C. Internet connections",
+        "D. A and B",
+        "E. A and C"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "AWS Direct Connect supports dedicated connections from your data center or office to AWS.",
+        "B": "AWS Direct Connect does not support VPN connections. VPN connections are provided by AWS VPN.",
+        "C": "AWS Direct Connect is an alternative to internet connections, not an internet connection itself.",
+        "D": "AWS Direct Connect does not support VPN connections.",
+        "E": "AWS Direct Connect does not support internet connections."
+      }
+    },
+    {
+      "question": "What is the maximum bandwidth supported by AWS Direct Connect?",
+      "options": [
+        "A. 1 Gbps",
+        "B. 10 Gbps",
+        "C. 100 Gbps",
+        "D. 1 Tbps",
+        "E. There is no maximum bandwidth limit"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "AWS Direct Connect supports higher bandwidths than 1 Gbps.",
+        "B": "AWS Direct Connect supports higher bandwidths than 10 Gbps.",
+        "C": "AWS Direct Connect supports bandwidth up to 100 Gbps.",
+        "D": "AWS Direct Connect does not currently support bandwidths as high as 1 Tbps.",
+        "E": "There is a maximum bandwidth limit of 100 Gbps for AWS Direct Connect."
+      }
+    },
+    {
+      "question": "What is a Direct Connect Gateway?",
+      "options": [
+        "A. A physical device that connects your on-premises network to AWS",
+        "B. A virtual gateway that allows you to establish Direct Connect connections from multiple locations",
+        "C. A security group that controls access to your Direct Connect resources",
+        "D. A routing table that manages traffic between your on-premises network and AWS",
+        "E. A monitoring service that tracks the performance of your Direct Connect connections"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "This is the description of a Direct Connect location, not a Direct Connect Gateway.",
+        "B": "A Direct Connect Gateway is a virtual gateway that allows you to establish Direct Connect connections from multiple locations.",
+        "C": "There is no such thing as a Direct Connect security group. Security groups are used for controlling access to EC2 instances.",
+        "D": "Routing tables are used for managing traffic within a VPC, not for Direct Connect connections.",
+        "E": "AWS does not have a dedicated monitoring service for Direct Connect connections."
+      }
+    },
+    {
+      "question": "Which of the following is a Direct Connect location?",
+      "options": [
+        "A. AWS Region",
+        "B. AWS Availability Zone",
+        "C. AWS Direct Connect Gateway",
+        "D. AWS Direct Connect Partner",
+        "E. AWS Outpost"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "AWS Regions are geographical locations where AWS has multiple Availability Zones.",
+        "B": "Availability Zones are isolated locations within an AWS Region.",
+        "C": "A Direct Connect Gateway is a virtual gateway, not a physical location.",
+        "D": "AWS Direct Connect Partners are the physical locations where you can establish a Direct Connect connection.",
+        "E": "AWS Outposts are AWS-managed infrastructure that can be deployed on-premises."
+      }
+    },
+    {
+      "question": "What is a Direct Connect virtual interface?",
+      "options": [
+        "A. A physical port on a Direct Connect location",
+        "B. A virtual representation of a Direct Connect connection",
+        "C. A VPN connection over a Direct Connect link",
+        "D. A routing table for managing Direct Connect traffic",
+        "E. A security group for controlling access to Direct Connect resources"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "This is the description of a physical Direct Connect port, not a virtual interface.",
+        "B": "A Direct Connect virtual interface is a virtual representation of a Direct Connect connection.",
+        "C": "Direct Connect does not support VPN connections.",
+        "D": "Routing tables are used for managing traffic within a VPC, not for Direct Connect connections.",
+        "E": "There is no such thing as a Direct Connect security group. Security groups are used for controlling access to EC2 instances."
+      }
+    },
+    {
+      "question": "What are the two types of Direct Connect virtual interfaces?",
+      "options": [
+        "A. Public and Private",
+        "B. Internet and Intranet",
+        "C. Public and Transit",
+        "D. Private and Transit",
+        "E. Virtual and Physical"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Direct Connect virtual interfaces are not classified as public or private.",
+        "B": "Direct Connect virtual interfaces are not classified as internet or intranet.",
+        "C": "Direct Connect virtual interfaces are not classified as public and transit.",
+        "D": "The two types of Direct Connect virtual interfaces are private and transit.",
+        "E": "Direct Connect virtual interfaces are virtual representations, not physical interfaces."
+      }
+    },
+    {
+      "question": "What is the purpose of a transit virtual interface in AWS Direct Connect?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect your on-premises network to the internet",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect multiple VPCs within the same AWS Region",
+        "E. To connect multiple VPCs across different AWS Regions"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "Direct Connect does not provide internet connectivity.",
+        "C": "A private virtual interface can be used to connect to other AWS services.",
+        "D": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "E": "Transit virtual interfaces cannot connect VPCs across different AWS Regions."
+      }
+    },
+    {
+      "question": "What is a Direct Connect link aggregation group (LAG)?",
+      "options": [
+        "A. A group of multiple Direct Connect connections for increased bandwidth and redundancy",
+        "B. A virtual interface that connects multiple VPCs within the same AWS Region",
+        "C. A routing table for managing Direct Connect traffic",
+        "D. A security group for controlling access to Direct Connect resources",
+        "E. A monitoring service that tracks the performance of Direct Connect connections"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "A Direct Connect LAG is a group of multiple Direct Connect connections for increased bandwidth and redundancy.",
+        "B": "This is the description of a transit virtual interface, not a LAG.",
+        "C": "Routing tables are used for managing traffic within a VPC, not for Direct Connect connections.",
+        "D": "There is no such thing as a Direct Connect security group. Security groups are used for controlling access to EC2 instances.",
+        "E": "AWS does not have a dedicated monitoring service for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect SiteLink?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect multiple on-premises locations to a single Direct Connect connection",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A private virtual interface can be used to connect to other AWS services.",
+        "D": "A Direct Connect SiteLink allows you to connect multiple on-premises locations to a single Direct Connect connection.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect Gateway?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect multiple on-premises locations to a single Direct Connect connection",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A Direct Connect Gateway is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A private virtual interface can be used to connect to other AWS services.",
+        "D": "A Direct Connect SiteLink is used to connect multiple on-premises locations to a single Direct Connect connection.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect hosted virtual interface?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect multiple on-premises locations to a single Direct Connect connection",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A hosted virtual interface is used to connect your on-premises network to other AWS services, such as Amazon S3 or Amazon DynamoDB.",
+        "D": "A Direct Connect SiteLink is used to connect multiple on-premises locations to a single Direct Connect connection.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect public virtual interface?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to the internet",
+        "D. To connect multiple on-premises locations to a single Direct Connect connection",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A public virtual interface is used to connect your on-premises network to the internet through AWS. However, this is not a common use case for Direct Connect.",
+        "D": "A Direct Connect SiteLink is used to connect multiple on-premises locations to a single Direct Connect connection.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    },
+    {
+      "question": "What is the purpose of a Direct Connect customer router?",
+      "options": [
+        "A. To connect your on-premises network to a VPC",
+        "B. To connect multiple VPCs within the same AWS Region",
+        "C. To connect your on-premises network to other AWS services",
+        "D. To connect your on-premises network to the Direct Connect location",
+        "E. To provide redundancy for Direct Connect connections"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "A private virtual interface is used to connect your on-premises network to a VPC.",
+        "B": "A transit virtual interface is used to connect multiple VPCs within the same AWS Region.",
+        "C": "A hosted virtual interface is used to connect your on-premises network to other AWS services.",
+        "D": "A customer router is used to connect your on-premises network to the Direct Connect location.",
+        "E": "Direct Connect LAGs are used to provide redundancy for Direct Connect connections."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon Route 53",
+  "cheatSheet": "",
+  "difficulty": "medium",
+  "questions": [
+    {
+      "question": "What is the primary purpose of Amazon Route 53?",
+      "options": [
+        "A. To provide a managed domain name system (DNS) service",
+        "B. To manage AWS Identity and Access Management (IAM) roles",
+        "C. To monitor and scale AWS resources automatically",
+        "D. To provision and manage Amazon Elastic Compute Cloud (EC2) instances",
+        "E. To provide a serverless computing platform"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. It is designed to give developers and businesses a reliable and cost-effective way to route end users to Internet applications.",
+        "B": "AWS Identity and Access Management (IAM) is a separate service used for securely controlling access to AWS resources.",
+        "C": "Amazon CloudWatch and AWS Auto Scaling are used for monitoring and automatically scaling AWS resources, respectively.",
+        "D": "Amazon Elastic Compute Cloud (EC2) is a separate service for provisioning and managing virtual machines (instances) in the AWS Cloud.",
+        "E": "AWS Lambda is the serverless computing platform provided by AWS."
+      }
+    },
+    {
+      "question": "Which of the following routing policies can be used with Amazon Route 53?",
+      "options": [
+        "A. Simple routing policy",
+        "B. Failover routing policy",
+        "C. Geolocation routing policy",
+        "D. Latency-based routing policy",
+        "E. All of the above"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "The simple routing policy is used to route traffic to a single resource.",
+        "B": "The failover routing policy is used to route traffic to a resource based on the health of the primary resource.",
+        "C": "The geolocation routing policy is used to route traffic to resources based on the geographic location of the user.",
+        "D": "The latency-based routing policy is used to route traffic to resources based on the lowest network latency.",
+        "E": "Amazon Route 53 supports all of the above routing policies: simple, failover, geolocation, and latency-based routing."
+      }
+    },
+    {
+      "question": "What is the purpose of an Alias record in Amazon Route 53?",
+      "options": [
+        "A. To map one domain name to another domain name",
+        "B. To map a domain name to an AWS resource, such as an Elastic Load Balancing load balancer",
+        "C. To specify the IP address of a web server",
+        "D. To create a new hosted zone",
+        "E. To enable DNS query logging"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "A CNAME record is used to map one domain name to another domain name.",
+        "B": "An Alias record is used to map a domain name to an AWS resource, such as an Elastic Load Balancing load balancer, Amazon CloudFront distribution, or Amazon S3 bucket.",
+        "C": "An A record is used to specify the IP address of a web server.",
+        "D": "A hosted zone is a container for records, and it is created separately from individual records.",
+        "E": "DNS query logging is a separate feature that can be enabled or disabled for a hosted zone."
+      }
+    },
+    {
+      "question": "Which of the following is NOT a valid record type in Amazon Route 53?",
+      "options": [
+        "A. A (Address) record",
+        "B. CNAME (Canonical Name) record",
+        "C. MX (Mail Exchange) record",
+        "D. PTR (Pointer) record",
+        "E. AAAA (IPv6 Address) record"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "An A record is used to map a domain name to an IPv4 address.",
+        "B": "A CNAME record is used to map one domain name to another domain name.",
+        "C": "An MX record is used to specify the mail server responsible for accepting email messages for a domain.",
+        "D": "PTR (Pointer) records are used in reverse DNS lookups, which is not a feature provided by Amazon Route 53.",
+        "E": "An AAAA record is used to map a domain name to an IPv6 address."
+      }
+    },
+    {
+      "question": "What is the purpose of a health check in Amazon Route 53?",
+      "options": [
+        "A. To monitor the health of your AWS resources",
+        "B. To automatically update DNS records when resources become unhealthy",
+        "C. To enable failover routing policies",
+        "D. All of the above",
+        "E. None of the above"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Health checks in Amazon Route 53 monitor the health of your AWS resources.",
+        "B": "If a resource becomes unhealthy, Amazon Route 53 can automatically update the associated DNS records to route traffic away from the unhealthy resource.",
+        "C": "Health checks are required to enable failover routing policies in Amazon Route 53.",
+        "D": "Health checks in Amazon Route 53 serve all of the above purposes: monitoring resource health, automatically updating DNS records, and enabling failover routing policies.",
+        "E": "The statement that health checks serve none of the above purposes is incorrect."
+      }
+    },
+    {
+      "question": "What is the primary benefit of using Amazon Route 53 Traffic Flow?",
+      "options": [
+        "A. It simplifies the process of creating and managing complex routing configurations",
+        "B. It provides a graphical user interface for managing DNS records",
+        "C. It allows you to monitor the health of your DNS servers",
+        "D. It enables automatic failover to a secondary DNS provider",
+        "E. It reduces the cost of DNS management compared to traditional DNS services"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Amazon Route 53 Traffic Flow is a visual workflow tool that simplifies the process of creating and managing complex routing configurations using a combination of routing policies and health checks.",
+        "B": "While Amazon Route 53 does provide a graphical user interface for managing DNS records, this is not the primary benefit of Traffic Flow.",
+        "C": "Amazon Route 53 provides health checks to monitor the health of your resources, but Traffic Flow does not directly monitor the health of DNS servers.",
+        "D": "Amazon Route 53 does not provide automatic failover to a secondary DNS provider. It is designed to route traffic within AWS resources based on health checks and routing policies.",
+        "E": "While Amazon Route 53 may be more cost-effective than traditional DNS services, this is not the primary benefit of Traffic Flow specifically."
+      }
+    },
+    {
+      "question": "What is the purpose of a hosted zone in Amazon Route 53?",
+      "options": [
+        "A. To store DNS records for a specific domain",
+        "B. To define routing policies for traffic management",
+        "C. To monitor the health of AWS resources",
+        "D. To enable DNS query logging",
+        "E. To configure Amazon CloudFront distributions"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "A hosted zone is a container in Amazon Route 53 that stores DNS records for a specific domain.",
+        "B": "Routing policies are defined separately from hosted zones and are used for traffic management.",
+        "C": "Health checks are used to monitor the health of AWS resources, not hosted zones.",
+        "D": "DNS query logging can be enabled or disabled for a hosted zone, but it is not the primary purpose of a hosted zone.",
+        "E": "Amazon CloudFront distributions are configured separately from hosted zones in Amazon Route 53."
+      }
+    },
+    {
+      "question": "Which of the following statements about Amazon Route 53 Resolver is true?",
+      "options": [
+        "A. It provides DNS resolution for on-premises resources",
+        "B. It enables DNS resolution for AWS resources within a VPC",
+        "C. It allows you to manage DNS records for your domains",
+        "D. It provides a graphical user interface for configuring routing policies",
+        "E. It monitors the health of your DNS servers"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Amazon Route 53 Resolver is not designed to provide DNS resolution for on-premises resources.",
+        "B": "Amazon Route 53 Resolver is a DNS service that enables DNS resolution for AWS resources within a VPC.",
+        "C": "Amazon Route 53 (the main service) is used to manage DNS records for your domains, not Route 53 Resolver.",
+        "D": "Amazon Route 53 Traffic Flow provides a graphical user interface for configuring routing policies, not Route 53 Resolver.",
+        "E": "Amazon Route 53 Resolver does not monitor the health of DNS servers; it provides DNS resolution within a VPC."
+      }
+    },
+    {
+      "question": "Which of the following statements about Amazon Route 53 Resolver endpoints is true?",
+      "options": [
+        "A. They are used to forward DNS queries to other DNS resolvers",
+        "B. They are used to receive DNS queries from on-premises resources",
+        "C. They are used to monitor the health of DNS resolvers",
+        "D. They are used to configure routing policies for traffic management",
+        "E. They are used to store DNS records for a specific domain"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Amazon Route 53 Resolver endpoints are used to forward DNS queries from resources within a VPC to other DNS resolvers, such as on-premises resolvers or the default AWS resolver.",
+        "B": "Resolver endpoints are used to forward DNS queries from resources within a VPC, not to receive queries from on-premises resources.",
+        "C": "Resolver endpoints are not used to monitor the health of DNS resolvers.",
+        "D": "Routing policies for traffic management are configured using Amazon Route 53, not Resolver endpoints.",
+        "E": "DNS records are stored in hosted zones in Amazon Route 53, not in Resolver endpoints."
+      }
+    },
+    {
+      "question": "What is the purpose of a reusable delegation set in Amazon Route 53?",
+      "options": [
+        "A. To enable DNS resolution for on-premises resources",
+        "B. To configure routing policies for traffic management",
+        "C. To monitor the health of DNS servers",
+        "D. To share the same set of name servers across multiple hosted zones",
+        "E. To enable DNS query logging for a specific domain"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Reusable delegation sets are not used to enable DNS resolution for on-premises resources.",
+        "B": "Routing policies for traffic management are configured separately from reusable delegation sets.",
+        "C": "Reusable delegation sets are not used to monitor the health of DNS servers.",
+        "D": "A reusable delegation set in Amazon Route 53 allows you to share the same set of name servers across multiple hosted zones, simplifying DNS management.",
+        "E": "DNS query logging is enabled or disabled for a specific hosted zone, not through reusable delegation sets."
+      }
+    },
+    {
+      "question": "Which of the following statements about Amazon Route 53 Resolver rules is true?",
+      "options": [
+        "A. They are used to define routing policies for traffic management",
+        "B. They are used to monitor the health of DNS servers",
+        "C. They are used to control how DNS queries are routed from your VPCs",
+        "D. They are used to enable DNS resolution for on-premises resources",
+        "E. They are used to store DNS records for a specific domain"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Routing policies for traffic management are defined in Amazon Route 53, not in Resolver rules.",
+        "B": "Resolver rules are not used to monitor the health of DNS servers.",
+        "C": "Amazon Route 53 Resolver rules are used to control how DNS queries are routed from your VPCs, allowing you to forward queries to specific DNS resolvers or IP addresses.",
+        "D": "Resolver rules are used to control DNS query routing within VPCs, not to enable DNS resolution for on-premises resources.",
+        "E": "DNS records are stored in hosted zones in Amazon Route 53, not in Resolver rules."
+      }
+    },
+    {
+      "question": "What is the purpose of Amazon Route 53 query logging?",
+      "options": [
+        "A. To monitor the health of your DNS servers",
+        "B. To define routing policies for traffic management",
+        "C. To log DNS queries that are received by your hosted zones",
+        "D. To enable DNS resolution for on-premises resources",
+        "E. To share the same set of name servers across multiple hosted zones"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Query logging is not used to monitor the health of DNS servers; health checks are used for that purpose.",
+        "B": "Routing policies for traffic management are defined separately from query logging.",
+        "C": "Amazon Route 53 query logging allows you to log DNS queries that are received by your hosted zones, which can be useful for security analysis and troubleshooting.",
+        "D": "Query logging is not used to enable DNS resolution for on-premises resources.",
+        "E": "Reusable delegation sets, not query logging, are used to share the same set of name servers across multiple hosted zones."
+      }
+    },
+    {
+      "question": "Which of the following statements about Amazon Route 53 Resolver query logging is true?",
+      "options": [
+        "A. It logs DNS queries that are received by your hosted zones",
+        "B. It logs DNS queries that are forwarded by Resolver endpoints",
+        "C. It is used to monitor the health of DNS resolvers",
+        "D. It is used to define routing policies for traffic management",
+        "E. It is used to enable DNS resolution for on-premises resources"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Amazon Route 53 query logging (not Resolver query logging) logs DNS queries received by your hosted zones.",
+        "B": "Amazon Route 53 Resolver query logging logs DNS queries that are forwarded by Resolver endpoints within your VPCs.",
+        "C": "Resolver query logging is not used to monitor the health of DNS resolvers; health checks are used for that purpose.",
+        "D": "Routing policies for traffic management are defined in Amazon Route 53, not in Resolver query logging.",
+        "E": "Resolver query logging is not used to enable DNS resolution for on-premises resources."
+      }
+    },
+    {
+      "question": "What is the purpose of Amazon Route 53 Application Recovery Controller?",
+      "options": [
+        "A. To manage DNS records for your domains",
+        "B. To monitor the health of your AWS resources",
+        "C. To define routing policies for traffic management",
+        "D. To enable failover and disaster recovery for applications",
+        "E. To log DNS queries that are received by your hosted zones"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "Amazon Route 53 (the main service) is used to manage DNS records for your domains, not the Application Recovery Controller.",
+        "B": "Health checks in Amazon Route 53 are used to monitor the health of your AWS resources, not the Application Recovery Controller.",
+        "C": "Routing policies for traffic management are defined in Amazon Route 53, not the Application Recovery Controller.",
+        "D": "Amazon Route 53 Application Recovery Controller is a service that enables failover and disaster recovery for applications by orchestrating routing and resource changes across multiple AWS services.",
+        "E": "Amazon Route 53 query logging is used to log DNS queries received by your hosted zones, not the Application Recovery Controller."
+      }
+    }
+  ]
+},
+{
+  "service": "Amazon EC2",
+  "cheatSheet": "",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "question": "What is the maximum number of Elastic IP addresses that can be allocated to an AWS account by default?",
+      "options": [
+        "A. 5",
+        "B. 15",
+        "C. 10",
+        "D. 20",
+        "E. 30"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "The default limit for Elastic IP addresses per AWS account is 5 in a region.",
+        "B": "This limit is incorrect; 15 is not the default allocation.",
+        "C": "10 is not the default limit; this is not accurate.",
+        "D": "20 is significantly above the default limit.",
+        "E": "30 is far greater than the default limit imposed by AWS."
+      }
+    },
+    {
+      "question": "Which of the following EC2 instance types is best suited for memory-intensive applications?",
+      "options": [
+        "A. T2",
+        "B. C5",
+        "C. R5",
+        "D. M5",
+        "E. I3"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "T2 instances are designed for burstable performance, not specifically for memory-intensive applications.",
+        "B": "C5 instances are optimized for compute-intensive workloads.",
+        "C": "R5 instances are specifically designed for memory-intensive applications and provide a high memory-to-vCPU ratio.",
+        "D": "M5 instances are general-purpose and provide a balance of compute, memory, and networking.",
+        "E": "I3 instances are optimized for storage-intensive workloads, not specifically memory."
+      }
+    },
+    {
+      "question": "What is the primary purpose of EC2 Auto Scaling?",
+      "options": [
+        "A. To manage application load balancing",
+        "B. To automatically adjust the number of EC2 instances",
+        "C. To monitor EC2 instance health",
+        "D. To improve instance security",
+        "E. To provide data backup"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "While Auto Scaling can work with load balancers, its primary function is not managing them.",
+        "B": "The primary purpose of Auto Scaling is to automatically adjust the number of EC2 instances based on demand.",
+        "C": "Monitoring instance health is part of the Auto Scaling process but not its primary purpose.",
+        "D": "Improving security is not a function of Auto Scaling.",
+        "E": "Data backup is not related to the Auto Scaling feature."
+      }
+    },
+    {
+      "question": "Which Amazon EC2 storage type provides the highest throughput?",
+      "options": [
+        "A. EBS General Purpose SSD",
+        "B. EBS Provisioned IOPS SSD",
+        "C. EBS Magnetic",
+        "D. Instance Store",
+        "E. EFS"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "General Purpose SSD provides good performance but not the highest throughput.",
+        "B": "Provisioned IOPS SSD is designed for high performance and provides the highest throughput among EBS options.",
+        "C": "Magnetic storage is slower than SSD options.",
+        "D": "Instance Store can provide high throughput but is ephemeral and not persistent.",
+        "E": "EFS provides good throughput, but it is a network file system, not dedicated block storage."
+      }
+    },
+    {
+      "question": "Which of the following is true about Spot Instances?",
+      "options": [
+        "A. They are always available",
+        "B. They can be terminated by AWS with little notice",
+        "C. They are priced higher than On-Demand instances",
+        "D. They cannot be used for production workloads",
+        "E. They are reserved for specific instance types only"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Spot Instances are not guaranteed to be available at all times.",
+        "B": "Spot Instances can be terminated by AWS with little notice when the capacity is needed for On-Demand instances.",
+        "C": "Spot Instances are typically cheaper than On-Demand instances.",
+        "D": "Spot Instances can be used for production workloads if the application can handle interruptions.",
+        "E": "Spot Instances can be available for a wide variety of instance types."
+      }
+    },
+    {
+      "question": "What is the purpose of an EC2 Placement Group?",
+      "options": [
+        "A. To group instances for cost savings",
+        "B. To enhance network performance between instances",
+        "C. To manage instance security",
+        "D. To specify instance types",
+        "E. To automate instance scaling"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Placement Groups do not directly group instances for cost savings.",
+        "B": "Placement Groups are used to enhance network performance by placing instances close together in the same Availability Zone.",
+        "C": "Security management is not a function of Placement Groups.",
+        "D": "Placement Groups do not specify instance types; they are used for performance optimization.",
+        "E": "Placement Groups do not automate scaling; they are concerned with placement for performance."
+      }
+    },
+    {
+      "question": "Which Amazon EC2 feature allows you to connect securely to your instances without using a public IP address?",
+      "options": [
+        "A. VPC Peering",
+        "B. VPN Connection",
+        "C. Direct Connect",
+        "D. Bastion Host",
+        "E. Elastic Load Balancer"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "VPC Peering allows private networking but does not provide direct access to instances.",
+        "B": "A VPN Connection encrypts traffic between your on-premises network and your VPC, allowing secure access without public IPs.",
+        "C": "Direct Connect is for establishing a dedicated network connection, not for instance access.",
+        "D": "A Bastion Host can be used for secure access, but it still requires a public IP.",
+        "E": "Elastic Load Balancer distributes traffic, but it does not provide direct access to instances."
+      }
+    },
+    {
+      "question": "What happens when an EC2 instance is stopped and restarted?",
+      "options": [
+        "A. The instance retains its public IP address",
+        "B. The instance loses all data on the instance store",
+        "C. The instance retains its Elastic IP address",
+        "D. The instance is terminated",
+        "E. The instance retains its ephemeral storage"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "An instance retains its public IP address if it is an Elastic IP, but not if it's an auto-assigned public IP.",
+        "B": "Data on instance store volumes is lost when the instance is stopped and restarted.",
+        "C": "An Elastic IP address remains associated with the instance if it was allocated to it.",
+        "D": "Stopping an instance does not terminate it; it can be restarted.",
+        "E": "Ephemeral storage is lost when the instance is stopped."
+      }
+    },
+    {
+      "question": "Which Amazon EC2 instance type is optimized for high-performance computing (HPC) workloads?",
+      "options": [
+        "A. T3",
+        "B. Hpc6id",
+        "C. M6g",
+        "D. R5",
+        "E. C5n"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "T3 instances are designed for general-purpose workloads, not specifically for HPC.",
+        "B": "Hpc6id instances are optimized for HPC workloads with high memory and compute capabilities.",
+        "C": "M6g instances are general-purpose and not specifically optimized for HPC.",
+        "D": "R5 instances are optimized for memory but not specifically for HPC.",
+        "E": "C5n instances are optimized for compute but not exclusively for HPC workloads."
+      }
+    },
+    {
+      "question": "What does the EC2 instance status check 'System Status Check' monitor?",
+      "options": [
+        "A. The instance's software",
+        "B. The instance's hardware and networking",
+        "C. The application running on the instance",
+        "D. The instance's disk space",
+        "E. The instance's CPU utilization"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The 'System Status Check' does not monitor the software running on the instance.",
+        "B": "The 'System Status Check' monitors the underlying hardware and networking of the instance.",
+        "C": "The application status is monitored by the 'Instance Status Check'.",
+        "D": "Disk space is not monitored by the 'System Status Check'.",
+        "E": "CPU utilization is not part of the 'System Status Check' metrics."
+      }
+    },
+    {
+      "question": "Which service can be used to manage EC2 instances across multiple regions?",
+      "options": [
+        "A. AWS Config",
+        "B. AWS Systems Manager",
+        "C. Amazon CloudWatch",
+        "D. AWS CloudFormation",
+        "E. Amazon Inspector"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Config is for resource configuration management but not specifically for managing instances across regions.",
+        "B": "AWS Systems Manager allows for managing EC2 instances, including those in multiple regions, with automation features.",
+        "C": "Amazon CloudWatch is primarily for monitoring and does not manage instances.",
+        "D": "AWS CloudFormation is for provisioning resources but does not manage existing instances.",
+        "E": "Amazon Inspector is a security assessment service and does not manage EC2 instances."
+      }
+    },
+    {
+      "question": "Which of the following is a benefit of using Amazon EC2 Reserved Instances?",
+      "options": [
+        "A. Pay-as-you-go pricing",
+        "B. Lower cost compared to On-Demand pricing",
+        "C. Flexibility in instance types",
+        "D. No long-term commitment",
+        "E. Automatic scaling"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Pay-as-you-go pricing applies to On-Demand instances, not Reserved Instances.",
+        "B": "Reserved Instances provide significant discounts compared to On-Demand pricing for long-term commitments.",
+        "C": "Reserved Instances can provide flexibility in instance types but are generally fixed for the term.",
+        "D": "Reserved Instances require a long-term commitment and do not allow for no commitment.",
+        "E": "Automatic scaling is a feature of Auto Scaling, not Reserved Instances."
+      }
+    },
+    {
+      "question": "What is the primary role of the EC2 instance metadata service?",
+      "options": [
+        "A. To store data related to the instance",
+        "B. To provide information about the instance",
+        "C. To manage instance security",
+        "D. To monitor instance performance",
+        "E. To automate instance scaling"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "The metadata service does not store data; it provides information.",
+        "B": "The primary role of the EC2 instance metadata service is to provide information about the instance, such as instance ID and security groups.",
+        "C": "Instance security management is not the primary function of the metadata service.",
+        "D": "Monitoring performance is handled by CloudWatch, not the metadata service.",
+        "E": "Automating scaling is not a function of the metadata service."
+      }
+    }
+  ]
+},
+{
+  "service": "AWS Lambda",
+  "cheatSheet": "",
+  "difficulty": "hard",
+  "questions": [
+    {
+      "question": "Which of the following is a way to trigger an AWS Lambda function?",
+      "options": [
+        "A. AWS CloudTrail",
+        "B. Amazon S3",
+        "C. Amazon RDS",
+        "D. AWS Direct Connect",
+        "E. AWS Snowball"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS CloudTrail is a service that enables governance, compliance, and operational and risk auditing of your AWS account, but it does not directly trigger Lambda.",
+        "B": "Amazon S3 can trigger AWS Lambda functions when objects are created or modified in a bucket.",
+        "C": "Amazon RDS is a relational database service and does not directly trigger Lambda functions.",
+        "D": "AWS Direct Connect is a network service, not a Lambda trigger.",
+        "E": "AWS Snowball is a data transfer service and does not trigger Lambda functions."
+      }
+    },
+    {
+      "question": "What is the maximum execution timeout for an AWS Lambda function?",
+      "options": [
+        "A. 1 minute",
+        "B. 3 minutes",
+        "C. 5 minutes",
+        "D. 10 minutes",
+        "E. 15 minutes"
+      ],
+      "correctAnswer": "E",
+      "explanation": {
+        "A": "1 minute is too short for the maximum execution time of a Lambda function.",
+        "B": "3 minutes is not the maximum execution time limit for a Lambda function.",
+        "C": "5 minutes is not the maximum execution time limit for a Lambda function.",
+        "D": "10 minutes is not the maximum execution time limit for a Lambda function.",
+        "E": "15 minutes is the correct maximum execution timeout for an AWS Lambda function."
+      }
+    },
+    {
+      "question": "Which AWS service can be used to monitor and log AWS Lambda function executions?",
+      "options": [
+        "A. Amazon CloudWatch",
+        "B. AWS Config",
+        "C. Amazon QuickSight",
+        "D. AWS Trusted Advisor",
+        "E. AWS Shield"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "Amazon CloudWatch is used to monitor AWS resources and applications, including logging AWS Lambda function executions.",
+        "B": "AWS Config is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources.",
+        "C": "Amazon QuickSight is a business analytics service and does not monitor Lambda function executions.",
+        "D": "AWS Trusted Advisor is an online resource to help you reduce cost, increase performance, and improve security.",
+        "E": "AWS Shield is a managed DDoS protection service and does not monitor Lambda executions."
+      }
+    },
+    {
+      "question": "How can you manage different versions of an AWS Lambda function?",
+      "options": [
+        "A. Using AWS Batch",
+        "B. Using Lambda aliases",
+        "C. Using AWS CodeDeploy",
+        "D. Using AWS CLI only",
+        "E. Using Amazon EC2"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Batch is a service for running batch computing workloads and does not manage Lambda versions.",
+        "B": "Lambda aliases are used to manage different versions of AWS Lambda functions.",
+        "C": "AWS CodeDeploy is a deployment service for automating code deployments and is not used for Lambda version management.",
+        "D": "AWS CLI can be used to manage Lambda functions, but aliases are specifically used for version control.",
+        "E": "Amazon EC2 is a compute service and does not manage Lambda versions."
+      }
+    },
+    {
+      "question": "Which of the following Lambda invocation types allows for event-driven processing?",
+      "options": [
+        "A. Synchronous",
+        "B. Asynchronous",
+        "C. Polling",
+        "D. Manual",
+        "E. Scheduled"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Synchronous invocations wait for the function to process and return a response.",
+        "B": "Asynchronous invocations allow the event to be processed by the function without waiting for a response, suitable for event-driven processing.",
+        "C": "Polling is not a Lambda invocation type; it is used in SQS to retrieve messages.",
+        "D": "Manual is not an invocation type in AWS Lambda.",
+        "E": "Scheduled invocations are used for running functions at specified times, not for event-driven processing."
+      }
+    },
+    {
+      "question": "Which AWS service can be used to deploy AWS Lambda functions automatically?",
+      "options": [
+        "A. AWS Elastic Beanstalk",
+        "B. AWS CodePipeline",
+        "C. AWS OpsWorks",
+        "D. Amazon ECS",
+        "E. Amazon S3"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "AWS Elastic Beanstalk is used for deploying and managing applications in the cloud but not specifically for Lambda.",
+        "B": "AWS CodePipeline is a continuous integration and continuous delivery service for fast and reliable application and infrastructure updates, including Lambda.",
+        "C": "AWS OpsWorks is a configuration management service and does not specifically deploy Lambda functions.",
+        "D": "Amazon ECS is a container orchestration service, not used for Lambda deployments.",
+        "E": "Amazon S3 is a storage service and does not deploy Lambda functions."
+      }
+    },
+    {
+      "question": "How do you restrict access to invoke a specific AWS Lambda function?",
+      "options": [
+        "A. Use IAM roles",
+        "B. Use VPC peering",
+        "C. Use AWS Direct Connect",
+        "D. Use Lambda@Edge",
+        "E. Use Route 53 policies"
+      ],
+      "correctAnswer": "A",
+      "explanation": {
+        "A": "IAM roles and policies are used to control access to AWS Lambda functions.",
+        "B": "VPC peering is used for networking connections between VPCs and does not control Lambda access.",
+        "C": "AWS Direct Connect is a network service and does not control Lambda access.",
+        "D": "Lambda@Edge is for running Lambda functions at AWS Edge locations, not for restricting access.",
+        "E": "Route 53 is a DNS service and does not control access to Lambda functions."
+      }
+    },
+    {
+      "question": "What happens when an AWS Lambda function exceeds its allocated memory?",
+      "options": [
+        "A. The function is throttled",
+        "B. The function execution is terminated",
+        "C. Additional memory is automatically allocated",
+        "D. An error is logged, but execution continues",
+        "E. The function is retried with more memory"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Throttling occurs when invocation limits are reached, not memory limits.",
+        "B": "The function execution is terminated if it exceeds its allocated memory.",
+        "C": "AWS Lambda does not automatically allocate additional memory beyond the configured limit.",
+        "D": "The function execution is stopped if it exceeds memory limits, not just logged.",
+        "E": "The function is not automatically retried with more memory."
+      }
+    },
+    {
+      "question": "Which of the following can be used to increase the concurrency limit of a Lambda function?",
+      "options": [
+        "A. Increasing memory size",
+        "B. Requesting a service quota increase",
+        "C. Using AWS CloudFront",
+        "D. Using Amazon RDS",
+        "E. Using AWS Direct Connect"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Increasing memory size affects the performance of the function but not its concurrency limit.",
+        "B": "Requesting a service quota increase is the correct method to increase the concurrency limit of a Lambda function.",
+        "C": "AWS CloudFront is a CDN service and does not affect Lambda concurrency limits.",
+        "D": "Amazon RDS is a database service and does not control Lambda concurrency.",
+        "E": "AWS Direct Connect is a network service and does not impact Lambda concurrency."
+      }
+    },
+    {
+      "question": "Which runtime environment is supported by AWS Lambda for executing functions?",
+      "options": [
+        "A. PHP",
+        "B. Python",
+        "C. Ruby",
+        "D. COBOL",
+        "E. Swift"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "PHP is not natively supported by AWS Lambda as a runtime.",
+        "B": "Python is a supported runtime environment for AWS Lambda functions.",
+        "C": "Ruby is a supported runtime but not the correct answer for this question.",
+        "D": "COBOL is not supported as a runtime for AWS Lambda.",
+        "E": "Swift is not supported as a runtime environment for AWS Lambda."
+      }
+    },
+    {
+      "question": "How can you ensure that an AWS Lambda function has exclusive access to resources?",
+      "options": [
+        "A. Use S3 bucket policies",
+        "B. Use DynamoDB transactions",
+        "C. Use VPC endpoint policies",
+        "D. Use Lambda execution role",
+        "E. Use Lambda environment variables"
+      ],
+      "correctAnswer": "D",
+      "explanation": {
+        "A": "S3 bucket policies control access to S3 buckets, not Lambda resources.",
+        "B": "DynamoDB transactions provide atomic operations for database updates, not exclusive access for Lambda.",
+        "C": "VPC endpoint policies control access through the endpoint, not resource exclusivity for Lambda.",
+        "D": "Lambda execution roles help ensure that the function has the necessary permissions and exclusive access to resources.",
+        "E": "Lambda environment variables pass configurations to the function but do not control access."
+      }
+    },
+    {
+      "question": "What is the primary purpose of AWS Lambda layers?",
+      "options": [
+        "A. To provide additional memory",
+        "B. To offer a versioning system",
+        "C. To enable code sharing and dependency management",
+        "D. To enhance security",
+        "E. To control execution time"
+      ],
+      "correctAnswer": "C",
+      "explanation": {
+        "A": "Lambda layers do not provide additional memory to functions.",
+        "B": "Layer versioning is available, but it is not the primary purpose.",
+        "C": "The primary purpose of AWS Lambda layers is to enable code sharing and dependency management.",
+        "D": "Layers do not inherently enhance security.",
+        "E": "Lambda layers do not control execution time."
+      }
+    },
+    {
+      "question": "Which of the following is a valid method to pass secrets to an AWS Lambda function?",
+      "options": [
+        "A. Store in function code",
+        "B. Use AWS Secrets Manager",
+        "C. Store in a public S3 bucket",
+        "D. Use Lambda aliases",
+        "E. Use CloudTrail logs"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Storing secrets in function code is not secure and not recommended.",
+        "B": "AWS Secrets Manager is a service specifically designed for storing and managing secrets securely.",
+        "C": "Storing secrets in a public S3 bucket is highly insecure.",
+        "D": "Lambda aliases are used for versioning and routing traffic between versions, not for storing secrets.",
+        "E": "CloudTrail logs are used for auditing AWS API calls, not for storing secrets."
+      }
+    },
+    {
+      "question": "In which situation should you consider using AWS Lambda@Edge?",
+      "options": [
+        "A. When you need to deploy in a private subnet",
+        "B. When you want to process requests closer to the user",
+        "C. When you need more than 15 minutes of execution time",
+        "D. When you require complex orchestration",
+        "E. When you want to run functions on-premises"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Lambda@Edge is not specifically used for deployment in private subnets.",
+        "B": "Lambda@Edge allows you to run Lambda functions at AWS edge locations closer to the user, reducing latency.",
+        "C": "Lambda@Edge does not extend the 15-minute execution limit.",
+        "D": "Lambda@Edge is not designed for complex orchestration.",
+        "E": "Lambda@Edge cannot run functions on-premises."
+      }
+    },
+    {
+      "question": "Which AWS Lambda feature allows functions to retain state between invocations?",
+      "options": [
+        "A. Environment Variables",
+        "B. Global Variables",
+        "C. Function Versioning",
+        "D. Provisioned Concurrency",
+        "E. DLQ (Dead Letter Queue)"
+      ],
+      "correctAnswer": "B",
+      "explanation": {
+        "A": "Environment Variables provide configuration settings but do not retain state between invocations.",
+        "B": "Global Variables can retain state between invocations if the execution environment is reused.",
+        "C": "Function Versioning deals with managing different versions of a Lambda function.",
+        "D": "Provisioned Concurrency ensures a certain number of instances are ready to serve requests, not for state retention.",
+        "E": "DLQ is used to capture failed asynchronous invocations, not for state retention."
+      }
+    }
+  ]
+},

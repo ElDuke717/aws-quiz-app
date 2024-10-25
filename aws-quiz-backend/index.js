@@ -2,13 +2,28 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 const OpenAI = require("openai");
+const Anthropic = require("@anthropic-ai/sdk");
 const fs = require("fs");
 const path = require("path");
 
-// Initialize OpenAI client
+// Initialize API clients
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+});
+
+// Model-specific token limits
+const TOKEN_LIMITS = {
+  'gpt-4o-mini': 15000,
+  'gpt-4o': 15000,
+  'claude-3-5-sonnet-20241022': 8000,
+  'claude-3-opus-20240229': 4000,
+  'claude-3-sonnet-20240229': 4000,
+  'claude-3-haiku-20240229': 8000
+};
 
 const app = express();
 app.use(cors({ origin: "http://localhost:3000" }));
@@ -32,74 +47,108 @@ app.post("/generate-questions", async (req, res) => {
     } else if (service) {
       prompt += `Generate 15 ${difficulty} multiple-choice questions with 5 options each on AWS ${service} for the Solutions Architect Associate Exam. `;
     } else {
-      // Neither service nor cheatSheet is provided
       return res
         .status(400)
         .send("Please provide either an AWS service or cheat sheet text.");
     }
 
-    prompt += `Provide the correct answer and explanations for each option without revealing the correct answer upfront. Format the response as a JSON array where each question object has the following structure:
-    {
-      "question": "Question text",
-      "options": ["A. Option 1", "B. Option 2", "C. Option 3", "D. Option 4", "E. Option 5"],
-      "correctAnswer": "A/B/C/D/E",
-      "explanation": {
-        "A": "Explanation for option A",
-        "B": "Explanation for option B",
-        "C": "Explanation for option C",
-        "D": "Explanation for option D",
-        "E": "Explanation for option E"
+    prompt += `Provide the correct answer and explanations for each option without revealing the correct answer upfront.
+
+**Important Instructions:**
+- **Format the response as a JSON array without any code block formatting** (do not include any \`\`\`json or \`\`\`).
+- **Do not include any additional text** before or after the JSON array.
+- Ensure the JSON is **valid and can be parsed directly**.
+
+Here is the structure to follow for each question object:
+
+{
+  "question": "Question text",
+  "options": ["A. Option 1", "B. Option 2", "C. Option 3", "D. Option 4", "E. Option 5"],
+  "correctAnswer": "A/B/C/D/E",
+  "explanation": {
+    "A": "Explanation for option A",
+    "B": "Explanation for option B",
+    "C": "Explanation for option C",
+    "D": "Explanation for option D",
+    "E": "Explanation for option E"
+  }
+}
+
+Provide only the JSON array as the output.`;
+
+    let assistantMessage;
+    const maxTokens = TOKEN_LIMITS[model] || 15000;
+
+    // Handle different model types
+    if (model.startsWith('claude')) {
+      const response = await anthropic.messages.create({
+        model: model,
+        max_tokens: maxTokens,
+        temperature: 0.7,
+        messages: [{ role: "user", content: prompt }]
+      });
+      
+      // Extract the content from Claude's response
+      assistantMessage = response.content[0].text;
+      
+      // Additional cleanup for Claude's response
+      if (assistantMessage.includes('```json')) {
+        assistantMessage = assistantMessage.split('```json')[1].split('```')[0].trim();
       }
-    }`;
-
-    const response = await openai.chat.completions.create({
-      model: model || "gpt-4o-mini",
-      messages: [{ role: "user", content: prompt }],
-      max_tokens: 15000,
-      temperature: 0.7,
-    });
-
-    let assistantMessage = response.choices[0].message.content;
+    } else {
+      const response = await openai.chat.completions.create({
+        model: model || "gpt-4o-mini",
+        messages: [{ role: "user", content: prompt }],
+        max_tokens: maxTokens,
+        temperature: 0.7,
+      });
+      assistantMessage = response.choices[0].message.content;
+    }
 
     // Clean up the response
     assistantMessage = assistantMessage.trim();
-    if (assistantMessage.startsWith("```json")) {
-      assistantMessage = assistantMessage.substring(
-        assistantMessage.indexOf("\n") + 1
-      );
+
+    // Remove code block markers if they exist
+    if (assistantMessage.startsWith('```')) {
+      assistantMessage = assistantMessage.replace(/```(?:json)?/g, '').trim();
     }
-    if (assistantMessage.endsWith("```")) {
-      assistantMessage = assistantMessage.substring(
-        0,
-        assistantMessage.lastIndexOf("```")
-      );
+    
+    try {
+      // Parse and validate the JSON
+      const questions = JSON.parse(assistantMessage);
+
+      // Ensure questions is an array
+      if (!Array.isArray(questions)) {
+        throw new Error("Response is not an array of questions");
+      }
+
+      // Validate question format
+      questions.forEach((q, i) => {
+        if (!q.question || !q.options || !q.correctAnswer || !q.explanation) {
+          console.error(`Question ${i} is missing required fields:`, q);
+        }
+      });
+
+      // Save the questions along with the service to a file
+      const dataToSave =
+        JSON.stringify({ service, cheatSheet, difficulty, questions }, null, 2) +
+        ",\n";
+      const filePath = path.join(__dirname, "questions.txt");
+
+      fs.appendFile(filePath, dataToSave, (err) => {
+        if (err) {
+          console.error("Error saving questions:", err);
+        } else {
+          console.log("Questions saved successfully.");
+        }
+      });
+
+      res.json({ questions });
+    } catch (parseError) {
+      console.error("Error parsing response:", parseError);
+      console.error("Raw response:", assistantMessage);
+      res.status(500).send("Error parsing AI response: Invalid JSON format");
     }
-
-    // Parse and validate the JSON
-    const questions = JSON.parse(assistantMessage);
-
-    // Validate question format
-    questions.forEach((q, i) => {
-      if (!q.question || !q.options || !q.correctAnswer || !q.explanation) {
-        console.error(`Question ${i} is missing required fields:`, q);
-      }
-    });
-
-    // Save the questions along with the service to a file
-    const dataToSave =
-      JSON.stringify({ service, cheatSheet, difficulty, questions }, null, 2) +
-      ",\n";
-    const filePath = path.join(__dirname, "questions.txt");
-
-    fs.appendFile(filePath, dataToSave, (err) => {
-      if (err) {
-        console.error("Error saving questions:", err);
-      } else {
-        console.log("Questions saved successfully.");
-      }
-    });
-
-    res.json({ questions });
   } catch (error) {
     console.error(
       "Error generating questions:",

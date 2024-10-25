@@ -1,0 +1,274 @@
+Raw response: {
+    "questions": [
+      {
+        "question": "A company wants to route traffic to different endpoints based on the latency between the user and AWS regions. Which Route 53 routing policy should they use?",
+        "options": [
+          "A. Geolocation routing policy",
+          "B. Latency routing policy",
+          "C. Weighted routing policy",
+          "D. Simple routing policy",
+          "E. Failover routing policy"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Geolocation routing routes based on the geographic location of users, not latency.",
+          "B": "Latency routing policy routes traffic to the region that provides the best latency for the user.",
+          "C": "Weighted routing distributes traffic based on assigned weights, not latency.",
+          "D": "Simple routing policy doesn't consider latency and only routes traffic to a single resource.",
+          "E": "Failover routing is used for active-passive failover configurations, not latency-based routing."
+        }
+      },
+      {
+        "question": "Which Route 53 health check type monitors the status of other Route 53 health checks?",
+        "options": [
+          "A. Endpoint health checks",
+          "B. Calculated health checks",
+          "C. CloudWatch alarm health checks",
+          "D. DNS health checks",
+          "E. State health checks"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Endpoint health checks monitor specific endpoints like web servers.",
+          "B": "Calculated health checks monitor the status of other health checks and combine them using AND, OR, or NOT.",
+          "C": "CloudWatch alarm health checks monitor CloudWatch alarms.",
+          "D": "DNS health checks verify DNS resolution.",
+          "E": "This is not a valid Route 53 health check type."
+        }
+      },
+      {
+        "question": "A company needs to route traffic to different endpoints based on the country of the user. Which DNS record type should they use with geolocation routing?",
+        "options": [
+          "A. CNAME records only",
+          "B. A records only",
+          "C. Either A or AAAA records",
+          "D. Any supported DNS record type",
+          "E. MX records only"
+        ],
+        "correctAnswer": "D",
+        "explanation": {
+          "A": "Geolocation routing is not limited to CNAME records.",
+          "B": "Geolocation routing is not limited to A records.",
+          "C": "Geolocation routing supports more than just A and AAAA records.",
+          "D": "Geolocation routing can be used with any supported DNS record type in Route 53.",
+          "E": "Geolocation routing is not limited to MX records."
+        }
+      },
+      {
+        "question": "What is the minimum TTL value that can be set for a Route 53 record?",
+        "options": [
+          "A. 0 seconds",
+          "B. 1 second",
+          "C. 30 seconds",
+          "D. 60 seconds",
+          "E. 300 seconds"
+        ],
+        "correctAnswer": "A",
+        "explanation": {
+          "A": "Route 53 allows a minimum TTL of 0 seconds, though this is not recommended for production.",
+          "B": "1 second is possible but not the minimum.",
+          "C": "30 seconds is possible but not the minimum.",
+          "D": "60 seconds is possible but not the minimum.",
+          "E": "300 seconds is possible but not the minimum."
+        }
+      },
+      {
+        "question": "Which Route 53 routing policy would you use to implement blue-green deployments?",
+        "options": [
+          "A. Simple routing policy",
+          "B. Failover routing policy",
+          "C. Weighted routing policy",
+          "D. Latency routing policy",
+          "E. Multivalue answer routing policy"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Simple routing doesn't allow traffic distribution control needed for blue-green deployments.",
+          "B": "Failover routing is for active-passive failover, not gradual traffic shifting.",
+          "C": "Weighted routing allows gradual traffic shifting between versions by adjusting weights.",
+          "D": "Latency routing bases decisions on network latency, not suitable for controlled deployments.",
+          "E": "Multivalue answer returns multiple random values, not suitable for controlled deployments."
+        }
+      },
+      {
+        "question": "A company wants to route traffic to multiple resources while using health checking. Which routing policy should they use?",
+        "options": [
+          "A. Simple routing policy",
+          "B. Weighted routing policy",
+          "C. Multivalue answer routing policy",
+          "D. Geolocation routing policy",
+          "E. Latency routing policy"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Simple routing doesn't support health checks or multiple values.",
+          "B": "Weighted routing supports health checks but is better for load distribution.",
+          "C": "Multivalue answer routing returns multiple healthy records and supports health checking.",
+          "D": "Geolocation routing is for geographic-based routing, not primarily for multiple healthy endpoints.",
+          "E": "Latency routing is for latency-based routing, not primarily for multiple healthy endpoints."
+        }
+      },
+      {
+        "question": "What happens when all records in a Route 53 failover routing policy are unhealthy?",
+        "options": [
+          "A. Route 53 returns no records",
+          "B. Route 53 returns all records",
+          "C. Route 53 returns the primary record",
+          "D. Route 53 returns the secondary record",
+          "E. Route 53 returns an error"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Route 53 doesn't return no records as this would break DNS resolution.",
+          "B": "When all records are unhealthy, Route 53 considers all records healthy and returns them all.",
+          "C": "The primary record isn't automatically selected when all are unhealthy.",
+          "D": "The secondary record isn't automatically selected when all are unhealthy.",
+          "E": "Route 53 doesn't return errors in this scenario."
+        }
+      },
+      {
+        "question": "Which Route 53 feature allows you to create a private hosted zone that's associated with multiple VPCs across different AWS accounts?",
+        "options": [
+          "A. Cross-account access",
+          "B. VPC association authorization",
+          "C. Resource sharing",
+          "D. VPC peering",
+          "E. Transit gateway"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "Cross-account access is for IAM permissions, not VPC associations.",
+          "B": "VPC association authorization allows you to associate VPCs from different accounts with a private hosted zone.",
+          "C": "Resource sharing is not specific to Route 53 private hosted zones.",
+          "D": "VPC peering is for network connectivity, not DNS resolution.",
+          "E": "Transit gateway is for network connectivity, not DNS resolution."
+        }
+      },
+      {
+        "question": "What is the maximum number of health checks that can monitor the same endpoint in Route 53?",
+        "options": [
+          "A. 1",
+          "B. 5",
+          "C. 10",
+          "D. No limit",
+          "E. 100"
+        ],
+        "correctAnswer": "D",
+        "explanation": {
+          "A": "Multiple health checks can monitor the same endpoint.",
+          "B": "There is no limit of 5 health checks per endpoint.",
+          "C": "There is no limit of 10 health checks per endpoint.",
+          "D": "There is no limit to the number of health checks that can monitor the same endpoint.",
+          "E": "There is no limit of 100 health checks per endpoint."
+        }
+      },
+      {
+        "question": "Which DNS record type should you use to alias an S3 website endpoint?",
+        "options": [
+          "A. CNAME",
+          "B. A record with Alias",
+          "C. AAAA record",
+          "D. MX record",
+          "E. TXT record"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "CNAME can't be used at the zone apex and isn't optimal for AWS services.",
+          "B": "A record with Alias is the recommended way to point to S3 website endpoints.",
+          "C": "AAAA records are for IPv6 addresses and not appropriate for S3 websites.",
+          "D": "MX records are for mail servers, not websites.",
+          "E": "TXT records are for text information, not website routing."
+        }
+      },
+      {
+        "question": "What is the default evaluation period for Route 53 health checks?",
+        "options": [
+          "A. 10 seconds",
+          "B. 30 seconds",
+          "C. 60 seconds",
+          "D. 300 seconds",
+          "E. 600 seconds"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "10 seconds is too frequent for default health checks.",
+          "B": "Route 53 health checkers evaluate the health of an endpoint every 30 seconds by default.",
+          "C": "60 seconds is not the default evaluation period.",
+          "D": "300 seconds is too infrequent for default health checks.",
+          "E": "600 seconds is too infrequent for default health checks."
+        }
+      },
+      {
+        "question": "Which Route 53 routing policy would you use to implement active-passive failover?",
+        "options": [
+          "A. Simple routing policy",
+          "B. Weighted routing policy",
+          "C. Failover routing policy",
+          "D. Latency routing policy",
+          "E. Geolocation routing policy"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "Simple routing doesn't support failover functionality.",
+          "B": "Weighted routing is for load distribution, not failover.",
+          "C": "Failover routing is specifically designed for active-passive failover configurations.",
+          "D": "Latency routing is for routing based on network latency, not failover.",
+          "E": "Geolocation routing is for geographic-based routing, not failover."
+        }
+      },
+      {
+        "question": "What is the maximum number of values that can be returned in a single Route 53 multivalue answer?",
+        "options": [
+          "A. 4",
+          "B. 8",
+          "C. 16",
+          "D. 32",
+          "E. 64"
+        ],
+        "correctAnswer": "B",
+        "explanation": {
+          "A": "The limit is higher than 4 values.",
+          "B": "Route 53 returns up to 8 healthy records in response to DNS queries for multivalue answers.",
+          "C": "The limit is not 16 values.",
+          "D": "The limit is not 32 values.",
+          "E": "The limit is not 64 values."
+        }
+      },
+      {
+        "question": "Which Route 53 feature allows you to block DNS queries from specific countries?",
+        "options": [
+          "A. DNSSEC",
+          "B. Query logging",
+          "C. Geolocation routing",
+          "D. Traffic flow",
+          "E. Private DNS"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "DNSSEC is for DNS security, not geographic filtering.",
+          "B": "Query logging is for monitoring, not filtering.",
+          "C": "Geolocation routing can be used to block DNS queries from specific geographic locations.",
+          "D": "Traffic flow is for visual editing of routing policies, not geographic filtering.",
+          "E": "Private DNS is for VPC resolution, not geographic filtering."
+        }
+      },
+      {
+        "question": "What is the maximum interval between health checks that Route 53 supports?",
+        "options": [
+          "A. 30 seconds",
+          "B. 60 seconds",
+          "C. 120 seconds",
+          "D. 300 seconds",
+          "E. 900 seconds"
+        ],
+        "correctAnswer": "C",
+        "explanation": {
+          "A": "30 seconds is the default, not the maximum interval.",
+          "B": "60 seconds is not the maximum interval.",
+          "C": "The maximum interval between Route 53 health checks is 120 seconds.",
+          "D": "300 seconds exceeds the maximum supported interval.",
+          "E": "900 seconds exceeds the maximum supported interval."
+        }
+      }
+    ]
+  }
