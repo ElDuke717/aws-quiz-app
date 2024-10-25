@@ -181,27 +181,47 @@ Provide only the JSON array as the output.`;
 });
 
 app.post("/check-answers", async (req, res) => {
-  const { userAnswers, questions, model } = req.body;
+  const { userAnswers, questions } = req.body;
   try {
     const results = questions.map((question, index) => {
       const userAnswer = userAnswers[index] || [];
       const correctAnswers = question.correctAnswers || [];
 
+      // Ensure userAnswer and correctAnswers are arrays
+      const userAnswerArray = Array.isArray(userAnswer) ? userAnswer : [userAnswer];
+      const correctAnswerArray = Array.isArray(correctAnswers) ? correctAnswers : [correctAnswers];
+
       // Compare user's answers with correct answers
       const correct = arraysEqual(
-        userAnswer.map((a) => a.trim().toUpperCase()).sort(),
-        correctAnswers.map((a) => a.trim().toUpperCase()).sort()
+        userAnswerArray.map((a) => a.trim().toUpperCase()).sort(),
+        correctAnswerArray.map((a) => a.trim().toUpperCase()).sort()
       );
 
       // Get the full option texts for user's answers
-      const userAnswerTexts = userAnswer.map((ua) =>
+      const userAnswerTexts = userAnswerArray.map((ua) =>
         question.options.find((opt) => opt.startsWith(ua))
       );
 
       // Get the full option texts for correct answers
-      const correctAnswerTexts = correctAnswers.map((ca) =>
+      const correctAnswerTexts = correctAnswerArray.map((ca) =>
         question.options.find((opt) => opt.startsWith(ca))
       );
+
+      // Get explanations for user's answers
+      const userExplanations = {};
+      userAnswerArray.forEach((ua) => {
+        if (question.explanation[ua]) {
+          userExplanations[ua] = question.explanation[ua];
+        }
+      });
+
+      // Get explanations for correct answers
+      const correctExplanations = {};
+      correctAnswerArray.forEach((ca) => {
+        if (question.explanation[ca]) {
+          correctExplanations[ca] = question.explanation[ca];
+        }
+      });
 
       // Create result object
       const result = {
@@ -209,7 +229,8 @@ app.post("/check-answers", async (req, res) => {
         userAnswer: userAnswerTexts.length > 0 ? userAnswerTexts.join(', ') : "No answer provided",
         correctAnswer: correctAnswerTexts.join(', '),
         correct: correct,
-        explanation: question.explanation || "Explanation not available",
+        userExplanation: userExplanations,
+        correctExplanation: correctExplanations,
       };
 
       return result;
@@ -220,6 +241,11 @@ app.post("/check-answers", async (req, res) => {
     res.status(500).send("Error checking answers.");
   }
 });
+
+// Helper function to compare arrays
+function arraysEqual(a, b) {
+  return JSON.stringify(a) === JSON.stringify(b);
+}
 
 // Helper function to compare arrays
 function arraysEqual(a, b) {

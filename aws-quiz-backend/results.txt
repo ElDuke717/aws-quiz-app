@@ -2888,3 +2888,125 @@
     }
   }
 ],
+[
+  {
+    "question": "You have a mission-critical application running on Amazon RDS MySQL, and you want to minimize downtime during maintenance. Which of the following strategies should you implement? Select TWO.",
+    "userAnswer": "A. Enable Multi-AZ deployments, B. Use Read Replicas",
+    "correctAnswer": "A. Enable Multi-AZ deployments, B. Use Read Replicas",
+    "correct": true,
+    "explanation": {
+      "A": "Multi-AZ deployments provide high availability and failover support for DB instances, minimizing downtime.",
+      "B": "Read Replicas can be used to offload read traffic and can be promoted to a standalone database in the event of a failure.",
+      "C": "Scheduling maintenance during peak hours is not advisable as it can lead to higher downtime during critical operation times.",
+      "D": "Using the default maintenance window may not align with your low-traffic periods, potentially increasing downtime."
+    }
+  },
+  {
+    "question": "Your company needs to comply with strict data residency requirements. Which RDS feature allows you to improve data locality and optimize latency when accessing data from a specific AWS Region?",
+    "userAnswer": "C. Read Replicas in different regions",
+    "correctAnswer": "C. Read Replicas in different regions",
+    "correct": true,
+    "explanation": {
+      "A": "Global Databases are used for disaster recovery and do not specifically address data locality within a region.",
+      "B": "Multi-AZ deployments do not allow you to specify different regions; they are primarily for high availability.",
+      "C": "Read Replicas can be created in different regions, providing better locality and optimizing latency for read operations.",
+      "D": "Reserved Instances are a cost-optimization feature and do not relate to data locality or residency."
+    }
+  },
+  {
+    "question": "You are tasked with migrating an on-premises PostgreSQL database to AWS RDS. Which service or feature would you use to ensure a smooth migration with minimal downtime?",
+    "userAnswer": "A. AWS Database Migration Service (DMS)",
+    "correctAnswer": "A. AWS Database Migration Service (DMS)",
+    "correct": true,
+    "explanation": {
+      "A": "AWS DMS is specifically designed for database migration with minimal downtime, supporting various database engines including PostgreSQL.",
+      "B": "AWS Snowball is used for large-scale data transfer, not specifically for database migration.",
+      "C": "RDS Automated Backups provide point-in-time recovery but do not facilitate the migration of on-premises databases.",
+      "D": "RDS Data Transfer refers to data movement within AWS and does not address migration from on-premises databases."
+    }
+  },
+  {
+    "question": "Which of the following features would you leverage to encrypt data at rest for Amazon RDS?",
+    "userAnswer": "A. AWS Key Management Service (KMS)",
+    "correctAnswer": "A. AWS Key Management Service (KMS)",
+    "correct": true,
+    "explanation": {
+      "A": "AWS KMS provides key management and encryption services that can be used to encrypt data at rest in RDS.",
+      "B": "Amazon GuardDuty is a threat detection service, not used for encryption.",
+      "C": "VPC Peering connects VPCs, but does not provide encryption capabilities.",
+      "D": "AWS Shield is a DDoS protection service, unrelated to data encryption."
+    }
+  },
+  {
+    "question": "Which of the following is a benefit of using Amazon RDS Read Replicas?",
+    "userAnswer": "B. Performance enhancement for read-heavy workloads",
+    "correctAnswer": "B. Performance enhancement for read-heavy workloads",
+    "correct": true,
+    "explanation": {
+      "A": "Automated failover is a feature of Multi-AZ deployments, not Read Replicas.",
+      "B": "Read Replicas help scale out read-heavy workloads by distributing read traffic.",
+      "C": "Automated backups are a separate RDS feature, not specific to Read Replicas.",
+      "D": "While Read Replicas can be used across regions, their primary purpose is to enhance performance for read-heavy workloads."
+    }
+  },
+  {
+    "question": "You need to monitor the database load on your Amazon RDS instance. Which service or feature should you use?",
+    "userAnswer": "A. Amazon CloudWatch",
+    "correctAnswer": "A. Amazon CloudWatch",
+    "correct": true,
+    "explanation": {
+      "A": "Amazon CloudWatch provides monitoring for AWS resources, including performance metrics for RDS instances.",
+      "B": "AWS Config is used for assessing, auditing, and evaluating the configurations of your AWS resources.",
+      "C": "AWS CloudTrail logs API calls and related events for auditing purposes, not performance monitoring.",
+      "D": "Amazon Inspector is a security assessment service, not a performance monitoring tool."
+    }
+  },
+  {
+    "question": "Which Amazon RDS feature allows you to retain a snapshot of your database at a specific point in time?",
+    "userAnswer": "B. Manual Snapshots",
+    "correctAnswer": "B. Manual Snapshots",
+    "correct": true,
+    "explanation": {
+      "A": "Automated Backups provide automatic backups but are not specifically user-initiated snapshots.",
+      "B": "Manual Snapshots allow the user to create a snapshot of the database at any point in time for long-term retention.",
+      "C": "Event Subscriptions notify you about database events, not related to creating snapshots.",
+      "D": "Parameter Groups are used to manage database engine configuration values, not snapshots."
+    }
+  },
+  {
+    "question": "Your organization needs to ensure that database logs are retained for compliance reasons. Which Amazon RDS feature should you use?",
+    "userAnswer": "A. Enhanced Monitoring",
+    "correctAnswer": "C. CloudWatch Logs Export",
+    "correct": false,
+    "explanation": {
+      "A": "Enhanced Monitoring provides real-time metrics for the operating system hosting your DB instance.",
+      "B": "DB Parameter Groups are used for configuring database engine settings.",
+      "C": "CloudWatch Logs Export allows you to export RDS logs to CloudWatch Logs, enabling long-term retention and compliance.",
+      "D": "Performance Insights is used for database performance tuning, not for log retention."
+    }
+  },
+  {
+    "question": "Which Amazon RDS feature should you use to automatically scale storage capacity as your database grows?",
+    "userAnswer": "B. Storage Auto Scaling",
+    "correctAnswer": "B. Storage Auto Scaling",
+    "correct": true,
+    "explanation": {
+      "A": "Multi-AZ Deployments are used for high availability, not for scaling storage.",
+      "B": "Storage Auto Scaling automatically scales your storage capacity to meet demand, ensuring you don't run out of storage.",
+      "C": "Reserved Instances offer cost savings but do not affect storage scaling.",
+      "D": "Read Replicas are used to scale read performance, not storage capacity."
+    }
+  },
+  {
+    "question": "You are concerned about potential data loss in your Amazon RDS instance. Which feature helps you restore your database to a specific point in time?",
+    "userAnswer": "A. Manual Snapshots",
+    "correctAnswer": "B. Automated Backups",
+    "correct": false,
+    "explanation": {
+      "A": "Manual Snapshots provide a snapshot at a specific time but require manual intervention for restoration.",
+      "B": "Automated Backups allow you to restore your database to any point in time within the backup retention window.",
+      "C": "Multi-AZ Deployments provide high availability and failover but do not offer point-in-time recovery.",
+      "D": "Read Replicas are designed for scaling reads, not for point-in-time recovery."
+    }
+  }
+],
