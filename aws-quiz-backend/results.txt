@@ -3622,3 +3622,639 @@
     }
   }
 ],
+[
+  {
+    "question": "You are designing a DynamoDB table to store user profiles. Each profile can have a variable number of attributes. What is the best approach to handle this in DynamoDB?",
+    "userAnswer": "A. Use a single table with a primary key of user ID and store all attributes in a JSON object.",
+    "correctAnswer": "A. Use a single table with a primary key of user ID and store all attributes in a JSON object.",
+    "correct": true,
+    "userExplanation": {
+      "A": "DynamoDB supports storing variable attributes in a single item using a JSON object, making it efficient for user profiles."
+    },
+    "correctExplanation": {
+      "A": "DynamoDB supports storing variable attributes in a single item using a JSON object, making it efficient for user profiles."
+    }
+  },
+  {
+    "question": "Which of the following methods can you use to reduce the cost of using DynamoDB? Select TWO.",
+    "userAnswer": "A. Enable on-demand capacity mode., B. Use provisioned capacity and auto-scaling.",
+    "correctAnswer": "B. Use provisioned capacity and auto-scaling., C. Store data in S3 instead of DynamoDB.",
+    "correct": false,
+    "userExplanation": {
+      "A": "On-demand capacity may increase costs when traffic spikes, not reduce.",
+      "B": "Provisioned capacity with auto-scaling adjusts according to demand, potentially lowering costs during low usage."
+    },
+    "correctExplanation": {
+      "B": "Provisioned capacity with auto-scaling adjusts according to demand, potentially lowering costs during low usage.",
+      "C": "Storing infrequently accessed data in S3 can reduce costs, as S3 is cheaper than DynamoDB for storage."
+    }
+  },
+  {
+    "question": "You have a requirement to perform complex queries on your DynamoDB data. Which of the following features should you consider implementing?",
+    "userAnswer": "D. All of the above",
+    "correctAnswer": "D. All of the above",
+    "correct": true,
+    "userExplanation": {
+      "D": "All these options together facilitate complex querying of DynamoDB data."
+    },
+    "correctExplanation": {
+      "D": "All these options together facilitate complex querying of DynamoDB data."
+    }
+  },
+  {
+    "question": "A company wants to ensure that its DynamoDB data is backed up automatically. Which feature should they use?",
+    "userAnswer": "C. Continuous backups with point-in-time recovery",
+    "correctAnswer": "C. Continuous backups with point-in-time recovery, D. AWS Backup",
+    "correct": false,
+    "userExplanation": {
+      "C": "Continuous backups with point-in-time recovery allow recovery of data to any point within the last 35 days."
+    },
+    "correctExplanation": {
+      "C": "Continuous backups with point-in-time recovery allow recovery of data to any point within the last 35 days.",
+      "D": "AWS Backup can be configured to automatically back up DynamoDB tables at regular intervals."
+    }
+  },
+  {
+    "question": "When designing a DynamoDB schema, what is a best practice regarding the partition key?",
+    "userAnswer": "D. Avoid using numeric values as partition keys.",
+    "correctAnswer": "B. Use a composite key to ensure even data distribution., C. Select a partition key that has a high access frequency.",
+    "correct": false,
+    "userExplanation": {
+      "D": "Numeric values can be used effectively as partition keys; the key choice should be based on access patterns."
+    },
+    "correctExplanation": {
+      "B": "Using a composite key can help distribute data evenly across partitions.",
+      "C": "A partition key with high access frequency ensures better performance."
+    }
+  },
+  {
+    "question": "You need to ensure that your DynamoDB table can scale to handle sudden traffic spikes. What feature should you enable?",
+    "userAnswer": "A. On-demand capacity mode",
+    "correctAnswer": "A. On-demand capacity mode, B. Provisioned capacity mode with auto-scaling",
+    "correct": false,
+    "userExplanation": {
+      "A": "On-demand capacity mode automatically scales up and down based on traffic, ideal for unpredictable workloads."
+    },
+    "correctExplanation": {
+      "A": "On-demand capacity mode automatically scales up and down based on traffic, ideal for unpredictable workloads.",
+      "B": "Provisioned capacity with auto-scaling adjusts the provisioned throughput based on usage patterns, handling spikes effectively."
+    }
+  },
+  {
+    "question": "How can you ensure that your application can handle eventual consistency when reading from a DynamoDB table?",
+    "userAnswer": "D. Design the application workflow to tolerate stale data.",
+    "correctAnswer": "B. Use the eventual consistency model for reads., D. Design the application workflow to tolerate stale data.",
+    "correct": false,
+    "userExplanation": {
+      "D": "Designing workflows that can tolerate stale data is key to utilizing eventual consistency effectively."
+    },
+    "correctExplanation": {
+      "B": "Opting for eventual consistency allows faster reads and lower costs.",
+      "D": "Designing workflows that can tolerate stale data is key to utilizing eventual consistency effectively."
+    }
+  },
+  {
+    "question": "Which of the following statements regarding DynamoDB Streams is true?",
+    "userAnswer": "A. They enable near real-time processing of changes to items in a table.",
+    "correctAnswer": "A. They enable near real-time processing of changes to items in a table.",
+    "correct": true,
+    "userExplanation": {
+      "A": "DynamoDB Streams provide a means to capture item-level changes in near real-time for further processing."
+    },
+    "correctExplanation": {
+      "A": "DynamoDB Streams provide a means to capture item-level changes in near real-time for further processing."
+    }
+  },
+  {
+    "question": "What is the maximum size of an item in DynamoDB?",
+    "userAnswer": "C. 1MB",
+    "correctAnswer": "C. 1MB",
+    "correct": true,
+    "userExplanation": {
+      "C": "The maximum item size in DynamoDB is 1MB, allowing for substantial data storage per item."
+    },
+    "correctExplanation": {
+      "C": "The maximum item size in DynamoDB is 1MB, allowing for substantial data storage per item."
+    }
+  },
+  {
+    "question": "When would you choose to use a Global Secondary Index (GSI) over a Local Secondary Index (LSI)?",
+    "userAnswer": "A. When you need to query on different partition keys.",
+    "correctAnswer": "A. When you need to query on different partition keys., C. When you want to avoid the 5GB limit on indexed attributes.",
+    "correct": false,
+    "userExplanation": {
+      "A": "GSIs allow querying on attributes that are not part of the primary key, enabling more flexible querying based on different partition keys."
+    },
+    "correctExplanation": {
+      "A": "GSIs allow querying on attributes that are not part of the primary key, enabling more flexible querying based on different partition keys.",
+      "C": "GSIs do not have the 5GB limit per partition that LSIs do, making them suitable for larger datasets."
+    }
+  }
+],
+[
+  {
+    "question": "What is AWS Backup primarily used for?",
+    "userAnswer": "C. Centralizing and automating data protection across AWS services",
+    "correctAnswer": "C. Centralizing and automating data protection across AWS services",
+    "correct": true,
+    "userExplanation": {
+      "C": "AWS Backup is used for centralizing and automating data protection across various AWS services."
+    },
+    "correctExplanation": {
+      "C": "AWS Backup is used for centralizing and automating data protection across various AWS services."
+    }
+  },
+  {
+    "question": "Which AWS services can AWS Backup manage backups for? (Select TWO)",
+    "userAnswer": "A. Amazon RDS, D. Amazon EFS",
+    "correctAnswer": "A. Amazon RDS, D. Amazon EFS",
+    "correct": true,
+    "userExplanation": {
+      "A": "AWS Backup can manage backups for Amazon RDS.",
+      "D": "AWS Backup supports backups for Amazon EFS."
+    },
+    "correctExplanation": {
+      "A": "AWS Backup can manage backups for Amazon RDS.",
+      "D": "AWS Backup supports backups for Amazon EFS."
+    }
+  },
+  {
+    "question": "What is a backup vault in AWS Backup?",
+    "userAnswer": "B. A container to organize backups",
+    "correctAnswer": "B. A container to organize backups",
+    "correct": true,
+    "userExplanation": {
+      "B": "A backup vault is a container used to organize backups in AWS Backup."
+    },
+    "correctExplanation": {
+      "B": "A backup vault is a container used to organize backups in AWS Backup."
+    }
+  },
+  {
+    "question": "What does AWS Backup's lifecycle policy feature allow you to do?",
+    "userAnswer": "B. Transition backups to cold storage and delete backups after a specified period",
+    "correctAnswer": "B. Transition backups to cold storage and delete backups after a specified period",
+    "correct": true,
+    "userExplanation": {
+      "B": "Lifecycle policies allow you to transition backups to cold storage and delete them after a specified period."
+    },
+    "correctExplanation": {
+      "B": "Lifecycle policies allow you to transition backups to cold storage and delete them after a specified period."
+    }
+  },
+  {
+    "question": "How can you control access to AWS Backup resources?",
+    "userAnswer": "B. Through AWS Identity and Access Management (IAM) policies",
+    "correctAnswer": "B. Through AWS Identity and Access Management (IAM) policies",
+    "correct": true,
+    "userExplanation": {
+      "B": "Access to AWS Backup resources is controlled through IAM policies."
+    },
+    "correctExplanation": {
+      "B": "Access to AWS Backup resources is controlled through IAM policies."
+    }
+  },
+  {
+    "question": "What is the primary purpose of AWS Backup's cross-account management feature?",
+    "userAnswer": "A. To manage multiple AWS accounts from a single account",
+    "correctAnswer": "A. To manage multiple AWS accounts from a single account",
+    "correct": true,
+    "userExplanation": {
+      "A": "Cross-account management allows you to manage backups across multiple AWS accounts from a single account."
+    },
+    "correctExplanation": {
+      "A": "Cross-account management allows you to manage backups across multiple AWS accounts from a single account."
+    }
+  },
+  {
+    "question": "What is the maximum retention period for AWS Backup before automatic deletion?",
+    "userAnswer": "D. Indefinite, until manually deleted",
+    "correctAnswer": "D. Indefinite, until manually deleted",
+    "correct": true,
+    "userExplanation": {
+      "D": "AWS Backup allows for indefinite retention until the backups are manually deleted."
+    },
+    "correctExplanation": {
+      "D": "AWS Backup allows for indefinite retention until the backups are manually deleted."
+    }
+  },
+  {
+    "question": "Which feature of AWS Backup ensures compliance with organizational data retention policies?",
+    "userAnswer": "A. Backup audit manager",
+    "correctAnswer": "C. Lifecycle policies",
+    "correct": false,
+    "userExplanation": {
+      "A": "Backup audit manager is used for auditing backups, not enforcing retention policies."
+    },
+    "correctExplanation": {
+      "C": "Lifecycle policies help ensure compliance with data retention policies by automating transition and deletion."
+    }
+  },
+  {
+    "question": "In AWS Backup, what does a backup plan define?",
+    "userAnswer": "B. The schedule and retention rules for backups",
+    "correctAnswer": "B. The schedule and retention rules for backups",
+    "correct": true,
+    "userExplanation": {
+      "B": "A backup plan defines the schedule and retention rules for backups."
+    },
+    "correctExplanation": {
+      "B": "A backup plan defines the schedule and retention rules for backups."
+    }
+  },
+  {
+    "question": "How does AWS Backup handle encryption for stored backups?",
+    "userAnswer": "B. It uses AWS KMS for encryption",
+    "correctAnswer": "B. It uses AWS KMS for encryption",
+    "correct": true,
+    "userExplanation": {
+      "B": "AWS Backup uses AWS Key Management Service (KMS) for encryption of backups."
+    },
+    "correctExplanation": {
+      "B": "AWS Backup uses AWS Key Management Service (KMS) for encryption of backups."
+    }
+  }
+],
+[
+  {
+    "question": "Which of the following is a primary feature of AWS Certificate Manager (ACM)?",
+    "userAnswer": "A. Automatic renewal of certificates",
+    "correctAnswer": "A. Automatic renewal of certificates",
+    "correct": true,
+    "userExplanation": {
+      "A": "AWS Certificate Manager provides automatic renewal of certificates, which simplifies certificate management."
+    },
+    "correctExplanation": {
+      "A": "AWS Certificate Manager provides automatic renewal of certificates, which simplifies certificate management."
+    }
+  },
+  {
+    "question": "When you request a public certificate from AWS Certificate Manager, which validation methods are available? (Select TWO)",
+    "userAnswer": "A. Email validation, C. IP address validation",
+    "correctAnswer": "A. Email validation, B. DNS validation",
+    "correct": false,
+    "userExplanation": {
+      "A": "Email validation is one of the methods used to validate domain ownership in ACM.",
+      "C": "IP address validation is not a method supported by ACM."
+    },
+    "correctExplanation": {
+      "A": "Email validation is one of the methods used to validate domain ownership in ACM.",
+      "B": "DNS validation is another method used to validate domain ownership in ACM."
+    }
+  },
+  {
+    "question": "What type of certificates can AWS Certificate Manager manage?",
+    "userAnswer": "C. Both public and private certificates",
+    "correctAnswer": "C. Both public and private certificates",
+    "correct": true,
+    "userExplanation": {
+      "C": "ACM can manage both public and private certificates."
+    },
+    "correctExplanation": {
+      "C": "ACM can manage both public and private certificates."
+    }
+  },
+  {
+    "question": "In AWS Certificate Manager, which of the following services can use ACM certificates? (Select TWO)",
+    "userAnswer": "A. Amazon CloudFront, D. Amazon S3 static websites",
+    "correctAnswer": "A. Amazon CloudFront, B. Amazon RDS",
+    "correct": false,
+    "userExplanation": {
+      "A": "Amazon CloudFront can use ACM certificates for HTTPS connections.",
+      "D": "Amazon S3 static websites can use ACM certificates through CloudFront distributions."
+    },
+    "correctExplanation": {
+      "A": "Amazon CloudFront can use ACM certificates for HTTPS connections.",
+      "B": "Amazon RDS can utilize ACM certificates for encrypted connections."
+    }
+  },
+  {
+    "question": "Which of the following best describes the role of AWS Certificate Manager Private Certificate Authority (ACM PCA)?",
+    "userAnswer": "B. Issues private certificates for internal applications",
+    "correctAnswer": "B. Issues private certificates for internal applications",
+    "correct": true,
+    "userExplanation": {
+      "B": "ACM PCA is designed to issue private certificates for internal applications."
+    },
+    "correctExplanation": {
+      "B": "ACM PCA is designed to issue private certificates for internal applications."
+    }
+  },
+  {
+    "question": "Which AWS service integration allows the use of ACM certificates for securing API Gateway endpoints?",
+    "userAnswer": "D. Amazon API Gateway",
+    "correctAnswer": "D. Amazon API Gateway",
+    "correct": true,
+    "userExplanation": {
+      "D": "Amazon API Gateway can use ACM certificates to secure its endpoints with HTTPS."
+    },
+    "correctExplanation": {
+      "D": "Amazon API Gateway can use ACM certificates to secure its endpoints with HTTPS."
+    }
+  },
+  {
+    "question": "Which of the following is needed to use DNS validation in AWS Certificate Manager?",
+    "userAnswer": "A. Access to the DNS provider to update records",
+    "correctAnswer": "A. Access to the DNS provider to update records",
+    "correct": true,
+    "userExplanation": {
+      "A": "DNS validation requires adding a CNAME record to your DNS configuration to prove domain ownership."
+    },
+    "correctExplanation": {
+      "A": "DNS validation requires adding a CNAME record to your DNS configuration to prove domain ownership."
+    }
+  },
+  {
+    "question": "What is the maximum validity period for certificates issued by AWS Certificate Manager?",
+    "userAnswer": "C. 24 months",
+    "correctAnswer": "B. 13 months",
+    "correct": false,
+    "userExplanation": {
+      "C": "24 months exceeds the maximum validity period for ACM certificates."
+    },
+    "correctExplanation": {
+      "B": "The maximum validity period for ACM-issued certificates is 13 months."
+    }
+  },
+  {
+    "question": "Which of the following are benefits of using AWS Certificate Manager? (Select TWO)",
+    "userAnswer": "A. Eliminates the need for manual certificate renewal, C. Integrates with AWS services for easy deployment",
+    "correctAnswer": "A. Eliminates the need for manual certificate renewal, C. Integrates with AWS services for easy deployment",
+    "correct": true,
+    "userExplanation": {
+      "A": "ACM automates the renewal of certificates, removing the need for manual intervention.",
+      "C": "ACM integrates easily with a variety of AWS services, simplifying certificate deployment."
+    },
+    "correctExplanation": {
+      "A": "ACM automates the renewal of certificates, removing the need for manual intervention.",
+      "C": "ACM integrates easily with a variety of AWS services, simplifying certificate deployment."
+    }
+  },
+  {
+    "question": "Which AWS service must be used to host a domain when using DNS validation with AWS Certificate Manager?",
+    "userAnswer": "A. Amazon Route 53",
+    "correctAnswer": "D. Any DNS provider",
+    "correct": false,
+    "userExplanation": {
+      "A": "While Route 53 can be used, it's not the only option for DNS validation."
+    },
+    "correctExplanation": {
+      "D": "DNS validation can be done with any DNS provider, not just Route 53."
+    }
+  }
+],
+[
+  {
+    "question": "Which pricing model should a company use for running a large batch processing job at the end of every quarter?",
+    "userAnswer": "C. On-Demand Instances",
+    "correctAnswer": "C. On-Demand Instances",
+    "correct": true,
+    "userExplanation": {
+      "C": "On-Demand Instances offer flexibility for infrequent use without long-term commitments."
+    },
+    "correctExplanation": {
+      "C": "On-Demand Instances offer flexibility for infrequent use without long-term commitments."
+    }
+  },
+  {
+    "question": "How can instances in a VPC make API calls to DynamoDB without traversing the internet?",
+    "userAnswer": "A. Create a route table entry for the endpoint, B. Create a gateway endpoint for DynamoDB",
+    "correctAnswer": "A. Create a route table entry for the endpoint, B. Create a gateway endpoint for DynamoDB",
+    "correct": true,
+    "userExplanation": {
+      "A": "A route table entry is necessary to direct traffic to the gateway endpoint.",
+      "B": "A gateway endpoint allows private connectivity to DynamoDB within the VPC."
+    },
+    "correctExplanation": {
+      "A": "A route table entry is necessary to direct traffic to the gateway endpoint.",
+      "B": "A gateway endpoint allows private connectivity to DynamoDB within the VPC."
+    }
+  },
+  {
+    "question": "Which storage solution is recommended for an application requiring 250 GB of storage with varying IOPS, peaking at 3,000 IOPS?",
+    "userAnswer": "B. Amazon EBS General Purpose SSD (gp2)",
+    "correctAnswer": "B. Amazon EBS General Purpose SSD (gp2)",
+    "correct": true,
+    "userExplanation": {
+      "B": "General Purpose SSD (gp2) balances price and performance with burst capability to 3,000 IOPS."
+    },
+    "correctExplanation": {
+      "B": "General Purpose SSD (gp2) balances price and performance with burst capability to 3,000 IOPS."
+    }
+  },
+  {
+    "question": "How can an ECS container instance be given permissions to write data to DynamoDB?",
+    "userAnswer": "B. Create an IAM policy with permissions to DynamoDB and assign it to a task using the taskRoleArn parameter",
+    "correctAnswer": "B. Create an IAM policy with permissions to DynamoDB and assign it to a task using the taskRoleArn parameter",
+    "correct": true,
+    "userExplanation": {
+      "B": "Using taskRoleArn provides specific permissions for ECS tasks, enhancing security."
+    },
+    "correctExplanation": {
+      "B": "Using taskRoleArn provides specific permissions for ECS tasks, enhancing security."
+    }
+  },
+  {
+    "question": "Which solution is recommended for offsite backups of data on a NAS device using NFS?",
+    "userAnswer": "A. Use an AWS Storage Gateway file gateway hardware appliance on premises to replicate the data to Amazon S3.",
+    "correctAnswer": "A. Use an AWS Storage Gateway file gateway hardware appliance on premises to replicate the data to Amazon S3.",
+    "correct": true,
+    "userExplanation": {
+      "A": "File gateways are suitable for NFS and SMB, integrating seamlessly with S3."
+    },
+    "correctExplanation": {
+      "A": "File gateways are suitable for NFS and SMB, integrating seamlessly with S3."
+    }
+  },
+  {
+    "question": "What change can be made to improve MySQL database performance for users in Europe?",
+    "userAnswer": "B. Migrate the database to an Amazon Aurora global database in MySQL compatibility mode.",
+    "correctAnswer": "B. Migrate the database to an Amazon Aurora global database in MySQL compatibility mode.",
+    "correct": true,
+    "userExplanation": {
+      "B": "Aurora Global Database allows low-latency reads from local replicas, improving performance."
+    },
+    "correctExplanation": {
+      "B": "Aurora Global Database allows low-latency reads from local replicas, improving performance."
+    }
+  },
+  {
+    "question": "How can SSL/TLS encryption for connections to an RDS MySQL database be enabled?",
+    "userAnswer": "D. Download AWS-provided root certificates and use them for connections.",
+    "correctAnswer": "D. Download AWS-provided root certificates and use them for connections.",
+    "correct": true,
+    "userExplanation": {
+      "D": "AWS provides SSL certificates to secure connections to RDS instances."
+    },
+    "correctExplanation": {
+      "D": "AWS provides SSL certificates to secure connections to RDS instances."
+    }
+  },
+  {
+    "question": "What should be recommended for maximum performance when connecting an on-premises data center to a new VPC?",
+    "userAnswer": "D. Use AWS PrivateLink",
+    "correctAnswer": "C. Establish an AWS Site-to-Site VPN connection.",
+    "correct": false,
+    "userExplanation": {
+      "D": "PrivateLink is for accessing services within AWS privately, not connecting data centers."
+    },
+    "correctExplanation": {
+      "C": "Site-to-Site VPN provides secure, reliable connectivity between on-premises and AWS."
+    }
+  },
+  {
+    "question": "What combination of actions should a solutions architect take to increase availability for a website? (Select TWO)",
+    "userAnswer": "E. Using us-east-1 bucket as the primary bucket and ap-southeast-1 bucket as the secondary bucket, create a CloudFront origin group., A. Create an origin for CloudFront for both buckets.",
+    "correctAnswer": "D. Add an origin for ap-southeast-1 to CloudFront., E. Using us-east-1 bucket as the primary bucket and ap-southeast-1 bucket as the secondary bucket, create a CloudFront origin group.",
+    "correct": false,
+    "userExplanation": {
+      "E": "Creating a CloudFront origin group provides redundancy and failover.",
+      "A": "Creating origins alone does not provide failover."
+    },
+    "correctExplanation": {
+      "D": "Adding an origin in a different region can help with failover.",
+      "E": "Creating a CloudFront origin group provides redundancy and failover."
+    }
+  },
+  {
+    "question": "How can a Solutions Architect enforce specific complexity requirements and minimum password length for all AWS IAM user accounts?",
+    "userAnswer": "B. Set a password policy for the entire AWS account.",
+    "correctAnswer": "B. Set a password policy for the entire AWS account.",
+    "correct": true,
+    "userExplanation": {
+      "B": "An account-level password policy ensures universal compliance for all users."
+    },
+    "correctExplanation": {
+      "B": "An account-level password policy ensures universal compliance for all users."
+    }
+  }
+],
+[
+  {
+    "question": "A company needs to establish a secure connection from its on-premises data center to its AWS VPC with low latency and high bandwidth for data transfer. Which solution should be recommended?",
+    "userAnswer": "A. Establish a Direct Connect connection.",
+    "correctAnswer": "A. Establish a Direct Connect connection.",
+    "correct": true,
+    "userExplanation": {
+      "A": "Direct Connect provides a dedicated network connection, offering low latency and high bandwidth."
+    },
+    "correctExplanation": {
+      "A": "Direct Connect provides a dedicated network connection, offering low latency and high bandwidth."
+    }
+  },
+  {
+    "question": "Which combination of solutions should a company use to ensure high availability and low latency for a global user base accessing a web application hosted on AWS? (Select TWO)",
+    "userAnswer": "A. Use Amazon CloudFront to cache content at edge locations., C. Implement AWS Global Accelerator to route traffic to the nearest healthy endpoint.",
+    "correctAnswer": "A. Use Amazon CloudFront to cache content at edge locations., C. Implement AWS Global Accelerator to route traffic to the nearest healthy endpoint.",
+    "correct": true,
+    "userExplanation": {
+      "A": "Amazon CloudFront caches content at edge locations, reducing latency for users.",
+      "C": "AWS Global Accelerator routes user requests to the nearest healthy endpoint, improving latency and availability."
+    },
+    "correctExplanation": {
+      "A": "Amazon CloudFront caches content at edge locations, reducing latency for users.",
+      "C": "AWS Global Accelerator routes user requests to the nearest healthy endpoint, improving latency and availability."
+    }
+  },
+  {
+    "question": "A company wants to ensure that its AWS IAM user accounts adhere to specific password policies regarding complexity and length. What is the best approach?",
+    "userAnswer": "B. Set a password policy for the AWS account.",
+    "correctAnswer": "B. Set a password policy for the AWS account.",
+    "correct": true,
+    "userExplanation": {
+      "B": "Setting a password policy for the AWS account ensures all users adhere to the same requirements."
+    },
+    "correctExplanation": {
+      "B": "Setting a password policy for the AWS account ensures all users adhere to the same requirements."
+    }
+  },
+  {
+    "question": "How can a company enforce encryption in transit for its RDS MySQL database connections?",
+    "userAnswer": "C. Download and use AWS-provided SSL certificates.",
+    "correctAnswer": "C. Download and use AWS-provided SSL certificates.",
+    "correct": true,
+    "userExplanation": {
+      "C": "AWS provides SSL certificates that can be used to secure RDS connections."
+    },
+    "correctExplanation": {
+      "C": "AWS provides SSL certificates that can be used to secure RDS connections."
+    }
+  },
+  {
+    "question": "An application running on EC2 needs to asynchronously invoke a Lambda function. Which service is best suited to decouple these components?",
+    "userAnswer": "B. Amazon SNS",
+    "correctAnswer": "B. Amazon SNS",
+    "correct": true,
+    "userExplanation": {
+      "B": "Amazon SNS can trigger Lambda functions based on notifications, decoupling the application from the function."
+    },
+    "correctExplanation": {
+      "B": "Amazon SNS can trigger Lambda functions based on notifications, decoupling the application from the function."
+    }
+  },
+  {
+    "question": "A company runs a batch processing job once a quarter using 15 EC2 instances. Which EC2 pricing model should they use to minimize costs?",
+    "userAnswer": "C. On-Demand Instances",
+    "correctAnswer": "C. On-Demand Instances",
+    "correct": true,
+    "userExplanation": {
+      "C": "On-Demand Instances offer flexibility without long-term commitments, ideal for infrequent jobs."
+    },
+    "correctExplanation": {
+      "C": "On-Demand Instances offer flexibility without long-term commitments, ideal for infrequent jobs."
+    }
+  },
+  {
+    "question": "How can a company encrypt its existing unencrypted RDS PostgreSQL database with minimal downtime?",
+    "userAnswer": "B. Create a snapshot, then restore it as an encrypted instance., D. Use AWS DMS to migrate data to a new encrypted database.",
+    "correctAnswer": "D. Use AWS DMS to migrate data to a new encrypted database.",
+    "correct": false,
+    "userExplanation": {
+      "B": "Snapshot and restore involve downtime during the transition.",
+      "D": "AWS DMS allows data migration with minimal downtime."
+    },
+    "correctExplanation": {
+      "D": "AWS DMS allows data migration with minimal downtime."
+    }
+  },
+  {
+    "question": "A company needs to ensure its EC2 instances in a VPC can access DynamoDB without using the internet. What steps should be taken? (Select TWO)",
+    "userAnswer": "A. Create a route table entry for the endpoint., B. Create a gateway endpoint for DynamoDB.",
+    "correctAnswer": "A. Create a route table entry for the endpoint., B. Create a gateway endpoint for DynamoDB.",
+    "correct": true,
+    "userExplanation": {
+      "A": "A route table entry directs traffic to the endpoint.",
+      "B": "A gateway endpoint allows private connectivity to DynamoDB."
+    },
+    "correctExplanation": {
+      "A": "A route table entry directs traffic to the endpoint.",
+      "B": "A gateway endpoint allows private connectivity to DynamoDB."
+    }
+  },
+  {
+    "question": "A company needs to improve the performance of its MySQL database for users in Europe. What is the best solution?",
+    "userAnswer": "C. Deploy an Amazon Aurora global database.",
+    "correctAnswer": "C. Deploy an Amazon Aurora global database.",
+    "correct": true,
+    "userExplanation": {
+      "C": "Amazon Aurora global databases offer low-latency reads from local replicas."
+    },
+    "correctExplanation": {
+      "C": "Amazon Aurora global databases offer low-latency reads from local replicas."
+    }
+  },
+  {
+    "question": "What combination of actions should a solutions architect take to increase availability for a website? (Select TWO)",
+    "userAnswer": "C. Utilize multiple Availability Zones for EC2 instances., B. Implement failover routing in Route 53.",
+    "correctAnswer": "A. Use an origin group in CloudFront., B. Implement failover routing in Route 53.",
+    "correct": false,
+    "userExplanation": {
+      "C": "Multiple Availability Zones increase fault tolerance but alone don't ensure global high availability.",
+      "B": "Failover routing in Route 53 enhances availability by redirecting traffic."
+    },
+    "correctExplanation": {
+      "A": "Using an origin group in CloudFront provides failover capabilities.",
+      "B": "Failover routing in Route 53 enhances availability by redirecting traffic."
+    }
+  }
+],

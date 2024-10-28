@@ -20,7 +20,7 @@ const TOKEN_LIMITS = {
   "gpt-4o-mini": 15000,
   "gpt-4o": 15000,
   "claude-3-5-sonnet-20241022": 8000,
-  "claude-3-opus-20240229": 4000,
+  "claude-3-opus-latest": 4000,
   "claude-3-sonnet-20240229": 4000,
   "claude-3-haiku-20240229": 8000,
 };
@@ -74,7 +74,7 @@ app.post("/generate-content", async (req, res) => {
 - Five practice questions about the service or topic
 - Potential points of confusion about the subject
 
-The study guide should be formatted in Markdown, using appropriate headings, lists, and tables where necessary. Do not include any additional text outside of the study guide.`;
+The study guide should be formatted in Markdown, using appropriate headings, lists, and tables where necessary. Do not include any additional text outside of the study guide.  Do not format it as a code block, just use Markdown syntax.`;
     } else if (contentType === "quiz") {
       // Quiz generation logic
       prompt += `generate 10 ${difficulty} `;
