@@ -122,16 +122,20 @@ Provide only the JSON array as the output.`;
 
     // Handle different model types
     if (model.startsWith("claude")) {
-      // For Claude models
-      const response = await anthropic.completions.create({
+      // For Claude models using the messages API
+      const response = await anthropic.messages.create({
         model: model,
-        prompt: `\n\nHuman: ${prompt}\n\nAssistant:`,
-        max_tokens_to_sample: maxTokens,
+        max_tokens: maxTokens,
         temperature: 0.7,
-        stop_sequences: ["\n\nHuman:"],
+        messages: [
+          {
+            role: "user",
+            content: prompt
+          }
+        ]
       });
-      console.log("response:", response);
-      assistantMessage = response.completion.trim();
+      
+      assistantMessage = response.content[0].text;
       console.log("assistantMessage:", assistantMessage);
 
       // Additional cleanup for Claude's response
@@ -288,11 +292,6 @@ app.post("/check-answers", async (req, res) => {
     res.status(500).send("Error checking answers.");
   }
 });
-
-// Helper function to compare arrays
-function arraysEqual(a, b) {
-  return JSON.stringify(a) === JSON.stringify(b);
-}
 
 // Helper function to compare arrays
 function arraysEqual(a, b) {

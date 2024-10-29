@@ -4258,3 +4258,652 @@
     }
   }
 ],
+[
+  {
+    "question": "A company runs a batch processing job once every quarter on 15 EC2 instances for 5 hours a day over 5 days. Which EC2 pricing model is most cost-effective for this use case?",
+    "userAnswer": "C. On-Demand Instances",
+    "correctAnswer": "C. On-Demand Instances",
+    "correct": true,
+    "userExplanation": {
+      "C": "On-Demand Instances provide the flexibility needed without long-term commitments, making them the most suitable for this use case."
+    },
+    "correctExplanation": {
+      "C": "On-Demand Instances provide the flexibility needed without long-term commitments, making them the most suitable for this use case."
+    }
+  },
+  {
+    "question": "Instances in a VPC need to make API calls to DynamoDB without traversing the internet. How can this be accomplished? (Select TWO)",
+    "userAnswer": "A. Create a route table entry for the DynamoDB endpoint, B. Create a gateway endpoint for DynamoDB",
+    "correctAnswer": "A. Create a route table entry for the DynamoDB endpoint, B. Create a gateway endpoint for DynamoDB",
+    "correct": true,
+    "userExplanation": {
+      "A": "A route table entry is required to route traffic to the DynamoDB endpoint.",
+      "B": "A gateway endpoint allows private connectivity to DynamoDB without using the internet."
+    },
+    "correctExplanation": {
+      "A": "A route table entry is required to route traffic to the DynamoDB endpoint.",
+      "B": "A gateway endpoint allows private connectivity to DynamoDB without using the internet."
+    }
+  },
+  {
+    "question": "An application requires 250 GB of storage with varying IOPS, peaking at 3,000 IOPS. Which EBS volume type is most suitable?",
+    "userAnswer": "B. EBS General Purpose SSD (gp2)",
+    "correctAnswer": "B. EBS General Purpose SSD (gp2)",
+    "correct": true,
+    "userExplanation": {
+      "B": "General Purpose SSD can burst up to 3,000 IOPS, making it suitable for this use case."
+    },
+    "correctExplanation": {
+      "B": "General Purpose SSD can burst up to 3,000 IOPS, making it suitable for this use case."
+    }
+  },
+  {
+    "question": "An ECS container instance needs permissions to write data to DynamoDB. How can permissions be assigned to the specific ECS task?",
+    "userAnswer": "B. Create an IAM policy with DynamoDB permissions and assign it to the task using the taskRoleArn parameter",
+    "correctAnswer": "B. Create an IAM policy with DynamoDB permissions and assign it to the task using the taskRoleArn parameter",
+    "correct": true,
+    "userExplanation": {
+      "B": "Using taskRoleArn allows assigning specific permissions to individual ECS tasks."
+    },
+    "correctExplanation": {
+      "B": "Using taskRoleArn allows assigning specific permissions to individual ECS tasks."
+    }
+  },
+  {
+    "question": "An application stores data on a NAS device using NFS and requires daily offsite backups. Which solution can be recommended?",
+    "userAnswer": "A. Use an AWS Storage Gateway file gateway appliance on-premises to replicate data to S3",
+    "correctAnswer": "A. Use an AWS Storage Gateway file gateway appliance on-premises to replicate data to S3",
+    "correct": true,
+    "userExplanation": {
+      "A": "File gateways are ideal for NFS and SMB protocols, allowing seamless integration with S3 for backups."
+    },
+    "correctExplanation": {
+      "A": "File gateways are ideal for NFS and SMB protocols, allowing seamless integration with S3 for backups."
+    }
+  },
+  {
+    "question": "A company requires that all data in an unencrypted RDS PostgreSQL database be encrypted without data loss. How can encryption be enabled?",
+    "userAnswer": "C. Create a snapshot of the RDS instance and use AWS DMS to synchronize data with a new encrypted instance",
+    "correctAnswer": "C. Create a snapshot of the RDS instance and use AWS DMS to synchronize data with a new encrypted instance",
+    "correct": true,
+    "userExplanation": {
+      "C": "Using DMS to synchronize data between the unencrypted snapshot and the new encrypted instance ensures no data loss."
+    },
+    "correctExplanation": {
+      "C": "Using DMS to synchronize data between the unencrypted snapshot and the new encrypted instance ensures no data loss."
+    }
+  },
+  {
+    "question": "A MySQL database on EC2 shows performance issues for users in Europe. Which change should be made to improve performance?",
+    "userAnswer": "B. Migrate the database to an Amazon Aurora global database in MySQL compatibility mode",
+    "correctAnswer": "B. Migrate the database to an Amazon Aurora global database in MySQL compatibility mode",
+    "correct": true,
+    "userExplanation": {
+      "B": "Aurora Global Database allows low-latency reads from local replicas in different regions."
+    },
+    "correctExplanation": {
+      "B": "Aurora Global Database allows low-latency reads from local replicas in different regions."
+    }
+  },
+  {
+    "question": "A company needs SSL/TLS encryption for connections to its RDS MySQL database. How can encryption in transit be enabled?",
+    "userAnswer": "D. Download AWS-provided root certificates and use them for connections",
+    "correctAnswer": "D. Download AWS-provided root certificates and use them for connections",
+    "correct": true,
+    "userExplanation": {
+      "D": "AWS provides SSL certificates for RDS instances, which can be used to secure connections."
+    },
+    "correctExplanation": {
+      "D": "AWS provides SSL certificates for RDS instances, which can be used to secure connections."
+    }
+  },
+  {
+    "question": "A company needs to connect its on-premises data center network to a new VPC with significant data transfer needs. What should be recommended for maximum performance?",
+    "userAnswer": "D. Use AWS Direct Connect",
+    "correctAnswer": "D. Use AWS Direct Connect",
+    "correct": true,
+    "userExplanation": {
+      "D": "AWS Direct Connect provides a dedicated, high-bandwidth connection between the on-premises network and AWS, ensuring maximum performance."
+    },
+    "correctExplanation": {
+      "D": "AWS Direct Connect provides a dedicated, high-bandwidth connection between the on-premises network and AWS, ensuring maximum performance."
+    }
+  },
+  {
+    "question": "What combination of actions should a solutions architect take to increase availability for a static website hosted on S3? (Select TWO)",
+    "userAnswer": "A. Create an origin for CloudFront for both S3 buckets, E. Using the primary S3 bucket as the main origin and the secondary S3 bucket as the backup, create a CloudFront origin group",
+    "correctAnswer": "D. Add an origin for the second region to CloudFront, E. Using the primary S3 bucket as the main origin and the secondary S3 bucket as the backup, create a CloudFront origin group",
+    "correct": false,
+    "userExplanation": {
+      "A": "Creating separate origins for each bucket does not provide automatic failover.",
+      "E": "Creating an origin group with primary and secondary buckets allows CloudFront to automatically fail over to the secondary bucket if the primary is unavailable."
+    },
+    "correctExplanation": {
+      "D": "Adding an origin for the second region to CloudFront enables serving content from the backup bucket if the primary is unavailable.",
+      "E": "Creating an origin group with primary and secondary buckets allows CloudFront to automatically fail over to the secondary bucket if the primary is unavailable."
+    }
+  }
+],
+[
+  {
+    "question": "A company needs to migrate their Windows-based application that requires NTFS file system and processes sensitive healthcare data. Which TWO key features of Amazon FSx for Windows File Server would best address their requirements?",
+    "userAnswer": "A. Native NTFS support with HIPAA eligibility, C. Support for SMB protocol and Active Directory integration",
+    "correctAnswer": "A. Native NTFS support with HIPAA eligibility, C. Support for SMB protocol and Active Directory integration",
+    "correct": true,
+    "userExplanation": {
+      "A": "FSx for Windows File Server provides native NTFS support and is HIPAA eligible, making it suitable for healthcare data",
+      "C": "SMB protocol and AD integration are essential features for Windows-based applications"
+    },
+    "correctExplanation": {
+      "A": "FSx for Windows File Server provides native NTFS support and is HIPAA eligible, making it suitable for healthcare data",
+      "C": "SMB protocol and AD integration are essential features for Windows-based applications"
+    }
+  },
+  {
+    "question": "A financial services company needs to run complex financial simulations requiring millions of IOPS and needs to process data stored in Amazon S3. Which Amazon FSx solution should they choose?",
+    "userAnswer": "B. FSx for Lustre",
+    "correctAnswer": "B. FSx for Lustre",
+    "correct": true,
+    "userExplanation": {
+      "B": "FSx for Lustre is designed for HPC workloads, supports millions of IOPS, and natively integrates with S3"
+    },
+    "correctExplanation": {
+      "B": "FSx for Lustre is designed for HPC workloads, supports millions of IOPS, and natively integrates with S3"
+    }
+  },
+  {
+    "question": "A company wants to implement a cost-efficient Windows file system solution. Which TWO features of FSx for Windows File Server would help achieve this goal?",
+    "userAnswer": "D. Active Directory integration, A. Data Deduplication",
+    "correctAnswer": "A. Data Deduplication, C. User quotas",
+    "correct": false,
+    "userExplanation": {
+      "D": "AD integration is a security feature, not primarily a cost-saving measure",
+      "A": "Data Deduplication can reduce storage costs by 50-60%"
+    },
+    "correctExplanation": {
+      "A": "Data Deduplication can reduce storage costs by 50-60%",
+      "C": "User quotas help monitor and control resource usage, managing costs effectively"
+    }
+  },
+  {
+    "question": "An organization needs to ensure continuous availability of their Windows file system during an AZ failure. Which configuration should they choose?",
+    "userAnswer": "B. Configure Multi-AZ deployment",
+    "correctAnswer": "B. Configure Multi-AZ deployment",
+    "correct": true,
+    "userExplanation": {
+      "B": "Multi-AZ deployment provides synchronous replication across AZs, ensuring continuous availability"
+    },
+    "correctExplanation": {
+      "B": "Multi-AZ deployment provides synchronous replication across AZs, ensuring continuous availability"
+    }
+  },
+  {
+    "question": "A research institution needs to burst their on-premises HPC workloads to AWS. Which TWO connectivity options would support this requirement with FSx for Lustre?",
+    "userAnswer": "A. AWS Direct Connect, C. VPN connection",
+    "correctAnswer": "A. AWS Direct Connect, C. VPN connection",
+    "correct": true,
+    "userExplanation": {
+      "A": "Direct Connect provides dedicated network connectivity from on-premises to AWS",
+      "C": "VPN provides secure connectivity for bursting workloads to AWS"
+    },
+    "correctExplanation": {
+      "A": "Direct Connect provides dedicated network connectivity from on-premises to AWS",
+      "C": "VPN provides secure connectivity for bursting workloads to AWS"
+    }
+  },
+  {
+    "question": "A company needs to store Windows file shares with automatic backup and patching. Which feature of Amazon FSx addresses this requirement?",
+    "userAnswer": "D. Active Directory integration",
+    "correctAnswer": "B. Fully managed service capabilities",
+    "correct": false,
+    "userExplanation": {
+      "D": "AD integration is for authentication and authorization"
+    },
+    "correctExplanation": {
+      "B": "Fully managed service capabilities include automatic backup, patching, and maintenance"
+    }
+  },
+  {
+    "question": "Which TWO statements accurately describe FSx for Lustre's integration with Amazon S3?",
+    "userAnswer": "A. Data can be read from S3 into the Lustre file system",
+    "correctAnswer": "A. Data can be read from S3 into the Lustre file system, B. Changes written to Lustre can be automatically synced back to S3",
+    "correct": false,
+    "userExplanation": {
+      "A": "FSx for Lustre can read data directly from S3"
+    },
+    "correctExplanation": {
+      "A": "FSx for Lustre can read data directly from S3",
+      "B": "Changes can be automatically synchronized back to S3"
+    }
+  },
+  {
+    "question": "A company requires a Windows file system with sub-millisecond latencies and 2 GB/second throughput. Which FSx deployment type meets these requirements?",
+    "userAnswer": "B. FSx for Windows File Server with SSD storage",
+    "correctAnswer": "B. FSx for Windows File Server with SSD storage",
+    "correct": true,
+    "userExplanation": {
+      "B": "FSx for Windows with SSD storage provides sub-millisecond latencies and up to 2 GB/second throughput"
+    },
+    "correctExplanation": {
+      "B": "FSx for Windows with SSD storage provides sub-millisecond latencies and up to 2 GB/second throughput"
+    }
+  },
+  {
+    "question": "Which TWO security features are provided by FSx for Windows File Server?",
+    "userAnswer": "A. Automatic data encryption, C. Compliance with PCI-DSS",
+    "correctAnswer": "A. Automatic data encryption, C. Compliance with PCI-DSS",
+    "correct": true,
+    "userExplanation": {
+      "A": "FSx automatically encrypts data at rest and in transit",
+      "C": "FSx for Windows is PCI-DSS compliant"
+    },
+    "correctExplanation": {
+      "A": "FSx automatically encrypts data at rest and in transit",
+      "C": "FSx for Windows is PCI-DSS compliant"
+    }
+  },
+  {
+    "question": "A company needs to process large datasets with high throughput and wants to maintain POSIX compliance. Which FSx solution should they choose?",
+    "userAnswer": "B. FSx for Lustre",
+    "correctAnswer": "B. FSx for Lustre",
+    "correct": true,
+    "userExplanation": {
+      "B": "FSx for Lustre provides POSIX compliance and high throughput"
+    },
+    "correctExplanation": {
+      "B": "FSx for Lustre provides POSIX compliance and high throughput"
+    }
+  }
+],
+[
+  {
+    "question": "A company is running an Amazon Redshift cluster and needs to maintain a disaster recovery strategy in another AWS Region. Which solution provides the LOWEST RPO (Recovery Point Objective)?",
+    "userAnswer": "D. Enable continuous backup using Redshift cross-region replication",
+    "correctAnswer": "D. Enable continuous backup using Redshift cross-region replication",
+    "correct": true,
+    "userExplanation": {
+      "D": "Cross-region replication provides continuous backup with near-zero RPO by continuously replicating data to the destination region"
+    },
+    "correctExplanation": {
+      "D": "Cross-region replication provides continuous backup with near-zero RPO by continuously replicating data to the destination region"
+    }
+  },
+  {
+    "question": "A data analytics team needs to query data stored in Amazon S3 using Amazon Redshift. Which TWO approaches would provide the most cost-effective solution?",
+    "userAnswer": "B. Use Redshift Spectrum to query data directly in S3, D. Copy data daily from S3 to Redshift using COPY command",
+    "correctAnswer": "B. Use Redshift Spectrum to query data directly in S3, C. Create external tables using Redshift Spectrum",
+    "correct": false,
+    "userExplanation": {
+      "B": "Redshift Spectrum allows querying data in S3 without loading it, saving storage costs",
+      "D": "Daily COPY operations consume more storage and processing resources than necessary"
+    },
+    "correctExplanation": {
+      "B": "Redshift Spectrum allows querying data in S3 without loading it, saving storage costs",
+      "C": "External tables with Spectrum provide a cost-effective way to query S3 data without ingestion"
+    }
+  },
+  {
+    "question": "Your Redshift cluster needs to be accessed by applications running in a private subnet. Which approach provides the MOST secure access method?",
+    "userAnswer": "B. Use Enhanced VPC Routing with VPC Endpoints",
+    "correctAnswer": "B. Use Enhanced VPC Routing with VPC Endpoints",
+    "correct": true,
+    "userExplanation": {
+      "B": "Enhanced VPC Routing with endpoints keeps all traffic within AWS network and is most secure"
+    },
+    "correctExplanation": {
+      "B": "Enhanced VPC Routing with endpoints keeps all traffic within AWS network and is most secure"
+    }
+  },
+  {
+    "question": "A company needs to optimize query performance on their Redshift cluster. Which TWO actions should they implement?",
+    "userAnswer": "B. Create materialized views for common queries, A. Define sort keys for frequently filtered columns",
+    "correctAnswer": "A. Define sort keys for frequently filtered columns, B. Create materialized views for common queries",
+    "correct": true,
+    "userExplanation": {
+      "B": "Materialized views pre-compute and store results of expensive queries",
+      "A": "Sort keys improve query performance by reducing the amount of data scanned"
+    },
+    "correctExplanation": {
+      "A": "Sort keys improve query performance by reducing the amount of data scanned",
+      "B": "Materialized views pre-compute and store results of expensive queries"
+    }
+  },
+  {
+    "question": "Your team needs to load large amounts of data into Redshift from multiple S3 files. Which approach provides the FASTEST data loading performance?",
+    "userAnswer": "C. Load data using AWS DMS",
+    "correctAnswer": "D. Use parallel COPY commands with manifest files",
+    "correct": false,
+    "userExplanation": {
+      "C": "AWS DMS is better suited for continuous replication than bulk loading"
+    },
+    "correctExplanation": {
+      "D": "Parallel COPY with manifest files provides maximum throughput by utilizing cluster resources efficiently"
+    }
+  },
+  {
+    "question": "A company needs to ensure their Redshift cluster maintains optimal performance as data grows. Which TWO monitoring metrics should they track?",
+    "userAnswer": "C. Percentage of disk space used, B. Network Throughput",
+    "correctAnswer": "A. CPU Utilization, C. Percentage of disk space used",
+    "correct": false,
+    "userExplanation": {
+      "C": "Disk usage approaching capacity can severely impact performance",
+      "B": "Network throughput is less critical for performance than CPU and storage"
+    },
+    "correctExplanation": {
+      "A": "High CPU utilization can indicate need for cluster scaling",
+      "C": "Disk usage approaching capacity can severely impact performance"
+    }
+  },
+  {
+    "question": "Your Redshift cluster needs to be encrypted at rest. Which TWO options provide the highest level of security?",
+    "userAnswer": "A. Use AWS KMS with customer managed keys, D. Use AWS CloudHSM",
+    "correctAnswer": "A. Use AWS KMS with customer managed keys, D. Use AWS CloudHSM",
+    "correct": true,
+    "userExplanation": {
+      "A": "Customer managed keys provide more control over encryption",
+      "D": "CloudHSM provides dedicated hardware security modules for maximum security"
+    },
+    "correctExplanation": {
+      "A": "Customer managed keys provide more control over encryption",
+      "D": "CloudHSM provides dedicated hardware security modules for maximum security"
+    }
+  },
+  {
+    "question": "A team needs to provide periodic snapshots of their Redshift cluster to another AWS account. Which approach should they use?",
+    "userAnswer": "D. Export data to S3 and share the bucket",
+    "correctAnswer": "B. Create and share manual snapshots",
+    "correct": false,
+    "userExplanation": {
+      "D": "Exporting to S3 is less efficient than sharing snapshots"
+    },
+    "correctExplanation": {
+      "B": "Manual snapshots can be shared across accounts with proper permissions"
+    }
+  },
+  {
+    "question": "Your application needs to handle sensitive data in Redshift while maintaining compliance requirements. Which TWO features should you implement?",
+    "userAnswer": "B. Use column-level encryption, A. Enable audit logging to CloudWatch",
+    "correctAnswer": "A. Enable audit logging to CloudWatch, C. Implement row-level security",
+    "correct": false,
+    "userExplanation": {
+      "B": "Column-level encryption is not available in Redshift",
+      "A": "Audit logging provides detailed tracking of database activities"
+    },
+    "correctExplanation": {
+      "A": "Audit logging provides detailed tracking of database activities",
+      "C": "Row-level security ensures users can only access authorized data"
+    }
+  },
+  {
+    "question": "A company needs to resize their Redshift cluster with minimal downtime. Which approach should they use?",
+    "userAnswer": "D. Create read replica and promote",
+    "correctAnswer": "B. Elastic resize operation",
+    "correct": false,
+    "userExplanation": {
+      "D": "Redshift doesn't support read replicas"
+    },
+    "correctExplanation": {
+      "B": "Elastic resize completes in minutes with minimal disruption"
+    }
+  }
+],
+[
+  {
+    "question": "A company is using Amazon Neptune for their social networking application. They need to implement a backup strategy that allows for point-in-time recovery. Which statement is TRUE about Neptune backup capabilities?",
+    "userAnswer": "A. Neptune automatically backs up your cluster and retains restore data for the length of your backup retention period",
+    "correctAnswer": "A. Neptune automatically backs up your cluster and retains restore data for the length of your backup retention period",
+    "correct": true,
+    "userExplanation": {
+      "A": "Neptune automatically backs up your cluster and retains restore data for up to 35 days with point-in-time recovery enabled by default"
+    },
+    "correctExplanation": {
+      "A": "Neptune automatically backs up your cluster and retains restore data for up to 35 days with point-in-time recovery enabled by default"
+    }
+  },
+  {
+    "question": "A development team is planning to migrate their graph database to Amazon Neptune. Which TWO protocols does Neptune natively support for graph operations?",
+    "userAnswer": "A. SPARQL, C. Gremlin",
+    "correctAnswer": "A. SPARQL, C. Gremlin",
+    "correct": true,
+    "userExplanation": {
+      "A": "Neptune supports SPARQL for RDF graphs",
+      "C": "Neptune supports Apache TinkerPop Gremlin for property graphs"
+    },
+    "correctExplanation": {
+      "A": "Neptune supports SPARQL for RDF graphs",
+      "C": "Neptune supports Apache TinkerPop Gremlin for property graphs"
+    }
+  },
+  {
+    "question": "Your company needs to implement high availability for their Neptune database. Which statement accurately describes Neptune's availability features?",
+    "userAnswer": "C. Neptune allows up to 15 read replicas across three Availability Zones",
+    "correctAnswer": "C. Neptune allows up to 15 read replicas across three Availability Zones",
+    "correct": true,
+    "userExplanation": {
+      "C": "Neptune supports up to 15 read replicas that can be distributed across multiple AZs in the same region"
+    },
+    "correctExplanation": {
+      "C": "Neptune supports up to 15 read replicas that can be distributed across multiple AZs in the same region"
+    }
+  },
+  {
+    "question": "A team is developing a recommendation engine using Neptune. Which TWO statements are true about Neptune's storage architecture?",
+    "userAnswer": "A. Storage automatically grows in 10GB increments up to 64TB, C. Data is replicated six times across three Availability Zones",
+    "correctAnswer": "A. Storage automatically grows in 10GB increments up to 64TB, C. Data is replicated six times across three Availability Zones",
+    "correct": true,
+    "userExplanation": {
+      "A": "Neptune storage automatically grows in 10GB increments as needed, up to 64TB",
+      "C": "Neptune replicates data six times across three AZs for high durability"
+    },
+    "correctExplanation": {
+      "A": "Neptune storage automatically grows in 10GB increments as needed, up to 64TB",
+      "C": "Neptune replicates data six times across three AZs for high durability"
+    }
+  },
+  {
+    "question": "Your application needs to connect to a Neptune database securely. Which security feature is NOT supported by Neptune?",
+    "userAnswer": "D. Public internet access without VPC",
+    "correctAnswer": "D. Public internet access without VPC",
+    "correct": true,
+    "userExplanation": {
+      "D": "Neptune instances must be deployed within a VPC and cannot be accessed directly from the internet"
+    },
+    "correctExplanation": {
+      "D": "Neptune instances must be deployed within a VPC and cannot be accessed directly from the internet"
+    }
+  },
+  {
+    "question": "A company wants to monitor their Neptune database performance. Which TWO metrics are available through Amazon CloudWatch?",
+    "userAnswer": "B. DatabaseConnections, C. Query execution plans",
+    "correctAnswer": "A. MainRequestQueuePendingRequests, D. GremlinRequestsPerSec",
+    "correct": false,
+    "userExplanation": {
+      "B": "DatabaseConnections is not a standard Neptune CloudWatch metric",
+      "C": "Query execution plans are not metrics available in CloudWatch"
+    },
+    "correctExplanation": {
+      "A": "MainRequestQueuePendingRequests is a key Neptune metric available in CloudWatch",
+      "D": "GremlinRequestsPerSec is a standard Neptune metric available in CloudWatch"
+    }
+  },
+  {
+    "question": "Which statement is TRUE about Neptune's query language support for property graphs?",
+    "userAnswer": "C. Supports Apache TinkerPop Gremlin",
+    "correctAnswer": "C. Supports Apache TinkerPop Gremlin",
+    "correct": true,
+    "userExplanation": {
+      "C": "Neptune uses Apache TinkerPop Gremlin for property graph queries"
+    },
+    "correctExplanation": {
+      "C": "Neptune uses Apache TinkerPop Gremlin for property graph queries"
+    }
+  },
+  {
+    "question": "When creating a Neptune cluster, which TWO statements are true about instance classes?",
+    "userAnswer": "B. Supports both memory-optimized and compute-optimized instances, C. All instances in a cluster must be the same size",
+    "correctAnswer": "A. Only supports r4 and r5 instance families, C. All instances in a cluster must be the same size",
+    "correct": false,
+    "userExplanation": {
+      "B": "Neptune only supports memory-optimized instances",
+      "C": "All instances in a Neptune cluster must be of the same instance class"
+    },
+    "correctExplanation": {
+      "A": "Neptune primarily supports r4 and r5 instance families optimized for database workloads",
+      "C": "All instances in a Neptune cluster must be of the same instance class"
+    }
+  },
+  {
+    "question": "A team needs to load large datasets into Neptune. Which statement is TRUE about Neptune's bulk load feature?",
+    "userAnswer": "C. Can load data directly from Amazon S3",
+    "correctAnswer": "C. Can load data directly from Amazon S3",
+    "correct": true,
+    "userExplanation": {
+      "C": "Neptune can load data directly from S3 using the bulk loader feature"
+    },
+    "correctExplanation": {
+      "C": "Neptune can load data directly from S3 using the bulk loader feature"
+    }
+  },
+  {
+    "question": "Your application needs to implement fast graph queries with consistent performance. Which TWO features does Neptune provide to optimize query performance?",
+    "userAnswer": "A. Query caching, B. Automatic indexing of all properties",
+    "correctAnswer": "A. Query caching, B. Automatic indexing of all properties",
+    "correct": true,
+    "userExplanation": {
+      "A": "Neptune implements query caching to improve performance of repeated queries",
+      "B": "Neptune automatically creates and maintains indexes for all properties"
+    },
+    "correctExplanation": {
+      "A": "Neptune implements query caching to improve performance of repeated queries",
+      "B": "Neptune automatically creates and maintains indexes for all properties"
+    }
+  }
+],
+[
+  {
+    "question": "A company is running a high-traffic e-commerce application that frequently accesses product information from a database. Which ElastiCache engine would be most suitable for caching product details with the least operational overhead?",
+    "userAnswer": "A. Redis in cluster mode",
+    "correctAnswer": "C. Redis in non-cluster mode",
+    "correct": false,
+    "userExplanation": {
+      "A": "While Redis cluster mode provides better scalability, it's more complex to manage and unnecessary for simple product caching."
+    },
+    "correctExplanation": {
+      "C": "Redis in non-cluster mode provides the right balance of features and simplicity for this use case, with built-in persistence and replication if needed."
+    }
+  },
+  {
+    "question": "Your application needs to store session data that requires atomic operations on complex data types. Which TWO features of ElastiCache would best support this requirement?",
+    "userAnswer": "C. Redis transactions",
+    "correctAnswer": "A. Redis sorted sets, C. Redis transactions",
+    "correct": false,
+    "userExplanation": {
+      "C": "Redis transactions ensure multiple operations are executed atomically."
+    },
+    "correctExplanation": {
+      "A": "Redis sorted sets provide atomic operations on complex data structures, perfect for session management.",
+      "C": "Redis transactions ensure multiple operations are executed atomically."
+    }
+  },
+  {
+    "question": "A company needs to implement caching for their application with automatic node failure recovery and multi-AZ support. Which ElastiCache configuration should they choose?",
+    "userAnswer": "B. Redis in cluster mode with multi-AZ enabled",
+    "correctAnswer": "B. Redis in cluster mode with multi-AZ enabled",
+    "correct": true,
+    "userExplanation": {
+      "B": "Redis cluster mode with multi-AZ provides automatic failover and cross-AZ redundancy."
+    },
+    "correctExplanation": {
+      "B": "Redis cluster mode with multi-AZ provides automatic failover and cross-AZ redundancy."
+    }
+  },
+  {
+    "question": "Which TWO statements are true about ElastiCache scaling operations?",
+    "userAnswer": "B. Memcached clusters can be scaled horizontally by adding or removing nodes, A. Redis cluster mode enables online scaling of read replicas",
+    "correctAnswer": "A. Redis cluster mode enables online scaling of read replicas, B. Memcached clusters can be scaled horizontally by adding or removing nodes",
+    "correct": true,
+    "userExplanation": {
+      "B": "Memcached supports horizontal scaling by adding or removing nodes.",
+      "A": "Redis cluster mode allows you to add or remove read replicas without downtime."
+    },
+    "correctExplanation": {
+      "A": "Redis cluster mode allows you to add or remove read replicas without downtime.",
+      "B": "Memcached supports horizontal scaling by adding or removing nodes."
+    }
+  },
+  {
+    "question": "Your application needs to implement a leaderboard feature with real-time ranking updates. Which ElastiCache feature would be most appropriate?",
+    "userAnswer": "A. Redis sorted sets",
+    "correctAnswer": "A. Redis sorted sets",
+    "correct": true,
+    "userExplanation": {
+      "A": "Redis sorted sets are perfect for leaderboards as they maintain sorted order automatically."
+    },
+    "correctExplanation": {
+      "A": "Redis sorted sets are perfect for leaderboards as they maintain sorted order automatically."
+    }
+  },
+  {
+    "question": "A company needs to implement caching with data persistence and backup capabilities. Which TWO configurations would meet these requirements?",
+    "userAnswer": "A. Redis with AOF enabled",
+    "correctAnswer": "A. Redis with AOF enabled, C. Redis with snapshot backup",
+    "correct": false,
+    "userExplanation": {
+      "A": "Redis AOF (Append-Only File) provides persistence by logging all write operations."
+    },
+    "correctExplanation": {
+      "A": "Redis AOF (Append-Only File) provides persistence by logging all write operations.",
+      "C": "Redis snapshots provide point-in-time backups of the dataset."
+    }
+  },
+  {
+    "question": "Your application requires caching with support for complex data structures and automatic failover. The cache size is expected to be 150GB. Which configuration should you choose?",
+    "userAnswer": "B. Redis cluster mode with multiple shards",
+    "correctAnswer": "B. Redis cluster mode with multiple shards",
+    "correct": true,
+    "userExplanation": {
+      "B": "Redis cluster mode allows distribution of data across multiple shards, supporting larger datasets."
+    },
+    "correctExplanation": {
+      "B": "Redis cluster mode allows distribution of data across multiple shards, supporting larger datasets."
+    }
+  },
+  {
+    "question": "Which TWO features are unique to Redis compared to Memcached in ElastiCache?",
+    "userAnswer": "B. Support for multiple data types, A. Multi-AZ failover",
+    "correctAnswer": "A. Multi-AZ failover, B. Support for multiple data types",
+    "correct": true,
+    "userExplanation": {
+      "B": "Redis supports various data types like lists, sets, and sorted sets, while Memcached only supports simple key-value pairs.",
+      "A": "Redis supports automatic failover in Multi-AZ configurations, while Memcached doesn't."
+    },
+    "correctExplanation": {
+      "A": "Redis supports automatic failover in Multi-AZ configurations, while Memcached doesn't.",
+      "B": "Redis supports various data types like lists, sets, and sorted sets, while Memcached only supports simple key-value pairs."
+    }
+  },
+  {
+    "question": "A company needs to implement session management with automatic data eviction when memory is full. Which configuration would be most appropriate?",
+    "userAnswer": "A. Redis with volatile-lru eviction policy",
+    "correctAnswer": "A. Redis with volatile-lru eviction policy",
+    "correct": true,
+    "userExplanation": {
+      "A": "Redis volatile-lru eviction policy removes least recently used keys with expiration set, ideal for session management."
+    },
+    "correctExplanation": {
+      "A": "Redis volatile-lru eviction policy removes least recently used keys with expiration set, ideal for session management."
+    }
+  },
+  {
+    "question": "Your application needs to implement a message queue with pub/sub capabilities and persistence. Which ElastiCache configuration would you recommend?",
+    "userAnswer": "C. Redis cluster with pub/sub enabled",
+    "correctAnswer": "B. Redis standalone with AOF enabled",
+    "correct": false,
+    "userExplanation": {
+      "C": "Redis cluster mode doesn't support pub/sub across shards."
+    },
+    "correctExplanation": {
+      "B": "Redis standalone with AOF provides both pub/sub functionality and persistence."
+    }
+  }
+],
